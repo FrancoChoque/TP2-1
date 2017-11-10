@@ -1,4 +1,4 @@
-launguage: java
+language: java
 jdk:
   -oracle jdk8
 Addons:
