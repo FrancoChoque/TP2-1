@@ -11,11 +11,7 @@ public class Dado {
 
         Random rand = new Random();
 
-        int n = rand.nextInt(6) + 1;
-
-        System.out.println(n);
-
-        return n;
+        return  rand.nextInt(6) + 1;
 
     }
 
