@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public class Tablero {
 
+	static final int CANTIDAD_CASILLAS = 20;
+			
     private static final int SALIDA = 0;
     private static final int QUINI6 = 1;
     private static final int BSASSUR= 2;
@@ -71,11 +73,13 @@ public class Tablero {
 
     public void moverJugador(Jugador unJugador, int unDesplazamiento){
 
-    	int nuevoDesplazamiento = posicionJugadores.get(unJugador)+  unDesplazamiento;
+    	int nuevoDesplazamiento = posicionJugadores.get(unJugador) + unDesplazamiento;
+    	if(nuevoDesplazamiento > 19){
+    		nuevoDesplazamiento -= CANTIDAD_CASILLAS;
+    	}
         posicionJugadores.put(unJugador, nuevoDesplazamiento);
         Casillero casilla = posicionCasilleros.get(nuevoDesplazamiento);
-        casilla.hacerEfectoDelCasillero(unJugador);
-        
+        casilla.hacerEfectoDelCasillero(unJugador);    
     }
 
     private void cargarCasilleros(){
