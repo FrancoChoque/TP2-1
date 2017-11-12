@@ -48,8 +48,10 @@ public class Tablero {
     public void agregarJugador(Jugador unJugador){
 
         posicionJugadores.put(unJugador, SALIDA);
-
-
+        Casillero casilla = posicionCasilleros.get(QUINI6);
+        Quini6 quini6 = (Quini6)casilla;
+        quini6.agregarJugador(unJugador);
+        
     }
 
     public Casillero obtenerCasillero(Jugador unJugador){
@@ -61,7 +63,7 @@ public class Tablero {
     public int obtenerPosicion(Jugador unJugador){
 
         return posicionJugadores.get(unJugador);
-
+        
     }
 
 
@@ -69,9 +71,11 @@ public class Tablero {
 
     public void moverJugador(Jugador unJugador, int unDesplazamiento){
 
-
-        posicionJugadores.put(unJugador, posicionJugadores.get(unJugador)+  unDesplazamiento);
-
+    	int nuevoDesplazamiento = posicionJugadores.get(unJugador)+  unDesplazamiento;
+        posicionJugadores.put(unJugador, nuevoDesplazamiento);
+        Casillero casilla = posicionCasilleros.get(nuevoDesplazamiento);
+        casilla.hacerEfectoDelCasillero(unJugador);
+        
     }
 
     private void cargarCasilleros(){
