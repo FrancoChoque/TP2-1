@@ -1,2 +1,2 @@
-public class Aysa extends Casillero {
+public class Aysa extends Servicio {
 }

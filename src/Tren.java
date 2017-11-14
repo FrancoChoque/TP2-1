@@ -1,2 +1,2 @@
-public class Tren extends Casillero {
+public class Tren extends Servicio {
 }

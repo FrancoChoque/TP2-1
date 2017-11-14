@@ -1,2 +1,2 @@
-public class Subte extends Casillero {
+public class Subte extends Servicio {
 }

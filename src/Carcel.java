@@ -1,2 +1,2 @@
-public class Carcel extends Casillero {
+public class Carcel extends Estado {
 }

@@ -1,2 +1,2 @@
-public class Policia extends Casillero {
+public class Policia extends Estado {
 }

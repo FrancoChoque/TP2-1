@@ -1,4 +1,4 @@
-public class Salida extends Casillero {
+public class Salida extends Estado {
 
     private int direccion; //hacia donde apunta la flecha
 

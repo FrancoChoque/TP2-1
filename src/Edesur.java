@@ -1,2 +1,2 @@
-public class Edesur extends Casillero {
+public class Edesur extends Servicio {
 }

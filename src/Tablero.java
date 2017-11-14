@@ -1,47 +1,23 @@
-import com.sun.org.apache.regexp.internal.RE;
-
 import java.util.HashMap;
 
 public class Tablero {
 
 	static final int CANTIDAD_CASILLAS = 20;
-			
-    private static final int SALIDA = 0;
-    private static final int QUINI6 = 1;
-    private static final int BSASSUR= 2;
-    private static final int EDESUR = 3;
-    private static final int BSASNOR = 4;
-    private static final int CARCEL = 5;
-    private static final int CORDOBASUR = 6;
-    private static final int AVANCE = 7;
-    private static final int SUBTE = 8;
-    private static final int CORDOBANOR = 9;
-    private static final int IMPUESTO = 10;
-    private static final int SANTAFE = 11;
-    private static final int AYSA = 12;
-    private static final int SALTANOR = 13;
-    private static final int SALTASUR = 14;
-    private static final int POLICIA = 15;
-    private static final int TREN = 16;
-    private static final int NEUQUEN = 17;
-    private static final int RETROCESO = 18;
-    private static final int TUCUMAN = 19;
-
-
-
-
-
-
 
 
     private HashMap <Jugador,Integer> posicionJugadores;
-    private HashMap <Integer,Casillero> posicionCasilleros;
 
+    private Casillero[] Casilleros;
 
     public Tablero(){
-        super();
         posicionJugadores = new HashMap<Jugador,Integer>();
-        posicionCasilleros = new HashMap<Integer,Casillero>();
+        
+        
+        Casilleros = new Casillero[CANTIDAD_CASILLAS]; //Cambie el hashmap por un array
+        for(int i= 0; i<CANTIDAD_CASILLAS; i++) {
+        	Casilleros[i] = new Casillero();
+        }
+        
         cargarCasilleros();
 
     }
@@ -49,16 +25,13 @@ public class Tablero {
 
     public void agregarJugador(Jugador unJugador){
 
-        posicionJugadores.put(unJugador, SALIDA);
-        Casillero casilla = posicionCasilleros.get(QUINI6);
-        Quini6 quini6 = (Quini6)casilla;
-        quini6.agregarJugador(unJugador);
-        
+        posicionJugadores.put(unJugador, 0);
+
     }
 
     public Casillero obtenerCasillero(Jugador unJugador){
 
-        return posicionCasilleros.get(posicionJugadores.get(unJugador));
+        return Casilleros[ posicionJugadores.get(unJugador) ];
 
     }
 
@@ -75,60 +48,74 @@ public class Tablero {
 
     	int nuevoDesplazamiento = posicionJugadores.get(unJugador) + unDesplazamiento;
     	if(nuevoDesplazamiento > 19){
-    		nuevoDesplazamiento -= CANTIDAD_CASILLAS;
+    		nuevoDesplazamiento = nuevoDesplazamiento % CANTIDAD_CASILLAS;
     	}
         posicionJugadores.put(unJugador, nuevoDesplazamiento);
-        Casillero casilla = posicionCasilleros.get(nuevoDesplazamiento);
+        Casillero casilla = Casilleros[ nuevoDesplazamiento ];
         casilla.hacerEfectoDelCasillero(unJugador);    
     }
 
     private void cargarCasilleros(){
 
         Salida salida = new Salida();
+        Casilleros[0].setEstado(salida);
+        
         Quini6 quini6 = new Quini6();
-        Terreno buenosAiresSur = new Terreno();
+        Casilleros[1].setEstado(quini6);
+        
+        BuenosAiresSur buenosAiresSur = new BuenosAiresSur();
+        Casilleros[2].setEstado(buenosAiresSur);
+        
         Edesur edesur = new Edesur();
-        Terreno buenosAiresNorte = new Terreno();
+        Casilleros[3].setEstado(edesur);
+        
+        BuenosAiresNorte buenosAiresNorte = new BuenosAiresNorte();
+        Casilleros[4].setEstado(buenosAiresNorte);
+        
         Carcel carcel = new Carcel();
-        Terreno cordobaSur = new Terreno();
-        MovimientoDinamico avance = new MovimientoDinamico();
+        Casilleros[5].setEstado(carcel);
+        
+        CordobaSur cordobaSur = new CordobaSur();
+        Casilleros[6].setEstado(cordobaSur);
+        
+        AvanceDinamico avance = new AvanceDinamico();
+        Casilleros[7].setEstado(avance);
+        
         Subte subte = new Subte();
-        Terreno cordobaNorte = new Terreno();
-        Impuesto impuesto = new Impuesto();
-        Terreno santafe = new Terreno();
+        Casilleros[8].setEstado(subte);
+        
+        CordobaNorte cordobaNorte = new CordobaNorte();
+        Casilleros[9].setEstado(cordobaNorte);
+        
+        ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
+        Casilleros[10].setEstado(impuesto);
+        
+        SantaFe santafe = new SantaFe();
+        Casilleros[11].setEstado(santafe);
+        
         Aysa aysa = new Aysa();
-        Terreno saltaNorte = new Terreno();
-        Terreno saltaSur = new Terreno();
+        Casilleros[12].setEstado(aysa);
+        
+        SaltaNorte saltaNorte = new SaltaNorte();
+        Casilleros[13].setEstado(saltaNorte);
+        
+        SaltaSur saltaSur = new SaltaSur();
+        Casilleros[14].setEstado(saltaSur);
+        
         Policia policia = new Policia();
+        Casilleros[15].setEstado(policia);
+        
         Tren tren = new Tren();
-        Terreno neuquen = new Terreno();
-        MovimientoDinamico retroceso = new MovimientoDinamico();
-        Terreno tucuman = new Terreno();
-
-
-
-
-        posicionCasilleros.put(SALIDA, salida);
-        posicionCasilleros.put(QUINI6, quini6);
-        posicionCasilleros.put(BSASSUR, buenosAiresSur);
-        posicionCasilleros.put(EDESUR, edesur);
-        posicionCasilleros.put(BSASNOR, buenosAiresNorte);
-        posicionCasilleros.put(CARCEL, carcel);
-        posicionCasilleros.put(CORDOBASUR, cordobaSur);
-        posicionCasilleros.put(AVANCE, avance);
-        posicionCasilleros.put(SUBTE, subte);
-        posicionCasilleros.put(CORDOBANOR, cordobaNorte);
-        posicionCasilleros.put(IMPUESTO, impuesto);
-        posicionCasilleros.put(SANTAFE, santafe);
-        posicionCasilleros.put(AYSA, aysa);
-        posicionCasilleros.put(SALTANOR, saltaNorte);
-        posicionCasilleros.put(SALTASUR, saltaSur);
-        posicionCasilleros.put(POLICIA, policia);
-        posicionCasilleros.put(TREN, tren);
-        posicionCasilleros.put(NEUQUEN, neuquen);
-        posicionCasilleros.put(RETROCESO, retroceso);
-        posicionCasilleros.put(TUCUMAN, tucuman);
-
+        Casilleros[16].setEstado(tren);
+        
+        Neuquen neuquen = new Neuquen();
+        Casilleros[17].setEstado(neuquen);
+        
+        RetrocesoDinamico retroceso = new RetrocesoDinamico();
+        Casilleros[18].setEstado(retroceso);
+        
+        Tucuman tucuman = new Tucuman();
+        Casilleros[19].setEstado(tucuman);
 
 
     }

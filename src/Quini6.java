@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Quini6 extends Casillero {
+public class Quini6 extends Suerte {
 	private HashMap<Jugador,Integer> numeroDeVecesEnQuini;
 	
 	public Quini6(){
@@ -16,6 +16,9 @@ public class Quini6 extends Casillero {
 	}
 	
 	public void hacerEfectoDelCasillero(Jugador unJugador){
+		if(!numeroDeVecesEnQuini.containsKey(unJugador) ) {
+			numeroDeVecesEnQuini.put(unJugador, 0);
+		}
 		int cantidadVeces = numeroDeVecesEnQuini.get(unJugador);
 		cantidadVeces++;
 		numeroDeVecesEnQuini.put(unJugador, cantidadVeces);
