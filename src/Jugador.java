@@ -67,9 +67,17 @@ public class Jugador {
 
 
 
+
+
 	public void cambiarMovimiento() {
-		
+		// TODO Auto-generated method stub
 		movimientoPosible = movimientoPosible ? false : true ;
-		
+	}
+
+
+
+	public boolean puedePagar(int monto) {
+		// TODO Auto-generated method stub
+		return dinero >= monto;
 	}
 }

@@ -76,7 +76,7 @@ public class Tablero {
         BuenosAiresNorte buenosAiresNorte = new BuenosAiresNorte();
         Casilleros[4].setEstado(buenosAiresNorte);
         
-        Carcel carcel = new Carcel();
+        Carcel carcel = new Carcel(this);
         Casilleros[5].setEstado(carcel);
         
         CordobaSur cordobaSur = new CordobaSur();

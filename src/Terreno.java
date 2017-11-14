@@ -28,7 +28,6 @@ public class Terreno extends Estado implements Comprable{
 
 	public void pagarCompra(Jugador jugador) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

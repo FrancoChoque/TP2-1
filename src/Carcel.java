@@ -1,14 +1,29 @@
 import java.util.HashMap;
 
+import excepciones.DineroInsuficienteException;
+import excepciones.TurnosEnCalabozoInvalidoException;
+
 public class Carcel extends Estado {
 	
 	private HashMap<Jugador, Integer> calabozo;
+	private Tablero tablero;
+	private int montoFianza = 45000;
 	
+	public Carcel(Tablero untablero) {
+		calabozo = new HashMap<Jugador, Integer>();
+	
+		tablero = untablero;
+	
+		
+	}
+
+
 	public Carcel() {
+		// TODO Auto-generated constructor stub
 		calabozo = new HashMap<Jugador, Integer>();
 	}
-	
-	
+
+
 	@Override
 	public void hacerEfectoDelCasillero(Jugador unjugador) {
 		if(! calabozo.containsKey(unjugador) ) {
@@ -27,5 +42,34 @@ public class Carcel extends Estado {
 	public int preguntarTurnosEnCalabozo(Jugador unjugador) {
 		if(! calabozo.containsKey(unjugador) ) return 0;
 		return calabozo.get(unjugador);
+	}
+
+
+	public void pagarFianza(Jugador unjugador) {
+		if(! calabozo.containsKey(unjugador) ) return;
+		
+		int turnosEnCalabozo = calabozo.get(unjugador);
+		if( ( turnosEnCalabozo == 2) || 
+			( turnosEnCalabozo == 3) ) {
+			
+			if(! unjugador.puedePagar(montoFianza) ) {
+				throw new DineroInsuficienteException();
+			}
+			
+			unjugador.sumarDinero(montoFianza  * -1);
+			this.liberar(unjugador);
+		}
+		
+		else {
+			throw new TurnosEnCalabozoInvalidoException();
+		}
+		
+	}
+
+
+	private void liberar(Jugador unjugador) {
+		calabozo.remove(unjugador);
+		unjugador.cambiarMovimiento();
+		
 	}
 }
