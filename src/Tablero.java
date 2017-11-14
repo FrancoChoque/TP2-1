@@ -106,7 +106,7 @@ public class Tablero {
         SaltaSur saltaSur = new SaltaSur();
         Casilleros[14].setEstado(saltaSur);
         
-        Policia policia = new Policia();
+        Policia policia = new Policia(this);
         Casilleros[15].setEstado(policia);
         
         Tren tren = new Tren();
