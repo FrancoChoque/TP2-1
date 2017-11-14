@@ -43,17 +43,24 @@ public class Tablero {
 
 
     public void moverJugador(Jugador unJugador, int unDesplazamiento){
-    	unJugador.setValorQueseTieneQueMover(unDesplazamiento);
-    	while(unJugador.getTieneQueMoverse()){		
-    		int posicionNueva = unJugador.getValorQueseTieneQueMover() + this.posicionJugadores.get(unJugador);
-			if(posicionNueva > MAYOR_POSICION_TABLERO){
-				posicionNueva = posicionNueva % CANTIDAD_CASILLAS;
-			}
-		    posicionJugadores.put(unJugador, posicionNueva);
-		    unJugador.seMovio();
-		    Casillero casilla = Casilleros[posicionNueva];
-		    casilla.hacerEfectoDelCasillero(unJugador);
-    	}
+    	int pos = posicionJugadores.get(unJugador);
+    	unJugador.comenzarAmoverse();
+    	Casillero casilla = Casilleros[pos];
+    	if(unJugador.puedeMoverse() ) {
+    		unJugador.setValorQueseTieneQueMover(unDesplazamiento);
+    		while(unJugador.getTieneQueMoverse()){
+    			int posicionNueva = unJugador.getValorQueseTieneQueMover() + this.posicionJugadores.get(unJugador);
+    			if(posicionNueva > MAYOR_POSICION_TABLERO){
+    				posicionNueva = posicionNueva % CANTIDAD_CASILLAS;
+    			}
+    			posicionJugadores.put(unJugador, posicionNueva);
+    		    unJugador.seMovio();
+    		    casilla = Casilleros[posicionNueva];
+    		    casilla.hacerEfectoDelCasillero(unJugador);
+    		}
+        }else{
+        	casilla.hacerEfectoDelCasillero(unJugador);
+        }   
     }
 
     private void cargarCasilleros(){
@@ -73,7 +80,7 @@ public class Tablero {
         BuenosAiresNorte buenosAiresNorte = new BuenosAiresNorte();
         Casilleros[4].setEstado(buenosAiresNorte);
         
-        Carcel carcel = new Carcel();
+        Carcel carcel = new Carcel(this);
         Casilleros[5].setEstado(carcel);
         
         CordobaSur cordobaSur = new CordobaSur();
@@ -103,7 +110,7 @@ public class Tablero {
         SaltaSur saltaSur = new SaltaSur();
         Casilleros[14].setEstado(saltaSur);
         
-        Policia policia = new Policia();
+        Policia policia = new Policia(this);
         Casilleros[15].setEstado(policia);
         
         Tren tren = new Tren();
@@ -120,6 +127,13 @@ public class Tablero {
 
 
     }
+
+
+	public int preguntarTurnosEnCalabozo(Jugador unjugador) {
+		Carcel unacarcel = (Carcel) Casilleros[5].getestado();
+		return unacarcel.preguntarTurnosEnCalabozo(unjugador);
+		
+	}
 
 
 

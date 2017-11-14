@@ -149,7 +149,7 @@ public class CasilleroTest {
 	
 	@Test
 	public void test16CrearCasilleroConEstadoPoliciaNoEsNulo() {
-		Policia unestado = new Policia();
+		Policia unestado = new Policia(null);
 		
 		Casillero uncasillero = new Casillero(unestado);
 		

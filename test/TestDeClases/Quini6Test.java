@@ -23,7 +23,6 @@ public class Quini6Test {
 		Tablero tablero = new Tablero();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
-		jugador.comenzarTurno();
 		tablero.moverJugador(jugador, 1);
 		
 		Assert.assertEquals(150000,jugador.getDinero());
@@ -34,9 +33,9 @@ public class Quini6Test {
 		Tablero tablero = new Tablero();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
-		jugador.comenzarTurno();
+		
 		tablero.moverJugador(jugador, 1);
-		jugador.comenzarTurno();
+
 		tablero.moverJugador(jugador, 20);
 		
 		Assert.assertEquals(180000,jugador.getDinero());
@@ -47,11 +46,11 @@ public class Quini6Test {
 		Tablero tablero = new Tablero();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
-		jugador.comenzarTurno();
+		
 		tablero.moverJugador(jugador, 1);
-		jugador.comenzarTurno();
+		
 		tablero.moverJugador(jugador, 20);
-		jugador.comenzarTurno();
+		
 		tablero.moverJugador(jugador, 20);
 		
 		Assert.assertEquals(180000,jugador.getDinero());

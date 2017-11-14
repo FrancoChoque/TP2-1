@@ -6,4 +6,11 @@ public class Estado {
 		
 	}
 
+	public boolean esComprable() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
 }

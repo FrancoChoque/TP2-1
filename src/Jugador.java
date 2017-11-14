@@ -1,21 +1,32 @@
+import java.util.LinkedList;
+
 public class Jugador {
 
-
+	static final int DINERO_INICIAL = 100000;
     private String nombre = "NONAME";
     private int dinero;
-    private int valorQueseTieneQueMover;
+
+	private LinkedList<Comprable> propiedades;
+	private boolean movimientoPosible; 
+    
+	private int valorQueseTieneQueMover;
     private boolean tieneQueMoverse;
     private int numeroPropiedades;
-    
-    public Jugador(String unNombre){
+	
+	public Jugador(String unNombre){
+
     	
         this.nombre = unNombre;
 
-        this.dinero = 100000;
+        this.dinero = DINERO_INICIAL;        
+        propiedades = new LinkedList<Comprable>();
+        
+        movimientoPosible = true;
+        
         this.valorQueseTieneQueMover = 0;
-        this.tieneQueMoverse = false;
-        this.numeroPropiedades = 0;
-       
+		this.tieneQueMoverse = false;
+		this.numeroPropiedades = 0;
+
     }
     
 	public int arrojarDados(){
@@ -44,8 +55,43 @@ public class Jugador {
     public void sumarDinero(int unMonto){
     	this.dinero += unMonto;
     }
-    
-    public void setValorQueseTieneQueMover(int valor){
+
+	public void comprar(Terreno unterreno) {
+		if(! unterreno.tieneDuenio() ) {
+			propiedades.add(unterreno);
+			unterreno.cambiarDuenio(this);
+			unterreno.pagarCompra(this) ;
+		}
+		
+	}
+
+
+
+
+
+
+	public boolean puedeMoverse() {
+		// TODO Auto-generated method stub
+		return movimientoPosible;
+	}
+
+
+
+
+
+	public void cambiarMovimiento() {
+		// TODO Auto-generated method stub
+		movimientoPosible = movimientoPosible ? false : true ;
+	}
+
+
+
+	public boolean puedePagar(int monto) {
+		// TODO Auto-generated method stub
+		return dinero >= monto;
+	}
+	
+	public void setValorQueseTieneQueMover(int valor){
     	this.valorQueseTieneQueMover = valor;
     }
     
@@ -54,7 +100,7 @@ public class Jugador {
     	return this.valorQueseTieneQueMover;
     }
     
-    public void comenzarTurno(){
+    public void comenzarAmoverse(){
     	this.tieneQueMoverse = true;
     }
     
@@ -81,4 +127,5 @@ public class Jugador {
 	public void aumentarNumeroDePropiedades(int unAumento){
 		this.numeroPropiedades += unAumento;
 	}
+	
 }
