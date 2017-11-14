@@ -12,6 +12,7 @@ public class Quini6 extends Suerte {
 	}
 	
 	public int cantidadDevecesQueCalloJugador(Jugador unJugador){
+		
 		return this.numeroDeVecesEnQuini.get(unJugador);
 	}
 	

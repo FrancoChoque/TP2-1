@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Tablero {
 
 	static final int CANTIDAD_CASILLAS = 20;
-
+	static final int MAYOR_POSICION_TABLERO = 19;
 
     private HashMap <Jugador,Integer> posicionJugadores;
 
@@ -42,17 +42,18 @@ public class Tablero {
     }
 
 
-
-
     public void moverJugador(Jugador unJugador, int unDesplazamiento){
-
-    	int nuevoDesplazamiento = posicionJugadores.get(unJugador) + unDesplazamiento;
-    	if(nuevoDesplazamiento > 19){
-    		nuevoDesplazamiento = nuevoDesplazamiento % CANTIDAD_CASILLAS;
+    	unJugador.setValorQueseTieneQueMover(unDesplazamiento);
+    	while(unJugador.getTieneQueMoverse()){		
+    		int posicionNueva = unJugador.getValorQueseTieneQueMover() + this.posicionJugadores.get(unJugador);
+			if(posicionNueva > MAYOR_POSICION_TABLERO){
+				posicionNueva = posicionNueva % CANTIDAD_CASILLAS;
+			}
+		    posicionJugadores.put(unJugador, posicionNueva);
+		    unJugador.seMovio();
+		    Casillero casilla = Casilleros[posicionNueva];
+		    casilla.hacerEfectoDelCasillero(unJugador);
     	}
-        posicionJugadores.put(unJugador, nuevoDesplazamiento);
-        Casillero casilla = Casilleros[ nuevoDesplazamiento ];
-        casilla.hacerEfectoDelCasillero(unJugador);    
     }
 
     private void cargarCasilleros(){

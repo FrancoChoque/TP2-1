@@ -12,10 +12,8 @@ public class AlgoPoly {
 
 
     public void usarTurno(Jugador unJugador){
-
+    	unJugador.comenzarTurno();
         int desplazamiento = unJugador.arrojarDados();
-
-
 
         tablero.moverJugador(unJugador, desplazamiento);
 
