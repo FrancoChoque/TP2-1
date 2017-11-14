@@ -1,10 +1,34 @@
-public class Terreno extends Estado {
+public class Terreno extends Estado implements Comprable{
 
-	private String propietario = "banco";
-	
-	
+	private Jugador propietario = null;
 
-	public String getPropietario() {
+	public boolean tieneDuenio() {
+		return propietario != null;
+	}
+
+	@Override
+	public boolean esComprable() {
+		return true;
+	}
+	
+	public void cambiarDuenio(Jugador jugador) {
+		propietario = jugador;
+	}
+
+	@Override
+	public Jugador preguntarDuenio() {
 		return propietario;
 	}
+
+	@Override
+	public void hacerEfectoDelCasillero(Jugador unjugador) {
+		unjugador.comprar(this);
+	}
+
+
+	public void pagarCompra(Jugador jugador) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

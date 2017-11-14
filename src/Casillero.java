@@ -26,4 +26,6 @@ public class Casillero {
 		// TODO Auto-generated method stub
 		return estado;
 	}
+
+
 }

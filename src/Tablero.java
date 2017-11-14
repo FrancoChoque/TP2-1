@@ -46,12 +46,16 @@ public class Tablero {
 
     public void moverJugador(Jugador unJugador, int unDesplazamiento){
 
-    	int nuevoDesplazamiento = posicionJugadores.get(unJugador) + unDesplazamiento;
-    	if(nuevoDesplazamiento > 19){
-    		nuevoDesplazamiento = nuevoDesplazamiento % CANTIDAD_CASILLAS;
-    	}
-        posicionJugadores.put(unJugador, nuevoDesplazamiento);
-        Casillero casilla = Casilleros[ nuevoDesplazamiento ];
+    	int pos = posicionJugadores.get(unJugador);
+    	Casillero casilla = Casilleros[pos];
+    	if(unJugador.puedeMoverse() ) {
+    		int nuevoDesplazamiento = posicionJugadores.get(unJugador) + unDesplazamiento;
+    		if(nuevoDesplazamiento > 19){
+    			nuevoDesplazamiento = nuevoDesplazamiento % CANTIDAD_CASILLAS;
+    		}
+    		posicionJugadores.put(unJugador, nuevoDesplazamiento);
+        	casilla = Casilleros[ nuevoDesplazamiento ];
+        }
         casilla.hacerEfectoDelCasillero(unJugador);    
     }
 
@@ -119,6 +123,13 @@ public class Tablero {
 
 
     }
+
+
+	public int preguntarTurnosEnCalabozo(Jugador unjugador) {
+		Carcel unacarcel = (Carcel) Casilleros[5].getestado();
+		return unacarcel.preguntarTurnosEnCalabozo(unjugador);
+		
+	}
 
 
 

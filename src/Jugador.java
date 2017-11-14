@@ -1,13 +1,23 @@
+import java.util.LinkedList;
+
 public class Jugador {
 
 
     private String nombre = "NONAME";
-    private int dinero; 
-    public Jugador(String unNombre){
+    private int dinero;
+	private LinkedList<Comprable> propiedades;
+	private boolean movimientoPosible; 
+    
+	
+	public Jugador(String unNombre){
     	
         this.nombre = unNombre;
 
         this.dinero = 100000;
+        
+        propiedades = new LinkedList<Comprable>();
+        
+        movimientoPosible = true;
     }
 
 
@@ -33,4 +43,33 @@ public class Jugador {
     public void sumarDinero(int unMonto){
     	this.dinero += unMonto;
     }
+
+
+
+	public void comprar(Terreno unterreno) {
+		if(! unterreno.tieneDuenio() ) {
+			propiedades.add(unterreno);
+			unterreno.cambiarDuenio(this);
+			unterreno.pagarCompra(this) ;
+		}
+		
+	}
+
+
+
+
+
+
+	public boolean puedeMoverse() {
+		// TODO Auto-generated method stub
+		return movimientoPosible;
+	}
+
+
+
+	public void cambiarMovimiento() {
+		
+		movimientoPosible = movimientoPosible ? false : true ;
+		
+	}
 }
