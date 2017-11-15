@@ -10,7 +10,7 @@ public class CarcelTest {
 
 	@Test
 	public void test00JugadorCaeEnCarcelYNoPuedeMoverse() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		
@@ -21,7 +21,7 @@ public class CarcelTest {
 	
 	@Test
 	public void test01JugadorEnCarcelGanaUnTurnoEnCalabozo() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		
@@ -35,7 +35,7 @@ public class CarcelTest {
 	
 	@Test
 	public void test02JugadorEnCarcelGanaDosTurnoEnCalabozo() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		
@@ -49,7 +49,7 @@ public class CarcelTest {
 	
 	@Test
 	public void test03JugadorConUnTurnoEnCalabozoNoPuedePagarFianza() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
@@ -67,7 +67,7 @@ public class CarcelTest {
 	
 	@Test
 	public void test04JugadorConDosTurnosEnCalabozoPuedePagarFianza() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
@@ -86,7 +86,7 @@ public class CarcelTest {
 	
 	@Test
 	public void test05JugadorConTresTurnosEnCalabozoPuedePagarFianza() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
@@ -106,7 +106,7 @@ public class CarcelTest {
 	
 	@Test
 	public void test06JugadorConCuatroTurnosEnCalabozoNoPuedePagarFianza() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
@@ -127,7 +127,7 @@ public class CarcelTest {
 	
 	@Test
 	public void test07JugadorConTresTurnosEnCalabozoNoTieneDineroSuficienteParaFianza() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		unjugador.sumarDinero(-55001);
 		

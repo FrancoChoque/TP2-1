@@ -9,7 +9,7 @@ public class Prueba07Test {
 
 	@Test
 	public void test00JugadorNoTieneDineroSuficienteYNoPuedeMoverse() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		unjugador.sumarDinero(-55001);
 		
@@ -31,7 +31,7 @@ public class Prueba07Test {
 
 	@Test
 	public void test01JugadorNoTieneDineroSuficienteParaFianzaYNoPuedeMoverse() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		unjugador.sumarDinero(-55001);
 		

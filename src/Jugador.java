@@ -57,11 +57,10 @@ public class Jugador {
     }
 
 	public void comprar(Terreno unterreno) {
-		if(! unterreno.tieneDuenio() ) {
+		//if(! unterreno.tieneDuenio() ) 
 			propiedades.add(unterreno);
 			unterreno.cambiarDuenio(this);
 			unterreno.pagarCompra(this) ;
-		}
 		
 	}
 

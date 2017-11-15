@@ -5,7 +5,7 @@ public class Prueba08Test {
 
 	@Test
 	public void jugadorCaeEnAvanceDinamicoYConDados5PosicionJugador10Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		

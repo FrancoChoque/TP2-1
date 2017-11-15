@@ -20,7 +20,7 @@ public class Quini6Test {
 	
 	@Test
 	public void jugadorCalloEnQuiniPorPrimeraVezSumar50000AlInicialTotalDe150000Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		tablero.moverJugador(jugador, 1);
@@ -30,7 +30,7 @@ public class Quini6Test {
 	
 	@Test
 	public void jugadorCalloEnQuiniPorSegundaVezSumarAlInicialTotalDe180000Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		
@@ -43,7 +43,7 @@ public class Quini6Test {
 	
 	@Test
 	public void jugadorCalloEnQuiniPorTerceraVezNoSumarMasDe180000Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		

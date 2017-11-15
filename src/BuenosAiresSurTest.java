@@ -7,7 +7,7 @@ public class BuenosAiresSurTest {
 
 	@Test
 	public void test00ComprarTerrenoReduceElDineroDelJugadorEn20000() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("plauer");
 		untablero.agregarJugador(player);
 		

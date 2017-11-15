@@ -5,7 +5,7 @@ public class Prueba10Test {
 
 	@Test
 	public void jugadorCaeEnAvanceDinamicoConDados11yCon5PropiedadPosicionJugador13Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setDinero(10);
 		jugador.aumentarNumeroDePropiedades(5);

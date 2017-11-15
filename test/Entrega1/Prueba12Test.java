@@ -5,7 +5,7 @@ public class Prueba12Test {
 
 	@Test
 	public void test00JugadorCaeEnPoliciaSeEnviaALaCarcelYNoPuedeMoverse() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		

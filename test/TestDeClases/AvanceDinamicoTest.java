@@ -5,7 +5,7 @@ public class AvanceDinamicoTest {
 
 	@Test
 	public void jugadorCaeEnAvanceDinamicoYConDados5PosicionJugador10Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		
@@ -18,7 +18,7 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void jugadorCaeEnAvanceDinamicoYConUnaPropiedadDados5PosicionJugador10Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.aumentarNumeroDePropiedades(1);
 		tablero.agregarJugador(jugador);
@@ -32,7 +32,7 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void jugadorCaeEnAvanceDinamicoYDados7DineroDe10PosicionJugador10Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setDinero(10);
 		tablero.agregarJugador(jugador);
@@ -44,7 +44,7 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void jugadorCaeEnAvanceDinamicoYDados7yConUnaPropiedadDineroDe10PosicionJugador10Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setDinero(10);
 		jugador.aumentarNumeroDePropiedades(1);
@@ -57,7 +57,7 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void jugadorCaeEnAvanceDinamicoConDados11yCon5PropiedadPosicionJugador13Test(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setDinero(10);
 		jugador.aumentarNumeroDePropiedades(5);

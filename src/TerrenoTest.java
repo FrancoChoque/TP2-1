@@ -24,7 +24,7 @@ public class TerrenoTest {
 	
 	@Test
 	public void test02JugadorCaeEnUnTerrenoSinDuenioYLoCompra() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("plauer");
 		untablero.agregarJugador(player);
 		

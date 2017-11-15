@@ -5,7 +5,7 @@ public class PoliciaTest {
 
 	@Test
 	public void test00JugadorCaeEnPoliciaYSeEnviaHastaCarcel() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		
@@ -17,7 +17,7 @@ public class PoliciaTest {
 	
 	@Test
 	public void test01JugadorCaeEnPoliciaSeEnviaALaCarcelYNoPuedeMoverse() {
-		Tablero untablero = new Tablero();
+		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		

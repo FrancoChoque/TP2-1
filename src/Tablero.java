@@ -2,14 +2,24 @@ import java.util.HashMap;
 
 public class Tablero {
 
+	// Atributos y Metodos de clase
+	
 	static final int CANTIDAD_CASILLAS = 20;
 	static final int MAYOR_POSICION_TABLERO = 19;
 
-    private HashMap <Jugador,Integer> posicionJugadores;
+	static Tablero instance = new Tablero();
+	
+	static public Tablero getInstance() {
+		return instance;
+	}
+	
+	// Atributos y Metodos de instancia
+	
+	private HashMap <Jugador,Integer> posicionJugadores;
 
     private Casillero[] Casilleros;
 
-    public Tablero(){
+    private Tablero(){
         posicionJugadores = new HashMap<Jugador,Integer>();
         
         

@@ -6,7 +6,7 @@ public class AlgoPoly {
 
     public AlgoPoly(){
 
-        tablero = new Tablero();
+        tablero = Tablero.getInstance();
 
     }
 
