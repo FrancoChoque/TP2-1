@@ -1,3 +1,4 @@
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,7 +8,8 @@ public class Prueba11Test {
 	public void test00JugadorCaeEnRetrocesoConDadosEn6YUnaPropiedadRetrocede5Casillas() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("playuer");
-		player.setNumeroPropiedades(1);		
+        player.setEstado(player.getJugadorEmpezandoTurno());
+		player.setNumeroPropiedades(1);
 		untablero.agregarJugador(player);
 		
 		player.setValorDados(6);
@@ -19,6 +21,7 @@ public class Prueba11Test {
 	public void test01JugadorCaeEnRetrocesoConDadosEn9YRetrocede1Casillero() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("playuer");
+		player.setEstado(player.getJugadorEmpezandoTurno());
 		player.setNumeroPropiedades(1);		
 		untablero.agregarJugador(player);
 		

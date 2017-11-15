@@ -1,3 +1,4 @@
+
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -7,6 +8,8 @@ public class Prueba12Test {
 	public void test00JugadorCaeEnPoliciaSeEnviaALaCarcelYNoPuedeMoverse() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
+
+		unjugador.setEstado(unjugador.getJugadorEmpezandoTurno());
 		untablero.agregarJugador(unjugador);
 		
 		untablero.moverJugador(unjugador, 15);		

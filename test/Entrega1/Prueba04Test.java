@@ -1,4 +1,3 @@
-import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,6 +8,9 @@ public class Prueba04Test {
 	public void test() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("plauer");
+
+		player.setEstado(player.getJugadorEmpezandoTurno());
+
 		untablero.agregarJugador(player);
 		
 		untablero.moverJugador(player, 2);
