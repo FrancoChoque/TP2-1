@@ -11,7 +11,7 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
     }
 
 
-    public int arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
+    public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
 
         int valordado1;
         int valordado2;
@@ -24,12 +24,12 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
         jugador.setEstado(jugador.getJugadorTiroDados());
 
-        return valordado1 + valordado2;
+        jugador.setValorDados(valordado1+valordado2);
 
 
     }
 
-    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador, JugadorYaTiroDados{
+    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador {
         //if(! unterreno.tieneDuenio() )
         jugador.adquirirPropiedad(unTerreno);
         unTerreno.cambiarDuenio(jugador);

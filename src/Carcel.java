@@ -3,6 +3,7 @@ import java.util.HashMap;
 import excepciones.DineroInsuficienteException;
 import excepciones.TurnosEnCalabozoInvalidoException;
 
+
 public class Carcel extends Estado {
 	
 	private HashMap<Jugador, Integer> calabozo;

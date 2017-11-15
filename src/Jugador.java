@@ -14,6 +14,7 @@ public class Jugador {
 	private int valorQueseTieneQueMover;
 	private boolean tieneQueMoverse;
 	private int numeroPropiedades;
+	private int valorDados;
 
 	private EstadoDeJugador jugadorEmpezandoTurno;
 	private EstadoDeJugador jugadorSinTurno;
@@ -25,7 +26,7 @@ public class Jugador {
 
 
 		this.nombre = unNombre;
-
+        this.valorDados = 0;
 
 		this.dinero = DINERO_INICIAL;
 		propiedades = new LinkedList<Comprable>();
@@ -44,9 +45,9 @@ public class Jugador {
 
 	}
 
-	public int arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
+	public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
 
-		return estadoDeJugador.arrojarDados();
+		 estadoDeJugador.arrojarDados();
 
 	}
 
@@ -72,6 +73,14 @@ public class Jugador {
 		this.estadoDeJugador = unEstado;
 
 	}
+
+	public void setValorDados(int unValor){
+	    this.valorDados = unValor;
+    }
+
+    public int getValorDados(){
+	    return this.valorDados;
+    }
 
 	public EstadoDeJugador getEstadoDeJugador() {
 		return estadoDeJugador;
@@ -100,8 +109,18 @@ public class Jugador {
 		this.propiedades.add(unTerreno);
 	}
 
+	public void comprarTerreno(Terreno unTerreno) {
+        try {
+            this.comprar(unTerreno);
+        } catch (NoEsTurnoJugador noEsTurnoJugador) {
+            System.out.println("no es el turno del jugador");
+        } catch (JugadorYaTiroDados jugadorYaTiroDados) {
+            System.out.println("ya tiro los dados");
+        }
+    }
 
-	public void cambiarMovimiento() {
+
+    public void cambiarMovimiento() {
 		// TODO Auto-generated method stub
 		movimientoPosible = movimientoPosible ? false : true ;
 	}

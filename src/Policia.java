@@ -1,3 +1,5 @@
+
+
 public class Policia extends Estado {
 	
 	private Tablero tablero;

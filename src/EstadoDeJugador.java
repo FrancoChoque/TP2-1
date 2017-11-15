@@ -1,11 +1,11 @@
-import excepciones.JugadorYaTiroDados;
-import excepciones.NoEsTurnoJugador;
+
+import excepciones.*;
 
 public interface EstadoDeJugador {
 
-    public int arrojarDados()throws NoEsTurnoJugador, JugadorYaTiroDados;
+    public void arrojarDados()throws NoEsTurnoJugador, JugadorYaTiroDados;
 
-    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador, JugadorYaTiroDados;
+    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador;
 
     public void pagar() throws NoEsTurnoJugador;
 

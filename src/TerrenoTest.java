@@ -1,3 +1,4 @@
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,8 +15,10 @@ public class TerrenoTest {
 	public void test01TerrenoSinDuenioSeCompraYCambiaElDuenio() {
 		Terreno unterreno = new Terreno();
 		Jugador player = new Jugador("player");
-		
-		player.comprar(unterreno);
+
+		player.setEstado(player.getJugadorEmpezandoTurno());
+
+		player.comprarTerreno(unterreno);
 		
 		Assert.assertEquals(player, unterreno.preguntarDuenio() );
 	}
@@ -24,6 +27,7 @@ public class TerrenoTest {
 	public void test02JugadorCaeEnUnTerrenoSinDuenioYLoCompra() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("plauer");
+        player.setEstado(player.getJugadorEmpezandoTurno());
 		untablero.agregarJugador(player);
 		
 		untablero.moverJugador(player, 2);

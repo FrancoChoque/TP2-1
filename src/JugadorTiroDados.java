@@ -1,3 +1,5 @@
+
+
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 
@@ -11,13 +13,13 @@ public class JugadorTiroDados implements EstadoDeJugador {
         jugador = unJugador;
     }
 
-    public int arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
+    public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
 
         throw new JugadorYaTiroDados();
     }
 
-    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador, JugadorYaTiroDados {
-        System.out.println("no puede");
+    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador {
+
     }
 
     public void pagar() throws NoEsTurnoJugador {
@@ -25,7 +27,7 @@ public class JugadorTiroDados implements EstadoDeJugador {
     }
 
     public void pasarTurno() throws NoEsTurnoJugador{
-        System.out.println("no puede");
+        jugador.setEstado(jugador.getJugadorSinTurno());
     }
 
 

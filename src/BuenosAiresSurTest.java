@@ -1,3 +1,4 @@
+
 import org.junit.Assert;
 
 import org.junit.Test;
@@ -9,6 +10,9 @@ public class BuenosAiresSurTest {
 	public void test00ComprarTerrenoReduceElDineroDelJugadorEn20000() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("plauer");
+
+        player.setEstado(player.getJugadorEmpezandoTurno());
+
 		untablero.agregarJugador(player);
 		
 		untablero.moverJugador(player, 2);

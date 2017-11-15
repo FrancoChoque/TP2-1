@@ -1,4 +1,5 @@
 
+
 public class AvanceDinamico extends Suerte{
 
 	public void hacerEfectoDelCasillero(Jugador unJugador){

@@ -1,3 +1,6 @@
+import excepciones.JugadorYaTiroDados;
+import excepciones.NoEsTurnoJugador;
+
 public class AlgoPoly {
 
 
@@ -11,11 +14,13 @@ public class AlgoPoly {
     }
 
 
-    public void usarTurno(Jugador unJugador){
+    public void usarTurno(Jugador unJugador) throws NoEsTurnoJugador, JugadorYaTiroDados {
     	
-        int desplazamiento = unJugador.arrojarDados();
+        unJugador.setEstado(unJugador.getJugadorEmpezandoTurno());
 
-        tablero.moverJugador(unJugador, desplazamiento);
+        unJugador.arrojarDados();
+
+        tablero.moverJugador(unJugador, unJugador.getValorDados());
 
     }
 

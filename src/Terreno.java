@@ -1,3 +1,5 @@
+import excepciones.*;
+
 public class Terreno extends Estado implements Comprable{
 
 	private Jugador propietario = null;
@@ -22,7 +24,7 @@ public class Terreno extends Estado implements Comprable{
 
 	@Override
 	public void hacerEfectoDelCasillero(Jugador unjugador) {
-		unjugador.comprar(this);
+		unjugador.comprarTerreno(this);
 	}
 
 

@@ -1,3 +1,5 @@
+
+
 import excepciones.*;
 
 
@@ -13,7 +15,7 @@ public class JugadorSinTurno implements EstadoDeJugador {
 
     }
 
-    public int arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
+    public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
 
         throw new NoEsTurnoJugador();
 
