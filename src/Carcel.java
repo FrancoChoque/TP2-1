@@ -6,13 +6,12 @@ import excepciones.TurnosEnCalabozoInvalidoException;
 public class Carcel extends Estado {
 	
 	private HashMap<Jugador, Integer> calabozo;
-	private Tablero tablero;
+
 	private int montoFianza = 45000;
 	
 	public Carcel(Tablero untablero) {
 		calabozo = new HashMap<Jugador, Integer>();
 	
-		tablero = untablero;
 	
 		
 	}
