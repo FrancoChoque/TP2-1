@@ -9,7 +9,7 @@ public class Prueba09Test {
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setDinero(10);
 		tablero.agregarJugador(jugador);
-		
+		jugador.setValorDados(7);
 		tablero.moverJugador(jugador, 7);
 		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));

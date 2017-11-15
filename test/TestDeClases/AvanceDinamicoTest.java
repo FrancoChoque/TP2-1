@@ -9,9 +9,8 @@ public class AvanceDinamicoTest {
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		
-		tablero.moverJugador(jugador, 2);
-		
-		tablero.moverJugador(jugador, 5);
+		jugador.setValorDados(5);
+		tablero.moverJugador(jugador, 7);
 		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
 	}
@@ -23,9 +22,8 @@ public class AvanceDinamicoTest {
 		jugador.aumentarNumeroDePropiedades(1);
 		tablero.agregarJugador(jugador);
 		
-		tablero.moverJugador(jugador, 2);
-		
-		tablero.moverJugador(jugador, 5);
+		jugador.setValorDados(5);
+		tablero.moverJugador(jugador, 7);
 		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
 	}
@@ -37,6 +35,7 @@ public class AvanceDinamicoTest {
 		jugador.setDinero(10);
 		tablero.agregarJugador(jugador);
 		
+		jugador.setValorDados(7);
 		tablero.moverJugador(jugador, 7);
 		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
@@ -50,6 +49,7 @@ public class AvanceDinamicoTest {
 		jugador.aumentarNumeroDePropiedades(1);
 		tablero.agregarJugador(jugador);
 		
+		jugador.setValorDados(7);
 		tablero.moverJugador(jugador, 7);
 		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
@@ -62,12 +62,9 @@ public class AvanceDinamicoTest {
 		jugador.setDinero(10);
 		jugador.aumentarNumeroDePropiedades(5);
 		tablero.agregarJugador(jugador);
-		
-		//doy una vuelta para caer en avance dinamico con numero de dados 11
-		
-		tablero.moverJugador(jugador, 16);
-		
-		tablero.moverJugador(jugador, 11);
+	
+		jugador.setValorDados(11);
+		tablero.moverJugador(jugador, 7);
 		
 		Assert.assertEquals(13,tablero.obtenerPosicion(jugador));
 	}

@@ -9,8 +9,7 @@ public class Jugador {
 	private LinkedList<Comprable> propiedades;
 	private boolean movimientoPosible; 
     
-	private int valorQueseTieneQueMover;
-    private boolean tieneQueMoverse;
+	private int valorDados;
     private int numeroPropiedades;
 	
 	public Jugador(String unNombre){
@@ -23,8 +22,7 @@ public class Jugador {
         
         movimientoPosible = true;
         
-        this.valorQueseTieneQueMover = 0;
-		this.tieneQueMoverse = false;
+        this.valorDados = 0;
 		this.numeroPropiedades = 0;
 
     }
@@ -39,6 +37,8 @@ public class Jugador {
 
         valordado1 = dado1.arrojar();
         valordado2 = dado2.arrojar();
+        
+        this.valorDados = valordado1 + valordado2;
         
         return valordado1 + valordado2;
       
@@ -90,29 +90,13 @@ public class Jugador {
 		return dinero >= monto;
 	}
 	
-	public void setValorQueseTieneQueMover(int valor){
-    	this.valorQueseTieneQueMover = valor;
+	public void setValorDados(int valor){
+    	this.valorDados = valor;
     }
     
-    public int getValorQueseTieneQueMover(){
+    public int getValorDados(){
     
-    	return this.valorQueseTieneQueMover;
-    }
-    
-    public void comenzarAmoverse(){
-    	this.tieneQueMoverse = true;
-    }
-    
-    public void continuarMoviendose(){
-    	this.tieneQueMoverse = true;
-    }
-    
-    public boolean getTieneQueMoverse(){
-    	return this.tieneQueMoverse;
-    }
-    
-    public void seMovio(){
-    	this.tieneQueMoverse = false;
+    	return this.valorDados;
     }
     
     public int getNumeroPropiedades() {

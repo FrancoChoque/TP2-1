@@ -9,10 +9,8 @@ public class Prueba08Test {
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		
-		tablero.moverJugador(jugador, 2);
-		
-		//cae en AvanceDinamico
-		tablero.moverJugador(jugador, 5);
+		jugador.setValorDados(5);
+		tablero.moverJugador(jugador, 7);
 		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
 	}

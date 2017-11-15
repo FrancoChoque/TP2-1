@@ -2,18 +2,17 @@
 public class AvanceDinamico extends Suerte{
 
 	public void hacerEfectoDelCasillero(Jugador unJugador){
-		unJugador.continuarMoviendose();
-		int valorQueseMovio = unJugador.getValorQueseTieneQueMover();
-		if(valorQueseMovio<= 6){
-			int nuevoDesplazamiento = valorQueseMovio - 2;
-			unJugador.setValorQueseTieneQueMover(nuevoDesplazamiento);
-		}else if(valorQueseMovio<= 10){
-			int nuevoDesplazamiento = unJugador.getDinero() % valorQueseMovio;
-			unJugador.setValorQueseTieneQueMover(nuevoDesplazamiento);
+		Tablero tablero = Tablero.getInstance();
+		int valorDeDados = unJugador.getValorDados();
+		int nuevoDesplazamiento = 0;
+		if(valorDeDados<= 6){
+			nuevoDesplazamiento = valorDeDados - 2;
+		}else if(valorDeDados<= 10){
+			nuevoDesplazamiento = unJugador.getDinero() % valorDeDados;
 		}else{
-			int nuevoDesplazamiento = valorQueseMovio - unJugador.getNumeroPropiedades();
-			unJugador.setValorQueseTieneQueMover(nuevoDesplazamiento);
+			nuevoDesplazamiento = valorDeDados - unJugador.getNumeroPropiedades();
+			
 		}
-		
+		tablero.moverJugador(unJugador,nuevoDesplazamiento );
 	}
 }
