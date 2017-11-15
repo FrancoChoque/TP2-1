@@ -1,7 +1,10 @@
+import static org.junit.Assert.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Prueba11Test {
+
+public class RetrocesoDinamicoTest {
 
 	@Test
 	public void test00JugadorCaeEnRetrocesoConDadosEn6YUnaPropiedadRetrocede5Casillas() {
@@ -12,6 +15,7 @@ public class Prueba11Test {
 		
 		player.setValorDados(6);
 		untablero.moverJugador(player, 18);
+		
 		Assert.assertEquals(13, untablero.obtenerPosicion(player) );
 	}
 	
@@ -39,4 +43,5 @@ public class Prueba11Test {
 		
 		Assert.assertEquals(8, untablero.obtenerPosicion(player));
 	}
+	
 }
