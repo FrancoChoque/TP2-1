@@ -1,3 +1,4 @@
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,7 +8,9 @@ public class RetrocesoDinamicoTest {
 	public void jugadorCaeEnRetrocesoDinamicoYConDados5SinProdiedadesPosicionJugador13Test(){
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
+		jugador.setEstado(jugador.getJugadorEmpezandoTurno());
 		tablero.agregarJugador(jugador);
+
 		
 		jugador.setValorDados(5);
 		tablero.moverJugador(jugador, 18);

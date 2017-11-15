@@ -1,3 +1,4 @@
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,6 +9,7 @@ public class AvanceDinamicoTest {
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
+		jugador.setEstado(jugador.getJugadorEmpezandoTurno());
 		
 		jugador.setValorDados(5);
 		tablero.moverJugador(jugador, 7);
@@ -19,6 +21,7 @@ public class AvanceDinamicoTest {
 	public void jugadorCaeEnAvanceDinamicoYConUnaPropiedadDados5PosicionJugador10Test(){
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
+		jugador.setEstado(jugador.getJugadorEmpezandoTurno());
 		jugador.aumentarNumeroDePropiedades(1);
 		tablero.agregarJugador(jugador);
 		
@@ -59,6 +62,7 @@ public class AvanceDinamicoTest {
 	public void jugadorCaeEnAvanceDinamicoConDados11yCon5PropiedadPosicionJugador13Test(){
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
+        jugador.setEstado(jugador.getJugadorEmpezandoTurno());
 		jugador.setDinero(10);
 		jugador.aumentarNumeroDePropiedades(5);
 		tablero.agregarJugador(jugador);
