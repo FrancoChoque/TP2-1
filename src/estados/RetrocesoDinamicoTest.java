@@ -1,20 +1,25 @@
-import modelo.*;
-import excepciones.*;
+package estados;
+
+
+
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Prueba11Test {
+import modelo.*;
+
+
+public class RetrocesoDinamicoTest {
 
 	@Test
 	public void test00JugadorCaeEnRetrocesoConDadosEn6YUnaPropiedadRetrocede5Casillas() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("playuer");
-        player.setEstado(player.getJugadorEmpezandoTurno());
-		player.setNumeroPropiedades(1);
+		player.setNumeroPropiedades(1);		
 		untablero.agregarJugador(player);
 		
 		player.setValorDados(6);
 		untablero.moverJugador(player, 18);
+		
 		Assert.assertEquals(13, untablero.obtenerPosicion(player) );
 	}
 	
@@ -22,7 +27,6 @@ public class Prueba11Test {
 	public void test01JugadorCaeEnRetrocesoConDadosEn9YRetrocede1Casillero() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("playuer");
-		player.setEstado(player.getJugadorEmpezandoTurno());
 		player.setNumeroPropiedades(1);		
 		untablero.agregarJugador(player);
 		
@@ -43,4 +47,5 @@ public class Prueba11Test {
 		
 		Assert.assertEquals(8, untablero.obtenerPosicion(player));
 	}
+	
 }

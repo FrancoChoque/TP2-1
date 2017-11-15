@@ -1,4 +1,5 @@
-
+import modelo.*;
+import excepciones.*;
 import org.junit.Assert;
 import org.junit.Test;
 

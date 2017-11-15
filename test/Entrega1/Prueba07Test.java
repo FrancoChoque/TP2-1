@@ -1,3 +1,6 @@
+import excepciones.*;
+import modelo.*;
+import estados.*;
 
 import org.junit.Assert;
 import org.junit.Test;
