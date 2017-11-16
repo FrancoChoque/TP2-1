@@ -27,7 +27,7 @@ public class JugadorSinTurno implements EstadoDeJugador {
         throw new NoEsTurnoJugador();
     }
 
-    public void pagar() throws NoEsTurnoJugador{
+    public void vender() throws NoEsTurnoJugador{
         throw new NoEsTurnoJugador();
     }
 

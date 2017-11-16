@@ -21,6 +21,11 @@ public class BuenosAiresSurTest {
 		untablero.agregarJugador(player);
 		
 		untablero.moverJugador(player, 2);
+
+		Casillero unacasilla = untablero.obtenerCasillero(player);
+		Propiedad unterreno = (Propiedad) unacasilla.getestado();
+
+		player.comprarTerreno(unterreno);
 		
 		Assert.assertEquals(80000, player.getDinero() );
 	}

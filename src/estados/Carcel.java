@@ -6,7 +6,7 @@ import java.util.HashMap;
 import excepciones.DineroInsuficienteException;
 import excepciones.TurnosEnCalabozoInvalidoException;
 import modelo.Jugador;
-import modelo.Tablero;
+
 
 
 public class Carcel extends EstadoCasillero {
@@ -14,17 +14,11 @@ public class Carcel extends EstadoCasillero {
 	private HashMap<Jugador, Integer> calabozo;
 
 	private int montoFianza = 45000;
-	
-	public Carcel(Tablero untablero) {
-		calabozo = new HashMap<Jugador, Integer>();
-	
-	
-		
-	}
+
 
 
 	public Carcel() {
-		// TODO Auto-generated constructor stub
+
 		calabozo = new HashMap<Jugador, Integer>();
 	}
 
@@ -50,11 +44,11 @@ public class Carcel extends EstadoCasillero {
 	}
 
 
-	public void pagarFianza(Jugador unjugador) {
+	public void cobrarFianza(Jugador unjugador) {
 		if(! calabozo.containsKey(unjugador) ) return;
 		
 		int turnosEnCalabozo = calabozo.get(unjugador);
-		if( ( turnosEnCalabozo == 2) || 
+		if( ( turnosEnCalabozo == 2) ||
 			( turnosEnCalabozo == 3) ) {
 			
 			if(! unjugador.puedePagar(montoFianza) ) {

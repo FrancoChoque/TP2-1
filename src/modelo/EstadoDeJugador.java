@@ -9,8 +9,8 @@ public interface EstadoDeJugador {
 
     public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador;
 
-    public void pagar() throws NoEsTurnoJugador;
+    public void vender() throws NoEsTurnoJugador;
 
-    public void pasarTurno() throws NoEsTurnoJugador;
+    public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados;
 
 }

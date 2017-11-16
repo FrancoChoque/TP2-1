@@ -36,10 +36,13 @@ public class PropiedadTest {
 		untablero.agregarJugador(player);
 		
 		untablero.moverJugador(player, 2);
+
 		
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Propiedad unterreno = (Propiedad) unacasilla.getestado();
 		
+		player.comprarTerreno(unterreno);
+
 		Assert.assertEquals(player, unterreno.preguntarDuenio() );
 		
 	}

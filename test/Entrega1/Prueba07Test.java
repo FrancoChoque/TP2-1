@@ -1,4 +1,3 @@
-import excepciones.*;
 import modelo.*;
 import estados.*;
 
@@ -23,7 +22,7 @@ public class Prueba07Test {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(null, unjugador.getDinero() );
 		}
 		catch(DineroInsuficienteException error){
@@ -44,7 +43,7 @@ public class Prueba07Test {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(null, unjugador.getDinero() );
 		}
 		catch(DineroInsuficienteException error){

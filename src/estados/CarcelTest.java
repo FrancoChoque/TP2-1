@@ -60,7 +60,7 @@ public class CarcelTest {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertTrue(false);
 		}
 		catch(TurnosEnCalabozoInvalidoException error){
@@ -79,7 +79,7 @@ public class CarcelTest {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(55000, unjugador.getDinero() );
 		}
 		catch(TurnosEnCalabozoInvalidoException error){
@@ -99,7 +99,7 @@ public class CarcelTest {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(55000, unjugador.getDinero() );
 		}
 		catch(TurnosEnCalabozoInvalidoException error){
@@ -120,7 +120,7 @@ public class CarcelTest {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(55000, null );
 		}
 		catch(TurnosEnCalabozoInvalidoException error){
@@ -142,7 +142,7 @@ public class CarcelTest {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(null, unjugador.getDinero() );
 		}
 		catch(DineroInsuficienteException error){

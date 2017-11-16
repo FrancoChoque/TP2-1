@@ -28,8 +28,8 @@ public class JugadorTiroDados implements EstadoDeJugador {
 
     }
 
-    public void pagar() throws NoEsTurnoJugador {
-        System.out.println("no puede");
+    public void vender() throws NoEsTurnoJugador {
+
     }
 
     public void pasarTurno() throws NoEsTurnoJugador{

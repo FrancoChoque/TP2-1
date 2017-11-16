@@ -1,4 +1,3 @@
-import excepciones.*;
 import modelo.*;
 import estados.*;
 import org.junit.Assert;
@@ -19,7 +18,7 @@ public class Prueba06Test {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertTrue(false);
 		}
 		catch(TurnosEnCalabozoInvalidoException error){
@@ -36,7 +35,7 @@ public class Prueba06Test {
 		untablero.moverJugador(unjugador, 1);
 		
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
-		unacarcel.pagarFianza(unjugador);
+		unacarcel.cobrarFianza(unjugador);
 		
 		Assert.assertTrue(unjugador.puedeMoverse() );
 		
@@ -52,7 +51,7 @@ public class Prueba06Test {
 		untablero.moverJugador(unjugador, 1);
 		
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
-		unacarcel.pagarFianza(unjugador);
+		unacarcel.cobrarFianza(unjugador);
 		
 		Assert.assertTrue(unjugador.puedeMoverse() );
 		
@@ -71,7 +70,7 @@ public class Prueba06Test {
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
 		try {
-			unacarcel.pagarFianza(unjugador);
+			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(55000, null );
 		}
 		catch(TurnosEnCalabozoInvalidoException error){

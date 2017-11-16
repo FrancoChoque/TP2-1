@@ -1,5 +1,6 @@
 package modelo;
 import estados.Propiedad;
+import excepciones.JugadorNoTiroDados;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 
@@ -39,12 +40,11 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         unPropiedad.pagarCompra(jugador);
     }
 
-    public void pagar(){
-        System.out.println("no puede");
+    public void vender(){
     }
 
-    public void pasarTurno(){
-        System.out.println("no tiro dados");
+    public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados {
+        throw new JugadorNoTiroDados();
     }
 
     private int resultadoDados(){

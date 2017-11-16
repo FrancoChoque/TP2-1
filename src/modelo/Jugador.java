@@ -54,6 +54,9 @@ public class Jugador {
     }
 
 
+    public void vender() throws NoEsTurnoJugador{
+	    estadoDeJugador.vender();
+    }
 
 
 
