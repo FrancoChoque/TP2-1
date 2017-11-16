@@ -5,6 +5,7 @@ import estados.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+
 public class Prueba04Test {
 
 	@Test
