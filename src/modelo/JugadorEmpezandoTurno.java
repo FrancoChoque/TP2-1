@@ -1,5 +1,5 @@
 package modelo;
-import estados.Terreno;
+import estados.Propiedad;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 
@@ -32,11 +32,11 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
     }
 
-    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador {
+    public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador {
         //if(! unterreno.tieneDuenio() )
-        jugador.adquirirPropiedad(unTerreno);
-        unTerreno.cambiarDuenio(jugador);
-        unTerreno.pagarCompra(jugador);
+        jugador.adquirirPropiedad(unPropiedad);
+        unPropiedad.cambiarDuenio(jugador);
+        unPropiedad.pagarCompra(jugador);
     }
 
     public void pagar(){

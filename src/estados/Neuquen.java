@@ -2,6 +2,6 @@ package estados;
 
 
 
-public class Neuquen extends Terreno{
+public class Neuquen extends Propiedad {
 
 }

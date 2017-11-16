@@ -1,5 +1,5 @@
 package estados;
 
-public class BuenosAiresNorte extends Terreno{
+public class BuenosAiresNorte extends Propiedad {
 
 }

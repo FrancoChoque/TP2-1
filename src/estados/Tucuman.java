@@ -2,6 +2,6 @@ package estados;
 
 
 
-public class Tucuman extends Terreno{
+public class Tucuman extends Propiedad {
 
 }

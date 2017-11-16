@@ -4,7 +4,7 @@ import excepciones.*;
 import java.util.LinkedList;
 
 import estados.Comprable;
-import estados.Terreno;
+import estados.Propiedad;
 
 public class Jugador {
 
@@ -50,13 +50,15 @@ public class Jugador {
 	}
 
 	public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
+        estadoDeJugador.arrojarDados();
+    }
 
-		 estadoDeJugador.arrojarDados();
 
-	}
 
-    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador{
-        estadoDeJugador.comprar(unTerreno);
+
+
+    public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador{
+        estadoDeJugador.comprar(unPropiedad);
 
     }
 
@@ -110,15 +112,15 @@ public class Jugador {
 	}
 
 
-	public void adquirirPropiedad(Terreno unTerreno){
+	public void adquirirPropiedad(Propiedad unPropiedad){
 
-		this.propiedades.add(unTerreno);
+		this.propiedades.add(unPropiedad);
 	}
 
 
-    public void comprarTerreno(Terreno unTerreno) {
+    public void comprarTerreno(Propiedad unPropiedad) {
         try {
-            this.comprar(unTerreno);
+            this.comprar(unPropiedad);
         } catch (NoEsTurnoJugador noEsTurnoJugador) {
             System.out.println("no es el turno del jugador");
         }

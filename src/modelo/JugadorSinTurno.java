@@ -1,7 +1,7 @@
 package modelo;
 
 
-import estados.Terreno;
+import estados.Propiedad;
 import excepciones.*;
 
 
@@ -23,7 +23,7 @@ public class JugadorSinTurno implements EstadoDeJugador {
 
     }
 
-    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador {
+    public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador {
         throw new NoEsTurnoJugador();
     }
 

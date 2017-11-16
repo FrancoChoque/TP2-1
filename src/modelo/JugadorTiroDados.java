@@ -1,7 +1,7 @@
 package modelo;
 
 
-import estados.Terreno;
+import estados.Propiedad;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 
@@ -20,7 +20,11 @@ public class JugadorTiroDados implements EstadoDeJugador {
         throw new JugadorYaTiroDados();
     }
 
-    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador {
+    public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador {
+        //if(! unterreno.tieneDuenio() )
+        jugador.adquirirPropiedad(unPropiedad);
+        unPropiedad.cambiarDuenio(jugador);
+        unPropiedad.pagarCompra(jugador);
 
     }
 

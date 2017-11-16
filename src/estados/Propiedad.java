@@ -3,12 +3,12 @@ package estados;
 
 import modelo.Jugador;
 
-public class Terreno extends EstadoCasillero implements Comprable{
+public class Propiedad extends EstadoCasillero implements Comprable{
 
 	private Jugador propietario = null;
 
 	public boolean tieneDuenio() {
-		return propietario != null;
+		return this.propietario != null;
 	}
 
 	@Override
@@ -17,12 +17,12 @@ public class Terreno extends EstadoCasillero implements Comprable{
 	}
 	
 	public void cambiarDuenio(Jugador jugador) {
-		propietario = jugador;
+		this.propietario = jugador;
 	}
 
 	@Override
 	public Jugador preguntarDuenio() {
-		return propietario;
+		return this.propietario;
 	}
 
 	@Override

@@ -7,18 +7,18 @@ import org.junit.Test;
 
 import modelo.*;
 
-public class TerrenoTest {
+public class PropiedadTest {
 
 	@Test
 	public void test00TerrenoRecienCreadoNoTieneDuenio() {
-		Terreno unterreno = new Terreno();
+		Propiedad unterreno = new Propiedad();
 		
 		Assert.assertFalse( unterreno.tieneDuenio() );
 	}
 
 	@Test
 	public void test01TerrenoSinDuenioSeCompraYCambiaElDuenio() {
-		Terreno unterreno = new Terreno();
+		Propiedad unterreno = new Propiedad();
 		Jugador player = new Jugador("player");
 
 		player.setEstado(player.getJugadorEmpezandoTurno());
@@ -38,7 +38,7 @@ public class TerrenoTest {
 		untablero.moverJugador(player, 2);
 		
 		Casillero unacasilla = untablero.obtenerCasillero(player);
-		Terreno unterreno = (Terreno) unacasilla.getestado();
+		Propiedad unterreno = (Propiedad) unacasilla.getestado();
 		
 		Assert.assertEquals(player, unterreno.preguntarDuenio() );
 		

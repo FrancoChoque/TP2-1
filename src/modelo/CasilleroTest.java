@@ -24,7 +24,7 @@ import estados.SantaFe;
 import estados.Servicio;
 import estados.Subte;
 import estados.Suerte;
-import estados.Terreno;
+import estados.Propiedad;
 import estados.Tren;
 import estados.Tucuman;
 
@@ -77,7 +77,7 @@ public class CasilleroTest {
 	
 	@Test
 	public void test05CrearCasilleroConEstadoTerrenoNoEsNulo() {
-		Terreno unestado = new Terreno();
+		Propiedad unestado = new Propiedad();
 		
 		Casillero uncasillero = new Casillero(unestado);
 		

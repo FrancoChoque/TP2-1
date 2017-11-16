@@ -1,5 +1,5 @@
 package estados;
 
-public class CordobaNorte extends Terreno{
+public class CordobaNorte extends Propiedad {
 
 }

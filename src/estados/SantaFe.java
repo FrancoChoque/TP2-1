@@ -2,6 +2,6 @@ package estados;
 
 
 
-public class SantaFe extends Terreno{
+public class SantaFe extends Propiedad {
 
 }

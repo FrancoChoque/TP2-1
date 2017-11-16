@@ -4,7 +4,7 @@ import modelo.Jugador;
 
 ;
 
-public class BuenosAiresSur extends Terreno{
+public class BuenosAiresSur extends Propiedad {
 	private int precioCompra = 20000;
 	
 	@Override

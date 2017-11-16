@@ -2,6 +2,6 @@ package estados;
 
 
 
-public class SaltaSur extends Terreno{
+public class SaltaSur extends Propiedad {
 
 }
