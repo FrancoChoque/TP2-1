@@ -27,7 +27,6 @@ public class Propiedad extends EstadoCasillero implements Comprable{
 
 	@Override
 	public void hacerEfectoDelCasillero(Jugador unjugador) {
-		unjugador.comprarTerreno(this);
 	}
 
 

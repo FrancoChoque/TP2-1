@@ -89,7 +89,9 @@ public class Tablero {
 			posicionJugadores.put(unJugador, posicionNueva);
 		    casilla = Casilleros[posicionNueva];    		
         }
-        casilla.hacerEfectoDelCasillero(unJugador); 
+
+        casilla.hacerEfectoDelCasillero(unJugador);
+
     }
 
     private void cargarCasilleros(){

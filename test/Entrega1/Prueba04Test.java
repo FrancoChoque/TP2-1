@@ -25,13 +25,12 @@ public class Prueba04Test {
         player.setEstado(player.getJugadorTiroDados());
 
 		Casillero unacasilla = untablero.obtenerCasillero(player);
-		Propiedad unterreno = (Propiedad) unacasilla.getestado();
 
-		//player.comprarTerreno(unterreno);
+        Propiedad unterreno = (Propiedad) unacasilla.getestado();
 
-      
+		player.comprarTerreno(unterreno);
 
-		Assert.assertEquals(player, unterreno.preguntarDuenio() );
+        Assert.assertEquals(player, unterreno.preguntarDuenio() );
 	}
 
 }
