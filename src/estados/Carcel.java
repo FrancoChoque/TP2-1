@@ -9,7 +9,7 @@ import modelo.Jugador;
 import modelo.Tablero;
 
 
-public class Carcel extends Estado {
+public class Carcel extends EstadoCasillero {
 	
 	private HashMap<Jugador, Integer> calabozo;
 

@@ -2,7 +2,7 @@ package estados;
 
 
 
-public class Servicio extends Estado {
+public class Servicio extends EstadoCasillero {
 	
 	
 	@Override

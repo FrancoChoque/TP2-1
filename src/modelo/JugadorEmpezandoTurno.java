@@ -15,18 +15,19 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
     public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
 
-        int valordado1;
-        int valordado2;
+        int resultado = resultadoDados();
 
-        Dado dado1 = new Dado();
-        Dado dado2 = new Dado();
+        if(resultado == 0){
+            resultado = resultadoDados();
+        }
 
-        valordado1 = dado1.arrojar();
-        valordado2 = dado2.arrojar();
+        if(resultado == 0){
+            jugador.setEstado(jugador.getJugadorSinTurno());
+        }else {
+            jugador.setEstado(jugador.getJugadorTiroDados());
+            jugador.setValorDados(resultado);
+        }
 
-        jugador.setEstado(jugador.getJugadorTiroDados());
-
-        jugador.setValorDados(valordado1+valordado2);
 
 
     }
@@ -46,7 +47,25 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         System.out.println("no tiro dados");
     }
 
+    private int resultadoDados(){
 
+        int valordado1;
+        int valordado2;
+
+        Dado dado1 = new Dado();
+        Dado dado2 = new Dado();
+
+        valordado1 = dado1.arrojar();
+        valordado2 = dado2.arrojar();
+
+
+        if(valordado1 == valordado2) {
+            return 0;
+
+        }else{
+            return valordado1+valordado2;
+        }
+    }
 
 
 }

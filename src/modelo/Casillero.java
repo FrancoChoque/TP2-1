@@ -1,21 +1,21 @@
 package modelo;
 
-import estados.Estado;
+import estados.EstadoCasillero;
 
 public class Casillero {
 	
-	private Estado estado;
+	private EstadoCasillero estadoCasillero;
 	
 	public Casillero(){
 	}
 	
-	public void setEstado(Estado unestado) {
-		estado = unestado;
+	public void setEstadoCasillero(EstadoCasillero unestado) {
+		estadoCasillero = unestado;
 	}
 	
 	
-	public Casillero (Estado unestado) {
-		estado = unestado;
+	public Casillero (EstadoCasillero unestado) {
+		estadoCasillero = unestado;
 	}
 	
 	public String getPropietario() {
@@ -23,12 +23,12 @@ public class Casillero {
 	}
 
 	public void hacerEfectoDelCasillero(Jugador unJugador){
-		estado.hacerEfectoDelCasillero(unJugador);
+		estadoCasillero.hacerEfectoDelCasillero(unJugador);
 	}
 
-	public Estado getestado() {
+	public EstadoCasillero getestado() {
 		// TODO Auto-generated method stub
-		return estado;
+		return estadoCasillero;
 	}
 
 

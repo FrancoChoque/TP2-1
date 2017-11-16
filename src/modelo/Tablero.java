@@ -95,64 +95,64 @@ public class Tablero {
     private void cargarCasilleros(){
 
         Salida salida = new Salida();
-        Casilleros[0].setEstado(salida);
+        Casilleros[0].setEstadoCasillero(salida);
         
         Quini6 quini6 = new Quini6();
-        Casilleros[1].setEstado(quini6);
+        Casilleros[1].setEstadoCasillero(quini6);
         
         BuenosAiresSur buenosAiresSur = new BuenosAiresSur();
-        Casilleros[2].setEstado(buenosAiresSur);
+        Casilleros[2].setEstadoCasillero(buenosAiresSur);
         
         Edesur edesur = new Edesur();
-        Casilleros[3].setEstado(edesur);
+        Casilleros[3].setEstadoCasillero(edesur);
         
         BuenosAiresNorte buenosAiresNorte = new BuenosAiresNorte();
-        Casilleros[4].setEstado(buenosAiresNorte);
+        Casilleros[4].setEstadoCasillero(buenosAiresNorte);
         
         Carcel carcel = new Carcel(this);
-        Casilleros[5].setEstado(carcel);
+        Casilleros[5].setEstadoCasillero(carcel);
         
         CordobaSur cordobaSur = new CordobaSur();
-        Casilleros[6].setEstado(cordobaSur);
+        Casilleros[6].setEstadoCasillero(cordobaSur);
         
         AvanceDinamico avance = new AvanceDinamico();
-        Casilleros[7].setEstado(avance);
+        Casilleros[7].setEstadoCasillero(avance);
         
         Subte subte = new Subte();
-        Casilleros[8].setEstado(subte);
+        Casilleros[8].setEstadoCasillero(subte);
         
         CordobaNorte cordobaNorte = new CordobaNorte();
-        Casilleros[9].setEstado(cordobaNorte);
+        Casilleros[9].setEstadoCasillero(cordobaNorte);
         
         ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
-        Casilleros[10].setEstado(impuesto);
+        Casilleros[10].setEstadoCasillero(impuesto);
         
         SantaFe santafe = new SantaFe();
-        Casilleros[11].setEstado(santafe);
+        Casilleros[11].setEstadoCasillero(santafe);
         
         Aysa aysa = new Aysa();
-        Casilleros[12].setEstado(aysa);
+        Casilleros[12].setEstadoCasillero(aysa);
         
         SaltaNorte saltaNorte = new SaltaNorte();
-        Casilleros[13].setEstado(saltaNorte);
+        Casilleros[13].setEstadoCasillero(saltaNorte);
         
         SaltaSur saltaSur = new SaltaSur();
-        Casilleros[14].setEstado(saltaSur);
+        Casilleros[14].setEstadoCasillero(saltaSur);
         
         Policia policia = new Policia(this);
-        Casilleros[15].setEstado(policia);
+        Casilleros[15].setEstadoCasillero(policia);
         
         Tren tren = new Tren();
-        Casilleros[16].setEstado(tren);
+        Casilleros[16].setEstadoCasillero(tren);
         
         Neuquen neuquen = new Neuquen();
-        Casilleros[17].setEstado(neuquen);
+        Casilleros[17].setEstadoCasillero(neuquen);
         
         RetrocesoDinamico retroceso = new RetrocesoDinamico();
-        Casilleros[18].setEstado(retroceso);
+        Casilleros[18].setEstadoCasillero(retroceso);
         
         Tucuman tucuman = new Tucuman();
-        Casilleros[19].setEstado(tucuman);
+        Casilleros[19].setEstadoCasillero(tucuman);
 
 
     }

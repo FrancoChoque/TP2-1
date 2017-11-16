@@ -1,10 +1,9 @@
 package estados;
 
 
-import excepciones.*;
 import modelo.Jugador;
 
-public class Terreno extends Estado implements Comprable{
+public class Terreno extends EstadoCasillero implements Comprable{
 
 	private Jugador propietario = null;
 

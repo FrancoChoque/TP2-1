@@ -3,7 +3,7 @@ package estados;
 import modelo.Jugador;
 import modelo.Tablero;
 
-public class Policia extends Estado {
+public class Policia extends EstadoCasillero {
 	
 	private Tablero tablero;
 	

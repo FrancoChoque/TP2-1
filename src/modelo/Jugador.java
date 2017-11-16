@@ -55,6 +55,11 @@ public class Jugador {
 
 	}
 
+    public void comprar(Terreno unTerreno) throws NoEsTurnoJugador{
+        estadoDeJugador.comprar(unTerreno);
+
+    }
+
 	public int getDinero(){
 		return this.dinero;
 	}
@@ -67,10 +72,7 @@ public class Jugador {
 		this.dinero += unMonto;
 	}
 
-	public void comprar(Terreno unTerreno) throws NoEsTurnoJugador, JugadorYaTiroDados {
-		estadoDeJugador.comprar(unTerreno);
 
-	}
 
 	public void setEstado(EstadoDeJugador unEstado){
 
@@ -113,20 +115,20 @@ public class Jugador {
 		this.propiedades.add(unTerreno);
 	}
 
-	public void comprarTerreno(Terreno unTerreno) {
+
+    public void comprarTerreno(Terreno unTerreno) {
         try {
             this.comprar(unTerreno);
         } catch (NoEsTurnoJugador noEsTurnoJugador) {
             System.out.println("no es el turno del jugador");
-        } catch (JugadorYaTiroDados jugadorYaTiroDados) {
-            System.out.println("ya tiro los dados");
         }
     }
 
 
     public void cambiarMovimiento() {
 		// TODO Auto-generated method stub
-		movimientoPosible = movimientoPosible ? false : true ;
+        if (!movimientoPosible) movimientoPosible = true;
+        else movimientoPosible = false;
 	}
 
 

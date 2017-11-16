@@ -2,7 +2,7 @@ package estados;
 
 
 
-public class Suerte extends Estado{
+public class Suerte extends EstadoCasillero {
 
 
 }
