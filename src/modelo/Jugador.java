@@ -14,7 +14,7 @@ public class Jugador {
 
 	private LinkedList<Comprable> propiedades;
 	private boolean movimientoPosible;
-
+	private int numeroPropiedades;
 
 
 
@@ -30,10 +30,11 @@ public class Jugador {
 
 
 		this.nombre = unNombre;
-        this.valorDados = 0;
+		this.valorDados = 0;
 
 		this.dinero = DINERO_INICIAL;
 		propiedades = new LinkedList<Comprable>();
+
 
 		movimientoPosible = true;
 
@@ -47,20 +48,20 @@ public class Jugador {
 	}
 
 	public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
-        estadoDeJugador.arrojarDados();
-    }
+		estadoDeJugador.arrojarDados();
+	}
 
 
-    public void vender() throws NoEsTurnoJugador{
-	    estadoDeJugador.vender();
-    }
+	public void vender() throws NoEsTurnoJugador{
+		estadoDeJugador.vender();
+	}
 
 
 
-    public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador{
-        estadoDeJugador.comprar(unPropiedad);
+	public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador{
+		estadoDeJugador.comprar(unPropiedad);
 
-    }
+	}
 
 	public int getDinero(){
 		return this.dinero;
@@ -82,12 +83,12 @@ public class Jugador {
 	}
 
 	public void setValorDados(int unValor){
-	    this.valorDados = unValor;
-    }
+		this.valorDados = unValor;
+	}
 
-    public int getValorDados(){
-	    return this.valorDados;
-    }
+	public int getValorDados(){
+		return this.valorDados;
+	}
 
 	public EstadoDeJugador getEstadoDeJugador() {
 		return estadoDeJugador;
@@ -113,19 +114,19 @@ public class Jugador {
 	}
 
 
-    public void comprarTerreno(Propiedad unPropiedad) {
-        try {
-            this.comprar(unPropiedad);
-        } catch (NoEsTurnoJugador noEsTurnoJugador) {
-            System.out.println("no es el turno del jugador");
-        }
-    }
+	public void comprarTerreno(Propiedad unPropiedad) {
+		try {
+			this.comprar(unPropiedad);
+		} catch (NoEsTurnoJugador noEsTurnoJugador) {
+			System.out.println("no es el turno del jugador");
+		}
+	}
 
 
-    public void cambiarMovimiento() {
+	public void cambiarMovimiento() {
 
-        if (!movimientoPosible) movimientoPosible = true;
-        else movimientoPosible = false;
+		if (!movimientoPosible) movimientoPosible = true;
+		else movimientoPosible = false;
 	}
 
 
@@ -135,6 +136,24 @@ public class Jugador {
 		return dinero >= monto;
 	}
 
+	public boolean puedeMoverse() {
+
+		return movimientoPosible;
+	}
+
+
+	public int getNumeroPropiedades() {
+		return numeroPropiedades;
+	}
+
+	public void setNumeroPropiedades(int numPropiedades) {
+		this.numeroPropiedades = numPropiedades;
+	}
+
+
+	public void aumentarNumeroDePropiedades(int unAumento){
+			this.numeroPropiedades += unAumento;
+	}
 
 /*	public int getNumeroPropiedades() {
 
