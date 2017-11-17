@@ -121,7 +121,7 @@ public class CarcelTest {
 		
 		try {
 			unacarcel.cobrarFianza(unjugador);
-			Assert.assertEquals(55000, null );
+
 		}
 		catch(TurnosEnCalabozoInvalidoException error){
 			Assert.assertTrue(true);
@@ -148,6 +148,22 @@ public class CarcelTest {
 		catch(DineroInsuficienteException error){
 			Assert.assertTrue(true);
 		}
+	}
+
+
+	@Test
+	public void test00JugadorConCuatroTurnosEnCalabozoPuedeMoverse() {
+		Tablero untablero = Tablero.getInstance();
+		Jugador unjugador = new Jugador("Player");
+		untablero.agregarJugador(unjugador);
+
+		untablero.moverJugador(unjugador, 5);
+		untablero.moverJugador(unjugador, 1);
+		untablero.moverJugador(unjugador, 1);
+		untablero.moverJugador(unjugador, 1);
+
+
+		Assert.assertTrue(unjugador.puedeMoverse());
 	}
 	
 }

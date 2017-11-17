@@ -22,9 +22,11 @@ public class JugadorTiroDados implements EstadoDeJugador {
 
     public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador {
         //if(! unterreno.tieneDuenio() )
-        jugador.adquirirPropiedad(unPropiedad);
-        unPropiedad.cambiarDuenio(jugador);
         unPropiedad.pagarCompra(jugador);
+        unPropiedad.cambiarDuenio(jugador);
+        jugador.adquirirPropiedad(unPropiedad);
+
+
 
     }
 

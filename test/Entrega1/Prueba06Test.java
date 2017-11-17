@@ -71,7 +71,6 @@ public class Prueba06Test {
 		
 		try {
 			unacarcel.cobrarFianza(unjugador);
-			Assert.assertEquals(55000, null );
 		}
 		catch(TurnosEnCalabozoInvalidoException error){
 			Assert.assertTrue(true);

@@ -37,9 +37,8 @@ public class Jugador {
 
 		movimientoPosible = true;
 
-		this.valorQueseTieneQueMover = 0;
+
 		this.tieneQueMoverse = false;
-		this.numeroPropiedades = 0;
 
 		jugadorEmpezandoTurno = new JugadorEmpezandoTurno(this);
 		jugadorSinTurno = new JugadorSinTurno(this);
@@ -80,7 +79,6 @@ public class Jugador {
 
 
 	public void setEstado(EstadoDeJugador unEstado){
-
 		this.estadoDeJugador = unEstado;
 
 	}
