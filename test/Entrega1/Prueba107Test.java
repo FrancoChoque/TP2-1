@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import excepciones.DineroInsuficienteException;
 
-public class Prueba07Test {
+public class Prueba107Test {
 
 	@Test
 	public void test00JugadorNoTieneDineroSuficienteYNoPuedeMoverse() {

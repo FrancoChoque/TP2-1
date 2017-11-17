@@ -3,7 +3,7 @@ import excepciones.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Prueba11Test {
+public class Prueba111Test {
 
 	@Test
 	public void test00JugadorCaeEnRetrocesoConDadosEn6YUnaPropiedadRetrocede5Casillas() {

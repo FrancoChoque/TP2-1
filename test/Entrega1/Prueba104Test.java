@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class Prueba04Test {
+public class Prueba104Test {
 
 	@Test
 	public void test() {

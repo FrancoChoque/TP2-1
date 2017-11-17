@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import excepciones.TurnosEnCalabozoInvalidoException;
 
-public class Prueba06Test {
+public class Prueba106Test {
 
 	@Test
 	public void test00JugadorConUnTurnoEnCalabozoNoPuedePagarFianza() {

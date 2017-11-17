@@ -1,18 +1,18 @@
 package estados;
 
-
+import static org.junit.Assert.*;
 
 import org.junit.Assert;
-
 import org.junit.Test;
 
-import modelo.*;
+import modelo.Casillero;
+import modelo.Jugador;
+import modelo.Tablero;
 
-
-public class BuenosAiresSurTest {
+public class CordobaNorteTest {
 
 	@Test
-	public void test00ComprarBuenosAiresSurReduceElDineroDelJugadorEn20000() {
+	public void test00ComprarCordobaNorteReduceElDineroDelJugadorEn20000() {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("plauer");
 
@@ -20,7 +20,7 @@ public class BuenosAiresSurTest {
 
 		untablero.agregarJugador(player);
 		
-		untablero.moverJugador(player, 2);
+		untablero.moverJugador(player, 9);
 
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();

@@ -4,7 +4,7 @@ import org.junit.Assert;
 import modelo.*;
 import excepciones.*;
 
-public class Prueba12Test {
+public class Prueba112Test {
 
 	@Test
 	public void test00JugadorCaeEnPoliciaSeEnviaALaCarcelYNoPuedeMoverse() {

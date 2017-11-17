@@ -19,7 +19,7 @@ public class Comprable extends EstadoCasillero{
 	}
 	
 	public void pagarCompra(Jugador jugador) {
-		// TODO Auto-generated method stub
+		// Delegado a subclase, no puedo acceder a sus atributos desde superclase
 	}
 	
 }

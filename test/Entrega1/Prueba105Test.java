@@ -3,7 +3,7 @@ import modelo.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Prueba05Test {
+public class Prueba105Test {
 
 	@Test
 	public void test() {

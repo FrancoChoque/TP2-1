@@ -1,18 +1,23 @@
 import modelo.*;
+import excepciones.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-
-public class Prueba01Test {
+public class Prueba103Test {
 
 	@Test
-	public void test(){
+	public void test() {
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
+		
 		tablero.moverJugador(jugador, 1);
 		
-		Assert.assertEquals(150000,jugador.getDinero());
+		tablero.moverJugador(jugador, 20);
+		
+		tablero.moverJugador(jugador, 20);
+		
+		Assert.assertEquals(180000,jugador.getDinero());
 	}
 
 }
