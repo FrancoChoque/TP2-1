@@ -77,4 +77,8 @@ public class Carcel extends EstadoCasillero {
 		unjugador.cambiarMovimiento();
 
 	}
+
+	public boolean esComprable() {
+		return false;
+	}
 }

@@ -16,4 +16,9 @@ public class Policia extends EstadoCasillero {
 	public void hacerEfectoDelCasillero(Jugador unjugador) {
 		tablero.moverJugador(unjugador, 10);
 	}
+
+	@Override
+	public boolean esComprable() {
+		return false;
+	}
 }

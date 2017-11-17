@@ -19,4 +19,8 @@ public class AvanceDinamico extends Suerte{
 		}
 		tablero.moverJugador(unJugador,nuevoDesplazamiento );
 	}
+
+	public boolean esComprable() {
+		return false;
+	}
 }

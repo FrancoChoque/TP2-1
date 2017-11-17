@@ -2,17 +2,11 @@ package estados;
 
 import modelo.Jugador;
 
-public class EstadoCasillero {
+public abstract class EstadoCasillero {
 
-	public void hacerEfectoDelCasillero(Jugador unJugador) {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void hacerEfectoDelCasillero(Jugador unJugador);
 
-	public boolean esComprable() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public abstract boolean esComprable();
 
 
 

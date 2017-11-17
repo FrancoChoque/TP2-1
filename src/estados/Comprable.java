@@ -2,9 +2,10 @@ package estados;
 
 import modelo.Jugador;
 
-public class Comprable extends EstadoCasillero{
+public abstract class Comprable extends EstadoCasillero{
 	
 	private Jugador Duenio;
+
 	
 	public void cambiarDuenio(Jugador jugador) {
 		Duenio = jugador;
@@ -17,9 +18,11 @@ public class Comprable extends EstadoCasillero{
 	public boolean tieneDuenio() {
 		return Duenio != null;
 	}
-	
-	public void pagarCompra(Jugador jugador) {
-		// Delegado a subclase, no puedo acceder a sus atributos desde superclase
-	}
+
+    public void pagarCompra(Jugador unjugador) {
+
+    }
+
+	public abstract void cobrarPorPasar(Jugador jugadpr);
 	
 }

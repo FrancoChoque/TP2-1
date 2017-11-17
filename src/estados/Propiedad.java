@@ -5,8 +5,7 @@ import modelo.Jugador;
 
 public class Propiedad extends Comprable{
 
-	
-	private int precioCompra;
+
 
 	public void pagarCompra(Jugador unjugador) {
 		
@@ -16,5 +15,12 @@ public class Propiedad extends Comprable{
 	public void hacerEfectoDelCasillero(Jugador unjugador) {
 	}
 
+	public void cobrarPorPasar(Jugador unJugador){
+
+	}
+
+	public boolean esComprable() {
+		return true;
+	}
 
 }
