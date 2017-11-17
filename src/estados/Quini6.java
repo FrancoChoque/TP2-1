@@ -11,11 +11,16 @@ public class Quini6 extends Suerte {
 
     private HashMap<Jugador,Integer> numeroDeVecesEnQuini;
 
-	Quini6Estrategia quini6Estrategia;
+    private int[] premio;
 	
 	public Quini6(){
 		super();
 	    this.numeroDeVecesEnQuini = new HashMap<Jugador,Integer>();
+
+	    this.premio = new int[2];
+
+	    this.premio[0] = 50000;
+	    this.premio[1] = 30000;
 
 	}
 	
@@ -28,36 +33,22 @@ public class Quini6 extends Suerte {
 		return this.numeroDeVecesEnQuini.get(unJugador);
 	}
 	
-	public void hacerEfectoDelCasillero(Jugador unJugador){
+	public void hacerEfectoDelCasillero(Jugador unJugador) {
 
-	    setQuini6Estrategia(unJugador);
-
-		pagarQuini6(unJugador);
-
-	}
-
-	private void setQuini6Estrategia(Jugador unJugador){
-
-        if(!numeroDeVecesEnQuini.containsKey(unJugador) ) {
-            numeroDeVecesEnQuini.put(unJugador, 1);
-            this.quini6Estrategia = new Quini6PagaMucho();
-            return;
+        if (!numeroDeVecesEnQuini.containsKey(unJugador)) {
+            numeroDeVecesEnQuini.put(unJugador, 0);
         }
 
         int cantidadVeces = numeroDeVecesEnQuini.get(unJugador);
-        cantidadVeces ++;
-        numeroDeVecesEnQuini.put(unJugador, cantidadVeces );
 
-        if(cantidadVeces == 2 ) {
-            this.quini6Estrategia = new Quini6PagaPoco();
-        }else {
-            this.quini6Estrategia = new Quini6NoPaga();
+        if (cantidadVeces > 1) return;
+
+        unJugador.sumarDinero(premio[cantidadVeces]);
+
+        numeroDeVecesEnQuini.put(unJugador, cantidadVeces + 1);
+
         }
 
-
     }
 
-	public void pagarQuini6(Jugador unJugador){
-        this.quini6Estrategia.aplicarQuini6(unJugador);
-    }
-}
+
