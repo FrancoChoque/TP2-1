@@ -1,4 +1,5 @@
 package modelo;
+import estados.Comprable;
 import estados.Propiedad;
 import excepciones.JugadorNoTiroDados;
 import excepciones.JugadorYaTiroDados;
@@ -33,11 +34,12 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
     }
 
-    public void comprar(Propiedad unPropiedad) throws NoEsTurnoJugador {
+    @Override
+    public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
         //if(! unterreno.tieneDuenio() )
-        jugador.adquirirPropiedad(unPropiedad);
-        unPropiedad.cambiarDuenio(jugador);
-        unPropiedad.pagarCompra(jugador);
+        jugador.adquirirPropiedad(uncomprable);
+        uncomprable.cambiarDuenio(jugador);
+        uncomprable.pagarCompra(jugador);
     }
 
     public void vender(){

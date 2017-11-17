@@ -26,7 +26,7 @@ public class Prueba04Test {
 
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 
-        Propiedad unterreno = (Propiedad) unacasilla.getestado();
+        Comprable unterreno = (Comprable) unacasilla.getestado();
 
 		player.comprarTerreno(unterreno);
 

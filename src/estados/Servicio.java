@@ -2,11 +2,8 @@ package estados;
 
 
 
-public class Servicio extends EstadoCasillero {
+public class Servicio extends Comprable {
 	
 	
-	@Override
-	public boolean esComprable() {
-		return true;
-	}
+
 }

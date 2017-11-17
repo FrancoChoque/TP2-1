@@ -2,11 +2,24 @@ package estados;
 
 import modelo.Jugador;
 
-public interface Comprable {
+public class Comprable extends EstadoCasillero{
 	
-	public void cambiarDuenio(Jugador jugador);
+	private Jugador Duenio;
 	
-	public Jugador preguntarDuenio();
+	public void cambiarDuenio(Jugador jugador) {
+		Duenio = jugador;
+	}
 	
-	public boolean tieneDuenio();
+	public Jugador preguntarDuenio() {
+		return Duenio;
+	}
+	
+	public boolean tieneDuenio() {
+		return Duenio != null;
+	}
+	
+	public void pagarCompra(Jugador jugador) {
+		// TODO Auto-generated method stub
+	}
+	
 }
