@@ -15,9 +15,9 @@ public class Jugador {
 	private LinkedList<Comprable> propiedades;
 	private boolean movimientoPosible;
 
-	private int valorQueseTieneQueMover;
-	private boolean tieneQueMoverse;
-	private int numeroPropiedades;
+
+
+
 	private int valorDados;
 
 	private EstadoDeJugador jugadorEmpezandoTurno;
@@ -37,8 +37,6 @@ public class Jugador {
 
 		movimientoPosible = true;
 
-
-		this.tieneQueMoverse = false;
 
 		jugadorEmpezandoTurno = new JugadorEmpezandoTurno(this);
 		jugadorSinTurno = new JugadorSinTurno(this);
@@ -107,10 +105,6 @@ public class Jugador {
 		return jugadorTiroDados;
 	}
 
-	public boolean puedeMoverse() {
-		// TODO Auto-generated method stub
-		return movimientoPosible;
-	}
 
 
 	public void adquirirPropiedad(Propiedad unPropiedad){
@@ -129,7 +123,7 @@ public class Jugador {
 
 
     public void cambiarMovimiento() {
-		// TODO Auto-generated method stub
+
         if (!movimientoPosible) movimientoPosible = true;
         else movimientoPosible = false;
 	}
@@ -137,45 +131,22 @@ public class Jugador {
 
 
 	public boolean puedePagar(int monto) {
-		// TODO Auto-generated method stub
+
 		return dinero >= monto;
 	}
 
-	public void setValorQueseTieneQueMover(int valor){
-		this.valorQueseTieneQueMover = valor;
-	}
 
-	public int getValorQueseTieneQueMover(){
+/*	public int getNumeroPropiedades() {
 
-		return this.valorQueseTieneQueMover;
-	}
+		int numeroDePropiedades = 0;
 
-	public void comenzarAmoverse(){
-		this.tieneQueMoverse = true;
-	}
+		for (each propiedad){
+		 	numeroDePropiedades++;
+		 	if(propiedad es barrio){
+				numeroDePropiedades +=get cantidad de construcciones
+			}
+		}
 
-	public void continuarMoviendose(){
-		this.tieneQueMoverse = true;
-	}
-
-	public boolean getTieneQueMoverse(){
-		return this.tieneQueMoverse;
-	}
-
-	public void seMovio(){
-		this.tieneQueMoverse = false;
-	}
-
-	public int getNumeroPropiedades() {
-		return numeroPropiedades;
-	}
-
-	public void setNumeroPropiedades(int numPropiedades) {
-		this.numeroPropiedades = numPropiedades;
-	}
-
-	public void aumentarNumeroDePropiedades(int unAumento){
-		this.numeroPropiedades += unAumento;
-	}
-
+		return numeroDePropiedades;
+	}*/
 }

@@ -26,8 +26,6 @@ public class JugadorTiroDados implements EstadoDeJugador {
         unPropiedad.cambiarDuenio(jugador);
         jugador.adquirirPropiedad(unPropiedad);
 
-
-
     }
 
     public void vender() throws NoEsTurnoJugador {
