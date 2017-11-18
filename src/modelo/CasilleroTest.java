@@ -75,15 +75,7 @@ public class CasilleroTest {
 		Assert.assertNotNull(uncasillero.getestado());	
 	}
 	
-	@Test
-	public void test05CrearCasilleroConEstadoTerrenoNoEsNulo() {
-		Propiedad unestado = new Propiedad();
-		
-		Casillero uncasillero = new Casillero(unestado);
-		
-		Assert.assertNotNull(uncasillero.getestado());
-	}
-	
+
 	@Test
 	public void test06CrearCasilleroConEstadoBuenosAiresSurNoEsNulo() {
 		BuenosAiresSur unestado = new BuenosAiresSur();

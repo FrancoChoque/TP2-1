@@ -9,7 +9,7 @@ public class CordobaNorte extends Propiedad {
 	private int precioHotel = 3500;
 
 
-	public void pagarCompra(Jugador unjugador) {
+	public void cobrarCompra(Jugador unjugador) {
 		unjugador.sumarDinero(precioCompra * -1);
 	}
 

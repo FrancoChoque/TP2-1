@@ -4,6 +4,7 @@ package modelo.Jugador;
 import estados.Comprable;
 import estados.Propiedad;
 import excepciones.*;
+import modelo.Edificio;
 
 
 public class JugadorSinTurno implements EstadoDeJugador {
@@ -24,7 +25,7 @@ public class JugadorSinTurno implements EstadoDeJugador {
 
     }
 
-    public void edificar(Propiedad unaPropiedad) throws NoEsTurnoJugador, JugadorNoTieneTerreno{}
+    public void edificar(Propiedad unaPropiedad, Edificio unEdificio) throws NoEsTurnoJugador, JugadorNoTieneTerreno{}
     
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {

@@ -9,7 +9,7 @@ public class CordobaSur extends Propiedad {
 	private int precioHotel = 3000;
 	
 	@Override
-	public void pagarCompra(Jugador unjugador) {
+	public void cobrarCompra(Jugador unjugador) {
 		unjugador.sumarDinero(precioCompra * -1); 
 	}
 }

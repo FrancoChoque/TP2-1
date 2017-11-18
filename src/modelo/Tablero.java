@@ -5,26 +5,7 @@ package modelo;
 
 import java.util.HashMap;
 
-import estados.AvanceDinamico;
-import estados.Aysa;
-import estados.BuenosAiresNorte;
-import estados.BuenosAiresSur;
-import estados.Carcel;
-import estados.CordobaNorte;
-import estados.CordobaSur;
-import estados.Edesur;
-import estados.ImpuestoAlLujo;
-import estados.Neuquen;
-import estados.Policia;
-import estados.Quini6;
-import estados.RetrocesoDinamico;
-import estados.Salida;
-import estados.SaltaNorte;
-import estados.SaltaSur;
-import estados.SantaFe;
-import estados.Subte;
-import estados.Tren;
-import estados.Tucuman;
+import estados.*;
 import modelo.Jugador.Jugador;
 
 public class Tablero {
@@ -46,9 +27,10 @@ public class Tablero {
 
     private Casillero[] Casilleros;
 
+
     private Tablero(){
         posicionJugadores = new HashMap<Jugador,Integer>();
-        
+
         
         Casilleros = new Casillero[CANTIDAD_CASILLAS]; //Cambie el hashmap por un array
         for(int i= 0; i<CANTIDAD_CASILLAS; i++) {
@@ -164,9 +146,24 @@ public class Tablero {
 	public int preguntarTurnosEnCalabozo(Jugador unjugador) {
 		Carcel unacarcel = (Carcel) Casilleros[5].getestado();
 		return unacarcel.preguntarTurnosEnCalabozo(unjugador);
-		
+
 	}
 
+
+
+
+
+    public BuenosAiresSur getBuenosAiresSur(){ return (BuenosAiresSur) Casilleros[2].getestado();}
+    public Edesur getEdesur(){ return (Edesur)Casilleros[3].getestado();}
+    public BuenosAiresNorte getBuenosAiresNorte(){ return (BuenosAiresNorte) Casilleros[4].getestado();}
+    public Carcel getCarcel(){ return (Carcel) Casilleros[5].getestado();}
+    public CordobaSur getCordobaSur(){ return (CordobaSur) Casilleros[6].getestado();}
+    public Subte getSubte(){ return (Subte) Casilleros[8].getestado();}
+    public CordobaNorte getCordobaNorte(){ return  (CordobaNorte) Casilleros[9].getestado();}
+    public Aysa getAysa(){ return (Aysa) Casilleros[12].getestado();}
+    public SaltaNorte getSaltaNorte(){ return  (SaltaNorte) Casilleros[13].getestado();}
+    public SaltaSur getSaltaSur(){ return  (SaltaSur) Casilleros[14].getestado();}
+    public Tren getTren(){ return (Tren) Casilleros[16].getestado();}
 
 
 }

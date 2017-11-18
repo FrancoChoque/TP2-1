@@ -9,7 +9,7 @@ public class Neuquen extends Propiedad {
 
 	
 	@Override
-	public void pagarCompra(Jugador unjugador) {
+	public void cobrarCompra(Jugador unjugador) {
 		unjugador.sumarDinero(precioCompra * -1); 
 	}
 }

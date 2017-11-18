@@ -19,10 +19,9 @@ public abstract class Comprable extends EstadoCasillero{
 		return Duenio != null;
 	}
 
-    public void pagarCompra(Jugador unjugador) {
+    public abstract void cobrarCompra(Jugador unjugador);
 
-    }
+    public abstract void cobrarPase(Jugador unJugador);
 
-	public abstract void cobrarPorPasar(Jugador jugadpr);
-	
+	public void hacerEfectoDelCasillero(){};
 }

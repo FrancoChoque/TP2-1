@@ -10,8 +10,9 @@ public class BuenosAiresSur extends Propiedad {
 	private int valorCasa = 5000;
 	private int valorHotel = 8000;
 
+
 	@Override
-	public void pagarCompra(Jugador unjugador) {
+	public void cobrarCompra(Jugador unjugador) {
 		unjugador.sumarDinero(precioCompra * -1);
 	}
 	

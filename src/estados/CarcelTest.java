@@ -58,7 +58,7 @@ public class CarcelTest {
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
 		
-		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
+		Carcel unacarcel = untablero.getCarcel();
 		
 		try {
 			unacarcel.cobrarFianza(unjugador);

@@ -1,9 +1,11 @@
 package modelo.Jugador;
+import estados.Propiedad;
 import excepciones.*;
 
 import java.util.LinkedList;
 
 import estados.Comprable;
+import modelo.Edificio;
 
 public class Jugador {
 
@@ -34,17 +36,14 @@ public class Jugador {
 		this.dinero = DINERO_INICIAL;
 		propiedades = new LinkedList<Comprable>();
 
+        movimientoPosible = true;
 
-		movimientoPosible = true;
-
-
-		jugadorEmpezandoTurno = new JugadorEmpezandoTurno(this);
+        jugadorEmpezandoTurno = new JugadorEmpezandoTurno(this);
 		jugadorSinTurno = new JugadorSinTurno(this);
 		jugadorTiroDados = new JugadorTiroDados(this);
 		estadoDeJugador = jugadorSinTurno;
 
-
-	}
+    }
 
 	public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
 		estadoDeJugador.arrojarDados();
@@ -55,12 +54,25 @@ public class Jugador {
 		estadoDeJugador.vender();
 	}
 
+	public void edificar(Propiedad unaPropiedad, Edificio unEdificio) throws NoEsTurnoJugador, JugadorNoTieneTerreno {
+		estadoDeJugador.edificar(unaPropiedad, unEdificio);
+	}
+
 
 
 	public void comprar(Comprable uncomprable) throws NoEsTurnoJugador{
 		estadoDeJugador.comprar(uncomprable);
 
 	}
+
+	public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados{
+	    estadoDeJugador.pasarTurno();
+    }
+
+
+    public boolean esDuenio(Comprable unaPropiedad){
+	    return propiedades.contains(unaPropiedad);
+    }
 
 
 	public int getDinero(){

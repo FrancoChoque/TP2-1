@@ -1,5 +1,5 @@
 package modelo;
 
 
-public class Hotel {
+public class Hotel extends Edificio {
 }

@@ -6,6 +6,7 @@ import excepciones.JugadorNoTiroDados;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import modelo.Dado;
+import modelo.Edificio;
 
 public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
@@ -39,15 +40,16 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
         //if(! unterreno.tieneDuenio() )
+        uncomprable.cobrarCompra(jugador);
         jugador.adquirirPropiedad(uncomprable);
         uncomprable.cambiarDuenio(jugador);
-        uncomprable.pagarCompra(jugador);
+
     }
 
 
-    public void edificar(Propiedad unaPropiedad) throws NoEsTurnoJugador, JugadorNoTieneTerreno{
+    public void edificar(Propiedad unaPropiedad, Edificio unEdificio) throws NoEsTurnoJugador, JugadorNoTieneTerreno{
 
-
+        unaPropiedad.edificar(jugador,unEdificio);
 
 
     }

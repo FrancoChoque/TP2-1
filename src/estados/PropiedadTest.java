@@ -12,14 +12,14 @@ public class PropiedadTest {
 
 	@Test
 	public void test00TerrenoRecienCreadoNoTieneDuenio() {
-		Propiedad unterreno = new Propiedad();
+		Propiedad unterreno = new BuenosAiresNorte();
 		
 		Assert.assertFalse( unterreno.tieneDuenio() );
 	}
 
 	@Test
 	public void test01TerrenoSinDuenioSeCompraYCambiaElDuenio() {
-		Propiedad unterreno = new Propiedad();
+		Propiedad unterreno = new BuenosAiresSur();
 		Jugador player = new Jugador("player");
 
 		player.setEstado(player.getJugadorEmpezandoTurno());

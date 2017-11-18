@@ -9,7 +9,7 @@ public class SaltaSur extends Propiedad {
 	private int precioHotel = 7500;
 	
 	@Override
-	public void pagarCompra(Jugador unjugador) {
+	public void cobrarCompra(Jugador unjugador) {
 		unjugador.sumarDinero(precioCompra * -1); 
 	}
 }
