@@ -4,7 +4,7 @@ import modelo.Jugador.Jugador;
 
 public abstract class Comprable extends EstadoCasillero{
 	
-	private Jugador Duenio;
+	protected Jugador Duenio;
 
 	
 	public void cambiarDuenio(Jugador jugador) {

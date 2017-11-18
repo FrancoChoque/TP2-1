@@ -16,7 +16,6 @@ import java.util.Stack;
 public class BuenosAiresNorte extends Propiedad {
 
 	private boolean puedeConstruir;
-	private Stack<Edificio> edificios;
 
 
 
@@ -30,12 +29,25 @@ public class BuenosAiresNorte extends Propiedad {
 	 costoAlquilerConDosCasas = 4000;
 	 costoAlquilerConHotel = 6000;
 	 puedeConstruir = true;
-	 edificios = new Stack<Edificio>();
+	 
+	 Alquileres.add(costoAlquiler);
+	 Alquileres.add(costoAlquilerConCasa);
+	 Alquileres.add(costoAlquilerConDosCasas);
+	 Alquileres.add(costoAlquilerConHotel);
 
 	}
 
+	@Override
+	public void hacerEfectoDelCasillero(Jugador unjugador) {
+		if(! this.tieneDuenio()) return;
+		if(unjugador == this.Duenio) return;
+		
+		unjugador.sumarDinero(AlquilerActual * -1);
+	}
+	
 
-
+	
+	
 	public void puedeEdificar(Jugador unJugador, Edificio unEdificio) throws JugadorNoTieneTerreno{
 
 		Tablero tablero = Tablero.getInstance();
@@ -43,12 +55,15 @@ public class BuenosAiresNorte extends Propiedad {
 		if(!unJugador.esDuenio(this) || !unJugador.esDuenio(tablero.getBuenosAiresSur())) throw new JugadorNoTieneTerreno();
 
 		if(unEdificio instanceof Hotel){
-			if(edificios.size()>1) return;
-		}else{
-			if(unEdificio instanceof Casa){
-				if(edificios.size()>2)return;
-			}
+			if(edificios.size()!=2) return;
 		}
+			
+		if(unEdificio instanceof Casa){
+				if(edificios.size()>=2)return;
+				edificios.add(unEdificio);
+		}
+		AlquilerActual = Alquileres.get(edificios.size() );
+		
 
 
 	}

@@ -7,7 +7,7 @@ public class Prueba111Test {
 
 	@Test
 	public void test00JugadorCaeEnRetrocesoConDadosEn6YUnaPropiedadRetrocede5Casillas() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("playuer");
         player.setEstado(player.getJugadorEmpezandoTurno());
 		player.setNumeroPropiedades(1);
@@ -20,7 +20,7 @@ public class Prueba111Test {
 	
 	@Test
 	public void test01JugadorCaeEnRetrocesoConDadosEn9YRetrocede1Casillero() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("playuer");
 		player.setEstado(player.getJugadorEmpezandoTurno());
 		player.setNumeroPropiedades(1);		
@@ -34,7 +34,7 @@ public class Prueba111Test {
 	
 	@Test
 	public void test02JugadorCaeEnRetrocesoConDadosEn12YRetrocede10Casilleros() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("playuer");
 		untablero.agregarJugador(player);
 		

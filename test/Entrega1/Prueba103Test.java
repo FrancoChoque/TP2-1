@@ -7,7 +7,7 @@ public class Prueba103Test {
 
 	@Test
 	public void test() {
-		Tablero tablero = Tablero.getInstance();
+		Tablero tablero = Tablero.resetInstance();
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		

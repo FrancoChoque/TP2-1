@@ -14,7 +14,7 @@ public class BuenosAiresSurTest {
 
 	@Test
 	public void test00ComprarBuenosAiresSurReduceElDineroDelJugadorEn20000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());

@@ -8,7 +8,7 @@ public class Prueba112Test {
 
 	@Test
 	public void test00JugadorCaeEnPoliciaSeEnviaALaCarcelYNoPuedeMoverse() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador unjugador = new Jugador("Player");
 
 		unjugador.setEstado(unjugador.getJugadorEmpezandoTurno());

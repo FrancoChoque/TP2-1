@@ -1,43 +1,38 @@
-package Entrega2;
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 import estados.Comprable;
 import estados.Propiedad;
 import excepciones.JugadorNoTieneTerreno;
 import excepciones.NoEsTurnoJugador;
-import modelo.Casillero;
 import modelo.Casa;
+import modelo.Casillero;
 import modelo.Edificio;
-import modelo.Jugador.Jugador;
 import modelo.Tablero;
-import org.junit.Assert;
-import org.junit.Test;
+import modelo.Jugador.Jugador;
 
-public class Prueba202Test {
+public class Prueba203Test {
 
-    @Test
+	@Test
 
-    public void construirCasaEnBuenosAiresNorteReduceDineroEn5500(){
+    public void test01JugadorCaeEnBuenosAiresNorteConUnaCasaYDineroDisminuye3500(){
 
-        Tablero untablero = Tablero.resetInstance();
+		Tablero untablero = Tablero.resetInstance();
         Jugador player = new Jugador("plauer");
-
         player.setEstado(player.getJugadorEmpezandoTurno());
-
         untablero.agregarJugador(player);
 
         untablero.moverJugador(player, 2);
-
         Casillero unacasilla = untablero.obtenerCasillero(player);
         Comprable unterreno = (Comprable) unacasilla.getestado();
-
         player.comprarTerreno(unterreno);
 
 
         untablero.moverJugador(player, 2);
-
         Casillero otraCasilla = untablero.obtenerCasillero(player);
         Comprable otroTerreno = (Comprable) otraCasilla.getestado();
-
         player.comprarTerreno(otroTerreno);
 
         Assert.assertEquals(55000, player.getDinero() );
@@ -51,6 +46,13 @@ public class Prueba202Test {
         }
 
         Assert.assertEquals(49500, player.getDinero() );
+        
+        Jugador jugador = new Jugador("Wilson");
+        jugador.setEstado(jugador.getJugadorEmpezandoTurno() );
+        untablero.agregarJugador(jugador);
+        untablero.moverJugador(jugador, 4);
+        
+        Assert.assertEquals(96500, jugador.getDinero());
 
     }
 

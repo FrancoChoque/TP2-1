@@ -26,7 +26,7 @@ public class JugadorTiroDados implements EstadoDeJugador {
     
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
-        //if(! unterreno.tieneDuenio() )
+        if( uncomprable.tieneDuenio() ) return;
         uncomprable.cobrarCompra(jugador);
         uncomprable.cambiarDuenio(jugador);
         jugador.adquirirPropiedad(uncomprable);

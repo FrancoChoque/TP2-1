@@ -9,7 +9,7 @@ public class Prueba104Test {
 
 	@Test
 	public void test() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
         Jugador player = new Jugador("plauer");
 
 

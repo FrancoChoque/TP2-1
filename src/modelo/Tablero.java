@@ -21,6 +21,12 @@ public class Tablero {
 		return instance;
 	}
 	
+	static public Tablero resetInstance() {
+		instance.resetearTablero();
+		return instance;
+	}
+	
+	
 	// Atributos y Metodos de instancia
 	
 	private HashMap <Jugador,Integer> posicionJugadores;
@@ -142,7 +148,24 @@ public class Tablero {
 
     }
 
-
+    //Metodo para borrar los duenios y edificios de los edificios comprables
+    //Solo usar para crear tableros limpios para las pruebas.
+    private void resetearTablero() {
+    	Casillero unacasilla;
+    	for(int i=0;i<CANTIDAD_CASILLAS ;i++) {
+    		unacasilla = Casilleros[i];
+    		EstadoCasillero unestado = unacasilla.getestado();
+    		if(!(unestado instanceof Comprable)) continue;
+    		((Comprable) unestado).cambiarDuenio(null);
+    		
+    		if(!(unestado instanceof Propiedad)) continue;
+    		((Propiedad) unestado).vaciarEdificios();
+    		
+    	}
+    }
+    
+    
+    
 	public int preguntarTurnosEnCalabozo(Jugador unjugador) {
 		Carcel unacarcel = (Carcel) Casilleros[5].getestado();
 		return unacarcel.preguntarTurnosEnCalabozo(unjugador);

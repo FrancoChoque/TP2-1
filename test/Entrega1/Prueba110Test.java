@@ -7,7 +7,7 @@ public class Prueba110Test {
 
 	@Test
 	public void jugadorCaeEnAvanceDinamicoConDados11yCon5PropiedadPosicionJugador13Test(){
-		Tablero tablero = Tablero.getInstance();
+		Tablero tablero = Tablero.resetInstance();
 		Jugador jugador = new Jugador("jugador1");
 
         jugador.setEstado(jugador.getJugadorEmpezandoTurno());

@@ -1,6 +1,9 @@
 package estados;
 
 
+import java.util.LinkedList;
+import java.util.Stack;
+
 import excepciones.DineroInsuficienteException;
 import excepciones.JugadorNoTieneTerreno;
 import modelo.Casa;
@@ -16,15 +19,16 @@ public class Propiedad extends Comprable{
 	int costoAlquilerConCasa;
 	int costoAlquilerConDosCasas;
 	int costoAlquilerConHotel;
-
+	int AlquilerActual;
+	LinkedList<Integer> Alquileres = new LinkedList<Integer>();
+	protected Stack<Edificio> edificios = new Stack<Edificio>();
 
 
 	public void puedeEdificar(Jugador unJugador, Edificio unEdificio) throws JugadorNoTieneTerreno{};
 
 	@Override
 	public void hacerEfectoDelCasillero(Jugador unJugador) {
-		/*
-		 */
+		if(this.preguntarDuenio() == unJugador) return;
 
 	}
 
@@ -70,6 +74,17 @@ public class Propiedad extends Comprable{
 
 	public boolean esComprable() {
 		return true;
+	}
+
+	public boolean puedeConstruir() {
+		return true;
+	}
+
+	public void vaciarEdificios() {
+		while(!edificios.empty()) {
+			edificios.pop();
+		}
+		
 	}
 
 

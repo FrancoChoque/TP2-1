@@ -11,7 +11,7 @@ public class Prueba106Test {
 
 	@Test
 	public void test00JugadorConUnTurnoEnCalabozoNoPuedePagarFianza() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
@@ -29,7 +29,7 @@ public class Prueba106Test {
 	
 	@Test
 	public void test01JugadorConDosTurnosEnCalabozoPagaFianzaYPuedeMoverse() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
@@ -44,7 +44,7 @@ public class Prueba106Test {
 	
 	@Test
 	public void test02JugadorConTresTurnosEnCalabozoPagaFianzaYPuedeMoverse() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
@@ -60,7 +60,7 @@ public class Prueba106Test {
 
 	@Test
 	public void test03JugadorConCuatroTurnosEnCalabozoNoPuedePagarFianza() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
