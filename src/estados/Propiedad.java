@@ -1,23 +1,20 @@
 package estados;
 
 
-import modelo.Jugador;
+import modelo.Jugador.Jugador;
 
 public class Propiedad extends Comprable{
 
 
-
-	public void pagarCompra(Jugador unjugador) {
-		
-	}
-
 	@Override
-	public void hacerEfectoDelCasillero(Jugador unjugador) {
+	public void hacerEfectoDelCasillero(Jugador unJugador) {
 	}
 
 	public void cobrarPorPasar(Jugador unJugador){
 
 	}
+
+	public void puedeEdificar(Jugador unJugador){}
 
 	public boolean esComprable() {
 		return true;

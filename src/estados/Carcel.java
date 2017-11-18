@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import excepciones.DineroInsuficienteException;
 import excepciones.TurnosEnCalabozoInvalidoException;
-import modelo.Jugador;
+import modelo.Jugador.Jugador;
 
 
 

@@ -1,10 +1,9 @@
-package modelo;
+package modelo.Jugador;
 import excepciones.*;
 
 import java.util.LinkedList;
 
 import estados.Comprable;
-import estados.Propiedad;
 
 public class Jugador {
 
@@ -62,6 +61,7 @@ public class Jugador {
 		estadoDeJugador.comprar(uncomprable);
 
 	}
+
 
 	public int getDinero(){
 		return this.dinero;

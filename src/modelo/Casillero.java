@@ -1,6 +1,7 @@
 package modelo;
 
 import estados.EstadoCasillero;
+import modelo.Jugador.Jugador;
 
 public class Casillero {
 	

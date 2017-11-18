@@ -1,6 +1,7 @@
 package modelo;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
+import modelo.Jugador.Jugador;
 
 public class AlgoPoly {
 

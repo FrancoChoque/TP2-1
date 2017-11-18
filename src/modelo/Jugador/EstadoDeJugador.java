@@ -1,4 +1,4 @@
-package modelo;
+package modelo.Jugador;
 
 import estados.Comprable;
 import estados.Propiedad;
@@ -9,6 +9,8 @@ public interface EstadoDeJugador {
     public void arrojarDados()throws NoEsTurnoJugador, JugadorYaTiroDados;
 
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador;
+
+    public void edificar(Propiedad unaPropiedad) throws NoEsTurnoJugador, JugadorNoTieneTerreno;
 
     public void vender() throws NoEsTurnoJugador;
 

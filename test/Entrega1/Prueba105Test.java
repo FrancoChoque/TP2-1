@@ -1,5 +1,5 @@
-import excepciones.*;
 import modelo.*;
+import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 

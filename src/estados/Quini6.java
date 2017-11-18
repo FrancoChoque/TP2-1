@@ -5,7 +5,7 @@ package estados;
 
 import java.util.HashMap;
 
-import modelo.Jugador;
+import modelo.Jugador.Jugador;
 
 public class Quini6 extends Suerte {
 

@@ -1,6 +1,7 @@
 package estados;
 
 
+import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 

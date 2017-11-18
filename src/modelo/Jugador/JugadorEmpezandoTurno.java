@@ -1,9 +1,11 @@
-package modelo;
+package modelo.Jugador;
 import estados.Comprable;
 import estados.Propiedad;
+import excepciones.JugadorNoTieneTerreno;
 import excepciones.JugadorNoTiroDados;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
+import modelo.Dado;
 
 public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
@@ -41,6 +43,15 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         uncomprable.cambiarDuenio(jugador);
         uncomprable.pagarCompra(jugador);
     }
+
+
+    public void edificar(Propiedad unaPropiedad) throws NoEsTurnoJugador, JugadorNoTieneTerreno{
+
+
+
+
+    }
+
 
     public void vender(){
     }

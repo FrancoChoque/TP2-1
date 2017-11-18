@@ -1,6 +1,7 @@
 import excepciones.JugadorYaTiroDados;
 import modelo.*;
 import excepciones.NoEsTurnoJugador;
+import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 

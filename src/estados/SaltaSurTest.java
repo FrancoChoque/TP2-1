@@ -1,12 +1,10 @@
 package estados;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.Casillero;
-import modelo.Jugador;
+import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
 public class SaltaSurTest {

@@ -1,8 +1,8 @@
 
+import modelo.Jugador.Jugador;
 import org.junit.Test;
 import org.junit.Assert;
 import modelo.*;
-import excepciones.*;
 
 public class Prueba112Test {
 

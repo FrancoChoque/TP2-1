@@ -25,6 +25,7 @@ import estados.SantaFe;
 import estados.Subte;
 import estados.Tren;
 import estados.Tucuman;
+import modelo.Jugador.Jugador;
 
 public class Tablero {
 

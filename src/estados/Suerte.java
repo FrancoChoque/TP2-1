@@ -1,7 +1,7 @@
 package estados;
 
 
-import modelo.Jugador;
+import modelo.Jugador.Jugador;
 
 public class Suerte extends EstadoCasillero {
 

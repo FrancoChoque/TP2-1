@@ -1,11 +1,9 @@
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import estados.Comprable;
 import modelo.Casillero;
-import modelo.Jugador;
+import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
 public class Prueba201Test {
@@ -25,6 +23,8 @@ public class Prueba201Test {
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
 		player.comprarTerreno(unterreno);
+
+
 		
 		Assert.assertEquals(80000, player.getDinero() );
 	}

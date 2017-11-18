@@ -1,6 +1,6 @@
 package estados;
 
-import modelo.Jugador;
+import modelo.Jugador.Jugador;
 
 public abstract class Comprable extends EstadoCasillero{
 	

@@ -1,6 +1,6 @@
 package estados;
 
-import modelo.Jugador;
+import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
 public class AvanceDinamico extends Suerte{
