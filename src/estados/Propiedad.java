@@ -12,21 +12,21 @@ import modelo.Jugador.Jugador;
 
 public class Propiedad extends Comprable{
 
-	int precioCompra;
-	int valorCasa;
-	int valorHotel;
-	int costoAlquiler;
-	int costoAlquilerConCasa;
-	int costoAlquilerConDosCasas;
-	int costoAlquilerConHotel;
-	int AlquilerActual;
-	LinkedList<Integer> Alquileres = new LinkedList<Integer>();
+	protected int precioCompra;
+	protected int valorCasa;
+	protected int valorHotel;
+	protected int costoAlquiler;
+	protected int costoAlquilerConCasa;
+	protected int costoAlquilerConDosCasas;
+	protected int costoAlquilerConHotel;
+	protected int AlquilerActual;
+	
 	protected Stack<Edificio> edificios = new Stack<Edificio>();
 
 
 	public void puedeEdificar(Jugador unJugador, Edificio unEdificio) throws JugadorNoTieneTerreno{};
 
-	@Override
+	
 	public void hacerEfectoDelCasillero(Jugador unJugador) {
 		if(this.preguntarDuenio() == unJugador) return;
 
@@ -81,11 +81,7 @@ public class Propiedad extends Comprable{
 	}
 
 	public void vaciarEdificios() {
-		while(!edificios.empty()) {
-			edificios.pop();
-		}
-		
-	}
+	};
 
 
 

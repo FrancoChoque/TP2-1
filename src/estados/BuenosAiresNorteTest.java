@@ -71,4 +71,50 @@ public class BuenosAiresNorteTest {
 	        Assert.assertEquals(96500, jugador.getDinero());
 
 	    }
+	
+	@Test
+
+    public void test02ConstruirDosCasasEnBuenosAiresNorteReduceDineroEn11000(){
+
+        Tablero untablero = Tablero.resetInstance();
+        Jugador player = new Jugador("plauer");
+
+        player.setEstado(player.getJugadorEmpezandoTurno());
+
+        untablero.agregarJugador(player);
+
+        untablero.moverJugador(player, 2);
+
+        Casillero unacasilla = untablero.obtenerCasillero(player);
+        Comprable unterreno = (Comprable) unacasilla.getestado();
+
+        player.comprarTerreno(unterreno);
+
+
+        untablero.moverJugador(player, 2);
+
+        Casillero otraCasilla = untablero.obtenerCasillero(player);
+        Comprable otroTerreno = (Comprable) otraCasilla.getestado();
+
+        player.comprarTerreno(otroTerreno);
+
+        Assert.assertEquals(55000, player.getDinero() );
+
+        try {
+            player.edificar((Propiedad) otroTerreno, (Edificio) new Casa());
+            player.edificar((Propiedad) otroTerreno, (Edificio) new Casa());
+        }catch (NoEsTurnoJugador noEsTurnoJugador){
+
+        }catch (JugadorNoTieneTerreno jugadorNoTieneTerreno){
+
+        }
+
+        Assert.assertEquals(44000, player.getDinero() );
+
+    }
+
+
+
+
+
 }
