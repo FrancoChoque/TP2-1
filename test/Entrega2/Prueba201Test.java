@@ -1,18 +1,16 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import estados.Comprable.Comprable;
+import estados.Comprable;
 import modelo.Casillero;
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
 public class Prueba201Test {
 
-
-
 	@Test
 	public void test00ComprarBuenosAiresSurReduceElDineroDelJugadorEn20000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -26,12 +24,14 @@ public class Prueba201Test {
 
 		player.comprarTerreno(unterreno);
 
+
+		
 		Assert.assertEquals(80000, player.getDinero() );
 	}
 	
 	@Test
 	public void test01ComprarBuenosAiresNorteReduceElDineroDelJugadorEn25000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -50,7 +50,7 @@ public class Prueba201Test {
 
 	@Test
 	public void test02ComprarCordobaSurReduceElDineroDelJugadorEn18000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -69,7 +69,7 @@ public class Prueba201Test {
 	
 	@Test
 	public void test03ComprarCordobaNorteReduceElDineroDelJugadorEn20000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -88,7 +88,7 @@ public class Prueba201Test {
 
 	@Test
 	public void test04ComprarSantaFeReduceElDineroDelJugadorEn15000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -107,7 +107,7 @@ public class Prueba201Test {
 
 	@Test
 	public void test05ComprarSaltaNorteReduceElDineroDelJugadorEn23000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -126,7 +126,7 @@ public class Prueba201Test {
 	
 	@Test
 	public void test06ComprarSaltaSurReduceElDineroDelJugadorEn23000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -145,7 +145,7 @@ public class Prueba201Test {
 
 	@Test
 	public void test07ComprarNeuquenReduceElDineroDelJugadorEn17000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -164,7 +164,7 @@ public class Prueba201Test {
 	
 	@Test
 	public void test08ComprarTucumanReduceElDineroDelJugadorEn25000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());

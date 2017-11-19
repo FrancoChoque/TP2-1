@@ -1,16 +1,16 @@
 package modelo.Jugador;
-import estados.Comprable.Propiedad.Propiedad;
+import estados.Propiedad;
 import excepciones.*;
 
 import java.util.LinkedList;
 
-import estados.Comprable.Comprable;
+import estados.Comprable;
 import modelo.Edificio;
 
 public class Jugador {
 
 	static final int DINERO_INICIAL = 100000;
-	public String nombre = "NONAME";
+	private String nombre = "NONAME";
 	private int dinero;
 
 	private LinkedList<Comprable> propiedades;
@@ -54,8 +54,8 @@ public class Jugador {
 		estadoDeJugador.vender();
 	}
 
-	public void edificar(Propiedad unaPropiedad){
-		estadoDeJugador.edificar(unaPropiedad);
+	public void edificar(Propiedad unaPropiedad, Edificio unEdificio) throws NoEsTurnoJugador, JugadorNoTieneTerreno {
+		estadoDeJugador.edificar(unaPropiedad, unEdificio);
 	}
 
 

@@ -1,9 +1,8 @@
 package modelo.Jugador;
 
 
-import ch.qos.logback.classic.jul.JULHelper;
-import estados.Comprable.Comprable;
-import estados.Comprable.Propiedad.Propiedad;
+import estados.Comprable;
+import estados.Propiedad;
 import excepciones.JugadorNoTieneTerreno;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
@@ -28,12 +27,13 @@ public class JugadorTiroDados implements EstadoDeJugador {
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
         if( uncomprable.tieneDuenio() ) return;
-        uncomprable.comprar(jugador);
+        uncomprable.cobrarCompra(jugador);
+        uncomprable.cambiarDuenio(jugador);
         jugador.adquirirPropiedad(uncomprable);
 
     }
 
-    public void edificar(Propiedad unaPropiedad){
+    public void edificar(Propiedad unaPropiedad, Edificio unEdificio) throws NoEsTurnoJugador, JugadorNoTieneTerreno{
         unaPropiedad.preguntarDuenio();
     }
 

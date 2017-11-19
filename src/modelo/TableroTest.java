@@ -1,8 +1,11 @@
 package modelo;
 
 
+import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
+
+import estados.Comprable;
 
 public class TableroTest {
 	@Test

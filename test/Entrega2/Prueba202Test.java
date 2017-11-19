@@ -1,7 +1,7 @@
 package Entrega2;
 
-import estados.Comprable.Comprable;
-import estados.Comprable.Propiedad.Propiedad;
+import estados.Comprable;
+import estados.Propiedad;
 import excepciones.JugadorNoTieneTerreno;
 import excepciones.NoEsTurnoJugador;
 import modelo.Casillero;
@@ -32,6 +32,7 @@ public class Prueba202Test {
 
         player.comprarTerreno(unterreno);
 
+
         untablero.moverJugador(player, 2);
 
         Casillero otraCasilla = untablero.obtenerCasillero(player);
@@ -41,7 +42,13 @@ public class Prueba202Test {
 
         Assert.assertEquals(55000, player.getDinero() );
 
-        player.edificar((Propiedad) otroTerreno);
+        try {
+            player.edificar((Propiedad) otroTerreno, (Edificio) new Casa());
+        }catch (NoEsTurnoJugador noEsTurnoJugador){
+
+        }catch (JugadorNoTieneTerreno jugadorNoTieneTerreno){
+
+        }
 
         Assert.assertEquals(49500, player.getDinero() );
 
