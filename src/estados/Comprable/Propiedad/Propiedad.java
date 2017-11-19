@@ -65,12 +65,15 @@ public class Propiedad extends Comprable {
 
 
 	public void comprar(Jugador unJugador){
+
 		unJugador.sumarDinero(this.getPrecioCompra()*-1);
+		this.cambiarDuenio(unJugador);
 	}
 
 	public void edificar(Jugador unJugador){
-		propiedadEstado.edificar(unJugador);
 		unJugador.sumarDinero(propiedadEstado.getCostoEdificar() * -1);
+		propiedadEstado.edificar(unJugador);
+
 	}
 
 

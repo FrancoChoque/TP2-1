@@ -22,5 +22,6 @@ public class PropiedadConDosCasas implements PropiedadEstado {
 
     public void edificar(Jugador unJugador){
         propiedad.construirHotel(unJugador);
+        propiedad.setPropiedadEstado(propiedad.getPropiedadConHotel());
     }
 }

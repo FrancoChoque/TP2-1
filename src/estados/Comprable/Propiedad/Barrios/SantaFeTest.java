@@ -12,7 +12,7 @@ public class SantaFeTest {
 
 	@Test
 	public void test00ComprarSantaFeReduceElDineroDelJugadorEn15000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());

@@ -13,7 +13,7 @@ public class RetrocesoDinamicoTest {
 
 	@Test
 	public void test00JugadorCaeEnRetrocesoConDadosEn6YUnaPropiedadRetrocede5Casillas() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("playuer");
 		player.setNumeroPropiedades(1);
 		player.setEstado(player.getJugadorEmpezandoTurno());
@@ -27,7 +27,7 @@ public class RetrocesoDinamicoTest {
 	
 	@Test
 	public void test01JugadorCaeEnRetrocesoConDadosEn9YRetrocede1Casillero() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("playuer");
 		player.setNumeroPropiedades(1);
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -42,7 +42,7 @@ public class RetrocesoDinamicoTest {
 	
 	@Test
 	public void test02JugadorCaeEnRetrocesoConDadosEn12YRetrocede10Casilleros() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("playuer");
 		untablero.agregarJugador(player);
 		

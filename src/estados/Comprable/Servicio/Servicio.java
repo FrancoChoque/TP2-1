@@ -8,7 +8,9 @@ public class Servicio extends Comprable {
 
 
     public void comprar(Jugador unJugador){
-       unJugador.sumarDinero(this.getPrecioCompra() * -1);
+
+        unJugador.sumarDinero(this.getPrecioCompra()*-1);
+        this.cambiarDuenio(unJugador);
     }
 
     public void cobrarPase(Jugador unJugador){

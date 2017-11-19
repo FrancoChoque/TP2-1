@@ -44,7 +44,8 @@ public class Prueba203Test {
         jugador.setEstado(jugador.getJugadorEmpezandoTurno() );
         untablero.agregarJugador(jugador);
         untablero.moverJugador(jugador, 4);
-        
+        otroTerreno.cobrarPase(jugador);
+
         Assert.assertEquals(96500, jugador.getDinero());
 
     }

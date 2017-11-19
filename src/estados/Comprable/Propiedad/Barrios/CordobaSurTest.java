@@ -12,7 +12,7 @@ public class CordobaSurTest {
 
 	@Test
 	public void test00ComprarCordobaSurReduceElDineroDelJugadorEn18000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());

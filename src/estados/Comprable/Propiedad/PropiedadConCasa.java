@@ -22,6 +22,7 @@ public class PropiedadConCasa implements PropiedadEstado {
 
     public void edificar(Jugador unJugador){
         propiedad.construirCasa(unJugador);
+        propiedad.setPropiedadEstado(propiedad.getPropiedadConDosCasas());
     }
 
 }

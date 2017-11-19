@@ -12,7 +12,7 @@ public class TucumanTest {
 
 	@Test
 	public void test00ComprarTucumanReduceElDineroDelJugadorEn25000() {
-		Tablero untablero = Tablero.getInstance();
+		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
