@@ -1,7 +1,3 @@
-package estados;
-
-
-
 import modelo.Jugador.Jugador;
 import org.junit.Assert;
 
@@ -10,6 +6,7 @@ import org.junit.Test;
 import excepciones.JugadorNoTieneTerreno;
 import excepciones.NoEsTurnoJugador;
 import modelo.*;
+import estados.*;
 
 
 public class BuenosAiresSurTest {

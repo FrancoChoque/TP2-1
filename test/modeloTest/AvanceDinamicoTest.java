@@ -1,8 +1,7 @@
-package estados;
-import modelo.*;
-import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
+import modelo.Tablero;
+import modelo.Jugador.Jugador;
 
 public class AvanceDinamicoTest {
 

@@ -1,14 +1,13 @@
-package estados;
-
-
-
 import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
 import excepciones.DineroInsuficienteException;
 import excepciones.TurnosEnCalabozoInvalidoException;
-import modelo.*;
+import modelo.Tablero;
+import estados.Comprable;
+import estados.Carcel;
+import estados.Propiedad;
 
 public class CarcelTest {
 

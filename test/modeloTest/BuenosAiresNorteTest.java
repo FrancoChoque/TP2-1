@@ -1,15 +1,14 @@
-package estados;
-
 import org.junit.Assert;
 import org.junit.Test;
-
+import estados.Comprable;
+import estados.Propiedad;
 import excepciones.JugadorNoTieneTerreno;
 import excepciones.NoEsTurnoJugador;
 import modelo.Casa;
 import modelo.Casillero;
 import modelo.Edificio;
-import modelo.Jugador.Jugador;
 import modelo.Tablero;
+import modelo.Jugador.Jugador;
 
 public class BuenosAiresNorteTest {
 
@@ -112,9 +111,4 @@ public class BuenosAiresNorteTest {
         Assert.assertEquals(44000, player.getDinero() );
 
     }
-
-
-
-
-
 }
