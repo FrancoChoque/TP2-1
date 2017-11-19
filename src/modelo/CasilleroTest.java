@@ -5,28 +5,27 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import estados.AvanceDinamico;
-import estados.Aysa;
-import estados.BuenosAiresNorte;
-import estados.BuenosAiresSur;
+import estados.Comprable.Servicio.Servicios.Aysa;
+import estados.Comprable.Propiedad.Barrios.BuenosAiresNorte;
+import estados.Comprable.Propiedad.Barrios.BuenosAiresSur;
 import estados.Carcel;
-import estados.CordobaNorte;
-import estados.CordobaSur;
-import estados.Edesur;
+import estados.Comprable.Propiedad.Barrios.CordobaNorte;
+import estados.Comprable.Propiedad.Barrios.CordobaSur;
+import estados.Comprable.Servicio.Servicios.Edesur;
 import estados.ImpuestoAlLujo;
-import estados.Neuquen;
+import estados.Comprable.Propiedad.Barrios.Neuquen;
 import estados.Policia;
 import estados.Quini6;
 import estados.RetrocesoDinamico;
 import estados.Salida;
-import estados.SaltaNorte;
-import estados.SaltaSur;
-import estados.SantaFe;
-import estados.Servicio;
-import estados.Subte;
+import estados.Comprable.Propiedad.Barrios.SaltaNorte;
+import estados.Comprable.Propiedad.Barrios.SaltaSur;
+import estados.Comprable.Propiedad.Barrios.SantaFe;
+import estados.Comprable.Servicio.Servicio;
+import estados.Comprable.Servicio.Servicios.Subte;
 import estados.Suerte;
-import estados.Propiedad;
-import estados.Tren;
-import estados.Tucuman;
+import estados.Comprable.Servicio.Servicios.Tren;
+import estados.Comprable.Propiedad.Barrios.Tucuman;
 
 public class CasilleroTest {
 

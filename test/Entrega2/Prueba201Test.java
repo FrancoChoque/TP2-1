@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import estados.Comprable;
+import estados.Comprable.Comprable;
 import modelo.Casillero;
 import modelo.Jugador.Jugador;
 import modelo.Tablero;

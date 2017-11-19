@@ -1,10 +1,8 @@
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import estados.Comprable;
-import estados.Propiedad;
+import estados.Comprable.Comprable;
+import estados.Comprable.Propiedad.Propiedad;
 import excepciones.JugadorNoTieneTerreno;
 import excepciones.NoEsTurnoJugador;
 import modelo.Casa;
@@ -37,13 +35,8 @@ public class Prueba203Test {
 
         Assert.assertEquals(55000, player.getDinero() );
 
-        try {
-            player.edificar((Propiedad) otroTerreno, (Edificio) new Casa());
-        }catch (NoEsTurnoJugador noEsTurnoJugador){
+        player.edificar((Propiedad) otroTerreno);
 
-        }catch (JugadorNoTieneTerreno jugadorNoTieneTerreno){
-
-        }
 
         Assert.assertEquals(49500, player.getDinero() );
         

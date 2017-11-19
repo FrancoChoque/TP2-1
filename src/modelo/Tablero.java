@@ -6,6 +6,13 @@ package modelo;
 import java.util.HashMap;
 
 import estados.*;
+import estados.Comprable.Comprable;
+import estados.Comprable.Propiedad.Barrios.*;
+import estados.Comprable.Propiedad.Propiedad;
+import estados.Comprable.Servicio.Servicios.Aysa;
+import estados.Comprable.Servicio.Servicios.Edesur;
+import estados.Comprable.Servicio.Servicios.Subte;
+import estados.Comprable.Servicio.Servicios.Tren;
 import modelo.Jugador.Jugador;
 
 public class Tablero {
