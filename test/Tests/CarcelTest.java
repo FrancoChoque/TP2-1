@@ -4,7 +4,7 @@ import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
-import excepciones.DineroInsuficienteException;
+import excepciones.DineroInsuficiente;
 import excepciones.TurnosEnCalabozoInvalidoException;
 import modelo.Tablero;
 
@@ -147,7 +147,7 @@ public class CarcelTest {
 			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(null, unjugador.getDinero() );
 		}
-		catch(DineroInsuficienteException error){
+		catch(DineroInsuficiente error){
 			Assert.assertTrue(true);
 		}
 	}

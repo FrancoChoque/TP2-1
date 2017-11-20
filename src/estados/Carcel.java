@@ -3,7 +3,7 @@ package estados;
 
 import java.util.HashMap;
 
-import excepciones.DineroInsuficienteException;
+import excepciones.DineroInsuficiente;
 import excepciones.TurnosEnCalabozoInvalidoException;
 import modelo.Jugador.Jugador;
 
@@ -58,7 +58,7 @@ public class Carcel extends EstadoCasillero {
 		if((turnosEnCalabozo == 2) || (turnosEnCalabozo == 3)){
 
 			if(! unjugador.puedePagar(montoFianza) ) {
-				throw new DineroInsuficienteException();
+				throw new DineroInsuficiente();
 			}
             unjugador.sumarDinero(montoFianza  * -1);
 			this.liberar(unjugador);

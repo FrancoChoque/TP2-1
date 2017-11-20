@@ -1,6 +1,10 @@
 package estados.Comprable.Propiedad.Barrios;
 
 import estados.Comprable.Propiedad.Propiedad;
+import excepciones.CasasInsuficientes;
+import excepciones.JugadorNoPoseeTodosLosBarrios;
+import excepciones.NoPuedeConstruirMasCasas;
+import excepciones.NoPuedeConstruirMasHoteles;
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
@@ -23,27 +27,23 @@ public class BuenosAiresSur extends Propiedad {
 	public int getCostoAlquilerConHotel(){ return 5000;}
 
 
-	public void hacerCasa(Jugador unJugador){
+	public void hacerCasa(Jugador unJugador) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
 
 		Tablero tablero = Tablero.getInstance();
 
-		if(!unJugador.esDuenio(tablero.getBuenosAiresNorte())) return;// throw new JugadorNoTieneTerreno();
+		if(!unJugador.esDuenio(tablero.getBuenosAiresNorte())) throw  new JugadorNoPoseeTodosLosBarrios();
 
-		if(edificios.size()>1)return; //throw capacidad maxima
 
 
 	}
 
-	public void hacerHotel(Jugador unJugador){
+	public void hacerHotel(Jugador unJugador) throws CasasInsuficientes, NoPuedeConstruirMasHoteles, JugadorNoPoseeTodosLosBarrios{
 
 		Tablero tablero = Tablero.getInstance();
 
-		if(tablero.getBuenosAiresNorte().getCantidadEdificios() < 2) return;
+		if(!unJugador.esDuenio(tablero.getBuenosAiresNorte())) throw new JugadorNoPoseeTodosLosBarrios();
 
-		if(!unJugador.esDuenio(tablero.getBuenosAiresNorte())) return;
-
-		unJugador.sumarDinero(getValorHotel() * -1);
-
+		if(tablero.getBuenosAiresNorte().getCantidadEdificios() < 2) throw new CasasInsuficientes();
 
 	}
 

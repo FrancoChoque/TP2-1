@@ -24,6 +24,8 @@ public class Prueba210Test {
 
         player.comprarTerreno(untablero.getBuenosAiresSur());
 
+        player.comprarTerreno(untablero.getBuenosAiresNorte());
+
         player.construirCasa(untablero.getBuenosAiresSur());
 
         Jugador player2 = new Jugador("plauer");
@@ -50,6 +52,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player);
 
         player.comprarTerreno(untablero.getBuenosAiresSur());
+
+        player.comprarTerreno(untablero.getBuenosAiresNorte());
 
         player.construirCasa(untablero.getBuenosAiresSur());
 
@@ -118,6 +122,8 @@ public class Prueba210Test {
 
         player.comprarTerreno(untablero.getBuenosAiresNorte());
 
+        player.comprarTerreno(untablero.getBuenosAiresSur());
+
         player.construirCasa(untablero.getBuenosAiresNorte());
 
         Jugador player2 = new Jugador("plauer");
@@ -144,6 +150,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player);
 
         player.comprarTerreno(untablero.getBuenosAiresNorte());
+
+        player.comprarTerreno(untablero.getBuenosAiresSur());
 
         player.construirCasa(untablero.getBuenosAiresNorte());
 
@@ -212,6 +220,8 @@ public class Prueba210Test {
 
         player.comprarTerreno(untablero.getCordobaSur());
 
+        player.comprarTerreno(untablero.getCordobaNorte());
+
         player.construirCasa(untablero.getCordobaSur());
 
         Jugador player2 = new Jugador("plauer");
@@ -238,6 +248,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player);
 
         player.comprarTerreno(untablero.getCordobaSur());
+
+        player.comprarTerreno(untablero.getCordobaNorte());
 
         player.construirCasa(untablero.getCordobaSur());
 
@@ -306,6 +318,8 @@ public class Prueba210Test {
 
         player.comprarTerreno(untablero.getCordobaNorte());
 
+        player.comprarTerreno(untablero.getCordobaSur());
+
         player.construirCasa(untablero.getCordobaNorte());
 
         Jugador player2 = new Jugador("plauer");
@@ -333,6 +347,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player);
 
         player.comprarTerreno(untablero.getCordobaNorte());
+
+        player.comprarTerreno(untablero.getCordobaSur());
 
         player.construirCasa(untablero.getCordobaNorte());
 
@@ -429,6 +445,8 @@ public class Prueba210Test {
 
         player.comprarTerreno(untablero.getSaltaNorte());
 
+        player.comprarTerreno(untablero.getSaltaSur());
+
         player.construirCasa(untablero.getSaltaNorte());
 
         Jugador player2 = new Jugador("plauer");
@@ -455,6 +473,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player);
 
         player.comprarTerreno(untablero.getSaltaNorte());
+
+        player.comprarTerreno(untablero.getSaltaSur());
 
         player.construirCasa(untablero.getSaltaNorte());
 
@@ -523,6 +543,8 @@ public class Prueba210Test {
 
         player.comprarTerreno(untablero.getSaltaSur());
 
+        player.comprarTerreno(untablero.getSaltaNorte());
+
         player.construirCasa(untablero.getSaltaSur());
 
         Jugador player2 = new Jugador("plauer");
@@ -549,6 +571,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player);
 
         player.comprarTerreno(untablero.getSaltaSur());
+
+        player.comprarTerreno(untablero.getSaltaNorte());
 
         player.construirCasa(untablero.getSaltaSur());
 

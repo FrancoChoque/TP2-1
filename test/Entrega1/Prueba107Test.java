@@ -7,7 +7,7 @@ import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
-import excepciones.DineroInsuficienteException;
+import excepciones.DineroInsuficiente;
 
 public class Prueba107Test {
 
@@ -28,7 +28,7 @@ public class Prueba107Test {
 			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(null, unjugador.getDinero() );
 		}
-		catch(DineroInsuficienteException error){
+		catch(DineroInsuficiente error){
 			Assert.assertFalse(unjugador.puedeMoverse() );
 		}
 	}
@@ -49,7 +49,7 @@ public class Prueba107Test {
 			unacarcel.cobrarFianza(unjugador);
 			Assert.assertEquals(null, unjugador.getDinero() );
 		}
-		catch(DineroInsuficienteException error){
+		catch(DineroInsuficiente error){
 			Assert.assertFalse(unjugador.puedeMoverse() );
 		}
 	}

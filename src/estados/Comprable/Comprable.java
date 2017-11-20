@@ -14,7 +14,7 @@ public class Comprable extends EstadoCasillero {
 
 
 	public void hacerEfectoDelCasillero(Jugador unJugador) {
-		if(!tieneDuenio) return;
+		if(!tieneDuenio || unJugador == Duenio) return;
 		cobrarPase(unJugador);
 	}
 

@@ -1,6 +1,10 @@
 package estados.Comprable.Propiedad.Barrios;
 
 import estados.Comprable.Propiedad.Propiedad;
+import excepciones.CasasInsuficientes;
+import excepciones.JugadorNoPoseeTodosLosBarrios;
+import excepciones.NoPuedeConstruirMasCasas;
+import excepciones.NoPuedeConstruirMasHoteles;
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
@@ -22,26 +26,23 @@ public class CordobaSur extends Propiedad {
 
 
 
-	public void hacerCasa(Jugador unJugador){
+	public void hacerCasa(Jugador unJugador) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
 
 		Tablero tablero = Tablero.getInstance();
 
-		if(!unJugador.esDuenio(tablero.getCordobaNorte()))// throw new JugadorNoTieneTerreno();
-
-			if(edificios.size()>1)return;
-
+		if(!unJugador.esDuenio(tablero.getCordobaNorte())) throw new JugadorNoPoseeTodosLosBarrios();
 
 	}
 
-	public void hacerHotel(Jugador unJugador){
+
+
+	public void hacerHotel(Jugador unJugador) throws CasasInsuficientes, NoPuedeConstruirMasHoteles {
 
 		Tablero tablero = Tablero.getInstance();
 
-		if(tablero.getCordobaNorte().getCantidadEdificios() < 2) return;
+		if(!unJugador.esDuenio(tablero.getCordobaNorte())) throw new NoPuedeConstruirMasHoteles();
 
-		if(!unJugador.esDuenio(tablero.getCordobaNorte())) return;
-
-		unJugador.sumarDinero(getValorHotel() * -1);
+		if(tablero.getCordobaNorte().getCantidadEdificios() < 2) throw new CasasInsuficientes();
 
 	}
 

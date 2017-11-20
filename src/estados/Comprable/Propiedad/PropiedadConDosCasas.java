@@ -1,5 +1,6 @@
 package estados.Comprable.Propiedad;
 
+import excepciones.*;
 import modelo.Hotel;
 import modelo.Jugador.Jugador;
 
@@ -12,20 +13,18 @@ public class PropiedadConDosCasas implements PropiedadEstado {
     }
 
     public int getCostoPase() {
-
         return propiedad.getCostoAlquilerConDosCasas();
     }
 
-    public int getCostoEdificar() {
-        return propiedad.getValorHotel();
+
+    public void construirCasa(Jugador unJugador) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+        throw new NoPuedeConstruirMasCasas();
     }
 
-    public void construirCasa(Jugador unJugador){
-    }
-
-    public void construirHotel(Jugador unJugador){
+    public void construirHotel(Jugador unJugador) throws DineroInsuficiente, JugadorNoEsPropietario, NoPuedeConstruirMasHoteles, CasasInsuficientes, JugadorNoPoseeTodosLosBarrios {
+        if(!unJugador.puedePagar(propiedad.getValorHotel())) throw new DineroInsuficiente();
         propiedad.hacerHotel(unJugador);
-        propiedad.edificios.add(new Hotel());
         propiedad.setPropiedadEstado(propiedad.getPropiedadConHotel());
+
     }
 }

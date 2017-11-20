@@ -1,6 +1,9 @@
 package estados.Comprable.Propiedad.Barrios;
 
 import estados.Comprable.Propiedad.Propiedad;
+import excepciones.CasasInsuficientes;
+import excepciones.JugadorNoPoseeTodosLosBarrios;
+import excepciones.NoPuedeConstruirMasCasas;
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
@@ -23,26 +26,24 @@ public class SaltaSur extends Propiedad {
 
 
 
-	public void hacerCasa(Jugador unJugador){
+	public void hacerCasa(Jugador unJugador) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
 
 		Tablero tablero = Tablero.getInstance();
 
-		if(!unJugador.esDuenio(tablero.getSaltaNorte()))// throw new JugadorNoTieneTerreno();
+		if(!unJugador.esDuenio(tablero.getSaltaNorte())) throw new JugadorNoPoseeTodosLosBarrios();
 
-			if(edificios.size()>1)return;
+
 
 
 	}
 
-	public void hacerHotel(Jugador unJugador){
+	public void hacerHotel(Jugador unJugador) throws CasasInsuficientes, JugadorNoPoseeTodosLosBarrios {
 
 		Tablero tablero = Tablero.getInstance();
 
-		if(tablero.getSaltaNorte().getCantidadEdificios() < 2) return;
+		if(!unJugador.esDuenio(tablero.getSaltaNorte())) throw new JugadorNoPoseeTodosLosBarrios();
 
-		if(!unJugador.esDuenio(tablero.getSaltaNorte())) return;
-
-		unJugador.sumarDinero(getValorHotel() * -1);
+		if(tablero.getSaltaNorte().getCantidadEdificios() < 2) throw new CasasInsuficientes();
 
 	}
 

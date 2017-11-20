@@ -1,11 +1,13 @@
 package estados.Comprable.Propiedad;
 
 
-import java.util.LinkedList;
 import java.util.Stack;
 
 import estados.Comprable.Comprable;
+import excepciones.*;
+import modelo.Casa;
 import modelo.Edificio;
+import modelo.Hotel;
 import modelo.Jugador.Jugador;
 
 public class Propiedad extends Comprable {
@@ -68,9 +70,7 @@ public class Propiedad extends Comprable {
 		this.cambiarDuenio(unJugador);
 
 	}
-	public int getCostoEdificar(){
-		return propiedadEstado.getCostoEdificar();
-	}
+
 
 	public void cobrarPase(Jugador unJugador){
 
@@ -80,12 +80,45 @@ public class Propiedad extends Comprable {
 
 	public void construirCasa(Jugador unJugador){
 
-		propiedadEstado.construirCasa(unJugador);
-		unJugador.sumarDinero(getValorCasa() * -1);
 
+		try {
+			propiedadEstado.construirCasa(unJugador);
+		} catch (excepciones.JugadorNoEsPropietario jugadorNoEsPropietario) {
+			//jugadorNoEsPropietario.printStackTrace();
+			return;
+		} catch (excepciones.JugadorNoPoseeTodosLosBarrios jugadorNoPoseeTodosLosBarrios) {
+			//jugadorNoPoseeTodosLosBarrios.printStackTrace();
+			return;
+		} catch (NoPuedeConstruirMasCasas noPuedeConstruirMasCasas) {
+			//noPuedeConstruirMasCasas.printStackTrace();
+			return;
+		}
+
+		edificios.add(new Casa());
+		unJugador.sumarDinero(getValorCasa() * -1);
 	}
+
+
+
 	public void construirHotel(Jugador unJugador){
-		propiedadEstado.construirHotel(unJugador);
+		try {
+			propiedadEstado.construirHotel(unJugador);
+		} catch (excepciones.JugadorNoEsPropietario jugadorNoEsPropietario) {
+			//jugadorNoEsPropietario.printStackTrace();
+			return;
+		} catch (NoPuedeConstruirMasHoteles noPuedeConstruirMasHoteles) {
+			//noPuedeConstruirMasHoteles.printStackTrace();
+			return;
+		} catch (excepciones.CasasInsuficientes casasInsuficientes) {
+			//casasInsuficientes.printStackTrace();
+			return;
+		} catch (JugadorNoPoseeTodosLosBarrios jugadorNoPoseeTodosLosBarrios) {
+		//	jugadorNoPoseeTodosLosBarrios.printStackTrace();
+			return;
+		}
+
+		edificios.add(new Hotel());
+		unJugador.sumarDinero(getValorHotel() * -1);
 
 	}
 
@@ -97,13 +130,13 @@ public class Propiedad extends Comprable {
 		
 	}
 
-	public void hacerCasa(Jugador jugador){
+	public void hacerCasa(Jugador jugador) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas { }
 
-	}
-	public void hacerHotel(Jugador jugador){
+
+	public void hacerHotel(Jugador jugador) throws CasasInsuficientes, NoPuedeConstruirMasHoteles, JugadorNoPoseeTodosLosBarrios {
 	}
 
-	public void puedeEdificar(){};
+
 
 	public int getCantidadEdificios(){
 		return edificios.size();

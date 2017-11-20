@@ -1,15 +1,14 @@
 package estados.Comprable.Propiedad;
 
+import excepciones.*;
 import modelo.Jugador.Jugador;
 
 public interface PropiedadEstado {
 
     public int getCostoPase ();
 
-    public int getCostoEdificar ();
+    public void construirCasa(Jugador unJugador) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas;
 
-    public void construirCasa(Jugador unJugador);
-
-    public void construirHotel(Jugador unJugador);
+    public void construirHotel(Jugador unJugador) throws DineroInsuficiente, JugadorNoEsPropietario, NoPuedeConstruirMasHoteles, CasasInsuficientes, JugadorNoPoseeTodosLosBarrios;
 
 }
