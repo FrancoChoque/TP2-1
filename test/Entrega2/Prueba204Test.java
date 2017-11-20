@@ -7,7 +7,7 @@ import org.junit.Test;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
-public class Prueba204 {
+public class Prueba204Test {
 
     @Test
     public void test01JugadorCaeEnBuenosAiresSurConDosCasasYPaga3500(){

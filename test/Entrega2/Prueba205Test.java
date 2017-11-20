@@ -8,13 +8,10 @@ import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
 
-
-
-public class Prueba207 {
-
+public class Prueba205Test {
 
     @Test
-    public void test01JugadorCaeEnBuenosAiresSurConHotelYPaga5000(){
+    public void test01JugadorConstruyeHotelSinTenerCasas(){
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -27,24 +24,17 @@ public class Prueba207 {
 
         player.comprarTerreno(untablero.getBuenosAiresSur());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
-        player.construirCasa(untablero.getBuenosAiresSur());
-        player.construirCasa(untablero.getBuenosAiresNorte());
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        Assert.assertEquals(55000, player.getDinero());
 
         player.construirHotel(untablero.getBuenosAiresSur());
 
-        Jugador player2 = new Jugador("Player2");
-        player.setEstado(player.getJugadorEmpezandoTurno());
-        untablero.agregarJugador(player2);
+        Assert.assertEquals(55000, player.getDinero());
 
-        untablero.moverJugador(player2,2);
 
-        Assert.assertEquals(95000, player2.getDinero());
     }
 
     @Test
-    public void test01JugadorCaeEnBuenosAiresNorteConHotelYPaga6000(){
+    public void test02JugadorConstruyeHotelConTresCasas(){
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -53,24 +43,24 @@ public class Prueba207 {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
+
+
         player.comprarTerreno(untablero.getBuenosAiresNorte());
 
         player.comprarTerreno(untablero.getBuenosAiresSur());
 
         player.construirCasa(untablero.getBuenosAiresSur());
+
         player.construirCasa(untablero.getBuenosAiresSur());
+
         player.construirCasa(untablero.getBuenosAiresNorte());
-        player.construirCasa(untablero.getBuenosAiresNorte());
 
-        player.construirHotel(untablero.getBuenosAiresNorte());
+        Assert.assertEquals(39500, player.getDinero());
 
-        Jugador player2 = new Jugador("Player2");
-        player.setEstado(player.getJugadorEmpezandoTurno());
-        untablero.agregarJugador(player2);
+        player.construirHotel(untablero.getBuenosAiresSur());
 
-        untablero.moverJugador(player2,4);
+        Assert.assertEquals(39500, player.getDinero());
 
-        Assert.assertEquals(94000, player2.getDinero());
+
     }
-
 }

@@ -15,7 +15,7 @@ public class Tren extends Servicio {
 
         Tablero tablero = Tablero.getInstance();
 
-        if(this.preguntarDuenio() == tablero.getTren().preguntarDuenio()){
+        if(this.preguntarDuenio() == tablero.getSubte().preguntarDuenio()){
             return valorDados * 800;
         }
 

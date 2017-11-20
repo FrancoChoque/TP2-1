@@ -207,6 +207,10 @@ public class Tablero {
         return (CordobaNorte) Casilleros[9].getestado();
     }
 
+    public SantaFe getSantaFe() {
+        return (SantaFe) Casilleros[11].getestado();
+    }
+
     public Aysa getAysa() {
         return (Aysa) Casilleros[12].getestado();
     }
@@ -223,5 +227,11 @@ public class Tablero {
         return (Tren) Casilleros[16].getestado();
     }
 
+    public Neuquen getNeuquen() { return (Neuquen) Casilleros[17].getestado();}
+
+    public Tucuman getTucuman() { return (Tucuman) Casilleros[19].getestado();}
 
 }
+
+
+

@@ -18,7 +18,7 @@ public class SaltaSur extends Propiedad {
 
 	public int getCostoAlquilerConDosCasas(){ return 3850;}
 
-	public int getCostoAlquilerConHotel(){ return 7500;}
+	public int getCostoAlquilerConHotel(){ return 5500;}
 
 
 

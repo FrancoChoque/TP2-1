@@ -8,7 +8,7 @@ import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
 
-public class Prueba206 {
+public class Prueba206Test {
 
     @Test
     public void test01JugadorConstruyeHotelYPagaElValor() {

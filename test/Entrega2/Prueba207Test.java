@@ -8,10 +8,13 @@ import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
 
-public class Prueba205 {
+
+
+public class Prueba207Test {
+
 
     @Test
-    public void test01JugadorConstruyeHotelSinTenerCasas(){
+    public void test01JugadorCaeEnBuenosAiresSurConHotelYPaga5000(){
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -24,43 +27,50 @@ public class Prueba205 {
 
         player.comprarTerreno(untablero.getBuenosAiresSur());
 
-        Assert.assertEquals(55000, player.getDinero());
-
-        player.construirHotel(untablero.getBuenosAiresSur());
-
-        Assert.assertEquals(55000, player.getDinero());
-
-
-    }
-
-    @Test
-    public void test02JugadorConstruyeHotelConTresCasas(){
-
-        Tablero untablero = Tablero.getInstance();
-        untablero.resetearTablero();
-
-        Jugador player = new Jugador("Player");
-        player.setEstado(player.getJugadorEmpezandoTurno());
-        untablero.agregarJugador(player);
-
-
-
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
-
-        player.comprarTerreno(untablero.getBuenosAiresSur());
-
         player.construirCasa(untablero.getBuenosAiresSur());
-
         player.construirCasa(untablero.getBuenosAiresSur());
-
+        player.construirCasa(untablero.getBuenosAiresNorte());
         player.construirCasa(untablero.getBuenosAiresNorte());
 
-        Assert.assertEquals(39500, player.getDinero());
-
         player.construirHotel(untablero.getBuenosAiresSur());
 
-        Assert.assertEquals(39500, player.getDinero());
+        Jugador player2 = new Jugador("Player2");
+        player.setEstado(player.getJugadorEmpezandoTurno());
+        untablero.agregarJugador(player2);
 
+        untablero.moverJugador(player2,2);
 
+        Assert.assertEquals(95000, player2.getDinero());
     }
+
+    @Test
+    public void test01JugadorCaeEnBuenosAiresNorteConHotelYPaga6000(){
+
+        Tablero untablero = Tablero.getInstance();
+        untablero.resetearTablero();
+
+        Jugador player = new Jugador("Player");
+        player.setEstado(player.getJugadorEmpezandoTurno());
+        untablero.agregarJugador(player);
+
+        player.comprarTerreno(untablero.getBuenosAiresNorte());
+
+        player.comprarTerreno(untablero.getBuenosAiresSur());
+
+        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construirCasa(untablero.getBuenosAiresNorte());
+
+        player.construirHotel(untablero.getBuenosAiresNorte());
+
+        Jugador player2 = new Jugador("Player2");
+        player.setEstado(player.getJugadorEmpezandoTurno());
+        untablero.agregarJugador(player2);
+
+        untablero.moverJugador(player2,4);
+
+        Assert.assertEquals(94000, player2.getDinero());
+    }
+
 }
