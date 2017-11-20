@@ -57,6 +57,7 @@ public class Jugador {
 		} catch (JugadorNoEsPropietario jugadorNoEsPropietario) {
 			jugadorNoEsPropietario.printStackTrace();
 		}
+		propiedades.remove(unComprable);
 	}
 
 	public void vender(Jugador unJugador, Comprable unComprable) {
@@ -67,6 +68,8 @@ public class Jugador {
 		} catch (JugadorNoEsPropietario jugadorNoEsPropietario) {
 			jugadorNoEsPropietario.printStackTrace();
 		}
+
+		propiedades.remove(unComprable);
 	}
 
 	public void construirCasa(Propiedad unaPropiedad){
@@ -112,6 +115,10 @@ public class Jugador {
 	public void setEstado(EstadoDeJugador unEstado){
 		this.estadoDeJugador = unEstado;
 
+	}
+
+	public void intercambiarPropiedades(Jugador unJugador, Comprable propiedadNueva, Comprable propiedadACambiar){
+		this.estadoDeJugador.intercambiarPropiedades(unJugador,propiedadNueva,propiedadACambiar);
 	}
 
 	public void setValorDados(int unValor){

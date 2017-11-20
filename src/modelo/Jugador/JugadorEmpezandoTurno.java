@@ -66,6 +66,13 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         unComprador.adquirirPropiedad(unComprable);
     }
 
+    public void intercambiarPropiedades(Jugador unJugador, Comprable propiedadNueva, Comprable propiedadACambiar) {
+        propiedadACambiar.cambiarDuenio(unJugador);
+        unJugador.adquirirPropiedad(propiedadACambiar);
+        propiedadNueva.cambiarDuenio(jugador);
+        jugador.adquirirPropiedad(propiedadNueva);
+    }
+
     public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados {
         throw new JugadorNoTiroDados();
     }

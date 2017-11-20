@@ -50,4 +50,7 @@ public class JugadorSinTurno implements EstadoDeJugador {
     }
 
 
+    public void intercambiarPropiedades(Jugador unJugador, Comprable propiedadNueva, Comprable propiedadACambiar) {
+    }
+
 }

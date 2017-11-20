@@ -20,4 +20,6 @@ public interface EstadoDeJugador {
 
     public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados;
 
+    public void intercambiarPropiedades(Jugador unJugador, Comprable propiedadNueva, Comprable propiedadACambiar);
+
 }
