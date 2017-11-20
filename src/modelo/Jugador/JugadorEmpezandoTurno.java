@@ -1,9 +1,7 @@
 package modelo.Jugador;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
-import excepciones.JugadorNoTiroDados;
-import excepciones.JugadorYaTiroDados;
-import excepciones.NoEsTurnoJugador;
+import excepciones.*;
 import modelo.Dado;
 
 public class JugadorEmpezandoTurno implements EstadoDeJugador {
@@ -55,14 +53,17 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
     }
 
 
-    public void vender(Comprable unComprable){
+    public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario {
         unComprable.reembolsar();
+
     }
 
-    public void vender(Jugador unJugador, Comprable unComprable){
+    public void vender(Jugador unComprador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {
+        if(!jugador.esDuenio(unComprable)) throw new JugadorNoEsPropietario();
+        if(!unComprador.puedePagar(unComprable.getPrecioCompra())) throw new DineroInsuficiente();
         unComprable.reembolsar();
-        unComprable.cambiarDuenio(unJugador);
-        unJugador.adquirirPropiedad(unComprable);
+        unComprable.cambiarDuenio(unComprador);
+        unComprador.adquirirPropiedad(unComprable);
     }
 
     public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados {

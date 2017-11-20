@@ -33,6 +33,8 @@ public class BuenosAiresSur extends Propiedad {
 
 		if(!unJugador.esDuenio(tablero.getBuenosAiresNorte())) throw  new JugadorNoPoseeTodosLosBarrios();
 
+		if(edificios.size()>1) throw new NoPuedeConstruirMasCasas();
+
 
 
 	}

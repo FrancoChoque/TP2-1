@@ -14,9 +14,9 @@ public interface EstadoDeJugador {
 
     public void construirHotel(Propiedad unaPropiedad);
 
-    public void vender(Comprable unComprable) throws NoEsTurnoJugador;
+    public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario;
 
-    public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador;
+    public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente;
 
     public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados;
 

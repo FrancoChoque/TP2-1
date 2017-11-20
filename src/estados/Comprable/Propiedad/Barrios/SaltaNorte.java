@@ -33,6 +33,8 @@ public class SaltaNorte extends Propiedad {
 
 		if(!unJugador.esDuenio(tablero.getSaltaSur())) throw new JugadorNoPoseeTodosLosBarrios();
 
+		if(edificios.size()>1) throw new NoPuedeConstruirMasCasas();
+
 
 
 	}

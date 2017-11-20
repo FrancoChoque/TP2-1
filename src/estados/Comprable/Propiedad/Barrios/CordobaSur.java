@@ -32,6 +32,8 @@ public class CordobaSur extends Propiedad {
 
 		if(!unJugador.esDuenio(tablero.getCordobaNorte())) throw new JugadorNoPoseeTodosLosBarrios();
 
+		if(edificios.size()>1) throw new NoPuedeConstruirMasCasas();
+
 	}
 
 

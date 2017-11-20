@@ -7,7 +7,7 @@ import modelo.Jugador.Jugador;
 public class Comprable extends EstadoCasillero {
 	
 	protected Jugador Duenio;
-	boolean tieneDuenio;
+	protected boolean tieneDuenio;
 
 	public Comprable(){
 		tieneDuenio = false;
@@ -26,9 +26,6 @@ public class Comprable extends EstadoCasillero {
 
 
 	public void reembolsar(){
-		Duenio.sumarDinero((int)(getPrecioCompra() - 0.15 * getPrecioCompra()));
-		Duenio = null;
-		tieneDuenio = false;
 	}
 
 	public void noTieneDuenio(){

@@ -54,6 +54,8 @@ public class Jugador {
 			estadoDeJugador.vender(unComprable);
 		}catch (NoEsTurnoJugador noEsTurnoJugador){
 			return;
+		} catch (JugadorNoEsPropietario jugadorNoEsPropietario) {
+			jugadorNoEsPropietario.printStackTrace();
 		}
 	}
 
@@ -62,6 +64,8 @@ public class Jugador {
 			estadoDeJugador.vender(unJugador, unComprable);
 		}catch (NoEsTurnoJugador noEsTurnoJugador){
 			return;
+		} catch (JugadorNoEsPropietario jugadorNoEsPropietario) {
+			jugadorNoEsPropietario.printStackTrace();
 		}
 	}
 
@@ -103,7 +107,6 @@ public class Jugador {
 	public void sumarDinero(int unMonto){
 		this.dinero += unMonto;
 	}
-
 
 
 	public void setEstado(EstadoDeJugador unEstado){

@@ -37,11 +37,11 @@ public class JugadorSinTurno implements EstadoDeJugador {
         //catch si le esta comprando a otro jugador
     }
 
-    public void vender(Comprable unComprable) throws NoEsTurnoJugador{
+    public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario {
         throw new NoEsTurnoJugador();
     }
 
-    public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador{
+    public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {
         throw new NoEsTurnoJugador();
     }
 

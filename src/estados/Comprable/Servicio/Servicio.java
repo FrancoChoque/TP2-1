@@ -19,6 +19,12 @@ public class Servicio extends Comprable {
         this.Duenio.sumarDinero(getCostoPase(unJugador.getValorDados()));
     }
 
+    public void reembolsar(){
+        Duenio.sumarDinero((int)(getPrecioCompra() - 0.15 * getPrecioCompra()));
+        Duenio = null;
+        tieneDuenio = false;
+    }
+
 
     public int getPrecioCompra(){
         return 0;

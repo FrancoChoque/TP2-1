@@ -1,7 +1,6 @@
 package Entrega2;
 
-import estados.Comprable.Comprable;
-import excepciones.NoEsTurnoJugador;
+
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
 import org.junit.Assert;
