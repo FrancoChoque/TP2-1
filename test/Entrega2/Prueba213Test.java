@@ -33,6 +33,6 @@ public class Prueba213Test {
 
         untablero.moverJugador(player3,3);
 
-        Assert.assertEquals(10500, player2.getDinero());
+        Assert.assertEquals(101500, player2.getDinero());
     }
 }
