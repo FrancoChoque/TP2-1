@@ -49,8 +49,20 @@ public class Jugador {
 	}
 
 
-	public void vender() throws NoEsTurnoJugador{
-		estadoDeJugador.vender();
+	public void vender(Comprable unComprable) {
+		try {
+			estadoDeJugador.vender(unComprable);
+		}catch (NoEsTurnoJugador noEsTurnoJugador){
+			return;
+		}
+	}
+
+	public void vender(Jugador unJugador, Comprable unComprable) {
+		try {
+			estadoDeJugador.vender(unJugador, unComprable);
+		}catch (NoEsTurnoJugador noEsTurnoJugador){
+			return;
+		}
 	}
 
 	public void construirCasa(Propiedad unaPropiedad){
@@ -135,7 +147,7 @@ public class Jugador {
 		try {
 			this.comprar(uncomprable);
 		} catch (NoEsTurnoJugador noEsTurnoJugador) {
-			System.out.println("no es el turno del jugador");
+
 		}
 	}
 

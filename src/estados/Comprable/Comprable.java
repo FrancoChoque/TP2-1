@@ -1,6 +1,7 @@
 package estados.Comprable;
 
 import estados.EstadoCasillero;
+import excepciones.DineroInsuficiente;
 import modelo.Jugador.Jugador;
 
 public class Comprable extends EstadoCasillero {
@@ -23,6 +24,13 @@ public class Comprable extends EstadoCasillero {
 		this.tieneDuenio = true;
 	}
 
+
+	public void reembolsar(){
+		Duenio.sumarDinero((int)(getPrecioCompra() - 0.15 * getPrecioCompra()));
+		Duenio = null;
+		tieneDuenio = false;
+	}
+
 	public void noTieneDuenio(){
 		tieneDuenio = false;
 	}
@@ -37,10 +45,11 @@ public class Comprable extends EstadoCasillero {
 		return tieneDuenio;
 	}
 
-
-	public void comprar(Jugador unjugador){
-
+	public int getPrecioCompra(){
+		return 0;
 	}
+
+	public void comprar(Jugador unjugador){ }
 
 	public void cobrarPase(Jugador unJugador){}
 

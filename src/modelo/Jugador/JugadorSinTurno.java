@@ -34,10 +34,14 @@ public class JugadorSinTurno implements EstadoDeJugador {
     
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
+        //catch si le esta comprando a otro jugador
+    }
+
+    public void vender(Comprable unComprable) throws NoEsTurnoJugador{
         throw new NoEsTurnoJugador();
     }
 
-    public void vender() throws NoEsTurnoJugador{
+    public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador{
         throw new NoEsTurnoJugador();
     }
 

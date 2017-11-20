@@ -16,6 +16,7 @@ public class Servicio extends Comprable {
     public void cobrarPase(Jugador unJugador){
 
         unJugador.sumarDinero(this.getCostoPase(unJugador.getValorDados())*-1);
+        this.Duenio.sumarDinero(getCostoPase(unJugador.getValorDados()));
     }
 
 

@@ -55,7 +55,14 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
     }
 
 
-    public void vender(){
+    public void vender(Comprable unComprable){
+        unComprable.reembolsar();
+    }
+
+    public void vender(Jugador unJugador, Comprable unComprable){
+        unComprable.reembolsar();
+        unComprable.cambiarDuenio(unJugador);
+        unJugador.adquirirPropiedad(unComprable);
     }
 
     public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados {
