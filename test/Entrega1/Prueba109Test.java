@@ -1,3 +1,5 @@
+package Entrega1;
+
 import modelo.*;
 
 import modelo.Jugador.Jugador;

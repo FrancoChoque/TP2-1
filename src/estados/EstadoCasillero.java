@@ -2,11 +2,15 @@ package estados;
 
 import modelo.Jugador.Jugador;
 
-public abstract class EstadoCasillero {
+public class EstadoCasillero {
 
-	public abstract void hacerEfectoDelCasillero(Jugador unJugador);
+	public void hacerEfectoDelCasillero(Jugador unJugador){
 
-	public abstract boolean esComprable();
+	}
+
+	public boolean esComprable(){
+		return true;
+	}
 
 
 

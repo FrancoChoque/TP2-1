@@ -1,5 +1,7 @@
+package Entrega1;
+
+import estados.Comprable.Comprable;
 import modelo.*;
-import estados.*;
 import modelo.Jugador.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,7 +12,10 @@ public class Prueba104Test {
 	@Test
 	public void test() {
 		Tablero untablero = Tablero.resetInstance();
-        Jugador player = new Jugador("plauer");
+
+        untablero.resetearTablero();
+
+		Jugador player = new Jugador("plauer");
 
 
         untablero.agregarJugador(player);

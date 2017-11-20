@@ -1,5 +1,7 @@
+package Entrega1;
+
+import estados.Carcel;
 import modelo.*;
-import estados.*;
 
 import modelo.Jugador.Jugador;
 import org.junit.Assert;

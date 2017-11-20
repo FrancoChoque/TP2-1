@@ -1,12 +1,5 @@
 package Entrega2;
 
-import estados.Comprable;
-import estados.Propiedad;
-import excepciones.JugadorNoTieneTerreno;
-import excepciones.NoEsTurnoJugador;
-import modelo.Casillero;
-import modelo.Casa;
-import modelo.Edificio;
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
 import org.junit.Assert;
@@ -18,40 +11,49 @@ public class Prueba202Test {
 
     public void construirCasaEnBuenosAiresNorteReduceDineroEn5500(){
 
-        Tablero untablero = Tablero.resetInstance();
+        Tablero untablero = Tablero.getInstance();
+        untablero.resetearTablero();
+
+
         Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());
 
         untablero.agregarJugador(player);
 
-        untablero.moverJugador(player, 2);
+        player.comprarTerreno(untablero.getBuenosAiresSur());
 
-        Casillero unacasilla = untablero.obtenerCasillero(player);
-        Comprable unterreno = (Comprable) unacasilla.getestado();
+        player.comprarTerreno(untablero.getBuenosAiresNorte());
 
-        player.comprarTerreno(unterreno);
-
-
-        untablero.moverJugador(player, 2);
-
-        Casillero otraCasilla = untablero.obtenerCasillero(player);
-        Comprable otroTerreno = (Comprable) otraCasilla.getestado();
-
-        player.comprarTerreno(otroTerreno);
-
-        Assert.assertEquals(55000, player.getDinero() );
-
-        try {
-            player.edificar((Propiedad) otroTerreno, (Edificio) new Casa());
-        }catch (NoEsTurnoJugador noEsTurnoJugador){
-
-        }catch (JugadorNoTieneTerreno jugadorNoTieneTerreno){
-
-        }
+        player.construirCasa(untablero.getBuenosAiresNorte());
 
         Assert.assertEquals(49500, player.getDinero() );
 
     }
+
+    @Test
+
+    public void construirCasaEnBuenosAiresSurReduceDineroEn5000(){
+
+        Tablero untablero = Tablero.getInstance();
+        untablero.resetearTablero();
+
+
+        Jugador player = new Jugador("player");
+
+        player.setEstado(player.getJugadorEmpezandoTurno());
+
+        untablero.agregarJugador(player);
+
+        player.comprarTerreno(untablero.getBuenosAiresSur());
+
+        player.comprarTerreno(untablero.getBuenosAiresNorte());
+
+        player.construirCasa(untablero.getBuenosAiresSur());
+
+        Assert.assertEquals(50000, player.getDinero() );
+
+    }
+
 
 }

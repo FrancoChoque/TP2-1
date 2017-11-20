@@ -1,12 +1,10 @@
 package modelo.Jugador;
-import estados.Comprable;
-import estados.Propiedad;
-import excepciones.JugadorNoTieneTerreno;
+import estados.Comprable.Comprable;
+import estados.Comprable.Propiedad.Propiedad;
 import excepciones.JugadorNoTiroDados;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import modelo.Dado;
-import modelo.Edificio;
 
 public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
@@ -40,18 +38,20 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
         //if(! unterreno.tieneDuenio() )
-        uncomprable.cobrarCompra(jugador);
+        uncomprable.comprar(jugador);
         jugador.adquirirPropiedad(uncomprable);
         uncomprable.cambiarDuenio(jugador);
 
     }
 
 
-    public void edificar(Propiedad unaPropiedad, Edificio unEdificio) throws NoEsTurnoJugador, JugadorNoTieneTerreno{
+    public void construirCasa(Propiedad unaPropiedad){
+        unaPropiedad.construirCasa(jugador);
 
-        unaPropiedad.edificar(jugador,unEdificio);
+    }
 
-
+    public void construirHotel(Propiedad unaPropiedad){
+        unaPropiedad.construirHotel(jugador);
     }
 
 
