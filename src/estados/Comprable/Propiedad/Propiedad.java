@@ -63,25 +63,15 @@ public class Propiedad extends Comprable {
 
 
 
-	public void comprar(Jugador unJugador){
-
-		unJugador.sumarDinero(this.getPrecioCompra()*-1);
-
-		this.cambiarDuenio(unJugador);
-
-	}
-
 	public void reembolsar(){
 		Duenio.sumarDinero((int)(getPrecioCompra()- getPrecioCompra()*0.15));
 		this.vaciarEdificios();
-		Duenio = null;
-		tieneDuenio = false;
 	}
 
 	public void cobrarPase(Jugador unJugador){
 
 		unJugador.sumarDinero(propiedadEstado.getCostoPase() * -1);
-		this.preguntarDuenio().sumarDinero(propiedadEstado.getCostoPase());
+		this.getDuenio().sumarDinero(propiedadEstado.getCostoPase());
 	}
 
 
@@ -114,7 +104,7 @@ public class Propiedad extends Comprable {
 			//jugadorNoEsPropietario.printStackTrace();
 			return;
 		} catch (NoPuedeConstruirMasHoteles noPuedeConstruirMasHoteles) {
-			//noPuedeConstruirMasHoteles.printStackTrace();
+			noPuedeConstruirMasHoteles.printStackTrace();
 			return;
 		} catch (excepciones.CasasInsuficientes casasInsuficientes) {
 			//casasInsuficientes.printStackTrace();

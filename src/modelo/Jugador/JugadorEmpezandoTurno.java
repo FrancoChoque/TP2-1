@@ -38,8 +38,6 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         //if(! unterreno.tieneDuenio() )
         uncomprable.comprar(jugador);
         jugador.adquirirPropiedad(uncomprable);
-        uncomprable.cambiarDuenio(jugador);
-
     }
 
 
@@ -62,14 +60,14 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         if(!jugador.esDuenio(unComprable)) throw new JugadorNoEsPropietario();
         if(!unComprador.puedePagar(unComprable.getPrecioCompra())) throw new DineroInsuficiente();
         unComprable.reembolsar();
-        unComprable.cambiarDuenio(unComprador);
+        unComprable.setDuenio(unComprador);
         unComprador.adquirirPropiedad(unComprable);
     }
 
     public void intercambiarPropiedades(Jugador unJugador, Comprable propiedadNueva, Comprable propiedadACambiar) {
-        propiedadACambiar.cambiarDuenio(unJugador);
+        propiedadACambiar.setDuenio(unJugador);
         unJugador.adquirirPropiedad(propiedadACambiar);
-        propiedadNueva.cambiarDuenio(jugador);
+        propiedadNueva.setDuenio(jugador);
         jugador.adquirirPropiedad(propiedadNueva);
     }
 

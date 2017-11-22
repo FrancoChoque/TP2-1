@@ -7,11 +7,6 @@ import modelo.Jugador.Jugador;
 public class Servicio extends Comprable {
 
 
-    public void comprar(Jugador unJugador){
-
-        unJugador.sumarDinero(this.getPrecioCompra()*-1);
-        this.cambiarDuenio(unJugador);
-    }
 
     public void cobrarPase(Jugador unJugador){
 
@@ -21,8 +16,6 @@ public class Servicio extends Comprable {
 
     public void reembolsar(){
         Duenio.sumarDinero((int)(getPrecioCompra() - 0.15 * getPrecioCompra()));
-        Duenio = null;
-        tieneDuenio = false;
     }
 
 

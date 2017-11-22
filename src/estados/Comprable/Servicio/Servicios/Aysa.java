@@ -15,7 +15,7 @@ public class Aysa extends Servicio {
 
         Tablero tablero = Tablero.getInstance();
 
-        if(this.preguntarDuenio() == tablero.getEdesur().preguntarDuenio()){
+        if(this.getDuenio() == tablero.getEdesur().getDuenio()){
             return valorDados * 500;
         }
 

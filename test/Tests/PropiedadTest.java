@@ -28,7 +28,7 @@ public class PropiedadTest {
 
 		player.comprarTerreno(unterreno);
 		
-		Assert.assertEquals(player, unterreno.preguntarDuenio() );
+		Assert.assertEquals(player, unterreno.getDuenio() );
 	}
 	
 	@Test
@@ -46,7 +46,7 @@ public class PropiedadTest {
 		
 		player.comprarTerreno(unterreno);
 
-		Assert.assertEquals(player, unterreno.preguntarDuenio() );
+		Assert.assertEquals(player, unterreno.getDuenio() );
 		
 	}
 }

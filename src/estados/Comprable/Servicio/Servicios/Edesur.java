@@ -15,7 +15,7 @@ public class Edesur extends Servicio {
 
         Tablero tablero = Tablero.getInstance();
 
-        if(this.preguntarDuenio() == tablero.getAysa().preguntarDuenio()){
+        if(this.getDuenio() == tablero.getAysa().getDuenio()){
             return valorDados * 1000;
         }
 

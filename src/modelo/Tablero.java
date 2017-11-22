@@ -163,7 +163,7 @@ public class Tablero {
             unacasilla = Casilleros[i];
             EstadoCasillero unestado = unacasilla.getestado();
             if (!(unestado instanceof Comprable)) continue;
-            ((Comprable) unestado).noTieneDuenio();
+            ((Comprable) unestado).setEstado(((Comprable) unestado).getNoTieneDuenio());
 
             if (!(unestado instanceof Propiedad)) continue;
             ((Propiedad) unestado).vaciarEdificios();

@@ -85,8 +85,6 @@ public class Jugador {
 
 	public void comprar(Comprable uncomprable) throws NoEsTurnoJugador{
 		estadoDeJugador.comprar(uncomprable);
-		uncomprable.cambiarDuenio(this);
-
 	}
 
 	public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados{

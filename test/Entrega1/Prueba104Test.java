@@ -34,7 +34,7 @@ public class Prueba104Test {
 
 		player.comprarTerreno(unterreno);
 
-        Assert.assertEquals(player, unterreno.preguntarDuenio() );
+        Assert.assertEquals(player, unterreno.getDuenio() );
 	}
 
 }

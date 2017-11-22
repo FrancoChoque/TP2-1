@@ -1,60 +1,80 @@
 package estados.Comprable;
 
 import estados.EstadoCasillero;
-import excepciones.DineroInsuficiente;
 import modelo.Jugador.Jugador;
 
 public class Comprable extends EstadoCasillero {
 	
 	protected Jugador Duenio;
-	protected boolean tieneDuenio;
+
+
+	ComprableEstado noTieneDuenio;
+	ComprableEstado tieneDuenio;
+	ComprableEstado estado;
 
 	public Comprable(){
-		tieneDuenio = false;
+
+		noTieneDuenio = new ComprableNoTieneDuenio(this);
+		tieneDuenio = new ComprableTieneDuenio(this);
+		estado = noTieneDuenio;
 	}
 
 
 	public void hacerEfectoDelCasillero(Jugador unJugador) {
-		if(!tieneDuenio || unJugador == Duenio) return;
-		cobrarPase(unJugador);
+		estado.hacerEfectoDelCasillero(unJugador);
 	}
 
-	public void cambiarDuenio(Jugador jugador){
-		this.Duenio = jugador;
-		this.tieneDuenio = true;
+	public void comprar(Jugador unjugador){
+		estado.comprar(unjugador);
+	}
+
+	public void cobrarPase(Jugador unJugador){
+		estado.cobrarPase(unJugador);
 	}
 
 
 	public void reembolsar(){
-	}
-
-	public void noTieneDuenio(){
-		tieneDuenio = false;
+		estado.reembolsar();
 	}
 
 
-
-	public Jugador preguntarDuenio(){
-		return Duenio;
+	public Jugador getDuenio(){
+		return estado.getDuenio();
 	}
 
 	public boolean tieneDuenio(){
-		return tieneDuenio;
+		return estado.tieneDuenio();
 	}
 
 	public int getPrecioCompra(){
 		return 0;
 	}
 
-	public void comprar(Jugador unjugador){ }
-
-	public void cobrarPase(Jugador unJugador){}
 
 	public boolean esComprable() {
 		return true;
 	}
 
 
+	public ComprableEstado getEstado() {
+		return estado;
+	}
+
+	public ComprableEstado getNoTieneDuenio() {
+		return noTieneDuenio;
+	}
+
+	public ComprableEstado getTieneDuenio() {
+		return tieneDuenio;
+	}
+
+	public void setDuenio(Jugador duenio) {
+		Duenio = duenio;
+	}
+
+	public void setEstado(ComprableEstado estado) {
+		this.estado = estado;
+	}
 
 
 }

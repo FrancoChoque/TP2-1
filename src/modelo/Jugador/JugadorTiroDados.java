@@ -27,6 +27,7 @@ public class JugadorTiroDados implements EstadoDeJugador {
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
         if( uncomprable.tieneDuenio() ) return;
+        uncomprable.comprar(jugador);
         jugador.adquirirPropiedad(uncomprable);
 
     }
@@ -59,9 +60,9 @@ public class JugadorTiroDados implements EstadoDeJugador {
     }
 
     public void intercambiarPropiedades(Jugador unJugador, Comprable propiedadNueva, Comprable propiedadACambiar){
-        propiedadACambiar.cambiarDuenio(unJugador);
+        propiedadACambiar.setDuenio(unJugador);
         unJugador.adquirirPropiedad(propiedadACambiar);
-        propiedadNueva.cambiarDuenio(jugador);
+        propiedadNueva.setDuenio(jugador);
         jugador.adquirirPropiedad(propiedadNueva);
     }
 	

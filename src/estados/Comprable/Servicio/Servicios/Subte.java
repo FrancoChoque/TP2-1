@@ -15,7 +15,7 @@ public class Subte extends Servicio {
 
         Tablero tablero = Tablero.getInstance();
 
-        if(this.preguntarDuenio() == tablero.getTren().preguntarDuenio()){
+        if(this.getDuenio() == tablero.getTren().getDuenio()){
             return valorDados * 1100;
         }
 

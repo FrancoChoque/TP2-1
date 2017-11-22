@@ -18,3 +18,4 @@ public class Salida extends EstadoCasillero {
 
     }
 }
+
