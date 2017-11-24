@@ -1,6 +1,8 @@
 package Tests;
 
 import modelo.Jugador.Jugador;
+import modelo.Jugador.JugadorSinTurno;
+import org.apache.tools.ant.types.Assertions;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,9 +20,11 @@ public class CarcelTest {
 		Tablero untablero = Tablero.getInstance();
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
-		
+
 		untablero.moverJugador(unjugador, 5);
-		
+
+
+
 		Assert.assertFalse(unjugador.puedeMoverse() );
 	}
 	

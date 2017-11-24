@@ -35,26 +35,27 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
-        //if(! unterreno.tieneDuenio() )
+
         uncomprable.comprar(jugador);
         jugador.adquirirPropiedad(uncomprable);
     }
 
 
-    public void construirCasa(Propiedad unaPropiedad){
+    public void construirCasa(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
         unaPropiedad.construirCasa(jugador);
 
     }
 
-    public void construirHotel(Propiedad unaPropiedad){
+    public void construirHotel(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
         unaPropiedad.construirHotel(jugador);
     }
 
 
     public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario {
         unComprable.reembolsar();
-
+        jugador.devolverPropiedad(unComprable);
     }
+
 
     public void vender(Jugador unComprador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {
         if(!jugador.esDuenio(unComprable)) throw new JugadorNoEsPropietario();

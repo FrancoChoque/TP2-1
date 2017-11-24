@@ -11,7 +11,7 @@ import modelo.Tablero;
 public class SaltaSurTest {
 
 	@Test
-	public void test00ComprarSaltaSurReduceElDineroDelJugadorEn23000() {
+	public void test00ComprarSaltaSurReduceElDineroDelJugadorEn23000() throws Exception {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("plauer");
 
@@ -24,7 +24,7 @@ public class SaltaSurTest {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(77000, player.getDinero() );
 	}

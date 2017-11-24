@@ -10,9 +10,9 @@ public interface EstadoDeJugador {
 
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador;
 
-    public void construirCasa(Propiedad unaPropiedad);
+    public void construirCasa(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas;
 
-    public void construirHotel(Propiedad unaPropiedad);
+    public void construirHotel(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles;
 
     public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario;
 

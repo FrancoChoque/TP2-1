@@ -10,7 +10,7 @@ import modelo.Jugador.Jugador;
 public class Prueba203Test {
 
 	@Test
-	public void test00JugadorCaeEnBuenosairesSurConUnaCasaYPaga3000(){
+	public void test00JugadorCaeEnBuenosairesSurConUnaCasaYPaga3000() throws Exception {
 
 	        Tablero untablero = Tablero.getInstance();
 			untablero.resetearTablero();
@@ -20,9 +20,9 @@ public class Prueba203Test {
 	        player.setEstado(player.getJugadorEmpezandoTurno());
 	        untablero.agregarJugador(player);
 
-			player.comprarTerreno(untablero.getBuenosAiresNorte());
+			player.comprar(untablero.getBuenosAiresNorte());
 
-			player.comprarTerreno(untablero.getBuenosAiresSur());
+			player.comprar(untablero.getBuenosAiresSur());
 
 			player.construirCasa(untablero.getBuenosAiresSur());
 	        
@@ -38,7 +38,7 @@ public class Prueba203Test {
 	
 	@Test
 
-    public void test01JugadorCaeEnBuenosAiresNorteConUnaCasaYDineroDisminuye3500(){
+    public void test01JugadorCaeEnBuenosAiresNorteConUnaCasaYDineroDisminuye3500() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -48,9 +48,9 @@ public class Prueba203Test {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
-		player.comprarTerreno(untablero.getBuenosAiresSur());
+		player.comprar(untablero.getBuenosAiresSur());
 
 		player.construirCasa(untablero.getBuenosAiresNorte());
 

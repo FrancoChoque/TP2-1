@@ -1,6 +1,7 @@
 package Entrega2;
 
 
+import excepciones.CasasInsuficientes;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,8 +11,8 @@ import modelo.Jugador.Jugador;
 
 public class Prueba205Test {
 
-    @Test
-    public void test01JugadorConstruyeHotelSinTenerCasas(){
+    @Test (expected = CasasInsuficientes.class)
+    public void test01JugadorConstruyeHotelSinTenerCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -20,9 +21,9 @@ public class Prueba205Test {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
         Assert.assertEquals(55000, player.getDinero());
 
@@ -33,8 +34,8 @@ public class Prueba205Test {
 
     }
 
-    @Test
-    public void test02JugadorConstruyeHotelConTresCasas(){
+    @Test (expected = CasasInsuficientes.class)
+    public void test02JugadorConstruyeHotelConTresCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -45,9 +46,9 @@ public class Prueba205Test {
 
 
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
         player.construirCasa(untablero.getBuenosAiresSur());
 

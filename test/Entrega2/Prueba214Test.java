@@ -9,7 +9,7 @@ import org.junit.Test;
 public class Prueba214Test {
 
     @Test
-    public void test01JugadorVendePropiedadYPierdeTodasLasConstrucciones(){
+    public void test01JugadorVendePropiedadYPierdeTodasLasConstrucciones() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -24,9 +24,9 @@ public class Prueba214Test {
 
         player1.setEstado(player1.getJugadorEmpezandoTurno());
 
-        player1.comprarTerreno(untablero.getBuenosAiresSur());
+        player1.comprar(untablero.getBuenosAiresSur());
 
-        player1.comprarTerreno(untablero.getBuenosAiresNorte());
+        player1.comprar(untablero.getBuenosAiresNorte());
 
         player1.construirCasa(untablero.getBuenosAiresNorte());
 

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class Prueba217Test {
 
     @Test
-    public void test01JugadorCaeEnEdesurYDuenioTieneAysa(){
+    public void test01JugadorCaeEnEdesurYDuenioTieneAysa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -17,8 +17,8 @@ public class Prueba217Test {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getEdesur());
-        player.comprarTerreno(untablero.getAysa());
+        player.comprar(untablero.getEdesur());
+        player.comprar(untablero.getAysa());
 
 
         Jugador player2 = new Jugador("Player2");
