@@ -12,7 +12,7 @@ import modelo.Tablero;
 public class Prueba201Test {
 
 	@Test
-	public void test00ComprarBuenosAiresSurReduceElDineroDelJugadorEn20000() {
+	public void test00ComprarBuenosAiresSurReduceElDineroDelJugadorEn20000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -23,13 +23,13 @@ public class Prueba201Test {
 
 		untablero.agregarJugador(player);
 
-		player.comprarTerreno(untablero.getBuenosAiresSur());
+		player.comprar(untablero.getBuenosAiresSur());
 		
 		Assert.assertEquals(80000, player.getDinero() );
 	}
 	
 	@Test
-	public void test01ComprarBuenosAiresNorteReduceElDineroDelJugadorEn25000() {
+	public void test01ComprarBuenosAiresNorteReduceElDineroDelJugadorEn25000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -40,13 +40,13 @@ public class Prueba201Test {
 
 		untablero.agregarJugador(player);
 
-		player.comprarTerreno(untablero.getBuenosAiresNorte());
+		player.comprar(untablero.getBuenosAiresNorte());
 		
 		Assert.assertEquals(75000, player.getDinero() );
 	}
 
 	@Test
-	public void test02ComprarCordobaSurReduceElDineroDelJugadorEn18000() {
+	public void test02ComprarCordobaSurReduceElDineroDelJugadorEn18000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -59,13 +59,13 @@ public class Prueba201Test {
 		
 		untablero.moverJugador(player, 6);
 
-		player.comprarTerreno(untablero.getCordobaSur());
+		player.comprar(untablero.getCordobaSur());
 		
 		Assert.assertEquals(82000, player.getDinero() );
 	}
 	
 	@Test
-	public void test03ComprarCordobaNorteReduceElDineroDelJugadorEn20000() {
+	public void test03ComprarCordobaNorteReduceElDineroDelJugadorEn20000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -81,13 +81,13 @@ public class Prueba201Test {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(80000, player.getDinero() );
 	}
 
 	@Test
-	public void test04ComprarSantaFeReduceElDineroDelJugadorEn15000() {
+	public void test04ComprarSantaFeReduceElDineroDelJugadorEn15000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -103,13 +103,13 @@ public class Prueba201Test {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(85000, player.getDinero() );
 	}
 
 	@Test
-	public void test05ComprarSaltaNorteReduceElDineroDelJugadorEn23000() {
+	public void test05ComprarSaltaNorteReduceElDineroDelJugadorEn23000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -125,13 +125,13 @@ public class Prueba201Test {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(77000, player.getDinero() );
 	}
 	
 	@Test
-	public void test06ComprarSaltaSurReduceElDineroDelJugadorEn23000() {
+	public void test06ComprarSaltaSurReduceElDineroDelJugadorEn23000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -147,13 +147,13 @@ public class Prueba201Test {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(77000, player.getDinero() );
 	}
 
 	@Test
-	public void test07ComprarNeuquenReduceElDineroDelJugadorEn17000() {
+	public void test07ComprarNeuquenReduceElDineroDelJugadorEn17000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -169,13 +169,13 @@ public class Prueba201Test {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(83000, player.getDinero() );
 	}
 	
 	@Test
-	public void test08ComprarTucumanReduceElDineroDelJugadorEn25000() {
+	public void test08ComprarTucumanReduceElDineroDelJugadorEn25000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -191,7 +191,7 @@ public class Prueba201Test {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(75000, player.getDinero() );
 	}

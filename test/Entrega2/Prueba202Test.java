@@ -9,7 +9,7 @@ public class Prueba202Test {
 
     @Test
 
-    public void construirCasaEnBuenosAiresNorteReduceDineroEn5500(){
+    public void construirCasaEnBuenosAiresNorteReduceDineroEn5500() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -21,9 +21,9 @@ public class Prueba202Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
         player.construirCasa(untablero.getBuenosAiresNorte());
 
@@ -33,7 +33,7 @@ public class Prueba202Test {
 
     @Test
 
-    public void construirCasaEnBuenosAiresSurReduceDineroEn5000(){
+    public void construirCasaEnBuenosAiresSurReduceDineroEn5000() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -45,9 +45,9 @@ public class Prueba202Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
         player.construirCasa(untablero.getBuenosAiresSur());
 

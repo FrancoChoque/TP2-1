@@ -24,11 +24,11 @@ public class JugadorSinTurno implements EstadoDeJugador {
 
     }
 
-    public void construirCasa(Propiedad unaPropiedad){
+    public void construirCasa(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
 
     }
 
-    public void construirHotel(Propiedad unaPropiedad){
+    public void construirHotel(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
 
     }
     

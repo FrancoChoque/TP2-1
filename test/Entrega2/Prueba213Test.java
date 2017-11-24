@@ -9,7 +9,7 @@ import org.junit.Test;
 public class Prueba213Test {
 
     @Test
-    public void test01JugadorVendePropiedadYTransfiereTitularidad(){
+    public void test01JugadorVendePropiedadYTransfiereTitularidad() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -24,7 +24,7 @@ public class Prueba213Test {
 
         player1.setEstado(player1.getJugadorEmpezandoTurno());
 
-        player1.comprarTerreno(untablero.getEdesur());
+        player1.comprar(untablero.getEdesur());
 
         player1.vender(player2, untablero.getEdesur());
 
@@ -36,7 +36,7 @@ public class Prueba213Test {
     }
 
     @Test
-    public void test02JugadorIntercambiaPropiedadTransfiereTitularidad(){
+    public void test02JugadorIntercambiaPropiedadTransfiereTitularidad() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -51,9 +51,9 @@ public class Prueba213Test {
 
         player1.setEstado(player1.getJugadorEmpezandoTurno());
 
-        player1.comprarTerreno(untablero.getEdesur());
+        player1.comprar(untablero.getEdesur());
 
-        player2.comprarTerreno(untablero.getAysa());
+        player2.comprar(untablero.getAysa());
 
         player1.intercambiarPropiedades(player2,untablero.getAysa(),untablero.getEdesur());
 

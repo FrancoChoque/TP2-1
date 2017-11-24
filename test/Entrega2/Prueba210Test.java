@@ -11,7 +11,7 @@ import modelo.Tablero;
 public class Prueba210Test {
 
     @Test
-    public void test01JugadorCaeEnBuenosAiresSurConCasa() {
+    public void test01JugadorCaeEnBuenosAiresSurConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -22,9 +22,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
         player.construirCasa(untablero.getBuenosAiresSur());
 
@@ -40,7 +40,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test02JugadorCaeEnBuenosAiresSurConDosCasas() {
+    public void test02JugadorCaeEnBuenosAiresSurConDosCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -51,9 +51,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
         player.construirCasa(untablero.getBuenosAiresSur());
 
@@ -71,7 +71,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test03JugadorCaeEnBuenosAiresSurConHotel() {
+    public void test03JugadorCaeEnBuenosAiresSurConHotel() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -82,9 +82,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
         player.construirCasa(untablero.getBuenosAiresSur());
 
@@ -109,7 +109,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test04JugadorCaeEnBuenosAiresNorteConCasa() {
+    public void test04JugadorCaeEnBuenosAiresNorteConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -120,9 +120,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
         player.construirCasa(untablero.getBuenosAiresNorte());
 
@@ -138,7 +138,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test05JugadorCaeEnBuenosAiresNorteConDosCasas() {
+    public void test05JugadorCaeEnBuenosAiresNorteConDosCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -149,9 +149,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
         player.construirCasa(untablero.getBuenosAiresNorte());
 
@@ -169,7 +169,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test06JugadorCaeEnBuenosAiresNorteConHotel() {
+    public void test06JugadorCaeEnBuenosAiresNorteConHotel() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -180,9 +180,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
         player.construirCasa(untablero.getBuenosAiresSur());
 
@@ -207,7 +207,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test07JugadorCaeEnCordobaSurConCasa() {
+    public void test07JugadorCaeEnCordobaSurConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -218,9 +218,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getCordobaSur());
+        player.comprar(untablero.getCordobaSur());
 
-        player.comprarTerreno(untablero.getCordobaNorte());
+        player.comprar(untablero.getCordobaNorte());
 
         player.construirCasa(untablero.getCordobaSur());
 
@@ -236,7 +236,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test08JugadorCaeEnCordobaSurConDosCasas() {
+    public void test08JugadorCaeEnCordobaSurConDosCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -247,9 +247,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getCordobaSur());
+        player.comprar(untablero.getCordobaSur());
 
-        player.comprarTerreno(untablero.getCordobaNorte());
+        player.comprar(untablero.getCordobaNorte());
 
         player.construirCasa(untablero.getCordobaSur());
 
@@ -268,7 +268,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test09JugadorCaeEnCordobaSurConHotel() {
+    public void test09JugadorCaeEnCordobaSurConHotel() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -279,9 +279,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getCordobaSur());
+        player.comprar(untablero.getCordobaSur());
 
-        player.comprarTerreno(untablero.getCordobaNorte());
+        player.comprar(untablero.getCordobaNorte());
 
         player.construirCasa(untablero.getCordobaSur());
 
@@ -306,7 +306,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test10JugadorCaeEnCordobaNorteConCasa() {
+    public void test10JugadorCaeEnCordobaNorteConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -316,9 +316,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getCordobaNorte());
+        player.comprar(untablero.getCordobaNorte());
 
-        player.comprarTerreno(untablero.getCordobaSur());
+        player.comprar(untablero.getCordobaSur());
 
         player.construirCasa(untablero.getCordobaNorte());
 
@@ -335,7 +335,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test11JugadorCaeEnCordobaNorteConDosCasas() {
+    public void test11JugadorCaeEnCordobaNorteConDosCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -346,9 +346,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getCordobaNorte());
+        player.comprar(untablero.getCordobaNorte());
 
-        player.comprarTerreno(untablero.getCordobaSur());
+        player.comprar(untablero.getCordobaSur());
 
         player.construirCasa(untablero.getCordobaNorte());
 
@@ -367,7 +367,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test12JugadorCaeEnCordobaNorteConHotel() {
+    public void test12JugadorCaeEnCordobaNorteConHotel() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -378,9 +378,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getCordobaSur());
+        player.comprar(untablero.getCordobaSur());
 
-        player.comprarTerreno(untablero.getCordobaNorte());
+        player.comprar(untablero.getCordobaNorte());
 
         player.construirCasa(untablero.getCordobaSur());
 
@@ -404,7 +404,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test13JugadorCaeEnSantaFeConCasa() {
+    public void test13JugadorCaeEnSantaFeConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -415,7 +415,7 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSantaFe());
+        player.comprar(untablero.getSantaFe());
 
         player.construirCasa(untablero.getSantaFe());
 
@@ -432,7 +432,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test14JugadorCaeEnSaltaNorteConCasa() {
+    public void test14JugadorCaeEnSaltaNorteConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -443,9 +443,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSaltaNorte());
+        player.comprar(untablero.getSaltaNorte());
 
-        player.comprarTerreno(untablero.getSaltaSur());
+        player.comprar(untablero.getSaltaSur());
 
         player.construirCasa(untablero.getSaltaNorte());
 
@@ -461,7 +461,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test15JugadorCaeEnSaltaNorteConDosCasas() {
+    public void test15JugadorCaeEnSaltaNorteConDosCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -472,9 +472,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSaltaNorte());
+        player.comprar(untablero.getSaltaNorte());
 
-        player.comprarTerreno(untablero.getSaltaSur());
+        player.comprar(untablero.getSaltaSur());
 
         player.construirCasa(untablero.getSaltaNorte());
 
@@ -492,7 +492,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test16JugadorCaeEnSaltaNorteConHotel() {
+    public void test16JugadorCaeEnSaltaNorteConHotel() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -503,9 +503,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSaltaSur());
+        player.comprar(untablero.getSaltaSur());
 
-        player.comprarTerreno(untablero.getSaltaNorte());
+        player.comprar(untablero.getSaltaNorte());
 
         player.construirCasa(untablero.getSaltaSur());
 
@@ -530,7 +530,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test17JugadorCaeEnSaltaSurConCasa() {
+    public void test17JugadorCaeEnSaltaSurConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -541,9 +541,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSaltaSur());
+        player.comprar(untablero.getSaltaSur());
 
-        player.comprarTerreno(untablero.getSaltaNorte());
+        player.comprar(untablero.getSaltaNorte());
 
         player.construirCasa(untablero.getSaltaSur());
 
@@ -559,7 +559,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test18JugadorCaeEnSaltaSurConDosCasas() {
+    public void test18JugadorCaeEnSaltaSurConDosCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -570,9 +570,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSaltaSur());
+        player.comprar(untablero.getSaltaSur());
 
-        player.comprarTerreno(untablero.getSaltaNorte());
+        player.comprar(untablero.getSaltaNorte());
 
         player.construirCasa(untablero.getSaltaSur());
 
@@ -590,7 +590,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test19JugadorCaeEnSaltaSurConHotel() {
+    public void test19JugadorCaeEnSaltaSurConHotel() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -601,9 +601,9 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSaltaSur());
+        player.comprar(untablero.getSaltaSur());
 
-        player.comprarTerreno(untablero.getSaltaNorte());
+        player.comprar(untablero.getSaltaNorte());
 
         player.construirCasa(untablero.getSaltaSur());
 
@@ -628,7 +628,7 @@ public class Prueba210Test {
 
 
     @Test
-    public void test20JugadorCaeEnNeuquenConCasa() {
+    public void test20JugadorCaeEnNeuquenConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -639,7 +639,7 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getNeuquen());
+        player.comprar(untablero.getNeuquen());
 
         player.construirCasa(untablero.getNeuquen());
 
@@ -655,7 +655,7 @@ public class Prueba210Test {
     }
 
     @Test
-    public void test21JugadorCaeEnTucumanConCasa() {
+    public void test21JugadorCaeEnTucumanConCasa() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -666,7 +666,7 @@ public class Prueba210Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getTucuman());
+        player.comprar(untablero.getTucuman());
 
         player.construirCasa(untablero.getTucuman());
 

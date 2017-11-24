@@ -9,7 +9,7 @@ public class Prueba212Test {
 
 
     @Test
-    public void test01JugadorCaeEnTrenYDuenioTieneSubte(){
+    public void test01JugadorCaeEnTrenYDuenioTieneSubte() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -18,8 +18,8 @@ public class Prueba212Test {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getTren());
-        player.comprarTerreno(untablero.getSubte());
+        player.comprar(untablero.getTren());
+        player.comprar(untablero.getSubte());
 
 
         Jugador player2 = new Jugador("Player2");

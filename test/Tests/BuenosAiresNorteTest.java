@@ -12,7 +12,7 @@ import modelo.Jugador.Jugador;
 public class BuenosAiresNorteTest {
 
 	@Test
-	public void test00ComprarBuenosAiresNorteReduceElDineroDelJugadorEn25000() {
+	public void test00ComprarBuenosAiresNorteReduceElDineroDelJugadorEn25000() throws Exception {
 
 		Tablero untablero = Tablero.getInstance();
 		untablero.resetearTablero();
@@ -28,13 +28,13 @@ public class BuenosAiresNorteTest {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(75000, player.getDinero() );
 	}
 
 	@Test
-	public void test01JugadorCaeEnBuenosairesNorteConUnaCasaYPaga3500(){
+	public void test01JugadorCaeEnBuenosairesNorteConUnaCasaYPaga3500() throws Exception{
 
 	        Tablero untablero = Tablero.getInstance();
 	        untablero.resetearTablero();
@@ -46,13 +46,13 @@ public class BuenosAiresNorteTest {
 	        untablero.moverJugador(player, 2);
 	        Casillero unacasilla = untablero.obtenerCasillero(player);
 	        Comprable unterreno = (Comprable) unacasilla.getestado();
-	        player.comprarTerreno(unterreno);
+	        player.comprar(unterreno);
 
 
 	        untablero.moverJugador(player, 2);
 	        Casillero otraCasilla = untablero.obtenerCasillero(player);
 	        Propiedad otroTerreno = (Propiedad) otraCasilla.getestado();
-	        player.comprarTerreno(otroTerreno);
+	        player.comprar(otroTerreno);
 
 	        Assert.assertEquals(55000, player.getDinero() );
 
@@ -71,7 +71,7 @@ public class BuenosAiresNorteTest {
 	
 	@Test
 
-    public void test02ConstruirDosCasasEnBuenosAiresNorteReduceDineroEn11000(){
+    public void test02ConstruirDosCasasEnBuenosAiresNorteReduceDineroEn11000() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -87,7 +87,7 @@ public class BuenosAiresNorteTest {
         Casillero unacasilla = untablero.obtenerCasillero(player);
         Comprable unterreno = (Comprable) unacasilla.getestado();
 
-        player.comprarTerreno(unterreno);
+        player.comprar(unterreno);
 
 
         untablero.moverJugador(player, 2);
@@ -95,7 +95,7 @@ public class BuenosAiresNorteTest {
         Casillero otraCasilla = untablero.obtenerCasillero(player);
         Comprable otroTerreno = (Comprable) otraCasilla.getestado();
 
-        player.comprarTerreno(otroTerreno);
+        player.comprar(otroTerreno);
 
         Assert.assertEquals(55000, player.getDinero() );
 

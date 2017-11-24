@@ -49,36 +49,31 @@ public class Jugador {
 	}
 
 
-	public void vender(Comprable unComprable) {
-		try {
-			estadoDeJugador.vender(unComprable);
-		}catch (NoEsTurnoJugador noEsTurnoJugador){
-			return;
-		} catch (JugadorNoEsPropietario jugadorNoEsPropietario) {
-			jugadorNoEsPropietario.printStackTrace();
-		}
-		propiedades.remove(unComprable);
-	}
+	public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario {
 
-	public void vender(Jugador unJugador, Comprable unComprable) {
-		try {
-			estadoDeJugador.vender(unJugador, unComprable);
-		}catch (NoEsTurnoJugador noEsTurnoJugador){
-			return;
-		} catch (JugadorNoEsPropietario jugadorNoEsPropietario) {
-			jugadorNoEsPropietario.printStackTrace();
-		}
+		estadoDeJugador.vender(unComprable);
 
 		propiedades.remove(unComprable);
 	}
 
-	public void construirCasa(Propiedad unaPropiedad){
+	public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {
+
+		estadoDeJugador.vender(unJugador, unComprable);
+
+		propiedades.remove(unComprable);
+	}
+
+	public void construirCasa(Propiedad unaPropiedad) throws JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas, DineroInsuficiente{
+
 		estadoDeJugador.construirCasa(unaPropiedad);
 
+
 	}
 
-	public void construirHotel(Propiedad unaPropiedad){
+	public void construirHotel(Propiedad unaPropiedad) throws NoPuedeConstruirMasHoteles, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, DineroInsuficiente, JugadorNoEsPropietario{
+
 		estadoDeJugador.construirHotel(unaPropiedad);
+
 	}
 
 
@@ -108,7 +103,6 @@ public class Jugador {
 	public void sumarDinero(int unMonto){
 		this.dinero += unMonto;
 	}
-
 
 	public void setEstado(EstadoDeJugador unEstado){
 		this.estadoDeJugador = unEstado;
@@ -144,20 +138,17 @@ public class Jugador {
 	}
 
 
-
 	public void adquirirPropiedad(Comprable uncomprable){
 
 		this.propiedades.add(uncomprable);
 	}
 
+	public void devolverPropiedad(Comprable uncomprable){
 
-	public void comprarTerreno(Comprable uncomprable) {
-		try {
-			this.comprar(uncomprable);
-		} catch (NoEsTurnoJugador noEsTurnoJugador) {
-
-		}
+		this.propiedades.remove(uncomprable);
 	}
+
+
 
 
 	public void cambiarMovimiento() {
@@ -177,7 +168,6 @@ public class Jugador {
 
 		return movimientoPosible;
 	}
-
 
 	public int getNumeroPropiedades() {
 		return numeroPropiedades;

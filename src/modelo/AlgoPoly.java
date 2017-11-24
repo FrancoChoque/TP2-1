@@ -50,11 +50,15 @@ public class AlgoPoly {
     	Casillero unacasilla = tablero.obtenerCasillero(unjugador);
     	EstadoCasillero unestado = unacasilla.getestado();
     	try {
-    		unjugador.comprarTerreno((Comprable) unestado);
+    		unjugador.comprar((Comprable) unestado);
     	}
     	catch(ClassCastException e) {
     		//no puede comprar
     	}
+    	catch (NoEsTurnoJugador e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     

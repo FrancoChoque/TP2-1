@@ -8,7 +8,7 @@ import org.junit.Test;
 public class Prueba216Test {
 
     @Test
-    public void test01JugadorCaeEnEdesurConDuenio(){
+    public void test01JugadorCaeEnEdesurConDuenio() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -17,7 +17,7 @@ public class Prueba216Test {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getEdesur());
+        player.comprar(untablero.getEdesur());
 
 
         Jugador player2 = new Jugador("Player2");

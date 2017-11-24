@@ -9,7 +9,7 @@ public class Prueba209Test {
 
 
     @Test
-    public void test01JugadorCompraCasaEnSantaFe(){
+    public void test01JugadorCompraCasaEnSantaFe() throws Exception {
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
 
@@ -18,7 +18,7 @@ public class Prueba209Test {
 
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSantaFe());
+        player.comprar(untablero.getSantaFe());
 
         Assert.assertEquals(85000, player.getDinero());
 

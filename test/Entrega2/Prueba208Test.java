@@ -8,7 +8,7 @@ import org.junit.Test;
 public class Prueba208Test {
 
     @Test
-    public void test01JugadorCaeEnCordobaConHotel(){
+    public void test01JugadorCaeEnCordobaConHotel() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -17,9 +17,9 @@ public class Prueba208Test {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getCordobaNorte());
+        player.comprar(untablero.getCordobaNorte());
 
-        player.comprarTerreno(untablero.getCordobaSur());
+        player.comprar(untablero.getCordobaSur());
 
         player.construirCasa(untablero.getCordobaSur());
         player.construirCasa(untablero.getCordobaSur());
@@ -45,7 +45,7 @@ public class Prueba208Test {
 
 
     @Test
-    public void test02JugadorCaeEnSaltaConHotel(){
+    public void test02JugadorCaeEnSaltaConHotel() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -54,9 +54,9 @@ public class Prueba208Test {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getSaltaNorte());
+        player.comprar(untablero.getSaltaNorte());
 
-        player.comprarTerreno(untablero.getSaltaSur());
+        player.comprar(untablero.getSaltaSur());
 
         player.construirCasa(untablero.getSaltaSur());
         player.construirCasa(untablero.getSaltaSur());

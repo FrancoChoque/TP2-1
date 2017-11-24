@@ -20,19 +20,19 @@ public class PropiedadTest {
 	}
 
 	@Test
-	public void test01TerrenoSinDuenioSeCompraYCambiaElDuenio() {
+	public void test01TerrenoSinDuenioSeCompraYCambiaElDuenio() throws Exception {
 		Propiedad unterreno = new BuenosAiresSur();
 		Jugador player = new Jugador("player");
 
 		player.setEstado(player.getJugadorEmpezandoTurno());
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 		
 		Assert.assertEquals(player, unterreno.getDuenio() );
 	}
 	
 	@Test
-	public void test02JugadorCaeEnUnTerrenoSinDuenioYLoCompra() {
+	public void test02JugadorCaeEnUnTerrenoSinDuenioYLoCompra() throws Exception {
 		Tablero untablero = Tablero.getInstance();
 		Jugador player = new Jugador("plauer");
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -44,7 +44,7 @@ public class PropiedadTest {
 		Casillero unacasilla = untablero.obtenerCasillero(player);
 		Propiedad unterreno = (Propiedad) unacasilla.getestado();
 		
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 
 		Assert.assertEquals(player, unterreno.getDuenio() );
 		

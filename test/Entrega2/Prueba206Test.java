@@ -11,7 +11,7 @@ import modelo.Jugador.Jugador;
 public class Prueba206Test {
 
     @Test
-    public void test01JugadorConstruyeHotelYPagaElValor() {
+    public void test01JugadorConstruyeHotelYPagaElValor() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
         untablero.resetearTablero();
@@ -20,9 +20,9 @@ public class Prueba206Test {
         player.setEstado(player.getJugadorEmpezandoTurno());
         untablero.agregarJugador(player);
 
-        player.comprarTerreno(untablero.getBuenosAiresNorte());
+        player.comprar(untablero.getBuenosAiresNorte());
 
-        player.comprarTerreno(untablero.getBuenosAiresSur());
+        player.comprar(untablero.getBuenosAiresSur());
 
         player.construirCasa(untablero.getBuenosAiresSur());
 

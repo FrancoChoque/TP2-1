@@ -3,10 +3,7 @@ package modelo.Jugador;
 
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
-import excepciones.DineroInsuficiente;
-import excepciones.JugadorNoEsPropietario;
-import excepciones.JugadorYaTiroDados;
-import excepciones.NoEsTurnoJugador;
+import excepciones.*;
 
 public class JugadorTiroDados implements EstadoDeJugador {
 
@@ -29,17 +26,20 @@ public class JugadorTiroDados implements EstadoDeJugador {
         if( uncomprable.tieneDuenio() ) return;
         uncomprable.comprar(jugador);
         jugador.adquirirPropiedad(uncomprable);
+        jugador.setEstado(jugador.getJugadorSinTurno());
 
     }
 
-    public void construirCasa(Propiedad unaPropiedad){
+    public void construirCasa(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
+        if(!jugador.esDuenio(unaPropiedad)) throw new JugadorNoEsPropietario();
         unaPropiedad.construirCasa(jugador);
 
 
     }
 
-    public void construirHotel(Propiedad unaPropiedad){
+    public void construirHotel(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
         unaPropiedad.construirHotel(jugador);
+
     }
 
 

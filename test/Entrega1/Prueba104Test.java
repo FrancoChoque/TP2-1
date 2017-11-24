@@ -10,7 +10,7 @@ import org.junit.Test;
 public class Prueba104Test {
 
 	@Test
-	public void test() {
+	public void test() throws Exception {
 		Tablero untablero = Tablero.resetInstance();
 
         untablero.resetearTablero();
@@ -32,7 +32,7 @@ public class Prueba104Test {
 
         Comprable unterreno = (Comprable) unacasilla.getestado();
 
-		player.comprarTerreno(unterreno);
+		player.comprar(unterreno);
 
         Assert.assertEquals(player, unterreno.getDuenio() );
 	}
