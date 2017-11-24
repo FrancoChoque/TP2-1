@@ -1,4 +1,6 @@
 package modelo;
+import estados.EstadoCasillero;
+import estados.Comprable.Comprable;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import modelo.Jugador.Jugador;
@@ -12,6 +14,7 @@ public class AlgoPoly {
     public AlgoPoly(){
 
         tablero = Tablero.getInstance();
+        tablero.resetearTablero();
 
     }
 
@@ -42,8 +45,19 @@ public class AlgoPoly {
         return tablero.obtenerPosicion(unJugador);
 
     }
+    
+    public void comprar(Jugador unjugador) {
+    	Casillero unacasilla = tablero.obtenerCasillero(unjugador);
+    	EstadoCasillero unestado = unacasilla.getestado();
+    	try {
+    		unjugador.comprarTerreno((Comprable) unestado);
+    	}
+    	catch(ClassCastException e) {
+    		//no puede comprar
+    	}
+    }
 
-
+    
 
 
 }
