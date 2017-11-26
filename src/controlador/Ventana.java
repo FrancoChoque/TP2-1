@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.HashMap;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,30 +31,73 @@ public class Ventana extends Application{
     public void start(Stage primaryStage) {
                
         AlgoPoly juego = new AlgoPoly();
+        HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador("Player1");
+        Jugador jugador2 = juego.nuevoJugador("player2");
 		
 		
 		//Layout borderpane
         
         BorderPane root = new BorderPane();
-       
+        
+        // Agrego imagen del tablero
+        Image unaimagen = new Image("imagenes/tablero.jpg");
+        ImageView univ = new ImageView();
+        univ.setImage(unaimagen);
+        univ.setPreserveRatio(true);
+        univ.setFitWidth(800);
+        
+        
+        //Creo la pila de capas de jugadores
+        StackPane stackcapas = new StackPane();
+        
+        // Creo los canvas para cada jugador, los agrego al hashmap
+        Canvas canvasjugador1 = new Canvas(800, 800);
+        GraphicsContext gcjugador1 = canvasjugador1.getGraphicsContext2D();
+        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, Color.BLACK);
+        stackcapas.getChildren().add(canvasjugador1);
+        hash.put(jugador1, capajugador1);
+        
+        Canvas canvasjugador2 = new Canvas(800, 800);
+        GraphicsContext gcjugador2 = canvasjugador2.getGraphicsContext2D();
+        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.SPRINGGREEN);
+        stackcapas.getChildren().add(canvasjugador2);
+        hash.put(jugador2, capajugador2);
+    
+        
+        capajugador1.dibujar();
+        capajugador2.dibujar();
+        
+        Tablero tablero = Tablero.getInstance();
+        tablero.moverJugador(jugador1, 1);
+        
+        capajugador1.dibujar();
+        
+        tablero.moverJugador(jugador1, 1);
+        
+        capajugador1.dibujar();
+        
+        StackPane stack = new StackPane();
+        stack.getChildren().addAll(univ,
+        		stackcapas);
+        
+        root.setCenter(stack);
+        
+        Scene scene = new Scene(root, 1000, 900);
+        
+        
         //Botonera horizontal
         
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("eeeee");
-            }
-        });
+        Button BotonSalir = new Button();
+        BotonSalir.setText("Salir");
+        EventHandler<ActionEvent> BotonSalirHandler = new BotonSalirHandler();
+        BotonSalir.setOnAction(BotonSalirHandler);
         
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
         hbox.setSpacing(10);
         
-        hbox.getChildren().addAll(btn);
+        hbox.getChildren().addAll(BotonSalir);
         
         root.setTop(hbox);
         
@@ -60,7 +105,7 @@ public class Ventana extends Application{
         
         Button BotonArrojarDados = new Button();
         BotonArrojarDados.setText("Tirar Dados");
-        EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler();
+        EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(juego,hash);
         BotonArrojarDados.setOnAction(BotonArrojarDadosHandler);
         
         Button BotonComprarTerreno = new Button();
@@ -130,99 +175,8 @@ public class Ventana extends Application{
 		*/
         
         
-        // Agrego imagen en el centro
-        Image unaimagen = new Image("imagenes/tablero.jpg");
-        ImageView univ = new ImageView();
-        univ.setImage(unaimagen);
-        univ.setPreserveRatio(true);
-        univ.setFitWidth(800);
-        //root.setCenter(univ);
-
-        Canvas uncanvas = new Canvas(800,800);
-        GraphicsContext ungc = uncanvas.getGraphicsContext2D();
-        JugadorCapa unacapa = new JugadorCapa(ungc, jugador1, Color.BLACK);
         
-        int largo_jugador = 15;
-        int altura_jugador = 15;
-        
-        ungc.setFill(Color.TRANSPARENT);
-        ungc.fillRect(0, 0, 800, 800);
-        
-        /*
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(500, 770, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(370, 770, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(240, 770, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(110, 770, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(110, 630, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(110, 500, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(110, 370, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(110, 240, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(110, 110, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(240, 110, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(370, 110, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(500, 110, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(630, 110, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(770, 110, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(770, 240, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(770, 370, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(770, 500, largo_jugador, altura_jugador);
-        
-        ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(770, 630, largo_jugador, altura_jugador);
-        */
-        
-        unacapa.dibujar();
-        
-        Tablero tablero = Tablero.getInstance();
-        tablero.moverJugador(jugador1, 1);
-        
-        unacapa.dibujar();
-        
-        tablero.moverJugador(jugador1, 1);
-        
-        unacapa.dibujar();
-        
-        StackPane stack = new StackPane();
-        stack.getChildren().addAll(univ,
-        		uncanvas);
-        
-        root.setCenter(stack);
-        
-        Scene scene = new Scene(root, 1400, 900);
-
+        //Muestra la ventana del juego
         primaryStage.setTitle("Lorem ipsum");
         primaryStage.setScene(scene);
         primaryStage.show();

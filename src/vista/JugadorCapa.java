@@ -18,6 +18,8 @@ public class JugadorCapa {
 		this.jugador = unjugador;
 		this.gc = ungc;
 		this.color = uncolor;
+		ungc.setFill(Color.TRANSPARENT);
+        ungc.fillRect(0, 0, 800, 800);
 	}
 	
 	public void clean() {
@@ -33,6 +35,12 @@ public class JugadorCapa {
 		
 		this.gc.setFill(color);
 		this.gc.fillRect(posicionactual.getx(), posicionactual.gety(), largojugador, alturajugador);
+	}
+
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		this.clean();
+		this.dibujar();
 	}
 	
 	
