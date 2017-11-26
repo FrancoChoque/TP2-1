@@ -18,13 +18,21 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import modelo.AlgoPoly;
+import modelo.Tablero;
+import modelo.Jugador.Jugador;
+import vista.JugadorCapa;
 
 public class Ventana extends Application{
 	
 	@Override
     public void start(Stage primaryStage) {
                
-        //Layout borderpane
+        AlgoPoly juego = new AlgoPoly();
+        Jugador jugador1 = juego.nuevoJugador("Player1");
+		
+		
+		//Layout borderpane
         
         BorderPane root = new BorderPane();
        
@@ -132,10 +140,80 @@ public class Ventana extends Application{
 
         Canvas uncanvas = new Canvas(800,800);
         GraphicsContext ungc = uncanvas.getGraphicsContext2D();
+        JugadorCapa unacapa = new JugadorCapa(ungc, jugador1, Color.BLACK);
+        
+        int largo_jugador = 15;
+        int altura_jugador = 15;
+        
         ungc.setFill(Color.TRANSPARENT);
         ungc.fillRect(0, 0, 800, 800);
+        
+        /*
         ungc.setFill(Color.DEEPSKYBLUE);
-        ungc.fillRect(770, 770, 10, 10);
+        ungc.fillRect(500, 770, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(370, 770, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(240, 770, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(110, 770, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(110, 630, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(110, 500, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(110, 370, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(110, 240, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(110, 110, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(240, 110, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(370, 110, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(500, 110, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(630, 110, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(770, 110, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(770, 240, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(770, 370, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(770, 500, largo_jugador, altura_jugador);
+        
+        ungc.setFill(Color.DEEPSKYBLUE);
+        ungc.fillRect(770, 630, largo_jugador, altura_jugador);
+        */
+        
+        unacapa.dibujar();
+        
+        Tablero tablero = Tablero.getInstance();
+        tablero.moverJugador(jugador1, 1);
+        
+        unacapa.dibujar();
+        
+        tablero.moverJugador(jugador1, 1);
+        
+        unacapa.dibujar();
         
         StackPane stack = new StackPane();
         stack.getChildren().addAll(univ,
