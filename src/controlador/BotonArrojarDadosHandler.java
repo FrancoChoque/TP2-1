@@ -21,6 +21,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		System.out.println("Arrojar dados");
 		try {
 			Jugador actual = this.algopoly.obtenerJugadorActual();
+			System.out.println(actual.nombre);
 			this.algopoly.usarTurno(actual);
 			JugadorCapa capa = hash.get(actual);
 			capa.actualizar();

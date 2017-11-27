@@ -12,15 +12,16 @@ public class RetrocesoDinamico extends Suerte{
 		int nuevoDesplazamiento = 0;
 		if(valorDeDados<= 6){
 			nuevoDesplazamiento = valorDeDados - unJugador.getNumeroPropiedades();
-			if(nuevoDesplazamiento<=0){
-				return;
-			}
+//			if(nuevoDesplazamiento<=0){
+//				nuevoDesplazamiento = 1;
+//			}
 			
 		}else if(valorDeDados<= 10){
 			nuevoDesplazamiento = unJugador.getDinero() % valorDeDados;
 		}else{
 			nuevoDesplazamiento = valorDeDados - 2;
 		}
+		if(nuevoDesplazamiento == 0) return;
 		tablero.moverJugador(unJugador,(-1)*nuevoDesplazamiento );
 	}
 }

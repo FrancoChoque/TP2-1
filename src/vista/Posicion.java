@@ -24,11 +24,11 @@ public class Posicion {
 		posiciones[12] = new Posicion(370 , 110); //Aysa
 		posiciones[13] = new Posicion(500 , 110); //Salta norte
 		posiciones[14] = new Posicion(630 , 110); //Salta sur
-		posiciones[15] = new Posicion(770 , 110); //Policia
-		posiciones[16] = new Posicion(770 , 0); //Tren
-		posiciones[17] = new Posicion(770 , 0); //Neuquen
-		posiciones[18] = new Posicion(770 , 0); //Retroceso dinamico
-		posiciones[19] = new Posicion(770 , 0); //Tucuman
+		posiciones[15] = new Posicion(110 , 770); //Policia, ya que lo manda a la carcel
+		posiciones[16] = new Posicion(770 , 240); //Tren
+		posiciones[17] = new Posicion(770 , 370); //Neuquen
+		posiciones[18] = new Posicion(770 , 500); //Retroceso dinamico
+		posiciones[19] = new Posicion(770 , 630); //Tucuman
 		
 		
 	}
