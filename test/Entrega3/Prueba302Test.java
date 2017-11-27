@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import excepciones.FinDelJuego;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import modelo.Jugador.Jugador;
@@ -21,10 +22,20 @@ public class Prueba302Test {
 		
 		try {
 			algopoly.usarTurno(jugador);
+		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch(FinDelJuego e) {
+			System.out.println("Fin del juego");
+		}
+		
+		try {
 			algopoly.usarTurno(jugador);
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch(FinDelJuego e) {
+			System.out.println("Fin del juego");
 		}
 		
 		Assert.assertEquals(jugador.getJugadorTiroDados() , jugador.getEstadoDeJugador() );

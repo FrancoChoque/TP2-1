@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
+import excepciones.FinDelJuego;
 import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
 
@@ -22,6 +23,8 @@ public class Prueba304Test {
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (FinDelJuego e) {
+			
 		}
 		
 		Assert.assertEquals(jugador.getValorDados(), algopoly.obtenerPosicion(jugador));

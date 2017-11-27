@@ -71,6 +71,9 @@ public class Propiedad extends Comprable {
 	public void cobrarPase(Jugador unJugador){
 
 		unJugador.sumarDinero(propiedadEstado.getCostoPase() * -1);
+		
+		if(unJugador.getDinero()<0) throw new DineroInsuficiente();
+		
 		this.getDuenio().sumarDinero(propiedadEstado.getCostoPase());
 	}
 

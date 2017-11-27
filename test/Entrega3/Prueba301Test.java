@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
+import excepciones.FinDelJuego;
 
 public class Prueba301Test {
 
@@ -23,6 +24,8 @@ public class Prueba301Test {
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch(FinDelJuego e) {
+			System.out.println("Fin del juego");
 		}
 		
 		Assert.assertEquals(jugador.getJugadorEmpezandoTurno() , jugador.getEstadoDeJugador() );
