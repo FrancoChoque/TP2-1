@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -18,6 +17,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import modelo.AlgoPoly;
+import vista.ContenedorIntercambio;
 
 public class Ventana extends Application{
 	
@@ -25,9 +26,9 @@ public class Ventana extends Application{
     public void start(Stage primaryStage) {
                
         //Layout borderpane
-        
+		
         BorderPane root = new BorderPane();
-       
+        Scene scene = new Scene(root, 1400, 900);
         //Botonera horizontal
         
         Button btn = new Button();
@@ -65,9 +66,13 @@ public class Ventana extends Application{
         EventHandler<ActionEvent> BotonVenderTerrenoHandler = new BotonVenderTerrenoHandler();
         BotonVenderTerreno.setOnAction(BotonVenderTerrenoHandler);
         
+        
+        ContenedorIntercambio contenedorIntercambio = new ContenedorIntercambio(primaryStage,scene);
+        Scene escenaIntercambio = new Scene(contenedorIntercambio, 640, 480);
+        
         Button BotonIntercambiarTerreno = new Button();
         BotonIntercambiarTerreno.setText("Intercambiar terreno");
-        EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler();
+        EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler(primaryStage,escenaIntercambio);
         BotonIntercambiarTerreno.setOnAction(BotonIntercambiarTerrenoHandler);
         
         Button BotonConstruirCasa = new Button();
@@ -143,7 +148,7 @@ public class Ventana extends Application{
         
         root.setCenter(stack);
         
-        Scene scene = new Scene(root, 1400, 900);
+        //Scene scene = new Scene(root, 1400, 900);
 
         primaryStage.setTitle("Lorem ipsum");
         primaryStage.setScene(scene);
