@@ -2,7 +2,7 @@ package controlador;
 
 import java.util.HashMap;
 
-import javafx.application.Application;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -25,16 +25,17 @@ import modelo.Tablero;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
 
-public class Ventana extends Application{
+
+public class Ventana{
 	
-	@Override
-    public void start(Stage primaryStage) {
+
+    public void initialize(Stage primaryStage, AlgoPoly juego) {
                
-        AlgoPoly juego = new AlgoPoly();
+
         HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador("Player1");
         Jugador jugador2 = juego.nuevoJugador("player2");
-		
+		App mainApp = App.getInstance();
 		
 		//Layout borderpane
         
@@ -68,18 +69,9 @@ public class Ventana extends Application{
         capajugador1.dibujar();
         capajugador2.dibujar();
         
-        Tablero tablero = Tablero.getInstance();
-        tablero.moverJugador(jugador1, 1);
-        
-        capajugador1.dibujar();
-        
-        tablero.moverJugador(jugador1, 1);
-        
-        capajugador1.dibujar();
-        
+
         StackPane stack = new StackPane();
-        stack.getChildren().addAll(univ,
-        		stackcapas);
+        stack.getChildren().addAll(univ, stackcapas);
         
         root.setCenter(stack);
         
@@ -92,6 +84,8 @@ public class Ventana extends Application{
         BotonSalir.setText("Salir");
         EventHandler<ActionEvent> BotonSalirHandler = new BotonSalirHandler();
         BotonSalir.setOnAction(BotonSalirHandler);
+
+
         
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -184,7 +178,4 @@ public class Ventana extends Application{
         primaryStage.show();
     }
     
- public static void main(String[] args) {
-        launch(args);
-    }
 }
