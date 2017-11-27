@@ -3,6 +3,7 @@ import java.util.LinkedList;
 
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
+import excepciones.FinDelJuego;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import modelo.Jugador.Jugador;
@@ -12,6 +13,7 @@ public class AlgoPoly {
 
     private Tablero tablero;
     private LinkedList<Jugador> jugadores;
+    private Jugador jugadorConTurno;
     private int actual = 0;
     private int dadosIgualesSeguidos = 0;
 
@@ -23,9 +25,10 @@ public class AlgoPoly {
     }
 
 
-    public void usarTurno(Jugador unJugador) throws NoEsTurnoJugador, JugadorYaTiroDados {
+    public void usarTurno(Jugador unJugador) throws NoEsTurnoJugador, JugadorYaTiroDados, FinDelJuego {
     	
-        unJugador.setEstado(unJugador.getJugadorEmpezandoTurno());
+        
+    	unJugador.setEstado(unJugador.getJugadorEmpezandoTurno());
 
         unJugador.arrojarDados();
         
@@ -48,6 +51,8 @@ public class AlgoPoly {
     		dadosIgualesSeguidos = 0;
     		this.avanzarJugador();
     	}
+        
+        if(this.jugadores.size()== 1 ) throw new FinDelJuego();
     }
 
     public Jugador nuevoJugador(String unNombre){
@@ -92,6 +97,18 @@ public class AlgoPoly {
 
 	public void avanzarJugador() {
 		this.actual = (this.actual + 1) % this.jugadores.size();
+	}
+
+
+	public int getCantidadJugadores() {
+		// TODO Auto-generated method stub
+		return this.jugadores.size();
+	}
+
+
+	public void quitarJugador(Jugador jugador) {
+		// TODO Auto-generated method stub
+		this.jugadores.remove(jugador);
 	}
     
 	public int getNumeroJugadores(){

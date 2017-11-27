@@ -2,6 +2,7 @@ package controlador;
 
 import java.util.HashMap;
 
+import excepciones.FinDelJuego;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import javafx.event.ActionEvent;
@@ -28,6 +29,9 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (FinDelJuego e) {
+			// TODO Auto-generated catch block
+			System.out.println("Fin del juego");
 		}
 	}
 	

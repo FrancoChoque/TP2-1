@@ -203,6 +203,11 @@ public class Jugador {
 		return dado1.getValor() == dado2.getValor();
 	}
 
+	public void ponerDadosIguales() {
+		// metodo para probar dados iguales
+		dado1 = dado2;
+	}
+
 /*	public int getNumeroPropiedades() {
 
 		int numeroDePropiedades = 0;

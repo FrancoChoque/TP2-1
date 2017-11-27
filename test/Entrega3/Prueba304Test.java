@@ -1,34 +1,34 @@
 package Entrega3;
 
-import modelo.*;
-import modelo.Jugador.Jugador;
+import static org.junit.Assert.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import excepciones.FinDelJuego;
+import modelo.AlgoPoly;
+import modelo.Jugador.Jugador;
 
-public class Prueba301Test {
+public class Prueba304Test {
 
-    @Test
-
-    public void test(){
-    	AlgoPoly algopoly = new AlgoPoly();
+	@Test
+	public void test() {
+		AlgoPoly algopoly = new AlgoPoly();
 		Jugador jugador = algopoly.nuevoJugador("jugador1");
-		jugador.ponerDadosIguales();
-		
-		
+		jugador.setDinero(7);
+			
 		try {
 			algopoly.usarTurno(jugador);
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch(FinDelJuego e) {
-			System.out.println("Fin del juego");
+		} catch (FinDelJuego e) {
+			
 		}
 		
-		Assert.assertEquals(jugador.getJugadorEmpezandoTurno() , jugador.getEstadoDeJugador() );
-    }
+		Assert.assertEquals(jugador.getValorDados(), algopoly.obtenerPosicion(jugador));
+	}
 
 }
