@@ -1,4 +1,6 @@
 package modelo;
+import java.util.LinkedList;
+
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
 import excepciones.JugadorYaTiroDados;
@@ -9,13 +11,15 @@ public class AlgoPoly {
 
 
     private Tablero tablero;
-
+    private LinkedList<Jugador> jugadores;
+    private int actual = 0;
+    private int dadosIgualesSeguidos = 0;
 
     public AlgoPoly(){
 
         tablero = Tablero.getInstance();
         tablero.resetearTablero();
-
+        jugadores = new LinkedList<Jugador>();
     }
 
 
@@ -24,15 +28,34 @@ public class AlgoPoly {
         unJugador.setEstado(unJugador.getJugadorEmpezandoTurno());
 
         unJugador.arrojarDados();
+        
+        System.out.println(unJugador.getValorDados() );
 
         tablero.moverJugador(unJugador, unJugador.getValorDados());
-
+        
+        if(unJugador.tieneDadosIguales() ) {
+        	unJugador.setEstado(unJugador.getJugadorEmpezandoTurno() );
+        	System.out.println("DADOS IGUALES");
+        	dadosIgualesSeguidos++;
+        	
+        }else {
+        	dadosIgualesSeguidos = 0;
+        	this.avanzarJugador();
+        }
+        
+        if(dadosIgualesSeguidos == 2) {
+    		unJugador.setEstado(unJugador.getJugadorTiroDados());
+    		dadosIgualesSeguidos = 0;
+    		this.avanzarJugador();
+    	}
     }
 
     public Jugador nuevoJugador(String unNombre){
 
-        Jugador jugador = new Jugador("Player 1");
-
+        Jugador jugador = new Jugador(unNombre);
+        
+        this.jugadores.add(jugador);
+        
         tablero.agregarJugador(jugador);
 
         return jugador;
@@ -61,6 +84,15 @@ public class AlgoPoly {
 		}
     }
 
+
+	public Jugador obtenerJugadorActual() {
+		Jugador jugador = this.jugadores.get(actual);
+		return jugador;
+	}
+
+	public void avanzarJugador() {
+		this.actual = (this.actual + 1) % this.jugadores.size();
+	}
     
 
 

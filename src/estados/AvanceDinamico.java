@@ -17,6 +17,7 @@ public class AvanceDinamico extends Suerte{
 			nuevoDesplazamiento = valorDeDados - unJugador.getNumeroPropiedades();
 			
 		}
+		if(nuevoDesplazamiento == 0) return; //cae en stackoverflow error
 		tablero.moverJugador(unJugador,nuevoDesplazamiento );
 	}
 

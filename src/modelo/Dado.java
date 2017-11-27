@@ -6,14 +6,21 @@ public class Dado {
 
 
 
+    private int valor;
 
-
-    public int arrojar(){
+	public int arrojar(){
 
         Random rand = new Random();
-
-        return  rand.nextInt(6) + 1;
+        
+        valor = rand.nextInt(6) + 1;
+        
+        return  valor;
 
     }
+
+	public int getValor() {
+		// TODO Auto-generated method stub
+		return valor;
+	}
 
 }

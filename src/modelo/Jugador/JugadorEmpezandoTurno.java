@@ -76,24 +76,11 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         throw new JugadorNoTiroDados();
     }
 
-    private int resultadoDados(){
-
-        int valordado1;
-        int valordado2;
-
-        Dado dado1 = new Dado();
-        Dado dado2 = new Dado();
-
-        valordado1 = dado1.arrojar();
-        valordado2 = dado2.arrojar();
-
-
-        if(valordado1 == valordado2) {
-            return 0;
-
-        }else{
-            return valordado1+valordado2;
-        }
+    private int resultadoDados(){      
+        
+    	this.jugador.tirarDados();             
+        return this.jugador.getValorDados();
+    
     }
 
 

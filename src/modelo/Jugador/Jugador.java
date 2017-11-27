@@ -1,6 +1,7 @@
 package modelo.Jugador;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
+import modelo.Dado;
 
 import java.util.LinkedList;
 
@@ -16,7 +17,8 @@ public class Jugador {
 	private boolean movimientoPosible;
 	private int numeroPropiedades;
 
-
+	private Dado dado1;
+	private Dado dado2;
 
 	private int valorDados;
 
@@ -36,6 +38,9 @@ public class Jugador {
 		propiedades = new LinkedList<Comprable>();
 
         movimientoPosible = true;
+        
+        dado1 = new Dado();
+        dado2 = new Dado();
 
         jugadorEmpezandoTurno = new JugadorEmpezandoTurno(this);
 		jugadorSinTurno = new JugadorSinTurno(this);
@@ -180,6 +185,19 @@ public class Jugador {
 
 	public void aumentarNumeroDePropiedades(int unAumento){
 			this.numeroPropiedades += unAumento;
+	}
+
+	public void tirarDados() {
+		// TODO Auto-generated method stub
+		dado1.arrojar();
+		dado2.arrojar();
+		
+		valorDados = dado1.getValor() + dado2.getValor();
+	}
+
+	public boolean tieneDadosIguales() {
+		// TODO Auto-generated method stub
+		return dado1.getValor() == dado2.getValor();
 	}
 
 /*	public int getNumeroPropiedades() {
