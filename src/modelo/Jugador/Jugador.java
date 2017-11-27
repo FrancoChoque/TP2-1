@@ -48,7 +48,10 @@ public class Jugador {
 		estadoDeJugador = jugadorSinTurno;
 
     }
-
+	
+	public String getNombre(){
+		return this.nombre;
+	}
 	public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
 		estadoDeJugador.arrojarDados();
 	}

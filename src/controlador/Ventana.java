@@ -34,6 +34,7 @@ public class Ventana extends Application{
         HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador("Player1");
         Jugador jugador2 = juego.nuevoJugador("player2");
+        //Jugador jugador3 = juego.nuevoJugador("player3");
 		
 		
 		//Layout borderpane
@@ -63,10 +64,17 @@ public class Ventana extends Application{
         JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.SPRINGGREEN);
         stackcapas.getChildren().add(canvasjugador2);
         hash.put(jugador2, capajugador2);
+        
+        /*Canvas canvasjugador3 = new Canvas(800, 800);
+        GraphicsContext gcjugador3 = canvasjugador3.getGraphicsContext2D();
+        JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, Color.LIGHTBLUE);
+        stackcapas.getChildren().add(canvasjugador3);
+        hash.put(jugador3, capajugador3);*/
     
         
         capajugador1.dibujar();
         capajugador2.dibujar();
+        //capajugador3.dibujar();
         
         Tablero tablero = Tablero.getInstance();
         tablero.moverJugador(jugador1, 1);
@@ -118,13 +126,9 @@ public class Ventana extends Application{
         EventHandler<ActionEvent> BotonVenderTerrenoHandler = new BotonVenderTerrenoHandler();
         BotonVenderTerreno.setOnAction(BotonVenderTerrenoHandler);
         
-        
-        ContenedorIntercambio contenedorIntercambio = new ContenedorIntercambio(primaryStage,scene);
-        Scene escenaIntercambio = new Scene(contenedorIntercambio, 640, 480);
-        
         Button BotonIntercambiarTerreno = new Button();
         BotonIntercambiarTerreno.setText("Intercambiar terreno");
-        EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler(primaryStage,escenaIntercambio);
+        EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler(primaryStage,scene,juego);
         BotonIntercambiarTerreno.setOnAction(BotonIntercambiarTerrenoHandler);
         
         Button BotonConstruirCasa = new Button();

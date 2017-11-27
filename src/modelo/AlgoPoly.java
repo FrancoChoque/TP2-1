@@ -94,6 +94,12 @@ public class AlgoPoly {
 		this.actual = (this.actual + 1) % this.jugadores.size();
 	}
     
-
+	public int getNumeroJugadores(){
+		return this.jugadores.size();
+	}
+	
+	public Jugador obtenerJugador(int numero){
+		return this.jugadores.get(numero);
+	}
 
 }
