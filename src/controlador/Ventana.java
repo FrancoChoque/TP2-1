@@ -34,7 +34,7 @@ public class Ventana{
 
         HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador("Player1");
-        Jugador jugador2 = juego.nuevoJugador("player2");
+       // Jugador jugador2 = juego.nuevoJugador("player2");
 
         //Jugador jugador3 = juego.nuevoJugador("player3");
 		
@@ -50,25 +50,28 @@ public class Ventana{
         ImageView univ = new ImageView();
         univ.setImage(unaimagen);
         univ.setPreserveRatio(true);
-        univ.setFitWidth(800);
+        univ.setFitWidth(600);
         
         
         //Creo la pila de capas de jugadores
         StackPane stackcapas = new StackPane();
         
         // Creo los canvas para cada jugador, los agrego al hashmap
-        Canvas canvasjugador1 = new Canvas(800, 800);
+        Image iconojugador1 = new Image("imagenes/galera.jpg");
+        
+        Canvas canvasjugador1 = new Canvas(600, 600);
         GraphicsContext gcjugador1 = canvasjugador1.getGraphicsContext2D();
-        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, Color.BLACK);
+        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, Color.BLACK, iconojugador1);
         stackcapas.getChildren().add(canvasjugador1);
         hash.put(jugador1, capajugador1);
         
-        Canvas canvasjugador2 = new Canvas(800, 800);
+        /*
+        Canvas canvasjugador2 = new Canvas(600, 600);
         GraphicsContext gcjugador2 = canvasjugador2.getGraphicsContext2D();
         JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.SPRINGGREEN);
         stackcapas.getChildren().add(canvasjugador2);
         hash.put(jugador2, capajugador2);
-        
+        */
         /*Canvas canvasjugador3 = new Canvas(800, 800);
         GraphicsContext gcjugador3 = canvasjugador3.getGraphicsContext2D();
         JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, Color.LIGHTBLUE);
@@ -77,7 +80,7 @@ public class Ventana{
     
         
         capajugador1.dibujar();
-        capajugador2.dibujar();
+        //capajugador2.dibujar();
         //capajugador3.dibujar();
         
 

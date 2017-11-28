@@ -1,6 +1,7 @@
 package vista;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
@@ -10,20 +11,23 @@ public class JugadorCapa {
 	private Jugador jugador;
 	private GraphicsContext gc;
 	private Posicion posicionactual = Posicion.getPosicionJugador(0);
-	private int alturajugador = 15;
-	private int largojugador = 15;
+	private int alturajugador = 25;
+	private int largojugador = 25;
 	private Color color;
+	private double desfase = 60;
+	private Image icono;
 	
-	public JugadorCapa(GraphicsContext ungc, Jugador unjugador, Color uncolor) {
+	public JugadorCapa(GraphicsContext ungc, Jugador unjugador, Color uncolor, Image iconojugador1) {
 		this.jugador = unjugador;
 		this.gc = ungc;
 		this.color = uncolor;
 		ungc.setFill(Color.TRANSPARENT);
         ungc.fillRect(0, 0, 800, 800);
+        this.icono = iconojugador1;
 	}
 	
 	public void clean() {
-		this.gc.clearRect(posicionactual.getx(), posicionactual.gety(), largojugador, alturajugador);
+		this.gc.clearRect(posicionactual.getx() + desfase, posicionactual.gety() + desfase, largojugador, alturajugador);
 	}
 	
 	public void dibujar() {
@@ -33,8 +37,9 @@ public class JugadorCapa {
 		int posicionjugador = tablero.obtenerPosicion(jugador);
 		posicionactual = Posicion.getPosicionJugador(posicionjugador);
 		
-		this.gc.setFill(color);
-		this.gc.fillRect(posicionactual.getx(), posicionactual.gety(), largojugador, alturajugador);
+		//this.gc.setFill(color);
+		//this.gc.fillRect(posicionactual.getx() + desfase, posicionactual.gety() + desfase , largojugador, alturajugador);
+		this.gc.drawImage(icono, posicionactual.getx() + desfase, posicionactual.gety() + desfase, largojugador, alturajugador);
 	}
 
 	public void actualizar() {
