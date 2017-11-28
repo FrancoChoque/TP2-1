@@ -10,14 +10,24 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import vista.ContenedorIntercambio;
@@ -28,9 +38,16 @@ import vista.JugadorCapa;
 
 public class Ventana{
 	
+	private Text nombrejugador = new Text();
+	private Text dinerojugador = new Text();
+	private Text posicionjugador = new Text();
+	private AlgoPoly algopoly;
 
-    public void initialize(Stage primaryStage, AlgoPoly juego) {
-               
+	private Paint valor = Paint.valueOf("FFFFFF");
+
+	public void initialize(Stage primaryStage, AlgoPoly juego) {
+        
+		this.algopoly = juego;
 
         HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador("Player1");
@@ -41,9 +58,11 @@ public class Ventana{
 
 		App mainApp = App.getInstance();
 		
-		//Layout borderpane
+		//Layout borderpane y escena
         
         BorderPane root = new BorderPane();
+        Scene scene = new Scene(root, 1000, 700);
+        
         
         // Agrego imagen del tablero
         Image unaimagen = new Image("imagenes/tablero.jpg");
@@ -89,7 +108,7 @@ public class Ventana{
         
         root.setCenter(stack);
         
-        Scene scene = new Scene(root, 1000, 900);
+        
         
        
         //Botonera horizontal
@@ -113,7 +132,7 @@ public class Ventana{
         
         Button BotonArrojarDados = new Button();
         BotonArrojarDados.setText("Tirar Dados");
-        EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(juego,hash);
+        EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(this.algopoly ,hash, this);
         BotonArrojarDados.setOnAction(BotonArrojarDadosHandler);
         
         Button BotonComprarTerreno = new Button();
@@ -128,7 +147,7 @@ public class Ventana{
         
         Button BotonIntercambiarTerreno = new Button();
         BotonIntercambiarTerreno.setText("Intercambiar terreno");
-        EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler(primaryStage,scene,juego);
+        EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler(primaryStage,scene,this.algopoly);
         BotonIntercambiarTerreno.setOnAction(BotonIntercambiarTerrenoHandler);
         
         Button BotonConstruirCasa = new Button();
@@ -168,24 +187,55 @@ public class Ventana{
         root.setLeft(AccionesVBox);
         
         
-        /*Pongo canvas del centro
+        //Agrego Textflow a la derecha
         
-        Canvas uncanvas = new Canvas(600,600);
-        GraphicsContext ungc = uncanvas.getGraphicsContext2D();
+        StackPane stackderecho = new StackPane();
         
-        ungc.setFill(Color.TRANSPARENT);
-        ungc.fillRect(0, 0, 600, 600);
+                
+       /*       
+        Text untexto = new Text();
+        untexto.setText("Turno actual\n");
         
-        ungc.setFill(Color.AQUA);
-        ungc.fillRect(0, 0, 100, 100);
+        Text textoestado = new Text();
+        untexto.setText("Yolo: " + "swag" + "\n" + "blaze it 420");
         
-        root.setCenter(uncanvas);
-		*/
+        TextFlow textflow = new TextFlow(untexto,textoestado);
+        textflow.setMaxHeight(600);
+        textflow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
+        */
+        
+        Text text1 = new Text("Turno Actual: ");
+        text1.setFill(Color.RED);
+        text1.setFont(Font.font("Helvetica", FontPosture.ITALIC, 20));
+        Text text2 = new Text("Dinero disponible: ");
+        text2.setFill(Color.BLUE);
+        text2.setFont(Font.font("Helvetica", FontWeight.BOLD, 10));
+        Text text3 = new Text();
+        text3.setText("Posicion del jugador: ");
+        
+        
+        TextFlow textFlow = new TextFlow(text1,this.nombrejugador, text2,this.dinerojugador, text3,this.posicionjugador);
+        textFlow.setMaxHeight(600);
+        textFlow.setMinWidth(400);
+        textFlow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
+        
+        stackderecho.getChildren().addAll(textFlow);
+        root.setRight(stackderecho);
         
 
         primaryStage.setTitle("Lorem ipsum");
         primaryStage.setScene(scene);
         primaryStage.show();
+        
+        this.actualizar();
     }
+	
+	public void actualizar() {
+		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
+		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
+		this.dinerojugador.setText(jugadoractual.getDinero() + "\n" );
+		Tablero tablero = Tablero.getInstance();
+		this.posicionjugador.setText(tablero.obtenerPosicion(jugadoractual) + "\n");
+	}
     
 }
