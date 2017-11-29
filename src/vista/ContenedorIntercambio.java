@@ -70,7 +70,7 @@ public class ContenedorIntercambio extends VBox{
         		
         		this.getChildren().add(BotonotroJugador3);
         	}
-        }else{
+        }else if(algoPoly.getNumeroJugadores() == 2){
         	Jugador otroJugador1 = algoPoly.obtenerJugador(0);
         	if(otroJugador1 != jugador){
         		Button BotonotroJugador1 = new Button();
@@ -91,6 +91,8 @@ public class ContenedorIntercambio extends VBox{
         		
         		this.getChildren().add(BotonotroJugador2);
         	}
+        }else{
+        	
         }
         
         Button cancelar = new Button();

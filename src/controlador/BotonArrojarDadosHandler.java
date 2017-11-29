@@ -15,29 +15,34 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
 	private AlgoPoly algopoly;
 	private HashMap<Jugador, JugadorCapa> hash;
+	private Ventana ventana;
 
 	@Override
 	public void handle(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println("Arrojar dados");
+		Jugador actual = this.algopoly.obtenerJugadorActual();
 		try {
-			Jugador actual = this.algopoly.obtenerJugadorActual();
+			
 			System.out.println(actual.nombre);
 			this.algopoly.usarTurno(actual);
-			JugadorCapa capa = hash.get(actual);
-			capa.actualizar();
+			
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (FinDelJuego e) {
 			// TODO Auto-generated catch block
-			System.out.println("Fin del juego");
+			//System.out.println("Fin del juego");
 		}
+		JugadorCapa capa = hash.get(actual);
+		capa.actualizar();
+		this.ventana.actualizar();
 	}
 	
-	public BotonArrojarDadosHandler(AlgoPoly unalgopoly, HashMap<Jugador, JugadorCapa> hash) {
+	public BotonArrojarDadosHandler(AlgoPoly unalgopoly, HashMap<Jugador, JugadorCapa> hash, Ventana unaventana) {
 		this.algopoly = unalgopoly;
 		this.hash = hash;
+		this.ventana = unaventana;
 	}
 
 }

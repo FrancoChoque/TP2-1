@@ -3,7 +3,9 @@ import java.util.LinkedList;
 
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
+import estados.Comprable.Propiedad.Barrios.BuenosAiresSur;
 import excepciones.FinDelJuego;
+import excepciones.JugadorNoEsPropietario;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import modelo.Jugador.Jugador;
@@ -117,6 +119,20 @@ public class AlgoPoly {
 	
 	public Jugador obtenerJugador(int numero){
 		return this.jugadores.get(numero);
+	}
+
+
+	public void vender(Jugador jugador, Comprable terreno) {
+		// TODO Auto-generated method stub
+		try {
+			jugador.vender(terreno);
+		} catch (NoEsTurnoJugador e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JugadorNoEsPropietario e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
