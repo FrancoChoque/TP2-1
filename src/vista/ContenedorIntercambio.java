@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.App;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,7 +13,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
-import vista.eventos.BotonCancelarIntercambio;
+import vista.eventos.BotonSalir;
 import vista.eventos.BotonIntercambioJugador;
 
 
@@ -20,18 +21,17 @@ public class ContenedorIntercambio extends VBox{
 	
 	Stage stage;
 	
-	public ContenedorIntercambio(Stage stage, Scene anterior, AlgoPoly algoPoly){
+	public ContenedorIntercambio(){
 		
 		super();
-
-        this.stage = stage;
-
+		App app = App.getInstance();
+		AlgoPoly algoPoly = app.getAlgoPoly();
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(25));
         
         Jugador jugador = algoPoly.obtenerJugadorActual();
-        
+        //String nombreDeJugador = jugador.getNombre();
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
         etiqueta.setText(jugador.getNombre() + " elegir otro jugador para intercambiar");
@@ -45,7 +45,7 @@ public class ContenedorIntercambio extends VBox{
         		Button BotonotroJugador1 = new Button();
         		BotonotroJugador1.setText(otroJugador1.getNombre());
         		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage);
+        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador1);
         		BotonotroJugador1.setOnAction(botonIntercambio);
         		
         		this.getChildren().add(BotonotroJugador1);
@@ -55,7 +55,7 @@ public class ContenedorIntercambio extends VBox{
         		Button BotonotroJugador2 = new Button();
         		BotonotroJugador2.setText(otroJugador2.getNombre());
         		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage);
+        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador2);
         		BotonotroJugador2.setOnAction(botonIntercambio);
         		
         		this.getChildren().add(BotonotroJugador2);
@@ -65,7 +65,7 @@ public class ContenedorIntercambio extends VBox{
         		Button BotonotroJugador3 = new Button();
         		BotonotroJugador3.setText(otroJugador3.getNombre());
         		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage);
+        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador3);
         		BotonotroJugador3.setOnAction(botonIntercambio);
         		
         		this.getChildren().add(BotonotroJugador3);
@@ -76,7 +76,7 @@ public class ContenedorIntercambio extends VBox{
         		Button BotonotroJugador1 = new Button();
         		BotonotroJugador1.setText(otroJugador1.getNombre());
         		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage);
+        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador1);
         		BotonotroJugador1.setOnAction(botonIntercambio);
         		
         		this.getChildren().add(BotonotroJugador1);
@@ -86,7 +86,7 @@ public class ContenedorIntercambio extends VBox{
         		Button BotonotroJugador2 = new Button();
         		BotonotroJugador2.setText(otroJugador2.getNombre());
         		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage);
+        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador1);
         		BotonotroJugador2.setOnAction(botonIntercambio);
         		
         		this.getChildren().add(BotonotroJugador2);
@@ -96,7 +96,7 @@ public class ContenedorIntercambio extends VBox{
         Button cancelar = new Button();
         cancelar.setText("Cancelar");
         
-        BotonCancelarIntercambio botonCancelar = new BotonCancelarIntercambio(stage,anterior);
+        BotonSalir botonCancelar = new BotonSalir();
         cancelar.setOnAction(botonCancelar);
 
         this.getChildren().add(cancelar);

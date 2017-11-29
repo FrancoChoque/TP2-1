@@ -30,8 +30,8 @@ public class Ventana{
 	
 
     public void initialize(Stage primaryStage, AlgoPoly juego) {
-               
-
+               	
+    	
         HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador("Player1");
         Jugador jugador2 = juego.nuevoJugador("player2");
@@ -87,7 +87,7 @@ public class Ventana{
         root.setCenter(stack);
         
         Scene scene = new Scene(root, 1000, 900);
-        
+        mainApp.setecenaPrincipal(scene);
        
         //Botonera horizontal
         
@@ -125,7 +125,7 @@ public class Ventana{
         
         Button BotonIntercambiarTerreno = new Button();
         BotonIntercambiarTerreno.setText("Intercambiar terreno");
-        EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler(primaryStage,scene,juego);
+        EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler();
         BotonIntercambiarTerreno.setOnAction(BotonIntercambiarTerrenoHandler);
         
         Button BotonConstruirCasa = new Button();

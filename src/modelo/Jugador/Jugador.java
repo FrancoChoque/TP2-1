@@ -207,7 +207,10 @@ public class Jugador {
 		// metodo para probar dados iguales
 		dado1 = dado2;
 	}
-
+	
+	public int getCantidadPropiedad(){
+		return this.propiedades.size();
+	}
 /*	public int getNumeroPropiedades() {
 
 		int numeroDePropiedades = 0;

@@ -9,21 +9,16 @@ import vista.ContenedorIntercambio;
 
 public class BotonIntercambiarTerrenoHandler implements EventHandler<ActionEvent> {
 
-	Stage stage;
-	AlgoPoly algoPoly;
-	Scene escenaAnterior;
-	
-	 public BotonIntercambiarTerrenoHandler(Stage stage, Scene escenaAnterior,AlgoPoly algoPoly) {
-	        this.stage = stage;
-	        this.algoPoly = algoPoly;
-	        this.escenaAnterior = escenaAnterior;
+	 public BotonIntercambiarTerrenoHandler() {
+	        
 	}
 	@Override
 	public void handle(ActionEvent event){
-		ContenedorIntercambio contenedorIntercambio = new ContenedorIntercambio(this.stage,this.escenaAnterior,this.algoPoly);
+		ContenedorIntercambio contenedorIntercambio = new ContenedorIntercambio();
         Scene escenaIntercambio = new Scene(contenedorIntercambio, 640, 480);
-		stage.setScene(escenaIntercambio);
-        stage.setFullScreen(false);
+        App app = App.getInstance();
+        app.getPrimaryStage().setScene(escenaIntercambio);
+        app.getPrimaryStage().setFullScreen(false);
 	}
 
 }

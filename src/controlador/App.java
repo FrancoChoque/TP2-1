@@ -15,6 +15,7 @@ public class App extends Application {
     private Stage primaryStage;
     private BorderPane root;
     private AlgoPoly algoPoly;
+    private Scene ecenaPrincipal;
     private static App instance;
 
 
@@ -34,7 +35,7 @@ public class App extends Application {
 
 
     public void menuPrincipal(){
-
+    	
         Ventana ventana = new Ventana();
 
         Menu fileMenu = new Menu("Juego");
@@ -64,12 +65,26 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
+    
     public App() {
         instance = this;
         algoPoly = new AlgoPoly();
     }
-
+    
+    public void setecenaPrincipal(Scene scene){
+    	this.ecenaPrincipal = scene;
+    }
+    
+    public Scene getecenaPrincipal(){
+    	return this.ecenaPrincipal;
+    }
+    
+    public Stage getPrimaryStage(){
+    	return this.primaryStage;
+    }
+    public AlgoPoly getAlgoPoly(){
+    	return this.algoPoly;
+    }
     public static App getInstance() {
         return instance;
     }
