@@ -18,6 +18,7 @@ public class Prueba302Test {
     	AlgoPoly algopoly = new AlgoPoly();
 		Jugador jugador = algopoly.nuevoJugador("jugador1");
 		jugador.ponerDadosIguales();
+		jugador.setEstado(jugador.getJugadorEmpezandoTurno() );
 		
 		
 		try {

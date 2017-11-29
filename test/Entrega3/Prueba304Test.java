@@ -18,6 +18,7 @@ public class Prueba304Test {
 		AlgoPoly algopoly = new AlgoPoly();
 		Jugador jugador = algopoly.nuevoJugador("jugador1");
 		jugador.setDinero(7);
+		jugador.setEstado(jugador.getJugadorEmpezandoTurno() );
 			
 		try {
 			algopoly.usarTurno(jugador);

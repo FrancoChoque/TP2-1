@@ -30,8 +30,8 @@ public class AlgoPoly {
     public void usarTurno(Jugador unJugador) throws NoEsTurnoJugador, JugadorYaTiroDados, FinDelJuego {
     	
         
-    	unJugador.setEstado(unJugador.getJugadorEmpezandoTurno());
-
+    	//unJugador.setEstado(unJugador.getJugadorEmpezandoTurno());
+    	
         unJugador.arrojarDados();
         
         System.out.println(unJugador.getValorDados() );
@@ -45,13 +45,14 @@ public class AlgoPoly {
         	
         }else {
         	dadosIgualesSeguidos = 0;
-        	this.avanzarJugador();
+        	unJugador.setEstado(unJugador.getJugadorTiroDados() );
+        	//this.avanzarJugador();
         }
         
         if(dadosIgualesSeguidos == 2) {
     		unJugador.setEstado(unJugador.getJugadorTiroDados());
     		dadosIgualesSeguidos = 0;
-    		this.avanzarJugador();
+    		//this.avanzarJugador();
     	}
         
         if(this.jugadores.size()== 1 ) throw new FinDelJuego();

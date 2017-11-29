@@ -41,9 +41,11 @@ public class Ventana{
 	private Text nombrejugador = new Text();
 	private Text dinerojugador = new Text();
 	private Text posicionjugador = new Text();
+	private String accionesjugador = "";
 	private AlgoPoly algopoly;
 
 	private Paint valor = Paint.valueOf("FFFFFF");
+	private Text text5;
 
 	public void initialize(Stage primaryStage, AlgoPoly juego) {
         
@@ -51,7 +53,7 @@ public class Ventana{
 
         HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador("Player1");
-       // Jugador jugador2 = juego.nuevoJugador("player2");
+        Jugador jugador2 = juego.nuevoJugador("player2");
 
         //Jugador jugador3 = juego.nuevoJugador("player3");
 		
@@ -77,6 +79,7 @@ public class Ventana{
         
         // Creo los canvas para cada jugador, los agrego al hashmap
         Image iconojugador1 = new Image("imagenes/galera.jpg");
+        Image iconojugador2 = new Image("imagenes/carretilla.jpg");
         
         Canvas canvasjugador1 = new Canvas(600, 600);
         GraphicsContext gcjugador1 = canvasjugador1.getGraphicsContext2D();
@@ -84,13 +87,13 @@ public class Ventana{
         stackcapas.getChildren().add(canvasjugador1);
         hash.put(jugador1, capajugador1);
         
-        /*
+        
         Canvas canvasjugador2 = new Canvas(600, 600);
         GraphicsContext gcjugador2 = canvasjugador2.getGraphicsContext2D();
-        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.SPRINGGREEN);
+        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.SPRINGGREEN, iconojugador2);
         stackcapas.getChildren().add(canvasjugador2);
         hash.put(jugador2, capajugador2);
-        */
+        
         /*Canvas canvasjugador3 = new Canvas(800, 800);
         GraphicsContext gcjugador3 = canvasjugador3.getGraphicsContext2D();
         JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, Color.LIGHTBLUE);
@@ -99,7 +102,7 @@ public class Ventana{
     
         
         capajugador1.dibujar();
-        //capajugador2.dibujar();
+        capajugador2.dibujar();
         //capajugador3.dibujar();
         
 
@@ -171,17 +174,17 @@ public class Ventana{
         
         Button BotonTerminarTurno = new Button();
         BotonTerminarTurno.setText("Terminar turno");
-        EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler();
+        EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler(this, juego);
         BotonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
         
         VBox AccionesVBox = new VBox();
         AccionesVBox.setPadding(new Insets(10,12,10,12) );
         AccionesVBox.setSpacing(10);
         
-        AccionesVBox.getChildren().addAll(BotonArrojarDados, BotonComprarTerreno, 
+        AccionesVBox.getChildren().addAll(BotonArrojarDados,BotonTerminarTurno, BotonComprarTerreno, 
         		BotonVenderTerreno, BotonIntercambiarTerreno, BotonConstruirCasa,
-        		BotonConstruirHotel, BotonVenderCasa, BotonVenderHotel,
-        		BotonTerminarTurno);
+        		BotonConstruirHotel, BotonVenderCasa, BotonVenderHotel
+        		);
         
         root.setLeft(AccionesVBox);
         
@@ -203,17 +206,22 @@ public class Ventana{
         textflow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
         */
         
-        Text text1 = new Text("Turno Actual: ");
-        text1.setFill(Color.RED);
-        text1.setFont(Font.font("Helvetica", FontPosture.ITALIC, 20));
-        Text text2 = new Text("Dinero disponible: ");
-        text2.setFill(Color.BLUE);
-        text2.setFont(Font.font("Helvetica", FontWeight.BOLD, 10));
-        Text text3 = new Text();
-        text3.setText("Posicion del jugador: ");
+        Text textoturnojugador = new Text("Turno Actual: ");
+        textoturnojugador.setFill(Color.RED);
+        textoturnojugador.setFont(Font.font("Helvetica", FontPosture.ITALIC, 20));
+        Text textodinerojugador = new Text("Dinero disponible: ");
+        textodinerojugador.setFill(Color.BLUE);
+        textodinerojugador.setFont(Font.font("Helvetica", FontWeight.BOLD, 10));
+        Text textoposicionjugador = new Text();
+        textoposicionjugador.setText("Posicion del jugador: ");
+        Text textoaccionesjugador = new Text();
+        textoaccionesjugador.setText("Acciones realizadas en el turno:\n");
+        this.text5 = new Text();
+        text5.setText(accionesjugador);
         
         
-        TextFlow textFlow = new TextFlow(text1,this.nombrejugador, text2,this.dinerojugador, text3,this.posicionjugador);
+        TextFlow textFlow = new TextFlow(textoturnojugador,this.nombrejugador, textodinerojugador,this.dinerojugador, textoposicionjugador,this.posicionjugador,
+        		textoaccionesjugador, text5);
         textFlow.setMaxHeight(600);
         textFlow.setMinWidth(400);
         textFlow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -226,15 +234,30 @@ public class Ventana{
         primaryStage.setScene(scene);
         primaryStage.show();
         
-        this.actualizar();
+        this.actualizarturno();
     }
 	
-	public void actualizar() {
+	public void actualizarturno() {
 		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
 		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
 		this.dinerojugador.setText(jugadoractual.getDinero() + "\n" );
 		Tablero tablero = Tablero.getInstance();
 		this.posicionjugador.setText(tablero.obtenerPosicion(jugadoractual) + "\n");
+		this.accionesjugador = "";
+		this.text5.setText(accionesjugador);
+		jugadoractual.setEstado(jugadoractual.getJugadorEmpezandoTurno() );
+	}
+
+	public void agregaraccion(String accion) {
+		// TODO Auto-generated method stub
+		this.accionesjugador = this.accionesjugador + accion;
+		this.text5.setText(accionesjugador);
+	}
+	
+	public void actualizarposicion(Jugador jugadoractual) {
+		Tablero tablero = Tablero.getInstance();
+		this.posicionjugador.setText(tablero.obtenerPosicion(jugadoractual) + "\n");
+		this.dinerojugador.setText(jugadoractual.getDinero() + "\n");
 	}
     
 }

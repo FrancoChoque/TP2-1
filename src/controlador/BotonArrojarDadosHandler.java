@@ -22,21 +22,28 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		// TODO Auto-generated method stub
 		System.out.println("Arrojar dados");
 		Jugador actual = this.algopoly.obtenerJugadorActual();
+		String accion;
 		try {
 			
 			System.out.println(actual.nombre);
 			this.algopoly.usarTurno(actual);
 			
+		
+			accion = "Arrojaste los dados y sacaste: " + actual.getValorDados() + "\n";
+			this.ventana.agregaraccion(accion);
+			
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			accion = "Ya arrojaste los dados este turno.\n";
+			this.ventana.agregaraccion(accion);
 		} catch (FinDelJuego e) {
 			// TODO Auto-generated catch block
 			//System.out.println("Fin del juego");
 		}
 		JugadorCapa capa = hash.get(actual);
 		capa.actualizar();
-		this.ventana.actualizar();
+		this.ventana.actualizarposicion(actual);
+		
 	}
 	
 	public BotonArrojarDadosHandler(AlgoPoly unalgopoly, HashMap<Jugador, JugadorCapa> hash, Ventana unaventana) {
