@@ -39,7 +39,7 @@ public class App extends Application {
     public void menuPrincipal(){
     	
 
-        Login registro = new Login();
+        VentanaLogin registro = new VentanaLogin();
 
         algoPoly = new AlgoPoly();
 

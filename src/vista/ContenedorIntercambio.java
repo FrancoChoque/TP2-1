@@ -13,8 +13,8 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
-import vista.eventos.BotonSalir;
 import vista.eventos.BotonIntercambioJugador;
+import vista.eventos.BotonSalir;
 
 
 public class ContenedorIntercambio extends VBox{
