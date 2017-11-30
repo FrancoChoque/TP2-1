@@ -1,5 +1,6 @@
 package controlador;
 
+import controlador.excepciones.NombreInvalidoException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,6 +25,8 @@ import modelo.AlgoPoly;
 public class Login {
 
     private GridPane grid;
+	private TextField player1TextField;
+	private TextField player2TextField;
 
 
     public void login()  {
@@ -49,6 +52,14 @@ public class Login {
 
 
         iniciarBoton.setText("Iniciar");
+        BotonConfirmarNombresHandler confirmarnombres = new BotonConfirmarNombresHandler(this,stage);
+        iniciarBoton.setOnAction(confirmarnombres);
+        
+        
+        
+        
+        
+        
         cerrarBoton.setText("Salir");
 
         //Labels
@@ -61,17 +72,17 @@ public class Login {
 
         //Input
 
-        TextField player1TextField = new TextField();
+        player1TextField = new TextField();
         player1TextField.setPromptText("Jugador Uno");
         grid.add(player1TextField, 1, 1);
 
-        TextField player2TextField = new TextField();
+        player2TextField = new TextField();
         player2TextField.setPromptText("Jugador Dos");
         grid.add(player2TextField, 1, 2);
 
         grid.add(iniciarBoton, 2,6);
         grid.add(cerrarBoton, 0,6);
-
+        /*
         iniciarBoton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -85,6 +96,7 @@ public class Login {
                 ventana.initialize(app.getPrimaryStage(),app.getAlgoPoly(),player1TextField.getText(),player2TextField.getText());
             }
         });
+        */
 
         Scene scene = new Scene(grid, 300, 275);
         stage.setScene(scene);
@@ -92,6 +104,30 @@ public class Login {
         stage.showAndWait();
 
     }
+
+
+	public void confirmarnombres() throws NombreInvalidoException {
+		// TODO Auto-generated method stub
+		String nombre1 = player1TextField.getText().trim();
+		String nombre2 = player2TextField.getText().trim();
+		//String nombre3 = nombrejugador3.getText().trim();
+		
+		if( (nombre1.length() == 0) ||
+			(nombre2.length() == 0)   ) throw new NombreInvalidoException();
+		
+	}
+
+
+	public String getNombrejugador1() {
+		// TODO Auto-generated method stub
+		return this.player1TextField.getText();
+	}
+
+
+	public String getNombrejugador2() {
+		// TODO Auto-generated method stub
+		return this.player2TextField.getText();
+	}
 
 
 
