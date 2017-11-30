@@ -24,4 +24,8 @@ public class RetrocesoDinamico extends Suerte{
 		if(nuevoDesplazamiento == 0) return;
 		tablero.moverJugador(unJugador,(-1)*nuevoDesplazamiento );
 	}
+
+	public String getNombre(){
+		return "Retroceso Dinamico";
+	}
 }

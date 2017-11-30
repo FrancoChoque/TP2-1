@@ -33,5 +33,8 @@ public class SantaFe extends Propiedad {
 
 	}
 
+	public String getNombre(){
+		return "Santa Fe";
+	}
 
 }

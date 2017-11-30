@@ -1,9 +1,11 @@
 package Entrega1;
 
-import modelo.*;
+
 import modelo.Jugador.Jugador;
+import modelo.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+
 
 public class Prueba105Test {
 

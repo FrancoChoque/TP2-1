@@ -49,5 +49,9 @@ public class BuenosAiresSur extends Propiedad {
 
 	}
 
+	public String getNombre(){
+		return "Buenos Aires Sur";
+	}
+
 	
 }

@@ -48,4 +48,8 @@ public class CordobaSur extends Propiedad {
 
 	}
 
+	public String getNombre(){
+		return "Cordoba Sur";
+	}
+
 }

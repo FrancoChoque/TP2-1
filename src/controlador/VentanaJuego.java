@@ -258,7 +258,7 @@ public class VentanaJuego{
 	
 	public void actualizarposicion(Jugador jugadoractual) {
 		Tablero tablero = Tablero.getInstance();
-		this.posicionjugador.setText(tablero.obtenerPosicion(jugadoractual) + "\n");
+		this.posicionjugador.setText(tablero.obtenerCasillero(jugadoractual).getNombre() + "\n");
 		this.dinerojugador.setText(jugadoractual.getDinero() + "\n");
 	}
     

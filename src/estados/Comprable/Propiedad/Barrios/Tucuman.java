@@ -33,6 +33,9 @@ public class Tucuman extends Propiedad {
 
 	}
 
+	public String getNombre(){
+		return "Tucuman";
+	}
 
 
 }

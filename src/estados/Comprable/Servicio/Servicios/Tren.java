@@ -21,4 +21,8 @@ public class Tren extends Servicio {
 
         return valorDados*450;
     }
+
+    public String getNombre(){
+        return "Tren";
+    }
 }

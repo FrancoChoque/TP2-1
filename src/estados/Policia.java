@@ -21,4 +21,8 @@ public class Policia extends EstadoCasillero {
 	public boolean esComprable() {
 		return false;
 	}
+
+	public String getNombre(){
+		return "Policia";
+	}
 }

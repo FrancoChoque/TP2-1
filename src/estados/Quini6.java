@@ -49,6 +49,10 @@ public class Quini6 extends Suerte {
 
         }
 
+	public String getNombre(){
+		return "Quini6";
+	}
+
     }
 
 
