@@ -10,7 +10,7 @@ import estados.Comprable.Comprable;
 public class Jugador {
 
 	static final int DINERO_INICIAL = 100000;
-	public String nombre = "NONAME";
+	public String nombre;
 	private int dinero;
 
 	private LinkedList<Comprable> propiedades;
@@ -99,6 +99,9 @@ public class Jugador {
 	    return propiedades.contains(unaPropiedad);
     }
 
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
 	public int getDinero(){
 		return this.dinero;

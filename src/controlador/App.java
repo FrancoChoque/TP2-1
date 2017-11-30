@@ -1,6 +1,8 @@
 package controlador;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
@@ -14,8 +16,8 @@ public class App extends Application {
 
     private Stage primaryStage;
     private BorderPane root;
-    private AlgoPoly algoPoly;
     private Scene ecenaPrincipal;
+    private AlgoPoly algoPoly;
     private static App instance;
 
 
@@ -36,7 +38,10 @@ public class App extends Application {
 
     public void menuPrincipal(){
     	
-        Ventana ventana = new Ventana();
+
+        Login registro = new Login();
+
+        algoPoly = new AlgoPoly();
 
         Menu fileMenu = new Menu("Juego");
         MenuItem nuevoJuego = new MenuItem("Nueva Partida...");
@@ -45,7 +50,8 @@ public class App extends Application {
         fileMenu.getItems().add(salirJuego);
 
         salirJuego.setOnAction(event -> this.primaryStage.close());
-        nuevoJuego.setOnAction(event -> ventana.initialize(primaryStage,algoPoly));
+        nuevoJuego.setOnAction(event -> registro.login());
+
 
         Image imagen = new Image("file:src/imagenes/menu.jpg");
 

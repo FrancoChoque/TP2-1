@@ -47,13 +47,15 @@ public class Ventana{
 	private Paint valor = Paint.valueOf("FFFFFF");
 	private Text text5;
 
-	public void initialize(Stage primaryStage, AlgoPoly juego) {
+	public void initialize(Stage primaryStage, AlgoPoly juego, String nombreJugador1, String nombreJugador2) {
         
-		this.algopoly = juego;
+
+
+	    this.algopoly = juego;
 
         HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
-        Jugador jugador1 = juego.nuevoJugador("Player1");
-        Jugador jugador2 = juego.nuevoJugador("player2");
+        Jugador jugador1 = juego.nuevoJugador(nombreJugador1);
+        Jugador jugador2 = juego.nuevoJugador(nombreJugador2);
 
         //Jugador jugador3 = juego.nuevoJugador("player3");
 		
