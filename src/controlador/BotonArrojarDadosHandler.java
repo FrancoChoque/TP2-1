@@ -15,7 +15,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
 	private AlgoPoly algopoly;
 	private HashMap<Jugador, JugadorCapa> hash;
-	private Ventana ventana;
+	private VentanaJuego ventana;
 
 	@Override
 	public void handle(ActionEvent arg0) {
@@ -46,7 +46,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		
 	}
 	
-	public BotonArrojarDadosHandler(AlgoPoly unalgopoly, HashMap<Jugador, JugadorCapa> hash, Ventana unaventana) {
+	public BotonArrojarDadosHandler(AlgoPoly unalgopoly, HashMap<Jugador, JugadorCapa> hash, VentanaJuego unaventana) {
 		this.algopoly = unalgopoly;
 		this.hash = hash;
 		this.ventana = unaventana;

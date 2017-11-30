@@ -39,8 +39,10 @@ public class App extends Application {
     public void menuPrincipal(){
     	
 
-        VentanaLogin registro = new VentanaLogin();
-
+        //VentanaLogin registro = new VentanaLogin();
+    	Login registro = new Login();
+    	
+    	
         algoPoly = new AlgoPoly();
 
         Menu fileMenu = new Menu("Juego");

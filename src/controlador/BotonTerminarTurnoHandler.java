@@ -6,7 +6,7 @@ import modelo.AlgoPoly;
 
 public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 
-	private Ventana ventana;
+	private VentanaJuego ventana;
 	private AlgoPoly juego;
 	
 	@Override
@@ -21,7 +21,7 @@ public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 	}
 	
 
-	public BotonTerminarTurnoHandler(Ventana ventana, AlgoPoly algopoly) {
+	public BotonTerminarTurnoHandler(VentanaJuego ventana, AlgoPoly algopoly) {
 		this.juego = algopoly;
 		this.ventana = ventana;
 	}

@@ -1,5 +1,6 @@
 package controlador;
 
+import controlador.excepciones.NombreInvalidoException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -66,13 +67,31 @@ public class VentanaLogin {
 		main.getPrimaryStage().setScene(escenaLogin);
 	}
 
-	public void confirmarnombres() {
+	public void confirmarnombres() throws NombreInvalidoException {
 		// TODO Auto-generated method stub
-		String nombre1 = nombrejugador1.getText();
-		String nombre2 = nombrejugador2.getText();
-		String nombre3 = nombrejugador3.getText();
+		String nombre1 = nombrejugador1.getText().trim();
+		String nombre2 = nombrejugador2.getText().trim();
+		String nombre3 = nombrejugador3.getText().trim();
 		
-		System.out.println(nombre1 + "\n" + nombre2 + "\n" + nombre3 + "\n");
+		if( (nombre1.length() == 0) ||
+			(nombre2.length() == 0) ||
+			(nombre3.length() == 0) ) throw new NombreInvalidoException();
+		
+	}
+
+	public String getNombrejugador1() {
+		// TODO Auto-generated method stub
+		return this.nombrejugador1.getText();
+	}
+
+	public String getNombrejugador2() {
+		// TODO Auto-generated method stub
+		return this.nombrejugador2.getText();
+	}
+
+	public String getNombrejugador3() {
+		// TODO Auto-generated method stub
+		return this.nombrejugador3.getText();
 	}
 
 	

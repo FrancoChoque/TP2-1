@@ -36,7 +36,7 @@ import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
 
 
-public class Ventana{
+public class VentanaJuego{
 	
 	private Text nombrejugador = new Text();
 	private Text dinerojugador = new Text();

@@ -76,7 +76,7 @@ public class Login {
             @Override
             public void handle(ActionEvent event) {
 
-                Ventana ventana = new Ventana();
+                VentanaJuego ventana = new VentanaJuego();
                 App app = App.getInstance();
                 if(player1TextField.getText().trim().length() ==0 || player2TextField.getText().trim().length() ==0){
                     System.out.println("ERROR CAMPOS VACIOS");
