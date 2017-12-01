@@ -85,10 +85,12 @@ public class AlgoPoly {
     	}
     	catch(ClassCastException e) {
     		//no puede comprar
+    		System.out.println("Cast ex\n");
     	}
     	catch (NoEsTurnoJugador e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("NoEsTurno ex\n");
 		}
     }
 

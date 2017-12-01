@@ -38,7 +38,18 @@ import vista.JugadorCapa;
 
 public class VentanaJuego{
 	
+	private static VentanaJuego instance;
+
+
+	//Metodos y atributos de clase
 	
+	public static VentanaJuego getInstance() {
+		return instance;
+	}
+	
+	static {
+		instance = new VentanaJuego();
+	}
 	
 	//Metodos y atributos de instancia
 	
@@ -144,10 +155,12 @@ public class VentanaJuego{
         EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(this.algopoly ,hash, this);
         BotonArrojarDados.setOnAction(BotonArrojarDadosHandler);
         
+        /*
         Button BotonComprarTerreno = new Button();
         BotonComprarTerreno.setText("Comprar Terreno");
         EventHandler<ActionEvent> BotonComprarTerrenoHandler = new BotonComprarTerrenoHandler();
         BotonComprarTerreno.setOnAction(BotonComprarTerrenoHandler);
+        */
         
         Button BotonVenderTerreno = new Button();
         BotonVenderTerreno.setText("Vender Terreno");
@@ -189,7 +202,7 @@ public class VentanaJuego{
         AccionesVBox.setPadding(new Insets(10,12,10,12) );
         AccionesVBox.setSpacing(10);
         
-        AccionesVBox.getChildren().addAll(BotonArrojarDados,BotonTerminarTurno, BotonComprarTerreno, 
+        AccionesVBox.getChildren().addAll(BotonArrojarDados,BotonTerminarTurno,  
         		BotonVenderTerreno, BotonIntercambiarTerreno, BotonConstruirCasa,
         		BotonConstruirHotel, BotonVenderCasa, BotonVenderHotel
         		);
@@ -248,7 +261,7 @@ public class VentanaJuego{
 	public void actualizarturno() {
 		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
 		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
-		this.dinerojugador.setText(jugadoractual.getDinero() + "\n" );
+		this.dinerojugador.setText("$"+ jugadoractual.getDinero() + "\n" );
 		Tablero tablero = Tablero.getInstance();
 		this.posicionjugador.setText(tablero.obtenerPosicion(jugadoractual) + "\n");
 		this.accionesjugador = "";
@@ -266,6 +279,12 @@ public class VentanaJuego{
 		Tablero tablero = Tablero.getInstance();
 		this.posicionjugador.setText(tablero.obtenerCasillero(jugadoractual).getNombre() + "\n");
 		this.dinerojugador.setText(jugadoractual.getDinero() + "\n");
+	}
+
+	public void actualizardinero() {
+		// TODO Auto-generated method stub
+		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
+		this.dinerojugador.setText("$" +jugadoractual.getDinero() + "\n");
 	}
     
 }

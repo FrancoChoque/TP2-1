@@ -108,6 +108,7 @@ public class Jugador {
 	}
 
 	public void setDinero(int unMonto){
+		if(this.dinero < Math.abs(unMonto)) throw new DineroInsuficiente();
 		this.dinero = unMonto;
 	}
 

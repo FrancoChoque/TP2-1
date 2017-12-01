@@ -27,7 +27,7 @@ public class BotonConfirmarNombresHandler implements EventHandler<ActionEvent> {
 		try {
 			ventana.confirmarnombres();
 			stage.close();
-			VentanaJuego juego = new VentanaJuego();
+			VentanaJuego juego = VentanaJuego.getInstance();
 			juego.initialize(app.getPrimaryStage(),app.getAlgoPoly(),
 					this.ventana.getNombrejugador1(),this.ventana.getNombrejugador2());
 
