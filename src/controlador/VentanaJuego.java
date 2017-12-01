@@ -44,7 +44,7 @@ public class VentanaJuego{
 	private String accionesjugador = "";
 	private AlgoPoly algopoly;
 
-	private Paint valor = Paint.valueOf("FFFFFF");
+	private Paint valor = Paint.valueOf("FFFFFF"); //pinta de blanco
 	private Text text5;
 
 	public void initialize(Stage primaryStage, AlgoPoly juego, String nombreJugador1, String nombreJugador2) {
@@ -258,7 +258,7 @@ public class VentanaJuego{
 	
 	public void actualizarposicion(Jugador jugadoractual) {
 		Tablero tablero = Tablero.getInstance();
-		this.posicionjugador.setText(tablero.obtenerPosicion(jugadoractual) + "\n");
+		this.posicionjugador.setText(tablero.obtenerCasillero(jugadoractual).getNombre() + "\n");
 		this.dinerojugador.setText(jugadoractual.getDinero() + "\n");
 	}
     

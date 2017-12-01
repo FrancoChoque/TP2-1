@@ -24,4 +24,7 @@ public class AvanceDinamico extends Suerte{
 	public boolean esComprable() {
 		return false;
 	}
+	public String getNombre(){
+		return "Avance Dinamico";
+	}
 }

@@ -30,8 +30,9 @@ public class Login {
 
 
     public void login()  {
-
+    	
         Stage stage = new Stage();
+        
 
         stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -47,12 +48,16 @@ public class Login {
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
         grid.add(scenetitle, 0, 0, 4, 1);
 
+        
+        Scene scene = new Scene(grid, 300, 275);
+        stage.setScene(scene);
+        
         Button iniciarBoton = new Button();
         Button cerrarBoton = new Button();
 
 
         iniciarBoton.setText("Iniciar");
-        BotonConfirmarNombresHandler confirmarnombres = new BotonConfirmarNombresHandler(this,stage);
+        BotonConfirmarNombresHandler confirmarnombres = new BotonConfirmarNombresHandler(this,stage,scene);
         iniciarBoton.setOnAction(confirmarnombres);
         
         
@@ -98,8 +103,8 @@ public class Login {
         });
         */
 
-        Scene scene = new Scene(grid, 300, 275);
-        stage.setScene(scene);
+       // Scene scene = new Scene(grid, 300, 275);
+       // stage.setScene(scene);
 
         stage.showAndWait();
 
@@ -108,8 +113,8 @@ public class Login {
 
 	public void confirmarnombres() throws NombreInvalidoException {
 		// TODO Auto-generated method stub
-		String nombre1 = player1TextField.getText().trim();
-		String nombre2 = player2TextField.getText().trim();
+		String nombre1 = this.player1TextField.getText().trim();
+		String nombre2 = this.player2TextField.getText().trim();
 		//String nombre3 = nombrejugador3.getText().trim();
 		
 		if( (nombre1.length() == 0) ||
