@@ -22,5 +22,8 @@ public class Edesur extends Servicio {
         return valorDados*500;
     }
 
+    public String getNombre(){
+        return "Edesur";
+    }
 
 }

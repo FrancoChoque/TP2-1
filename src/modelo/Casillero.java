@@ -18,10 +18,8 @@ public class Casillero {
 	public Casillero (EstadoCasillero unestado) {
 		estadoCasillero = unestado;
 	}
-	
-	public String getPropietario() {
-		return "a";
-	}
+
+	public String getNombre(){  return estadoCasillero.getNombre();}
 
 	public void hacerEfectoDelCasillero(Jugador unJugador){
 		estadoCasillero.hacerEfectoDelCasillero(unJugador);

@@ -50,4 +50,8 @@ public class SaltaNorte extends Propiedad {
 
 	}
 
+	public String getNombre(){
+		return "Salta Norte";
+	}
+
 }

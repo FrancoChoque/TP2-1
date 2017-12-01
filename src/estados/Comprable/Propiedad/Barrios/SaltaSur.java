@@ -49,5 +49,8 @@ public class SaltaSur extends Propiedad {
 
 	}
 
+	public String getNombre(){
+		return "Salta Sur";
+	}
 
 }

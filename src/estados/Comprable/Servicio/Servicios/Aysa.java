@@ -22,6 +22,9 @@ public class Aysa extends Servicio {
         return valorDados*300;
     }
 
+    public String getNombre(){
+        return "Aysa";
+    }
 
 
 

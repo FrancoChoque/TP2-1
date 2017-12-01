@@ -21,4 +21,8 @@ public class Subte extends Servicio {
 
         return valorDados*600;
     }
+
+    public String getNombre(){
+        return "Subte";
+    }
 }

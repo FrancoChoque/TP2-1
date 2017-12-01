@@ -10,4 +10,9 @@ public class ImpuestoAlLujo extends Suerte{
 		int descuento = (PORCIENTO_DESCUENTO * (unJugador.getDinero())/100);
 		unJugador.sumarDinero((-1)*descuento);
 	}
+
+
+	public String getNombre(){
+		return "Impuesto al Lujo";
+	}
 }

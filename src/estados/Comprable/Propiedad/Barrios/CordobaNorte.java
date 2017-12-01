@@ -50,5 +50,9 @@ public class CordobaNorte extends Propiedad {
 
 	}
 
+	public String getNombre(){
+		return "Cordoba Norte";
+	}
+
 
 }

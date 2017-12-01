@@ -8,6 +8,10 @@ public class EstadoCasillero {
 
 	}
 
+	public String getNombre(){
+		return "";
+	}
+
 	public boolean esComprable(){
 		return true;
 	}

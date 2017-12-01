@@ -78,6 +78,10 @@ public class Carcel extends EstadoCasillero {
 
 	}
 
+	public String getNombre(){
+		return "Carcel";
+	}
+
 	public boolean esComprable() {
 		return false;
 	}

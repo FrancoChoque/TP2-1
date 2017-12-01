@@ -17,5 +17,9 @@ public class Salida extends EstadoCasillero {
     public void hacerEfectoDelCasillero(Jugador unJugador) {
 
     }
+
+    public String getNombre(){
+        return "Salida";
+    }
 }
 

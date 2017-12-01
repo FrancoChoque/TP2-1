@@ -32,5 +32,8 @@ public class Neuquen extends Propiedad {
 
 	}
 
+	public String getNombre(){
+		return "Neuquen";
+	}
 
 }
