@@ -136,4 +136,8 @@ public class AlgoPoly {
 		}
 	}
 
+	public Tablero getTablero(){
+		return tablero;
+	}
+
 }

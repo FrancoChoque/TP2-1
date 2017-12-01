@@ -27,7 +27,10 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 			
 			System.out.println(actual.nombre);
 			this.algopoly.usarTurno(actual);
-			
+
+			AlertBox box = new AlertBox();
+
+			box.display(algopoly.getTablero().obtenerCasillero(actual).getNombre(), actual.getValorDados());
 		
 			accion = "Arrojaste los dados y sacaste: " + actual.getValorDados() + "\n";
 			this.ventana.agregaraccion(accion);

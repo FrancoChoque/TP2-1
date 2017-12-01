@@ -1,8 +1,8 @@
 package Tests;
 
 import modelo.Jugador.Jugador;
-import modelo.Jugador.JugadorSinTurno;
-import org.apache.tools.ant.types.Assertions;
+
+
 import org.junit.Assert;
 import org.junit.Test;
 
