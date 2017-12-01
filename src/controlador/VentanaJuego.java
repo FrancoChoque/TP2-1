@@ -38,6 +38,10 @@ import vista.JugadorCapa;
 
 public class VentanaJuego{
 	
+	
+	
+	//Metodos y atributos de instancia
+	
 	private Text nombrejugador = new Text();
 	private Text dinerojugador = new Text();
 	private Text posicionjugador = new Text();
@@ -46,6 +50,7 @@ public class VentanaJuego{
 
 	private Paint valor = Paint.valueOf("FFFFFF"); //pinta de blanco
 	private Text text5;
+	
 
 	public void initialize(Stage primaryStage, AlgoPoly juego, String nombreJugador1, String nombreJugador2) {
         
@@ -75,6 +80,7 @@ public class VentanaJuego{
         univ.setPreserveRatio(true);
         univ.setFitWidth(600);
         
+       
         
         //Creo la pila de capas de jugadores
         StackPane stackcapas = new StackPane();

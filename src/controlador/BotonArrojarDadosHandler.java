@@ -23,12 +23,13 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		System.out.println("Arrojar dados");
 		Jugador actual = this.algopoly.obtenerJugadorActual();
 		String accion;
+		AlertBox box = new AlertBox();
 		try {
 			
 			System.out.println(actual.nombre);
 			this.algopoly.usarTurno(actual);
 
-			AlertBox box = new AlertBox();
+			
 
 			box.display(algopoly.getTablero().obtenerCasillero(actual).getNombre(), actual.getValorDados());
 		
@@ -37,6 +38,8 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 			
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
+			box.error("Ya arrojaste los dados este turno.\nDebes esperar al proximo turno.");
+			
 			accion = "Ya arrojaste los dados este turno.\n";
 			this.ventana.agregaraccion(accion);
 		} catch (FinDelJuego e) {

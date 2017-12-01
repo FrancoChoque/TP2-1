@@ -8,13 +8,36 @@ import modelo.Jugador.Jugador;
 
 public class JugadorCapa {
 	
+	//Metodos y atributos de clase
+	
+	//agrego dibujos de casa y hotel como atributo de clase
+		
+	private static Image iconohotel;
+	private static Image iconocasa;
+		
+	static {
+		iconocasa = new Image("imagenes/casa.png");
+	    iconohotel = new Image("imagenes/hotel.png");
+	}
+	
+	public Image getIconoCasa() {
+		return iconocasa;
+	}
+	
+	public Image getIconoHotel() {
+		return iconohotel;
+	}
+	
+	
+	//Metodos y atributos de clase
+	
 	private Jugador jugador;
 	private GraphicsContext gc;
 	private Posicion posicionactual = Posicion.getPosicionJugador(0);
 	private int alturajugador = 25;
 	private int largojugador = 25;
 	private Color color;
-	private double desfase = 60;
+	private double desfasejugador = 60;
 	private Image icono;
 	
 	public JugadorCapa(GraphicsContext ungc, Jugador unjugador, Color uncolor, Image iconojugador1) {
@@ -27,7 +50,7 @@ public class JugadorCapa {
 	}
 	
 	public void clean() {
-		this.gc.clearRect(posicionactual.getx() + desfase, posicionactual.gety() + desfase, largojugador, alturajugador);
+		this.gc.clearRect(posicionactual.getx() + desfasejugador, posicionactual.gety() + desfasejugador, largojugador, alturajugador);
 	}
 	
 	public void dibujar() {
@@ -39,7 +62,7 @@ public class JugadorCapa {
 		
 		//this.gc.setFill(color);
 		//this.gc.fillRect(posicionactual.getx() + desfase, posicionactual.gety() + desfase , largojugador, alturajugador);
-		this.gc.drawImage(icono, posicionactual.getx() + desfase, posicionactual.gety() + desfase, largojugador, alturajugador);
+		this.gc.drawImage(icono, posicionactual.getx() + desfasejugador, posicionactual.gety() + desfasejugador, largojugador, alturajugador);
 	}
 
 	public void actualizar() {
