@@ -29,7 +29,7 @@ public class BotonConfirmarNombresHandler implements EventHandler<ActionEvent> {
 			stage.close();
 			VentanaJuego juego = VentanaJuego.getInstance();
 			juego.initialize(app.getPrimaryStage(),app.getAlgoPoly(),
-					this.ventana.getNombrejugador1(),this.ventana.getNombrejugador2());
+					this.ventana.getNombrejugador1(),this.ventana.getNombrejugador2(), this.ventana.getNombrejugador3());
 
 		} catch (NombreInvalidoException e) {
 			// TODO Auto-generated catch block

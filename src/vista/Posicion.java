@@ -4,7 +4,16 @@ public class Posicion {
 	
 	private static Posicion[] posiciones;
 	private static int cantidad_casilleros = 20;
+	private static double largo = 100;
+	private static double alto = 100;
 	
+	public static double getlargo() {
+		return largo;
+	}
+	
+	public static double getalto() {
+		return alto;
+	}
 	
 	//Las posiciones del jugador en la vista del tablero
 	static {
@@ -57,5 +66,6 @@ public class Posicion {
 		return this.x;
 	}
 	
+
 	
 }

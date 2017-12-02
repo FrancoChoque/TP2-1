@@ -9,6 +9,7 @@ import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Tablero;
@@ -20,6 +21,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 	private AlgoPoly algopoly;
 	private HashMap<Jugador, JugadorCapa> hash;
 	private VentanaJuego ventana;
+	private Button boton;
 
 	@Override
 	public void handle(ActionEvent arg0) {
@@ -49,13 +51,20 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 			// TODO Auto-generated catch block
 			//System.out.println("Fin del juego");
 		}
-		JugadorCapa capa = hash.get(actual);
-		capa.actualizar();
+		
 		this.ventana.actualizarposicion(actual);
-
+		if(actual.getEstadoDeJugador() == actual.getJugadorTiroDados()) {
+			boton.setDisable(true);
+			this.ventana.setTerminarturno(false);
+		}
 		
 		//Casilleros comprables
 		casillerocomprable();
+		
+		JugadorCapa capa = hash.get(actual);
+		capa.actualizar();
+		
+		
 		
 		
 	}
@@ -68,7 +77,6 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		AlertBox box = new AlertBox();
 		try {
 			Comprable uncomprable = (Comprable) estado;
-			System.out.println("Esta en casillero comprable");
 			if(uncomprable.tieneDuenio()) return;
 			box.ofrecercompra((EstadoCasillero) uncomprable);
 			
@@ -77,10 +85,11 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		}
 	}
 
-	public BotonArrojarDadosHandler(AlgoPoly unalgopoly, HashMap<Jugador, JugadorCapa> hash, VentanaJuego unaventana) {
+	public BotonArrojarDadosHandler(AlgoPoly unalgopoly, HashMap<Jugador, JugadorCapa> hash, VentanaJuego unaventana, Button botonArrojarDados) {
 		this.algopoly = unalgopoly;
 		this.hash = hash;
 		this.ventana = unaventana;
+		this.boton = botonArrojarDados;
 	}
 
 }

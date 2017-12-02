@@ -61,9 +61,19 @@ public class VentanaJuego{
 
 	private Paint valor = Paint.valueOf("FFFFFF"); //pinta de blanco
 	private Text text5;
+	private Button botonArrojarDados;
+	private Button botonVenderTerreno;
+	private Button botonIntercambiarTerreno;
+	private Button botonConstruirCasa;
+	private Button botonConstruirHotel;
+	private Button botonVenderCasa;
+	private Button botonVenderHotel;
+	private Button botonTerminarTurno;
 	
-
-	public void initialize(Stage primaryStage, AlgoPoly juego, String nombreJugador1, String nombreJugador2) {
+	
+	private VentanaJuego() {};
+	
+	public void initialize(Stage primaryStage, AlgoPoly juego, String nombreJugador1, String nombreJugador2, String nombrejugador3) {
         
 
 
@@ -72,8 +82,7 @@ public class VentanaJuego{
         HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador(nombreJugador1);
         Jugador jugador2 = juego.nuevoJugador(nombreJugador2);
-
-        //Jugador jugador3 = juego.nuevoJugador("player3");
+        Jugador jugador3 = juego.nuevoJugador(nombrejugador3);
 		
 
 		App mainApp = App.getInstance();
@@ -99,30 +108,31 @@ public class VentanaJuego{
         // Creo los canvas para cada jugador, los agrego al hashmap
         Image iconojugador1 = new Image("imagenes/galera.jpg");
         Image iconojugador2 = new Image("imagenes/carretilla.jpg");
+        Image iconojugador3 = new Image("imagenes/auto.png");
         
         Canvas canvasjugador1 = new Canvas(600, 600);
         GraphicsContext gcjugador1 = canvasjugador1.getGraphicsContext2D();
-        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, Color.BLACK, iconojugador1);
+        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, Color.CYAN, iconojugador1);
         stackcapas.getChildren().add(canvasjugador1);
         hash.put(jugador1, capajugador1);
         
         
         Canvas canvasjugador2 = new Canvas(600, 600);
         GraphicsContext gcjugador2 = canvasjugador2.getGraphicsContext2D();
-        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.SPRINGGREEN, iconojugador2);
+        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.PINK, iconojugador2);
         stackcapas.getChildren().add(canvasjugador2);
         hash.put(jugador2, capajugador2);
         
-        /*Canvas canvasjugador3 = new Canvas(800, 800);
+        Canvas canvasjugador3 = new Canvas(600, 600);
         GraphicsContext gcjugador3 = canvasjugador3.getGraphicsContext2D();
-        JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, Color.LIGHTBLUE);
+        JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, Color.SPRINGGREEN, iconojugador3);
         stackcapas.getChildren().add(canvasjugador3);
-        hash.put(jugador3, capajugador3);*/
+        hash.put(jugador3, capajugador3);
     
         
         capajugador1.dibujar();
         capajugador2.dibujar();
-        //capajugador3.dibujar();
+        capajugador3.dibujar();
         
 
         StackPane stack = new StackPane();
@@ -150,10 +160,11 @@ public class VentanaJuego{
         
         //Botonera de acciones en vertical
         
-        Button BotonArrojarDados = new Button();
-        BotonArrojarDados.setText("Tirar Dados");
-        EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(this.algopoly ,hash, this);
-        BotonArrojarDados.setOnAction(BotonArrojarDadosHandler);
+        botonArrojarDados = new Button();
+        botonArrojarDados.setText("Tirar Dados");
+        botonArrojarDados.setMinWidth(125);
+        EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(this.algopoly ,hash, this,botonArrojarDados);
+        botonArrojarDados.setOnAction(BotonArrojarDadosHandler);
         
         /*
         Button BotonComprarTerreno = new Button();
@@ -162,49 +173,55 @@ public class VentanaJuego{
         BotonComprarTerreno.setOnAction(BotonComprarTerrenoHandler);
         */
         
-        Button BotonVenderTerreno = new Button();
-        BotonVenderTerreno.setText("Vender Terreno");
+        botonVenderTerreno = new Button();
+        botonVenderTerreno.setText("Vender Terreno");
+        botonVenderTerreno.setMinWidth(125);
         EventHandler<ActionEvent> BotonVenderTerrenoHandler = new BotonVenderTerrenoHandler();
-        BotonVenderTerreno.setOnAction(BotonVenderTerrenoHandler);
+        botonVenderTerreno.setOnAction(BotonVenderTerrenoHandler);
         
-        Button BotonIntercambiarTerreno = new Button();
-        BotonIntercambiarTerreno.setText("Intercambiar terreno");
-
+        botonIntercambiarTerreno = new Button();
+        botonIntercambiarTerreno.setText("Intercambiar terreno");
+        botonIntercambiarTerreno.setMinWidth(125);
         EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler();
-        BotonIntercambiarTerreno.setOnAction(BotonIntercambiarTerrenoHandler);
+        botonIntercambiarTerreno.setOnAction(BotonIntercambiarTerrenoHandler);
         
-        Button BotonConstruirCasa = new Button();
-        BotonConstruirCasa.setText("Construir casa");
+        botonConstruirCasa = new Button();
+        botonConstruirCasa.setText("Construir casa");
+        botonConstruirCasa.setMinWidth(125);
         EventHandler<ActionEvent> BotonConstruirCasaHandler = new BotonConstruirCasaHandler();
-        BotonConstruirCasa.setOnAction(BotonConstruirCasaHandler);
+        botonConstruirCasa.setOnAction(BotonConstruirCasaHandler);
         
-        Button BotonConstruirHotel = new Button();
-        BotonConstruirHotel.setText("Construir hotel");
+        botonConstruirHotel = new Button();
+        botonConstruirHotel.setText("Construir hotel");
+        botonConstruirHotel.setMinWidth(125);
         EventHandler<ActionEvent> BotonConstruirHotelHandler = new BotonConstruirHotelHandler();
-        BotonConstruirHotel.setOnAction(BotonConstruirHotelHandler);
+        botonConstruirHotel.setOnAction(BotonConstruirHotelHandler);
         
-        Button BotonVenderCasa = new Button();
-        BotonVenderCasa.setText("Vender casa");
+        botonVenderCasa = new Button();
+        botonVenderCasa.setText("Vender casa");
+        botonVenderCasa.setMinWidth(125);
         EventHandler<ActionEvent> BotonVenderCasaHandler = new BotonVenderCasaHandler();
-        BotonVenderCasa.setOnAction(BotonVenderCasaHandler);
+        botonVenderCasa.setOnAction(BotonVenderCasaHandler);
         
-        Button BotonVenderHotel = new Button();
-        BotonVenderHotel.setText("Vender hotel");
+        botonVenderHotel = new Button();
+        botonVenderHotel.setText("Vender hotel");
+        botonVenderHotel.setMinWidth(125);
         EventHandler<ActionEvent> BotonVenderHotelHandler = new BotonVenderHotelHandler();
-        BotonVenderHotel.setOnAction(BotonVenderHotelHandler);
+        botonVenderHotel.setOnAction(BotonVenderHotelHandler);
         
-        Button BotonTerminarTurno = new Button();
-        BotonTerminarTurno.setText("Terminar turno");
+        botonTerminarTurno = new Button();        
+        botonTerminarTurno.setText("Terminar turno");
+        botonTerminarTurno.setMinWidth(125);
         EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler(this, juego);
-        BotonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
+        botonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
         
         VBox AccionesVBox = new VBox();
         AccionesVBox.setPadding(new Insets(10,12,10,12) );
         AccionesVBox.setSpacing(10);
         
-        AccionesVBox.getChildren().addAll(BotonArrojarDados,BotonTerminarTurno,  
-        		BotonVenderTerreno, BotonIntercambiarTerreno, BotonConstruirCasa,
-        		BotonConstruirHotel, BotonVenderCasa, BotonVenderHotel
+        AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
+        		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
+        		botonConstruirHotel, botonVenderCasa, botonVenderHotel
         		);
         
         root.setLeft(AccionesVBox);
@@ -267,6 +284,50 @@ public class VentanaJuego{
 		this.accionesjugador = "";
 		this.text5.setText(accionesjugador);
 		jugadoractual.setEstado(jugadoractual.getJugadorEmpezandoTurno() );
+		
+		this.botonArrojarDados.setDisable(false);
+		setTerminarturno(true);
+		actualizarVenderTerreno(jugadoractual);
+		actualizarConstruirCasa(jugadoractual);
+		actualizarConstruirHotel(jugadoractual);
+		actualizarVenderCasa(jugadoractual);
+		actualizarVenderHotel(jugadoractual);
+		actualizarIntercambiar(jugadoractual);
+	}
+
+	public void setTerminarturno(boolean valor) {
+		// TODO Auto-generated method stub
+		this.botonTerminarTurno.setDisable(valor);
+	}
+
+	public void actualizarIntercambiar(Jugador jugador) {
+		// TODO Auto-generated method stub
+		this.botonIntercambiarTerreno.setDisable(jugador.getCantidadPropiedad() == 0);
+	}
+
+	public void actualizarVenderHotel(Jugador jugador) {
+		// TODO Auto-generated method stub
+		this.botonVenderHotel.setDisable(jugador.puedevenderhotel());
+	}
+
+	public void actualizarVenderCasa(Jugador jugador) {
+		// TODO Auto-generated method stub
+		this.botonVenderCasa.setDisable(jugador.puedevendercasa());
+	}
+
+	public void actualizarConstruirHotel(Jugador jugador) {
+		// TODO Auto-generated method stub
+		this.botonConstruirHotel.setDisable(jugador.puedeconstruirhotel());
+	}
+
+	public void actualizarConstruirCasa(Jugador jugador) {
+		// TODO Auto-generated method stub
+		this.botonConstruirCasa.setDisable(jugador.puedeconstruircasas());
+	}
+
+	public void actualizarVenderTerreno(Jugador jugador) {
+		// TODO Auto-generated method stub
+		this.botonVenderTerreno.setDisable(jugador.getCantidadPropiedad() == 0);
 	}
 
 	public void agregaraccion(String accion) {

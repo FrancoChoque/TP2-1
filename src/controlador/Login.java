@@ -27,6 +27,8 @@ public class Login {
     private GridPane grid;
 	private TextField player1TextField;
 	private TextField player2TextField;
+	private TextField player3TextField;
+	
 
 
     public void login()  {
@@ -73,6 +75,8 @@ public class Login {
         grid.add(jugador1, 0, 1);
         Label jugador2 = new Label("Jugador 2");
         grid.add(jugador2, 0, 2);
+        Label jugador3 = new Label("Jugador 3");
+        grid.add(jugador3, 0, 3);
 
 
         //Input
@@ -84,6 +88,10 @@ public class Login {
         player2TextField = new TextField();
         player2TextField.setPromptText("Jugador Dos");
         grid.add(player2TextField, 1, 2);
+        
+        player3TextField = new TextField();
+        player3TextField.setPromptText("Jugador Tres");
+        grid.add(player3TextField, 1, 3);
 
         grid.add(iniciarBoton, 2,6);
         grid.add(cerrarBoton, 0,6);
@@ -115,10 +123,11 @@ public class Login {
 		// TODO Auto-generated method stub
 		String nombre1 = this.player1TextField.getText().trim();
 		String nombre2 = this.player2TextField.getText().trim();
-		//String nombre3 = nombrejugador3.getText().trim();
+		String nombre3 = this.player3TextField.getText().trim();
 		
 		if( (nombre1.length() == 0) ||
-			(nombre2.length() == 0)   ) throw new NombreInvalidoException();
+			(nombre2.length() == 0) ||
+			(nombre3.length() == 0) ) throw new NombreInvalidoException();
 		
 	}
 
@@ -132,6 +141,12 @@ public class Login {
 	public String getNombrejugador2() {
 		// TODO Auto-generated method stub
 		return this.player2TextField.getText();
+	}
+
+
+	public String getNombrejugador3() {
+		// TODO Auto-generated method stub
+		return this.player3TextField.getText();
 	}
 
 

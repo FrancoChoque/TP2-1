@@ -37,13 +37,14 @@ public class Tablero {
     // Atributos y Metodos de instancia
 
     private HashMap<Jugador, Integer> posicionJugadores;
+    private HashMap<Comprable, Integer> posicionComprables;
 
     private Casillero[] Casilleros;
 
 
     private Tablero() {
         posicionJugadores = new HashMap<Jugador, Integer>();
-
+        this.posicionComprables = new HashMap<Comprable, Integer>();
 
         Casilleros = new Casillero[CANTIDAD_CASILLAS]; //Cambie el hashmap por un array
         for (int i = 0; i < CANTIDAD_CASILLAS; i++) {
@@ -100,58 +101,72 @@ public class Tablero {
 
         BuenosAiresSur buenosAiresSur = new BuenosAiresSur();
         Casilleros[2].setEstadoCasillero(buenosAiresSur);
+        this.posicionComprables.put(buenosAiresSur, 2);
 
         Edesur edesur = new Edesur();
         Casilleros[3].setEstadoCasillero(edesur);
+        this.posicionComprables.put(edesur, 3);
 
         BuenosAiresNorte buenosAiresNorte = new BuenosAiresNorte();
         Casilleros[4].setEstadoCasillero(buenosAiresNorte);
-
+        this.posicionComprables.put(buenosAiresNorte, 4);
+        
         Carcel carcel = new Carcel();
         Casilleros[5].setEstadoCasillero(carcel);
 
         CordobaSur cordobaSur = new CordobaSur();
         Casilleros[6].setEstadoCasillero(cordobaSur);
+        this.posicionComprables.put(cordobaSur, 6);
 
         AvanceDinamico avance = new AvanceDinamico();
         Casilleros[7].setEstadoCasillero(avance);
 
         Subte subte = new Subte();
         Casilleros[8].setEstadoCasillero(subte);
+        this.posicionComprables.put(subte,8);
 
         CordobaNorte cordobaNorte = new CordobaNorte();
         Casilleros[9].setEstadoCasillero(cordobaNorte);
+        this.posicionComprables.put(cordobaNorte,9);
 
         ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
         Casilleros[10].setEstadoCasillero(impuesto);
 
         SantaFe santafe = new SantaFe();
         Casilleros[11].setEstadoCasillero(santafe);
+        this.posicionComprables.put(santafe, 11);
 
         Aysa aysa = new Aysa();
         Casilleros[12].setEstadoCasillero(aysa);
+        this.posicionComprables.put(aysa,12);
 
         SaltaNorte saltaNorte = new SaltaNorte();
         Casilleros[13].setEstadoCasillero(saltaNorte);
+        this.posicionComprables.put(saltaNorte,13);
 
         SaltaSur saltaSur = new SaltaSur();
         Casilleros[14].setEstadoCasillero(saltaSur);
+        this.posicionComprables.put(saltaSur,14);
 
         Policia policia = new Policia(this);
         Casilleros[15].setEstadoCasillero(policia);
 
         Tren tren = new Tren();
         Casilleros[16].setEstadoCasillero(tren);
+        this.posicionComprables.put(tren,16);
 
         Neuquen neuquen = new Neuquen();
         Casilleros[17].setEstadoCasillero(neuquen);
+        this.posicionComprables.put(neuquen,17);
 
         RetrocesoDinamico retroceso = new RetrocesoDinamico();
         Casilleros[18].setEstadoCasillero(retroceso);
 
         Tucuman tucuman = new Tucuman();
         Casilleros[19].setEstadoCasillero(tucuman);
+        this.posicionComprables.put(tucuman, 19);
 
+        
 
     }
 
@@ -230,6 +245,11 @@ public class Tablero {
     public Neuquen getNeuquen() { return (Neuquen) Casilleros[17].getestado();}
 
     public Tucuman getTucuman() { return (Tucuman) Casilleros[19].getestado();}
+
+	public HashMap<Comprable, Integer> obtenerComprables() {
+		// TODO Auto-generated method stub
+		return this.posicionComprables;
+	}
 
 }
 

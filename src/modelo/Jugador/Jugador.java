@@ -1,9 +1,16 @@
 package modelo.Jugador;
 import estados.Comprable.Propiedad.Propiedad;
+import estados.Comprable.Propiedad.PropiedadEstado;
+import estados.Comprable.Propiedad.Barrios.BuenosAiresNorte;
+import estados.Comprable.Propiedad.Barrios.BuenosAiresSur;
+import estados.Comprable.Propiedad.Barrios.CordobaNorte;
+import estados.Comprable.Propiedad.Barrios.CordobaSur;
 import excepciones.*;
 import modelo.Dado;
+import modelo.Tablero;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 import estados.Comprable.Comprable;
 
@@ -228,4 +235,89 @@ public class Jugador {
 
 		return numeroDePropiedades;
 	}*/
+
+	public LinkedList<Comprable> getpropiedades() {
+		// TODO Auto-generated method stub
+		return this.propiedades;
+	}
+
+	public boolean puedeconstruircasas() {
+		// para actualizar el boton construir casas
+		Tablero tablero = Tablero.getInstance();
+		if(tieneGrupo(tablero.getBuenosAiresNorte(),tablero.getBuenosAiresSur())) return false;
+		if(tieneGrupo(tablero.getCordobaNorte(),tablero.getCordobaSur())) return false;
+		if(tieneGrupo(tablero.getSaltaNorte(),tablero.getSaltaSur())) return false;
+		
+		if(this.propiedades.contains(tablero.getNeuquen()) ||
+				this.propiedades.contains(tablero.getTucuman()) ||
+				this.propiedades.contains(tablero.getSantaFe())) return false;
+			
+		return true;
+	}
+
+	public boolean puedeconstruirhotel() {
+		// TODO Auto-generated method stub
+		Tablero tablero = Tablero.getInstance();
+		if(puedeAgregarHotel(tablero.getBuenosAiresNorte(),tablero.getBuenosAiresSur())) return false;
+		if(puedeAgregarHotel(tablero.getCordobaNorte(),tablero.getCordobaSur())) return false;
+		if(puedeAgregarHotel(tablero.getSaltaNorte(),tablero.getSaltaSur())) return false;
+		return true;
+	}
+
+	private boolean puedeAgregarHotel(Propiedad prop1, Propiedad prop2) {
+		// TODO Auto-generated method stub
+		return tieneGrupo(prop1,prop2) && estanCompletas(prop1,prop2);
+	}
+
+	private boolean estanCompletas(Propiedad prop1, Propiedad prop2) {
+		// TODO Auto-generated method stub
+		PropiedadEstado estado1 = prop1.getPropiedadEstado();
+		PropiedadEstado estado2 = prop2.getPropiedadEstado();
+		return (estado1 == prop1.getPropiedadConDosCasas() || estado1 == prop1.getPropiedadConHotel()) &&
+				(estado2 == prop2.getPropiedadConDosCasas() || estado2 == prop2.getPropiedadConHotel());
+	}
+
+	private boolean tieneGrupo(Propiedad prop1, Propiedad prop2) {
+		// TODO Auto-generated method stub
+
+		return this.propiedades.contains(prop1) && 
+				this.propiedades.contains(prop2);
+	}
+
+	public boolean puedevendercasa() {
+		// TODO Auto-generated method stub
+		boolean valor = true;
+		ListIterator<Comprable> iter = this.propiedades.listIterator();
+		while(iter.hasNext()) {
+			try {
+				Propiedad prop = (Propiedad) iter.next();
+				PropiedadEstado estado = prop.getPropiedadEstado();
+				if( (estado == prop.getPropiedadConCasa()) || 
+					(estado == prop.getPropiedadConDosCasas()) ) valor = false;
+			} catch(ClassCastException e) {
+				continue;
+			}
+		}
+		
+		return valor;
+	}
+
+	public boolean puedevenderhotel() {
+		// TODO Auto-generated method stub
+		boolean valor = true;
+		ListIterator<Comprable> iter = this.propiedades.listIterator();
+		while(iter.hasNext()) {
+			try {
+				Propiedad prop = (Propiedad) iter.next();
+				PropiedadEstado estado = prop.getPropiedadEstado();
+				if( estado == prop.getPropiedadConHotel()) valor = false;
+			} catch(ClassCastException e) {
+				continue;
+			}
+		}
+		
+		return valor;
+	}
+	
+	
 }

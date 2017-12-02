@@ -31,6 +31,7 @@ public class BotonComprarTerrenoHandler implements EventHandler<ActionEvent> {
 		try {
 			algopoly.comprar( algopoly.obtenerJugadorActual() );
 			juego.agregaraccion("Compraste " + casillero.getNombre() + " por $" + estado.getPrecioCompra() + "\n");
+			juego.actualizarVenderTerreno(algopoly.obtenerJugadorActual() );
 		} catch (DineroInsuficiente e) {
 			AlertBox box = new AlertBox();
 			box.errorcompra();
