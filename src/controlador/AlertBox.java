@@ -225,7 +225,7 @@ public class AlertBox {
 
         stage.showAndWait();
 	}
-
+/*
 	public void ventanaconstruircasa(VentanaJuego juego, HashMap<String, Propiedad> map) {
 		// TODO Auto-generated method stub
 		Stage stage = new Stage();
@@ -286,7 +286,7 @@ public class AlertBox {
         stage.setScene(scene);
         stage.showAndWait();
 	}
-
+	*/
 	
 	
 }

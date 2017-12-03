@@ -20,15 +20,14 @@ import modelo.Jugador.Jugador;
 public class BotonConfirmarConstruirCasaHandler implements EventHandler<ActionEvent> {
 
 	private Stage stage;
-	private ComboBox<String> combobox;
-	private HashMap<String, Propiedad> map;
 
-	public BotonConfirmarConstruirCasaHandler(Stage stage, ComboBox<String> combobox, HashMap<String, Propiedad> map) {
+
+	public BotonConfirmarConstruirCasaHandler(Stage stage) {
 		this.stage = stage;
 		// TODO Auto-generated constructor stub
-		this.combobox = combobox;
-		this.map = map;
+
 	}
+
 
 	@Override
 	public void handle(ActionEvent event) {
@@ -36,8 +35,7 @@ public class BotonConfirmarConstruirCasaHandler implements EventHandler<ActionEv
 		App app = App.getInstance();
 		AlgoPoly algopoly = app.getAlgoPoly();
 		Jugador actual = algopoly.obtenerJugadorActual();
-		String eleccion = this.combobox.getValue();
-		Propiedad propiedad = this.map.get(eleccion);
+		Propiedad propiedad = (Propiedad) Tablero.getInstance().obtenerCasillero(actual).getestado();
 		
 		VentanaJuego juego = VentanaJuego.getInstance();
 		
@@ -49,26 +47,26 @@ public class BotonConfirmarConstruirCasaHandler implements EventHandler<ActionEv
 			juego.agregaraccion("Por un costo de $" + propiedad.getValorCasa() + "\n");
 		} catch (DineroInsuficiente e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 			juego.agregaraccion("No tienes suficientes fondos para construir\n");
 		} catch (JugadorNoPoseeTodosLosBarrios e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 			String otra = propiedad.otropar();
 			juego.agregaraccion("Te falta comprar "+ otra +"\n");
 		} catch (JugadorNoEsPropietario e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 			juego.agregaraccion("No eres propietario del barrio\n");
 		} catch (NoPuedeConstruirMasCasas e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 			juego.agregaraccion("No puedes construir mas casas aqui\n");
 		}
 		
 		this.stage.close();
 		
-		
+		VentanaJuego.getInstance().actualizarCapa(actual);
 	}
 
 }

@@ -101,7 +101,7 @@ public class VentanaJuego{
         mainApp.setecenaPrincipal(scene);
         
         // Agrego imagen del tablero
-        Image unaimagen = new Image("imagenes/tablero.jpg");
+        Image unaimagen = new Image("file:src/imagenes/tablero.jpg");
         ImageView univ = new ImageView();
         univ.setImage(unaimagen);
         univ.setPreserveRatio(true);
@@ -113,9 +113,9 @@ public class VentanaJuego{
         StackPane stackcapas = new StackPane();
         
         // Creo los canvas para cada jugador, los agrego al hashmap
-        Image iconojugador1 = new Image("imagenes/galera.jpg");
-        Image iconojugador2 = new Image("imagenes/carretilla.jpg");
-        Image iconojugador3 = new Image("imagenes/auto.png");
+        Image iconojugador1 = new Image("file:src/imagenes/galera.jpg");
+        Image iconojugador2 = new Image("file:src/imagenes/carretilla.jpg");
+        Image iconojugador3 = new Image("file:src/imagenes/auto.png");
         
         Canvas canvasjugador1 = new Canvas(600, 600);
         GraphicsContext gcjugador1 = canvasjugador1.getGraphicsContext2D();
@@ -205,7 +205,6 @@ public class VentanaJuego{
         EventHandler<ActionEvent> BotonConstruirHotelHandler = new BotonConstruirHotelHandler();
         botonConstruirHotel.setOnAction(BotonConstruirHotelHandler);
         
-
         
         botonTerminarTurno = new Button();        
         botonTerminarTurno.setText("Terminar turno");
@@ -213,11 +212,6 @@ public class VentanaJuego{
         EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler(this, juego);
         botonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
 
-        propiedadesJugador.getItems().add("Propiedad a vender");
-        propiedadesJugador.setValue("Propiedad a vender");
-        botonVender = new Button();
-        botonVender.setText("Vender");
-        botonVender.setOnAction(event ->  getChoice(propiedadesJugador));
         
         VBox AccionesVBox = new VBox();
         AccionesVBox.setPadding(new Insets(10,12,10,12) );
@@ -225,7 +219,7 @@ public class VentanaJuego{
         
         AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
         		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
-        		botonConstruirHotel,propiedadesJugador,botonVender
+        		botonConstruirHotel,botonPagarFianza
         		);
         
         root.setLeft(AccionesVBox);
@@ -303,7 +297,7 @@ public class VentanaJuego{
 		actualizarFianza(jugadoractual);
 	}
 
-	private void actualizarFianza(Jugador jugadoractual) {
+	public void actualizarFianza(Jugador jugadoractual) {
 		// TODO Auto-generated method stub
 		this.botonPagarFianza.setDisable(this.algopoly.obtenerPosicion(jugadoractual) != 5);
 
@@ -384,9 +378,7 @@ public class VentanaJuego{
 	}
     
 
-	public void getChoice(ChoiceBox<String> propiedadesJugador){
-	    String propiedadAVender = propiedadesJugador.getValue();
-    }
+
 
 	public void escondercapa(Jugador anterior) {
 		// TODO Auto-generated method stub

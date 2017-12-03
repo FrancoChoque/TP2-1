@@ -7,6 +7,12 @@ import java.util.Set;
 
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
+import estados.Comprable.Propiedad.Propiedad;
+import estados.Comprable.Propiedad.PropiedadConCasa;
+import estados.Comprable.Propiedad.PropiedadConDosCasas;
+import estados.Comprable.Propiedad.PropiedadConHotel;
+import estados.Comprable.Propiedad.PropiedadEstado;
+import estados.Comprable.Propiedad.PropiedadSinCasa;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -22,10 +28,20 @@ public class JugadorCapa {
 		
 	private static Image iconohotel;
 	private static Image iconocasa;
+	private static int desfaseEdificioY;
+	private static int desfaseEdificioX1;
+	private static int desfaseEdificioX2;
+	private static int alturaedificio;
+	private static int largoedificio;
 		
 	static {
-		iconocasa = new Image("imagenes/casa.png");
-	    iconohotel = new Image("imagenes/hotel.png");
+		iconocasa = new Image("file:src/imagenes/casa.png");
+	    iconohotel = new Image("file:src/imagenes/hotel.png");
+	    desfaseEdificioX1 = 0;
+	    desfaseEdificioX2 = 35;
+	    desfaseEdificioY = 60;
+	    alturaedificio = 30;
+	    largoedificio = 30;
 	}
 	
 	public Image getIconoCasa() {
@@ -42,10 +58,10 @@ public class JugadorCapa {
 	private Jugador jugador;
 	private GraphicsContext gc;
 	private Posicion posicionactual = Posicion.getPosicionJugador(0);
-	private int alturajugador = 25;
-	private int largojugador = 25;
+	private int alturajugador = 30;
+	private int largojugador = 30;
 	private Color color;
-	private double desfasejugador = 60;
+	private double desfasejugador = 70;
 	private Image icono;
 	
 	
@@ -59,8 +75,7 @@ public class JugadorCapa {
 	}
 	
 	public void clean() {
-		this.gc.clearRect(0, 0, 600, 600);
-		//this.gc.clearRect(posicionactual.getx() + desfasejugador, posicionactual.gety() + desfasejugador, largojugador, alturajugador);
+		this.gc.clearRect(0, 0, 600, 600); //limpia todo el canvas
 	}
 	
 	public void dibujar() {
@@ -80,32 +95,59 @@ public class JugadorCapa {
 		// Recuadra las propiedades del jugador
 		Tablero tablero = Tablero.getInstance();
 		HashMap<Comprable, Integer> comprables = tablero.obtenerComprables();
-		Set<Comprable> set = comprables.keySet();
-		Iterator<Comprable> iter = set.iterator();
+
+
+		LinkedList<Comprable> list = this.jugador.getpropiedades();
+		Iterator<Comprable> iter = list.iterator();
 		while(iter.hasNext()) {
 			Comprable comprable = iter.next();
 			int numcasillero = comprables.get(comprable);
 			Posicion pos = Posicion.getPosicionJugador(numcasillero);
-			if(comprable.getDuenio() == this.jugador) {
-				double alto = Posicion.getalto();
-				double largo = Posicion.getlargo();
+
+			double alto = Posicion.getalto();
+			double largo = Posicion.getlargo();
 				
-				this.gc.setStroke(color);
+			this.gc.setStroke(color);
+			this.gc.setLineWidth(3);
 				
-				this.gc.strokeLine(pos.getx(), pos.gety(), 
-						pos.getx() + largo, pos.gety());
+			this.gc.strokeLine(pos.getx(), pos.gety(), 
+					pos.getx() + largo, pos.gety());
 				
-				this.gc.strokeLine(pos.getx(), pos.gety(), 
-						pos.getx() , pos.gety() + alto);
+			this.gc.strokeLine(pos.getx(), pos.gety(), 
+					pos.getx() , pos.gety() + alto);
 				
-				this.gc.strokeLine(pos.getx() + largo, pos.gety(), 
-						pos.getx() + largo , pos.gety() + alto);
+			this.gc.strokeLine(pos.getx() + largo, pos.gety(), 
+					pos.getx() + largo , pos.gety() + alto);
 				
-				this.gc.strokeLine(pos.getx(), pos.gety() + alto, 
-						pos.getx() + largo , pos.gety() + alto);
+			this.gc.strokeLine(pos.getx(), pos.gety() + alto, 
+					pos.getx() + largo , pos.gety() + alto);
 				
+			try {
+				Propiedad prop = (Propiedad) comprable;
+				PropiedadEstado estado = prop.getPropiedadEstado();
+				if(estado == prop.getPropiedadConCasa()) dibujaredificios((PropiedadConCasa)estado, pos);
+				if(estado == prop.getPropiedadConDosCasas()) dibujaredificios((PropiedadConDosCasas)estado, pos);
+				if(estado == prop.getPropiedadConHotel()) dibujaredificios((PropiedadConHotel)estado, pos);
+				
+			} catch (ClassCastException e) {
+				continue;
 			}
+			
+			
 		}
+	}
+	
+	private void dibujaredificios(PropiedadConCasa estado, Posicion pos) {
+		this.gc.drawImage(iconocasa, pos.getx() +desfaseEdificioX1, pos.gety() + desfaseEdificioY, largoedificio, alturaedificio);
+	}
+	
+	private void dibujaredificios(PropiedadConDosCasas estado, Posicion pos) {
+		this.gc.drawImage(iconocasa, pos.getx() + desfaseEdificioX1, pos.gety() + desfaseEdificioY, largoedificio, alturaedificio);
+		this.gc.drawImage(iconocasa, pos.getx() + desfaseEdificioX2, pos.gety() + desfaseEdificioY, largoedificio, alturaedificio);
+	}
+	
+	private void dibujaredificios(PropiedadConHotel estado, Posicion pos) {
+		this.gc.drawImage(iconohotel, pos.getx() + desfaseEdificioX1, pos.gety() + desfaseEdificioY, largoedificio, alturaedificio);
 	}
 
 	public void actualizar() {
@@ -116,7 +158,7 @@ public class JugadorCapa {
 
 	public void ocultar() {
 		// TODO Auto-generated method stub
-		this.gc.getCanvas().toBack();
+		this.clean();
 	}
 
 	public void mostrar() {

@@ -26,6 +26,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import modelo.Jugador.Jugador;
 import vista.eventos.BotonConfirmarCobrarFianzaHandler;
 import vista.eventos.BotonConfirmarConstruirHotelHandler;
 import vista.eventos.BotonConfirmarVenderTerrenoHandler;
@@ -42,7 +43,7 @@ public class VentanaOperacion {
 		this.map = map;
 	}
 
-	public void construirhotel() {
+	public void ventanaconstruirhotel(Propiedad prop) {
 		// TODO Auto-generated method stub
 		Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -51,11 +52,11 @@ public class VentanaOperacion {
         BorderPane layout = new BorderPane();
         
         Text text1 = new Text();
-        text1.setText("Seleccione el barrio donde\n");
+        text1.setText("Desea construir un hotel\n");
         text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         Text text2 = new Text();
-        text2.setText("desee construir una hotel");
+        text2.setText("en "+ prop.getNombre() + "?");
         text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         TextFlow textos = new TextFlow();
@@ -64,17 +65,7 @@ public class VentanaOperacion {
         textos.setPadding(new Insets(10,10,10,10));
         
         layout.setTop(textos);
-        
-        ComboBox<String> combobox = new ComboBox<String>();
-        Set<String> entradas = map.keySet();
-        Iterator<String> iter = entradas.iterator();
-        while(iter.hasNext()) {
-        	String propiedadactual = iter.next();
-        	combobox.getItems().add(propiedadactual);        	
-        }
-        
-        layout.setCenter(combobox);
-        
+               
         
         HBox opciones = new HBox();
         opciones.setAlignment(Pos.TOP_CENTER);
@@ -84,7 +75,7 @@ public class VentanaOperacion {
  
         Button botonaceptar = new Button();
         botonaceptar.setText("Construir");
-        EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarConstruirHotelHandler(stage,combobox,map);
+        EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarConstruirHotelHandler(stage);
         botonaceptar.setOnAction(botonaceptarhandler);
         
         
@@ -198,6 +189,58 @@ public class VentanaOperacion {
         Button botonaceptar = new Button();
         botonaceptar.setText("Si");
         EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarCobrarFianzaHandler(stage);
+        botonaceptar.setOnAction(botonaceptarhandler);
+        
+        
+        Button botonrechazar = new Button();
+        botonrechazar.setText("No");
+        EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
+        botonrechazar.setOnAction(botonrechazarhandler);
+        
+        
+        
+        
+        opciones.getChildren().addAll(botonaceptar, botonrechazar);
+        
+        Scene scene = new Scene(layout, 300,170);
+        stage.setScene(scene);
+        stage.showAndWait();
+	}
+
+	public void ventanaconstruircasa(Jugador actual, Propiedad prop) {
+		// TODO Auto-generated method stub
+		Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Construir casa");
+
+        BorderPane layout = new BorderPane();
+        
+        Text text1 = new Text();
+        text1.setText("Desea construir una casa\n");
+        text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+        
+        Text text2 = new Text();
+        text2.setText("en" + prop.getNombre() + "?");
+        text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+        
+        TextFlow textos = new TextFlow();
+        textos.setTextAlignment(TextAlignment.CENTER);
+        textos.getChildren().addAll(text1, text2);
+        textos.setPadding(new Insets(10,10,10,10));
+        
+        layout.setTop(textos);
+        
+        
+        
+        HBox opciones = new HBox();
+        opciones.setAlignment(Pos.TOP_CENTER);
+        opciones.setSpacing(15);
+        opciones.setPadding(new Insets(10,10,10,10));
+        layout.setBottom(opciones);
+ 
+        Button botonaceptar = new Button();
+        botonaceptar.setText("Si");
+        EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarConstruirCasaHandler(stage);
         botonaceptar.setOnAction(botonaceptarhandler);
         
         

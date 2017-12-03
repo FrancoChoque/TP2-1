@@ -16,19 +16,17 @@ import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Hotel;
+import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
 public class BotonConfirmarConstruirHotelHandler implements EventHandler<ActionEvent> {
 
 	private Stage stage;
-	private ComboBox<String> combobox;
-	private HashMap<String, Propiedad> map;
 
-	public BotonConfirmarConstruirHotelHandler(Stage stage, ComboBox<String> combobox, HashMap<String, Propiedad> map) {
-		this.stage = stage;
+
+	public BotonConfirmarConstruirHotelHandler(Stage stage) {
 		// TODO Auto-generated constructor stub
-		this.combobox = combobox;
-		this.map = map;
+		this.stage = stage;
 	}
 
 	@Override
@@ -37,23 +35,23 @@ public class BotonConfirmarConstruirHotelHandler implements EventHandler<ActionE
 		App app = App.getInstance();
 		AlgoPoly algopoly = app.getAlgoPoly();
 		Jugador actual = algopoly.obtenerJugadorActual();
-		String eleccion = this.combobox.getValue();
-		Propiedad propiedad = this.map.get(eleccion);
+		
+		Propiedad prop = (Propiedad) Tablero.getInstance().obtenerCasillero(actual).getestado();
 		
 		VentanaJuego juego = VentanaJuego.getInstance();
 		
 		
 		try {
-			actual.construir(propiedad, new Hotel());
+			actual.construir(prop, new Hotel());
 
-			juego.agregaraccion("Construiste un hotel en " + propiedad.getNombre() + "\n");
-			juego.agregaraccion("Por un costo de $" + propiedad.getValorCasa() + "\n");
+			juego.agregaraccion("Construiste un hotel en " + prop.getNombre() + "\n");
+			juego.agregaraccion("Por un costo de $" + prop.getValorCasa() + "\n");
 		} catch (DineroInsuficiente e) {
 			// TODO Auto-generated catch block
 			juego.agregaraccion("No tienes suficientes fondos para construir\n");
 		} catch (JugadorNoPoseeTodosLosBarrios e) {
 			// TODO Auto-generated catch block
-			String otra = propiedad.otropar();
+			String otra = prop.otropar();
 			juego.agregaraccion("Te falta comprar "+ otra +"\n");
 		} catch (JugadorNoEsPropietario e) {
 			// TODO Auto-generated catch block

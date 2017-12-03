@@ -25,6 +25,7 @@ public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 		Jugador actual = this.juego.obtenerJugadorActual();
 		ventana.mostrarcapa(actual);
 		
+		ventana.actualizarCapa(actual);
 		
 	}
 	

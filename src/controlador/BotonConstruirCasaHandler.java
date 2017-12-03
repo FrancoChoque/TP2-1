@@ -9,8 +9,11 @@ import estados.Comprable.Propiedad.Propiedad;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoPoly;
+import modelo.Casillero;
+import modelo.Tablero;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
+import vista.VentanaOperacion;
 
 public class BotonConstruirCasaHandler implements EventHandler<ActionEvent> {
 
@@ -34,23 +37,14 @@ public class BotonConstruirCasaHandler implements EventHandler<ActionEvent> {
 		Jugador actual = algopoly.obtenerJugadorActual();
 		String accion;
 		
-		LinkedList<Comprable> propiedadess = actual.getpropiedades();
-		Iterator<Comprable> iter = propiedadess.iterator();
-		HashMap<String, Propiedad> map = new HashMap<String, Propiedad>();
-		while(iter.hasNext()) {
-			Comprable comprable = iter.next();
-			try {
-				Propiedad prop = (Propiedad) comprable;
-				map.put(prop.getNombre(), prop);
-			} catch(ClassCastException e) {
-				continue;			
-			}
-			
-		}
+		Casillero casillero = Tablero.getInstance().obtenerCasillero(actual);
+		Propiedad prop = (Propiedad) casillero.getestado();
 		
-		AlertBox box = new AlertBox();
 		
-		box.ventanaconstruircasa(this.juego, map);
+		
+		VentanaOperacion box = new VentanaOperacion();
+		
+		box.ventanaconstruircasa(actual, prop);
 		
 		
 		

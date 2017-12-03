@@ -12,6 +12,7 @@ import excepciones.NoPuedeConstruirMasHoteles;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoPoly;
+import modelo.Tablero;
 import modelo.Jugador.Jugador;
 import vista.VentanaOperacion;
 
@@ -30,23 +31,11 @@ public class BotonConstruirHotelHandler implements EventHandler<ActionEvent> {
 		AlgoPoly algopoly = app.getAlgoPoly();		
 		Jugador actual = algopoly.obtenerJugadorActual();
 		
-		LinkedList<Comprable> propiedadess = actual.getpropiedades();
-		Iterator<Comprable> iter = propiedadess.iterator();
-		HashMap<String, Propiedad> map = new HashMap<String, Propiedad>();
-		
-		while(iter.hasNext()) {
-			Comprable comprable = iter.next();
-			try {
-				Propiedad prop = (Propiedad) comprable;
-				if(!actual.puedeconstruirhotel(prop)) map.put(prop.getNombre(), prop);
-			} catch(ClassCastException e) {
-				continue;			
-			}
-		}
+		Propiedad prop = (Propiedad) Tablero.getInstance().obtenerCasillero(actual).getestado();
 		
 		VentanaOperacion ventana = new VentanaOperacion();
-		ventana.setMap(map);
-		ventana.construirhotel();
+
+		ventana.ventanaconstruirhotel(prop);
 	}
 
 }
