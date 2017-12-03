@@ -56,9 +56,10 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		if(actual.getEstadoDeJugador() == actual.getJugadorTiroDados()) {
 			boton.setDisable(true);
 			this.ventana.setTerminarturno(false);
-			this.ventana.actualizarBotones();
+
 		}
 
+		this.ventana.actualizarBotones();
 
 		//Casilleros comprables
 		casillerocomprable();

@@ -283,7 +283,7 @@ public class VentanaJuego{
 		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
 		this.dinerojugador.setText("$"+ jugadoractual.getDinero() + "\n" );
 		Tablero tablero = Tablero.getInstance();
-		this.posicionjugador.setText(tablero.obtenerPosicion(jugadoractual) + "\n");
+        this.posicionjugador.setText(tablero.obtenerCasillero(jugadoractual).getNombre() + "\n");
 		this.accionesjugador = "";
 		this.text5.setText(accionesjugador);
 		jugadoractual.setEstado(jugadoractual.getJugadorEmpezandoTurno() );
