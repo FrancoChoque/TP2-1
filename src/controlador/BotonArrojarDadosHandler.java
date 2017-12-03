@@ -34,12 +34,19 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		try {
 			
 			System.out.println(actual.nombre);
-			this.algopoly.usarTurno(actual);
+
+			this.algopoly.arrojarDados(actual);
 
 			box.display(algopoly.getTablero().obtenerCasillero(actual).getNombre(), actual.getValorDados());
-		
+
 			accion = "Arrojaste los dados y sacaste: " + actual.getValorDados() + "\n";
+
 			this.ventana.agregaraccion(accion);
+
+			this.algopoly.efectoCasillero(actual);
+
+			this.algopoly.tiraDeVuelta(actual);
+
 			
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block

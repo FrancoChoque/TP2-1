@@ -27,18 +27,26 @@ public class AlgoPoly {
     }
 
 
-    public void usarTurno(Jugador unJugador) throws NoEsTurnoJugador, JugadorYaTiroDados, FinDelJuego {
+    public void arrojarDados(Jugador unJugador) throws NoEsTurnoJugador, JugadorYaTiroDados {
+
+
+    	unJugador.arrojarDados();
+
+		tablero.moverJugador(unJugador, unJugador.getValorDados());
+	}
+
+
+	public void efectoCasillero(Jugador unJugador){
+		this.tablero.obtenerCasillero(unJugador).getestado().hacerEfectoDelCasillero(unJugador);
+	}
+
+    public void tiraDeVuelta(Jugador unJugador) throws NoEsTurnoJugador, JugadorYaTiroDados, FinDelJuego {
     	
         
     	//unJugador.setEstado(unJugador.getJugadorEmpezandoTurno());
-    	
-        unJugador.arrojarDados();
-        
-        System.out.println(unJugador.getValorDados() );
 
-        tablero.moverJugador(unJugador, unJugador.getValorDados());
-        
-        if(unJugador.tieneDadosIguales() ) {
+
+		if(unJugador.tieneDadosIguales() ) {
         	unJugador.setEstado(unJugador.getJugadorEmpezandoTurno() );
         	System.out.println("DADOS IGUALES");
         	dadosIgualesSeguidos++;

@@ -62,7 +62,7 @@ public class VentanaJuego{
 	private Text dinerojugador = new Text();
 	private Text posicionjugador = new Text();
 	private String accionesjugador = "";
-	private ChoiceBox<String> propiedadesJugador = new ChoiceBox<>();
+	
 	private AlgoPoly algopoly;
 
 	private Paint valor = Paint.valueOf("FFFFFF"); //pinta de blanco
@@ -75,7 +75,7 @@ public class VentanaJuego{
 	private Button botonTerminarTurno;
 	private Button botonPagarFianza;
 	private HashMap<Jugador, JugadorCapa> hash;
-	private Button botonVender;
+
 	
 	
 	private VentanaJuego() {};
@@ -213,11 +213,7 @@ public class VentanaJuego{
         EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler(this, juego);
         botonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
 
-        propiedadesJugador.getItems().add("Propiedad a vender");
-        propiedadesJugador.setValue("Propiedad a vender");
-        botonVender = new Button();
-        botonVender.setText("Vender");
-        botonVender.setOnAction(event ->  getChoice(propiedadesJugador));
+
         
         VBox AccionesVBox = new VBox();
         AccionesVBox.setPadding(new Insets(10,12,10,12) );
@@ -225,7 +221,7 @@ public class VentanaJuego{
         
         AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
         		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
-        		botonConstruirHotel,propiedadesJugador,botonVender
+        		botonConstruirHotel
         		);
         
         root.setLeft(AccionesVBox);
@@ -385,9 +381,6 @@ public class VentanaJuego{
 	}
     
 
-	public void getChoice(ChoiceBox<String> propiedadesJugador){
-	    String propiedadAVender = propiedadesJugador.getValue();
-    }
 
 	public void escondercapa(Jugador anterior) {
 		// TODO Auto-generated method stub
