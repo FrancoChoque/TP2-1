@@ -22,14 +22,14 @@ public class Tucuman extends Propiedad {
 
 
 
-	public void puedeConstuir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+	public void puedeEdificar(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
 
 		if(!edificios.empty()) throw new NoPuedeConstruirMasCasas();
 
 	}
 
 
-	public void puedeConstuir(Jugador unJugador, Hotel hotel) throws NoPuedeConstruirMasHoteles {
+	public void puedeEdificar(Jugador unJugador, Hotel hotel) throws NoPuedeConstruirMasHoteles {
 
 		throw new NoPuedeConstruirMasHoteles();
 

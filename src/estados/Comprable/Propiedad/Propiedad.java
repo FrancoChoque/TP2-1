@@ -97,11 +97,9 @@ public class Propiedad extends Comprable {
 
 
 	public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
-		try {
-			propiedadEstado.puedeConstruir(unJugador, casa);
-		} catch (JugadorNoEsPropietario jugadorNoEsPropietario) {
-			jugadorNoEsPropietario.printStackTrace();
-		}
+
+		propiedadEstado.puedeConstruir(unJugador, casa);
+
 	}
 
 
@@ -109,11 +107,20 @@ public class Propiedad extends Comprable {
 		propiedadEstado.puedeConstruir(unJugador, hotel);
 	}
 
+
 	public void vaciarEdificios() {
 		while(!edificios.empty()) {
 			edificios.pop();
 		}
 		this.setPropiedadEstado(getPropiedadSinCasa());
+
+	}
+
+	public void puedeEdificar(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+
+	}
+
+	public void puedeEdificar(Jugador unJugador, Hotel hotel) throws NoPuedeConstruirMasHoteles, CasasInsuficientes, JugadorNoPoseeTodosLosBarrios {
 
 	}
 

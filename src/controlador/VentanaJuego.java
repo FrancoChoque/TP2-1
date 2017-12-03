@@ -292,11 +292,19 @@ public class VentanaJuego{
 
 		this.botonArrojarDados.setDisable(false);
 		setTerminarturno(true);
-		actualizarVenderTerreno(jugadoractual);
-		actualizarConstruirCasa(jugadoractual);
-		actualizarConstruirHotel(jugadoractual);
-		actualizarIntercambiar(jugadoractual);
+        this.actualizarBotones();
+
 	}
+
+
+	public void actualizarBotones(){
+
+	    Jugador jugadorActual = this.algopoly.obtenerJugadorActual();
+        actualizarVenderTerreno(jugadorActual);
+        actualizarConstruirCasa(jugadorActual);
+        actualizarConstruirHotel(jugadorActual);
+        actualizarIntercambiar(jugadorActual);
+    }
 
 	public void setTerminarturno(boolean valor) {
 		// TODO Auto-generated method stub

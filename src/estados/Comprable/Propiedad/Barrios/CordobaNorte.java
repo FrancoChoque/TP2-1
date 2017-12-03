@@ -30,7 +30,7 @@ public class CordobaNorte extends Propiedad {
 
 
 
-	public void puedeConstuir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+	public void puedeEdificar(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
 
 		Tablero tablero = Tablero.getInstance();
 
@@ -42,7 +42,7 @@ public class CordobaNorte extends Propiedad {
 
 
 
-	public void puedeConstuir(Jugador unJugador, Hotel hotel) throws CasasInsuficientes, JugadorNoPoseeTodosLosBarrios {
+	public void puedeEdificar(Jugador unJugador, Hotel hotel) throws CasasInsuficientes, JugadorNoPoseeTodosLosBarrios {
 
 		Tablero tablero = Tablero.getInstance();
 

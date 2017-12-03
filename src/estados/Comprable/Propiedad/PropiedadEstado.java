@@ -13,7 +13,7 @@ public interface PropiedadEstado {
 
     public void construir(Jugador unJugador, Hotel hotel) throws DineroInsuficiente;
 
-    public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas, JugadorNoEsPropietario;
+    public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas;
 
     public void puedeConstruir(Jugador unJugador, Hotel hotel) throws JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles;
 }

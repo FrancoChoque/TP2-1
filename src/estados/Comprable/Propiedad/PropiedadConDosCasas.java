@@ -29,12 +29,12 @@ public class PropiedadConDosCasas implements PropiedadEstado {
     }
 
     @Override
-    public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas, JugadorNoEsPropietario {
+    public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
         throw new NoPuedeConstruirMasCasas();
     }
 
     @Override
     public void puedeConstruir(Jugador unJugador, Hotel hotel) throws JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
-
+        propiedad.puedeEdificar(unJugador, hotel);
     }
 }

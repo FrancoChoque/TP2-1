@@ -29,13 +29,13 @@ public class PropiedadSinCasa implements PropiedadEstado {
     }
 
     @Override
-    public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas, JugadorNoEsPropietario {
-
+    public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+        propiedad.puedeEdificar(unJugador, casa);
     }
 
     @Override
     public void puedeConstruir(Jugador unJugador, Hotel hotel) throws JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
-
+        throw new CasasInsuficientes();
     }
 
 

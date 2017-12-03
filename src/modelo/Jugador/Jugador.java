@@ -13,7 +13,7 @@ public class Jugador {
 	public String nombre;
 	private int dinero;
 
-	private LinkedList<String> propiedades;
+	private LinkedList<Comprable> propiedades;
 	private boolean movimientoPosible;
 	private int numeroPropiedades;
 
@@ -35,7 +35,7 @@ public class Jugador {
 		this.valorDados = 0;
 
 		this.dinero = DINERO_INICIAL;
-		propiedades = new LinkedList<String>();
+		propiedades = new LinkedList<Comprable>();
 
         movimientoPosible = true;
         
@@ -146,7 +146,7 @@ public class Jugador {
 
 	public void adquirirPropiedad(Comprable uncomprable){
 
-		this.propiedades.add(uncomprable.getNombre());
+		this.propiedades.add(uncomprable);
 	}
 
 	public void devolverPropiedad(Comprable uncomprable){
@@ -179,14 +179,10 @@ public class Jugador {
 		return numeroPropiedades;
 	}
 
-	public void setNumeroPropiedades(int numPropiedades) {
-		this.numeroPropiedades = numPropiedades;
-	}
 
 
-	public void aumentarNumeroDePropiedades(int unAumento){
-			this.numeroPropiedades += unAumento;
-	}
+
+
 
 	public void tirarDados() {
 		// TODO Auto-generated method stub
@@ -223,7 +219,7 @@ public class Jugador {
 		return numeroDePropiedades;
 	}*/
 
-	public LinkedList<String> getpropiedades() {
+	public LinkedList<Comprable> getpropiedades() {
 		// TODO Auto-generated method stub
 		return this.propiedades;
 	}
@@ -231,6 +227,10 @@ public class Jugador {
 	public boolean puedeconstruircasas(Propiedad propiedad) {
 
 		Casa casa = new Casa();
+
+		if(!this.esDuenio(propiedad)){
+			return true;
+		}
 
 		try {
 			propiedad.puedeConstruir(this,casa);
@@ -240,13 +240,14 @@ public class Jugador {
 			return true;
 		}
 
-
 		return false;
 	}
 
 	public boolean puedeconstruirhotel(Propiedad propiedad) {
 
 		Hotel hotel = new Hotel();
+
+		if(!this.esDuenio(propiedad)) return true;
 
 		try {
 			propiedad.puedeConstruir(this, hotel);
