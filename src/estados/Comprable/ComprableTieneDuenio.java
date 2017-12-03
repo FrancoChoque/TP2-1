@@ -1,5 +1,6 @@
 package estados.Comprable;
 
+import excepciones.DineroInsuficiente;
 import modelo.Jugador.Jugador;
 
 public class ComprableTieneDuenio implements ComprableEstado {
@@ -26,7 +27,7 @@ public class ComprableTieneDuenio implements ComprableEstado {
         comprable.setEstado(comprable.getNoTieneDuenio());
     }
 
-    public void comprar(Jugador unjugador){
+    public void comprar(Jugador unjugador) throws DineroInsuficiente {
         System.out.println("tiene duenio");
     }
 

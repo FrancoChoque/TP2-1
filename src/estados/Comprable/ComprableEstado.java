@@ -1,5 +1,6 @@
 package estados.Comprable;
 
+import excepciones.DineroInsuficiente;
 import modelo.Jugador.Jugador;
 
 public interface ComprableEstado {
@@ -13,7 +14,7 @@ public interface ComprableEstado {
 
     public boolean tieneDuenio();
 
-    public void comprar(Jugador unjugador);
+    public void comprar(Jugador unjugador) throws DineroInsuficiente;
 
     public void cobrarPase(Jugador unJugador);
 

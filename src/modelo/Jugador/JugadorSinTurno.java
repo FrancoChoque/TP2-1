@@ -4,6 +4,8 @@ package modelo.Jugador;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
+import modelo.Casa;
+import modelo.Hotel;
 
 
 public class JugadorSinTurno implements EstadoDeJugador {
@@ -24,11 +26,11 @@ public class JugadorSinTurno implements EstadoDeJugador {
 
     }
 
-    public void construirCasa(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
+    public void construir(Propiedad unaPropiedad, Casa casa) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
 
     }
 
-    public void construirHotel(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
+    public void construir(Propiedad unaPropiedad, Hotel hotel) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
 
     }
     

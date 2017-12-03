@@ -5,6 +5,8 @@ import excepciones.CasasInsuficientes;
 import excepciones.JugadorNoPoseeTodosLosBarrios;
 import excepciones.NoPuedeConstruirMasCasas;
 import excepciones.NoPuedeConstruirMasHoteles;
+import modelo.Casa;
+import modelo.Hotel;
 import modelo.Jugador.Jugador;
 
 
@@ -20,14 +22,14 @@ public class Tucuman extends Propiedad {
 
 
 
-	public void hacerCasa(Jugador unJugador) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+	public void puedeConstuir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
 
 		if(!edificios.empty()) throw new NoPuedeConstruirMasCasas();
 
 	}
 
 
-	public void hacerHotel(Jugador unJugador) throws CasasInsuficientes, NoPuedeConstruirMasHoteles {
+	public void puedeConstuir(Jugador unJugador, Hotel hotel) throws NoPuedeConstruirMasHoteles {
 
 		throw new NoPuedeConstruirMasHoteles();
 

@@ -78,21 +78,35 @@ public class Propiedad extends Comprable {
 	}
 
 
-	public void construirCasa(Jugador unJugador) throws NoPuedeConstruirMasCasas, DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios{
+	public void construir(Jugador unJugador, Casa casa) throws NoPuedeConstruirMasCasas, DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios{
 
-		propiedadEstado.construirCasa(unJugador);
-		edificios.add(new Casa());
+		propiedadEstado.puedeConstruir(unJugador, casa);
+		edificios.add(casa);
 		unJugador.sumarDinero(getValorCasa() * -1);
 	}
 
 
 
-	public void construirHotel(Jugador unJugador) throws NoPuedeConstruirMasHoteles, DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, JugadorNoEsPropietario {
+	public void construir(Jugador unJugador, Hotel hotel) throws NoPuedeConstruirMasHoteles, DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, JugadorNoEsPropietario {
 
-		propiedadEstado.construirHotel(unJugador);
-		edificios.add(new Hotel());
+		propiedadEstado.puedeConstruir(unJugador, hotel);
+		edificios.add(hotel);
 		unJugador.sumarDinero(getValorHotel() * -1);
 
+	}
+
+
+	public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+		try {
+			propiedadEstado.puedeConstruir(unJugador, casa);
+		} catch (JugadorNoEsPropietario jugadorNoEsPropietario) {
+			jugadorNoEsPropietario.printStackTrace();
+		}
+	}
+
+
+	public void puedeConstruir(Jugador unJugador, Hotel hotel) throws JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
+		propiedadEstado.puedeConstruir(unJugador, hotel);
 	}
 
 	public void vaciarEdificios() {
@@ -100,16 +114,8 @@ public class Propiedad extends Comprable {
 			edificios.pop();
 		}
 		this.setPropiedadEstado(getPropiedadSinCasa());
-		
+
 	}
-
-	public void hacerCasa(Jugador jugador) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas { }
-
-
-	public void hacerHotel(Jugador jugador) throws CasasInsuficientes, NoPuedeConstruirMasHoteles, JugadorNoPoseeTodosLosBarrios {
-	}
-
-
 
 	public int getCantidadEdificios(){
 		return edificios.size();
