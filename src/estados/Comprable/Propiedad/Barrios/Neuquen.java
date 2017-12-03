@@ -5,6 +5,7 @@ import excepciones.CasasInsuficientes;
 import excepciones.JugadorNoPoseeTodosLosBarrios;
 import excepciones.NoPuedeConstruirMasCasas;
 import excepciones.NoPuedeConstruirMasHoteles;
+import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
 
@@ -35,5 +36,9 @@ public class Neuquen extends Propiedad {
 	public String getNombre(){
 		return "Neuquen";
 	}
-
+	@Override
+	public String otropar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

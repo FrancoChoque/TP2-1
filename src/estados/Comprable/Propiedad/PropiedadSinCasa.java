@@ -19,7 +19,7 @@ public class PropiedadSinCasa implements PropiedadEstado {
 
 
     public void construirCasa(Jugador unJugador) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
-        if(!unJugador.puedePagar(propiedad.getValorHotel())) throw new DineroInsuficiente();
+        if(!unJugador.puedePagar(propiedad.getValorCasa())) throw new DineroInsuficiente();
         propiedad.hacerCasa(unJugador);
         propiedad.setPropiedadEstado(propiedad.getPropiedadConCasa());
     }

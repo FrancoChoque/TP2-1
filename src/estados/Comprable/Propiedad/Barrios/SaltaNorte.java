@@ -54,4 +54,10 @@ public class SaltaNorte extends Propiedad {
 		return "Salta Norte";
 	}
 
+	@Override
+	public String otropar() {
+		// TODO Auto-generated method stub
+		Tablero tablero = Tablero.getInstance();
+		return tablero.getSaltaSur().getNombre();
+	}
 }

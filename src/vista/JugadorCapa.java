@@ -7,6 +7,7 @@ import java.util.Set;
 
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -58,8 +59,8 @@ public class JugadorCapa {
 	}
 	
 	public void clean() {
-
-		this.gc.clearRect(posicionactual.getx() + desfasejugador, posicionactual.gety() + desfasejugador, largojugador, alturajugador);
+		this.gc.clearRect(0, 0, 600, 600);
+		//this.gc.clearRect(posicionactual.getx() + desfasejugador, posicionactual.gety() + desfasejugador, largojugador, alturajugador);
 	}
 	
 	public void dibujar() {
@@ -111,6 +112,11 @@ public class JugadorCapa {
 		// TODO Auto-generated method stub
 		this.clean();
 		this.dibujar();
+	}
+
+	public void ocultar() {
+		// TODO Auto-generated method stub
+		this.gc.getCanvas().toBack();
 	}
 	
 	

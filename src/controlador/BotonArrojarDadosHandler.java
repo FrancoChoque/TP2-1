@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
+import excepciones.DineroInsuficiente;
 import excepciones.FinDelJuego;
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
@@ -50,6 +51,12 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		} catch (FinDelJuego e) {
 			// TODO Auto-generated catch block
 			//System.out.println("Fin del juego");
+		} catch (DineroInsuficiente e) {
+			this.ventana.actualizarposicion(actual);
+			if(actual.getCantidadPropiedad() == 0) {
+				this.hash.get(actual).ocultar(); //mando la capa al fondo
+				this.algopoly.quitarJugador(actual);
+			}
 		}
 		
 		this.ventana.actualizarposicion(actual);

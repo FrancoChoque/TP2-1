@@ -37,4 +37,9 @@ public class SantaFe extends Propiedad {
 		return "Santa Fe";
 	}
 
+	@Override
+	public String otropar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

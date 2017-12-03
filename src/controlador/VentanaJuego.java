@@ -66,9 +66,9 @@ public class VentanaJuego{
 	private Button botonIntercambiarTerreno;
 	private Button botonConstruirCasa;
 	private Button botonConstruirHotel;
-	private Button botonVenderCasa;
-	private Button botonVenderHotel;
 	private Button botonTerminarTurno;
+	private Button botonPagarFianza;
+	private HashMap<Jugador, JugadorCapa> hash;
 	
 	
 	private VentanaJuego() {};
@@ -79,7 +79,7 @@ public class VentanaJuego{
 
 	    this.algopoly = juego;
 
-        HashMap<Jugador, JugadorCapa> hash = new HashMap<Jugador, JugadorCapa>();
+        hash = new HashMap<Jugador, JugadorCapa>();
         Jugador jugador1 = juego.nuevoJugador(nombreJugador1);
         Jugador jugador2 = juego.nuevoJugador(nombreJugador2);
         Jugador jugador3 = juego.nuevoJugador(nombrejugador3);
@@ -166,12 +166,13 @@ public class VentanaJuego{
         EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(this.algopoly ,hash, this,botonArrojarDados);
         botonArrojarDados.setOnAction(BotonArrojarDadosHandler);
         
-        /*
-        Button BotonComprarTerreno = new Button();
-        BotonComprarTerreno.setText("Comprar Terreno");
-        EventHandler<ActionEvent> BotonComprarTerrenoHandler = new BotonComprarTerrenoHandler();
-        BotonComprarTerreno.setOnAction(BotonComprarTerrenoHandler);
-        */
+        
+        botonPagarFianza = new Button();
+        botonPagarFianza.setText("Pagar Fianza");
+        botonPagarFianza.setMinWidth(125);
+        EventHandler<ActionEvent> BotonPagarFianzaHandler = new BotonPagarFianzaHandler();
+        botonPagarFianza.setOnAction(BotonPagarFianzaHandler);
+        
         
         botonVenderTerreno = new Button();
         botonVenderTerreno.setText("Vender Terreno");
@@ -188,7 +189,7 @@ public class VentanaJuego{
         botonConstruirCasa = new Button();
         botonConstruirCasa.setText("Construir casa");
         botonConstruirCasa.setMinWidth(125);
-        EventHandler<ActionEvent> BotonConstruirCasaHandler = new BotonConstruirCasaHandler();
+        EventHandler<ActionEvent> BotonConstruirCasaHandler = new BotonConstruirCasaHandler(this);
         botonConstruirCasa.setOnAction(BotonConstruirCasaHandler);
         
         botonConstruirHotel = new Button();
@@ -197,17 +198,6 @@ public class VentanaJuego{
         EventHandler<ActionEvent> BotonConstruirHotelHandler = new BotonConstruirHotelHandler();
         botonConstruirHotel.setOnAction(BotonConstruirHotelHandler);
         
-        botonVenderCasa = new Button();
-        botonVenderCasa.setText("Vender casa");
-        botonVenderCasa.setMinWidth(125);
-        EventHandler<ActionEvent> BotonVenderCasaHandler = new BotonVenderCasaHandler();
-        botonVenderCasa.setOnAction(BotonVenderCasaHandler);
-        
-        botonVenderHotel = new Button();
-        botonVenderHotel.setText("Vender hotel");
-        botonVenderHotel.setMinWidth(125);
-        EventHandler<ActionEvent> BotonVenderHotelHandler = new BotonVenderHotelHandler();
-        botonVenderHotel.setOnAction(BotonVenderHotelHandler);
         
         botonTerminarTurno = new Button();        
         botonTerminarTurno.setText("Terminar turno");
@@ -221,8 +211,7 @@ public class VentanaJuego{
         
         AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
         		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
-        		botonConstruirHotel, botonVenderCasa, botonVenderHotel
-        		);
+        		botonConstruirHotel, botonPagarFianza  );
         
         root.setLeft(AccionesVBox);
         
@@ -290,9 +279,13 @@ public class VentanaJuego{
 		actualizarVenderTerreno(jugadoractual);
 		actualizarConstruirCasa(jugadoractual);
 		actualizarConstruirHotel(jugadoractual);
-		actualizarVenderCasa(jugadoractual);
-		actualizarVenderHotel(jugadoractual);
 		actualizarIntercambiar(jugadoractual);
+		actualizarFianza(jugadoractual);
+	}
+
+	private void actualizarFianza(Jugador jugadoractual) {
+		// TODO Auto-generated method stub
+		this.botonPagarFianza.setDisable(this.algopoly.obtenerPosicion(jugadoractual) != 5);
 	}
 
 	public void setTerminarturno(boolean valor) {
@@ -305,15 +298,6 @@ public class VentanaJuego{
 		this.botonIntercambiarTerreno.setDisable(jugador.getCantidadPropiedad() == 0);
 	}
 
-	public void actualizarVenderHotel(Jugador jugador) {
-		// TODO Auto-generated method stub
-		this.botonVenderHotel.setDisable(jugador.puedevenderhotel());
-	}
-
-	public void actualizarVenderCasa(Jugador jugador) {
-		// TODO Auto-generated method stub
-		this.botonVenderCasa.setDisable(jugador.puedevendercasa());
-	}
 
 	public void actualizarConstruirHotel(Jugador jugador) {
 		// TODO Auto-generated method stub
@@ -346,6 +330,11 @@ public class VentanaJuego{
 		// TODO Auto-generated method stub
 		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
 		this.dinerojugador.setText("$" +jugadoractual.getDinero() + "\n");
+	}
+
+	public void actualizarCapa(Jugador actual) {
+		// TODO Auto-generated method stub
+		this.hash.get(actual).actualizar();
 	}
     
 }

@@ -37,5 +37,9 @@ public class Tucuman extends Propiedad {
 		return "Tucuman";
 	}
 
-
+	@Override
+	public String otropar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

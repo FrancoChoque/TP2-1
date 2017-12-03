@@ -116,5 +116,11 @@ public class Propiedad extends Comprable {
 	}
 
 
+	public String otropar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

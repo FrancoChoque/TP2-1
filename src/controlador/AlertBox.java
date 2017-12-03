@@ -18,10 +18,17 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 
 import static javafx.scene.text.Font.*;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
 import estados.EstadoCasillero;
+import estados.Comprable.Comprable;
+import estados.Comprable.Propiedad.Propiedad;
 
 
 public class AlertBox {
@@ -71,7 +78,7 @@ public class AlertBox {
         layout.setCenter(vbox);
 
 
-        Scene scene = new Scene(layout, 300,120);
+        Scene scene = new Scene(layout, 350,120);
 
         stage.setScene(scene);
 
@@ -224,6 +231,68 @@ public class AlertBox {
 
         stage.showAndWait();
 	}
+
+	public void ventanaconstruircasa(VentanaJuego juego, HashMap<String, Propiedad> map) {
+		// TODO Auto-generated method stub
+		Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Construir casa");
+
+        BorderPane layout = new BorderPane();
+        
+        Text text1 = new Text();
+        text1.setText("Seleccione el barrio donde\n");
+        text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+        
+        Text text2 = new Text();
+        text2.setText("desee construir una casa");
+        text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+        
+        TextFlow textos = new TextFlow();
+        textos.setTextAlignment(TextAlignment.CENTER);
+        textos.getChildren().addAll(text1, text2);
+        textos.setPadding(new Insets(10,10,10,10));
+        
+        layout.setTop(textos);
+        
+        ComboBox<String> combobox = new ComboBox<String>();
+        Set<String> entradas = map.keySet();
+        Iterator<String> iter = entradas.iterator();
+        while(iter.hasNext()) {
+        	String propiedadactual = iter.next();
+        	combobox.getItems().add(propiedadactual);        	
+        }
+        
+        layout.setCenter(combobox);
+        
+        
+        HBox opciones = new HBox();
+        opciones.setAlignment(Pos.TOP_CENTER);
+        opciones.setSpacing(15);
+        opciones.setPadding(new Insets(10,10,10,10));
+        layout.setBottom(opciones);
+ 
+        Button botonaceptar = new Button();
+        botonaceptar.setText("Construir");
+        EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarConstruirCasaHandler(stage,combobox,map);
+        botonaceptar.setOnAction(botonaceptarhandler);
+        
+        
+        Button botonrechazar = new Button();
+        botonrechazar.setText("Volver");
+        EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
+        botonrechazar.setOnAction(botonrechazarhandler);
+        
+        
+        
+        
+        opciones.getChildren().addAll(botonaceptar, botonrechazar);
+        
+        Scene scene = new Scene(layout, 300,170);
+        stage.setScene(scene);
+        stage.showAndWait();
+	}
+
 	
 	
 }

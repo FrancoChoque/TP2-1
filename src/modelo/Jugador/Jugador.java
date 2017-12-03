@@ -284,40 +284,6 @@ public class Jugador {
 				this.propiedades.contains(prop2);
 	}
 
-	public boolean puedevendercasa() {
-		// TODO Auto-generated method stub
-		boolean valor = true;
-		ListIterator<Comprable> iter = this.propiedades.listIterator();
-		while(iter.hasNext()) {
-			try {
-				Propiedad prop = (Propiedad) iter.next();
-				PropiedadEstado estado = prop.getPropiedadEstado();
-				if( (estado == prop.getPropiedadConCasa()) || 
-					(estado == prop.getPropiedadConDosCasas()) ) valor = false;
-			} catch(ClassCastException e) {
-				continue;
-			}
-		}
-		
-		return valor;
-	}
-
-	public boolean puedevenderhotel() {
-		// TODO Auto-generated method stub
-		boolean valor = true;
-		ListIterator<Comprable> iter = this.propiedades.listIterator();
-		while(iter.hasNext()) {
-			try {
-				Propiedad prop = (Propiedad) iter.next();
-				PropiedadEstado estado = prop.getPropiedadEstado();
-				if( estado == prop.getPropiedadConHotel()) valor = false;
-			} catch(ClassCastException e) {
-				continue;
-			}
-		}
-		
-		return valor;
-	}
 	
 	
 }
