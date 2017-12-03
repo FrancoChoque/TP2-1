@@ -53,7 +53,19 @@ public class App extends Application {
 
         salirJuego.setOnAction(event -> this.primaryStage.close());
         nuevoJuego.setOnAction(event -> registro.login());
-
+        
+        Menu menuayuda = new Menu("Ayuda");
+        MenuItem reglas = new MenuItem("Reglas del juego");
+        MenuItem acercade = new MenuItem("Acerca de");
+        
+        menuayuda.getItems().add(reglas);
+        menuayuda.getItems().add(acercade);
+        
+        reglas.setOnAction(new MenuReglasHandler() );
+        
+        acercade.setOnAction(new MenuAcercaHandler()  );
+        
+        
 
         Image imagen = new Image("file:src/imagenes/menu.jpg");
 
@@ -62,7 +74,8 @@ public class App extends Application {
         Background background = new Background(imagenDeFondo);
 
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu);
+        
+		menuBar.getMenus().addAll(fileMenu,menuayuda);
 
         root = new BorderPane();
 

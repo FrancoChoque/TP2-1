@@ -118,6 +118,13 @@ public class JugadorCapa {
 		// TODO Auto-generated method stub
 		this.gc.getCanvas().toBack();
 	}
+
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		this.gc.getCanvas().toFront();
+	}
+
+	
 	
 	
 	

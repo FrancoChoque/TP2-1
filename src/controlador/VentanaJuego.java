@@ -387,4 +387,14 @@ public class VentanaJuego{
 	public void getChoice(ChoiceBox<String> propiedadesJugador){
 	    String propiedadAVender = propiedadesJugador.getValue();
     }
+
+	public void escondercapa(Jugador anterior) {
+		// TODO Auto-generated method stub
+		this.hash.get(anterior).ocultar();
+	}
+
+	public void mostrarcapa(Jugador actual) {
+		// TODO Auto-generated method stub
+		this.hash.get(actual).mostrar();
+	}
 }

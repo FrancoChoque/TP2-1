@@ -78,7 +78,7 @@ public class AlertBox {
         layout.setCenter(vbox);
 
 
-        Scene scene = new Scene(layout, 350,120);
+        Scene scene = new Scene(layout, 370,140);
 
         stage.setScene(scene);
 

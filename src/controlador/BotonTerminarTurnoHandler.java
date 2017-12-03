@@ -3,6 +3,8 @@ package controlador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoPoly;
+import modelo.Jugador.Jugador;
+import vista.JugadorCapa;
 
 public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 
@@ -14,8 +16,14 @@ public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 		// TODO Auto-generated method stub
 		System.out.println("Terminar turno");
 		
+		Jugador anterior = this.juego.obtenerJugadorActual();
+		ventana.escondercapa(anterior);
+		
 		this.juego.avanzarJugador();
 		this.ventana.actualizarturno();
+		
+		Jugador actual = this.juego.obtenerJugadorActual();
+		ventana.mostrarcapa(actual);
 		
 		
 	}

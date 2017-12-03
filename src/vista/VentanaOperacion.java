@@ -26,6 +26,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import vista.eventos.BotonConfirmarCobrarFianzaHandler;
 import vista.eventos.BotonConfirmarConstruirHotelHandler;
 import vista.eventos.BotonConfirmarVenderTerrenoHandler;
 
@@ -150,6 +151,58 @@ public class VentanaOperacion {
         
         Button botonrechazar = new Button();
         botonrechazar.setText("Volver");
+        EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
+        botonrechazar.setOnAction(botonrechazarhandler);
+        
+        
+        
+        
+        opciones.getChildren().addAll(botonaceptar, botonrechazar);
+        
+        Scene scene = new Scene(layout, 300,170);
+        stage.setScene(scene);
+        stage.showAndWait();
+	}
+
+	public void cobrarfianza() {
+		// TODO Auto-generated method stub
+		Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Cobrar fianza");
+
+        BorderPane layout = new BorderPane();
+        
+        Text text1 = new Text();
+        text1.setText("La fianza cuesta $45000\n");
+        text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+        
+        Text text2 = new Text();
+        text2.setText("Desea pagarla?");
+        text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+        
+        TextFlow textos = new TextFlow();
+        textos.setTextAlignment(TextAlignment.CENTER);
+        textos.getChildren().addAll(text1, text2);
+        textos.setPadding(new Insets(10,10,10,10));
+        
+        layout.setTop(textos);
+        
+        
+        
+        HBox opciones = new HBox();
+        opciones.setAlignment(Pos.TOP_CENTER);
+        opciones.setSpacing(15);
+        opciones.setPadding(new Insets(10,10,10,10));
+        layout.setBottom(opciones);
+ 
+        Button botonaceptar = new Button();
+        botonaceptar.setText("Si");
+        EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarCobrarFianzaHandler(stage);
+        botonaceptar.setOnAction(botonaceptarhandler);
+        
+        
+        Button botonrechazar = new Button();
+        botonrechazar.setText("No");
         EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
         botonrechazar.setOnAction(botonrechazarhandler);
         
