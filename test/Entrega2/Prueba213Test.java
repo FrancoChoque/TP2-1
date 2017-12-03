@@ -26,7 +26,9 @@ public class Prueba213Test {
 
         player1.comprar(untablero.getEdesur());
 
-        player1.vender(player2, untablero.getEdesur());
+        player1.vender(untablero.getEdesur());
+
+        player2.comprar(untablero.getEdesur());
 
         player3.setValorDados(3);
 

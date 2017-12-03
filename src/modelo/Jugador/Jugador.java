@@ -1,16 +1,9 @@
 package modelo.Jugador;
 import estados.Comprable.Propiedad.Propiedad;
-import estados.Comprable.Propiedad.PropiedadEstado;
-import estados.Comprable.Propiedad.Barrios.BuenosAiresNorte;
-import estados.Comprable.Propiedad.Barrios.BuenosAiresSur;
-import estados.Comprable.Propiedad.Barrios.CordobaNorte;
-import estados.Comprable.Propiedad.Barrios.CordobaSur;
 import excepciones.*;
-import modelo.Dado;
-import modelo.Tablero;
+import modelo.*;
 
 import java.util.LinkedList;
-import java.util.ListIterator;
 
 import estados.Comprable.Comprable;
 
@@ -71,23 +64,17 @@ public class Jugador {
 		propiedades.remove(unComprable);
 	}
 
-	public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {
 
-		estadoDeJugador.vender(unJugador, unComprable);
+	public void construir(Propiedad unaPropiedad, Casa casa) throws JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas, DineroInsuficiente{
 
-		propiedades.remove(unComprable);
-	}
-
-	public void construirCasa(Propiedad unaPropiedad) throws JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas, DineroInsuficiente{
-
-		estadoDeJugador.construirCasa(unaPropiedad);
+		estadoDeJugador.construir(unaPropiedad, casa);
 
 
 	}
 
-	public void construirHotel(Propiedad unaPropiedad) throws NoPuedeConstruirMasHoteles, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, DineroInsuficiente, JugadorNoEsPropietario{
+	public void construir(Propiedad unaPropiedad, Hotel hotel) throws NoPuedeConstruirMasHoteles, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, DineroInsuficiente, JugadorNoEsPropietario{
 
-		estadoDeJugador.construirHotel(unaPropiedad);
+		estadoDeJugador.construir(unaPropiedad, hotel);
 
 	}
 
@@ -192,14 +179,10 @@ public class Jugador {
 		return numeroPropiedades;
 	}
 
-	public void setNumeroPropiedades(int numPropiedades) {
-		this.numeroPropiedades = numPropiedades;
-	}
 
 
-	public void aumentarNumeroDePropiedades(int unAumento){
-			this.numeroPropiedades += unAumento;
-	}
+
+
 
 	public void tirarDados() {
 		// TODO Auto-generated method stub
@@ -241,49 +224,51 @@ public class Jugador {
 		return this.propiedades;
 	}
 
-	public boolean puedeconstruircasas() {
-		// para actualizar el boton construir casas
-		Tablero tablero = Tablero.getInstance();
-		if(tieneGrupo(tablero.getBuenosAiresNorte(),tablero.getBuenosAiresSur())) return false;
-		if(tieneGrupo(tablero.getCordobaNorte(),tablero.getCordobaSur())) return false;
-		if(tieneGrupo(tablero.getSaltaNorte(),tablero.getSaltaSur())) return false;
-		
-		if(this.propiedades.contains(tablero.getNeuquen()) ||
-				this.propiedades.contains(tablero.getTucuman()) ||
-				this.propiedades.contains(tablero.getSantaFe())) return false;
-			
-		return true;
+	public boolean puedeconstruircasas(Propiedad propiedad) {
+
+		Casa casa = new Casa();
+
+		if(!this.esDuenio(propiedad)){
+			return true;
+		}
+
+		try {
+			propiedad.puedeConstruir(this,casa);
+		} catch (JugadorNoPoseeTodosLosBarrios jugadorNoPoseeTodosLosBarrios) {
+			return true;
+		} catch (NoPuedeConstruirMasCasas noPuedeConstruirMasCasas) {
+			return true;
+		}
+
+		return false;
 	}
 
-	public boolean puedeconstruirhotel() {
-		// TODO Auto-generated method stub
-		Tablero tablero = Tablero.getInstance();
-		if(puedeAgregarHotel(tablero.getBuenosAiresNorte(),tablero.getBuenosAiresSur())) return false;
-		if(puedeAgregarHotel(tablero.getCordobaNorte(),tablero.getCordobaSur())) return false;
-		if(puedeAgregarHotel(tablero.getSaltaNorte(),tablero.getSaltaSur())) return false;
-		return true;
+	public boolean puedeconstruirhotel(Propiedad propiedad) {
+
+		Hotel hotel = new Hotel();
+
+<<<<<<< HEAD
+=======
+		if(!this.esDuenio(propiedad)) return true;
+
+		try {
+			propiedad.puedeConstruir(this, hotel);
+		} catch (CasasInsuficientes casasInsuficientes) {
+			return true;
+		} catch (JugadorNoPoseeTodosLosBarrios jugadorNoPoseeTodosLosBarrios) {
+			return true;
+		} catch (NoPuedeConstruirMasHoteles noPuedeConstruirMasHoteles) {
+			return true;
+		}
+		return false;
 	}
 
-	private boolean puedeAgregarHotel(Propiedad prop1, Propiedad prop2) {
-		// TODO Auto-generated method stub
-		return tieneGrupo(prop1,prop2) && estanCompletas(prop1,prop2);
-	}
 
-	private boolean estanCompletas(Propiedad prop1, Propiedad prop2) {
-		// TODO Auto-generated method stub
-		PropiedadEstado estado1 = prop1.getPropiedadEstado();
-		PropiedadEstado estado2 = prop2.getPropiedadEstado();
-		return (estado1 == prop1.getPropiedadConDosCasas() || estado1 == prop1.getPropiedadConHotel()) &&
-				(estado2 == prop2.getPropiedadConDosCasas() || estado2 == prop2.getPropiedadConHotel());
-	}
 
-	private boolean tieneGrupo(Propiedad prop1, Propiedad prop2) {
-		// TODO Auto-generated method stub
 
-		return this.propiedades.contains(prop1) && 
-				this.propiedades.contains(prop2);
-	}
 
+
+>>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
 	
 	
 }

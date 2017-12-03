@@ -3,6 +3,8 @@ package controlador;
 import java.util.HashMap;
 
 
+import estados.Comprable.Propiedad.Propiedad;
+import estados.EstadoCasillero;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -10,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,6 +34,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
+import modelo.Casillero;
 import vista.ContenedorIntercambio;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
@@ -57,6 +62,7 @@ public class VentanaJuego{
 	private Text dinerojugador = new Text();
 	private Text posicionjugador = new Text();
 	private String accionesjugador = "";
+	private ChoiceBox<String> propiedadesJugador = new ChoiceBox<>();
 	private AlgoPoly algopoly;
 
 	private Paint valor = Paint.valueOf("FFFFFF"); //pinta de blanco
@@ -66,6 +72,10 @@ public class VentanaJuego{
 	private Button botonIntercambiarTerreno;
 	private Button botonConstruirCasa;
 	private Button botonConstruirHotel;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
 	private Button botonTerminarTurno;
 	private Button botonPagarFianza;
 	private HashMap<Jugador, JugadorCapa> hash;
@@ -198,12 +208,22 @@ public class VentanaJuego{
         EventHandler<ActionEvent> BotonConstruirHotelHandler = new BotonConstruirHotelHandler();
         botonConstruirHotel.setOnAction(BotonConstruirHotelHandler);
         
+<<<<<<< HEAD
+=======
+
+>>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
         
         botonTerminarTurno = new Button();        
         botonTerminarTurno.setText("Terminar turno");
         botonTerminarTurno.setMinWidth(125);
         EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler(this, juego);
         botonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
+
+        propiedadesJugador.getItems().add("Propiedad a vender");
+        propiedadesJugador.setValue("Propiedad a vender");
+        Button botonVender = new Button();
+        botonVender.setText("Vender");
+        botonVender.setOnAction(event ->  getChoice(propiedadesJugador));
         
         VBox AccionesVBox = new VBox();
         AccionesVBox.setPadding(new Insets(10,12,10,12) );
@@ -211,7 +231,12 @@ public class VentanaJuego{
         
         AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
         		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
+<<<<<<< HEAD
         		botonConstruirHotel, botonPagarFianza  );
+=======
+        		botonConstruirHotel,propiedadesJugador,botonVender
+        		);
+>>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
         
         root.setLeft(AccionesVBox);
         
@@ -255,6 +280,8 @@ public class VentanaJuego{
         
         stackderecho.getChildren().addAll(textFlow);
         root.setRight(stackderecho);
+
+
         
 
         primaryStage.setTitle("Lorem ipsum");
@@ -269,13 +296,16 @@ public class VentanaJuego{
 		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
 		this.dinerojugador.setText("$"+ jugadoractual.getDinero() + "\n" );
 		Tablero tablero = Tablero.getInstance();
-		this.posicionjugador.setText(tablero.obtenerPosicion(jugadoractual) + "\n");
+        this.posicionjugador.setText(tablero.obtenerCasillero(jugadoractual).getNombre() + "\n");
 		this.accionesjugador = "";
 		this.text5.setText(accionesjugador);
 		jugadoractual.setEstado(jugadoractual.getJugadorEmpezandoTurno() );
-		
+
+
+
 		this.botonArrojarDados.setDisable(false);
 		setTerminarturno(true);
+<<<<<<< HEAD
 		actualizarVenderTerreno(jugadoractual);
 		actualizarConstruirCasa(jugadoractual);
 		actualizarConstruirHotel(jugadoractual);
@@ -286,7 +316,21 @@ public class VentanaJuego{
 	private void actualizarFianza(Jugador jugadoractual) {
 		// TODO Auto-generated method stub
 		this.botonPagarFianza.setDisable(this.algopoly.obtenerPosicion(jugadoractual) != 5);
+=======
+        this.actualizarBotones();
+
+>>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
 	}
+
+
+	public void actualizarBotones(){
+
+	    Jugador jugadorActual = this.algopoly.obtenerJugadorActual();
+        actualizarVenderTerreno(jugadorActual);
+        actualizarConstruirCasa(jugadorActual);
+        actualizarConstruirHotel(jugadorActual);
+        actualizarIntercambiar(jugadorActual);
+    }
 
 	public void setTerminarturno(boolean valor) {
 		// TODO Auto-generated method stub
@@ -299,14 +343,30 @@ public class VentanaJuego{
 	}
 
 
+<<<<<<< HEAD
 	public void actualizarConstruirHotel(Jugador jugador) {
 		// TODO Auto-generated method stub
 		this.botonConstruirHotel.setDisable(jugador.puedeconstruirhotel());
+=======
+    public void actualizarConstruirHotel(Jugador jugador) {
+		Tablero tablero = Tablero.getInstance();
+        EstadoCasillero casillero = tablero.obtenerCasillero(jugador).getestado();
+        if(casillero instanceof Propiedad) {
+             this.botonConstruirHotel.setDisable(jugador.puedeconstruirhotel((Propiedad) casillero));
+             return;
+        }
+        this.botonConstruirHotel.setDisable(true);
+>>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
 	}
 
 	public void actualizarConstruirCasa(Jugador jugador) {
-		// TODO Auto-generated method stub
-		this.botonConstruirCasa.setDisable(jugador.puedeconstruircasas());
+        Tablero tablero = Tablero.getInstance();
+        EstadoCasillero casillero = tablero.obtenerCasillero(jugador).getestado();
+        if(casillero instanceof Propiedad) {
+            this.botonConstruirCasa.setDisable(jugador.puedeconstruircasas((Propiedad) casillero));
+            return;
+        }
+        this.botonConstruirCasa.setDisable(true);
 	}
 
 	public void actualizarVenderTerreno(Jugador jugador) {
@@ -332,9 +392,16 @@ public class VentanaJuego{
 		this.dinerojugador.setText("$" +jugadoractual.getDinero() + "\n");
 	}
 
+<<<<<<< HEAD
 	public void actualizarCapa(Jugador actual) {
 		// TODO Auto-generated method stub
 		this.hash.get(actual).actualizar();
 	}
     
+=======
+
+	public void getChoice(ChoiceBox<String> propiedadesJugador){
+	    String propiedadAVender = propiedadesJugador.getValue();
+    }
+>>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
 }

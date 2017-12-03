@@ -2,7 +2,8 @@ package modelo.Jugador;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
-import modelo.Dado;
+import modelo.Casa;
+import modelo.Hotel;
 
 public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
@@ -41,13 +42,13 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
     }
 
 
-    public void construirCasa(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
-        unaPropiedad.construirCasa(jugador);
+    public void construir(Propiedad unaPropiedad, Casa casa) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
+        unaPropiedad.construir(jugador, casa);
 
     }
 
-    public void construirHotel(Propiedad unaPropiedad) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
-        unaPropiedad.construirHotel(jugador);
+    public void construir(Propiedad unaPropiedad, Hotel hotel) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
+        unaPropiedad.construir(jugador, hotel);
     }
 
 

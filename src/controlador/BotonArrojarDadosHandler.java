@@ -21,7 +21,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
 	private AlgoPoly algopoly;
 	private HashMap<Jugador, JugadorCapa> hash;
-	private VentanaJuego ventana;
+	private VentanaJuego ventana =  VentanaJuego.getInstance();
 	private Button boton;
 
 	@Override
@@ -63,17 +63,18 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		if(actual.getEstadoDeJugador() == actual.getJugadorTiroDados()) {
 			boton.setDisable(true);
 			this.ventana.setTerminarturno(false);
+
 		}
-		
+
+		this.ventana.actualizarBotones();
+
 		//Casilleros comprables
 		casillerocomprable();
 		
 		JugadorCapa capa = hash.get(actual);
 		capa.actualizar();
-		
-		
-		
-		
+
+
 	}
 	
 	private void casillerocomprable() {

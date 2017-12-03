@@ -4,6 +4,9 @@ import estados.Comprable.Propiedad.Propiedad;
 import excepciones.CasasInsuficientes;
 import excepciones.JugadorNoPoseeTodosLosBarrios;
 import excepciones.NoPuedeConstruirMasCasas;
+import excepciones.NoPuedeConstruirMasHoteles;
+import modelo.Casa;
+import modelo.Hotel;
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
@@ -26,7 +29,7 @@ public class SaltaSur extends Propiedad {
 
 
 
-	public void hacerCasa(Jugador unJugador) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+	public void puedeEdificar(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
 
 		Tablero tablero = Tablero.getInstance();
 
@@ -39,7 +42,7 @@ public class SaltaSur extends Propiedad {
 
 	}
 
-	public void hacerHotel(Jugador unJugador) throws CasasInsuficientes, JugadorNoPoseeTodosLosBarrios {
+	public void puedeEdificar(Jugador unJugador, Hotel hotel) throws CasasInsuficientes, JugadorNoPoseeTodosLosBarrios {
 
 		Tablero tablero = Tablero.getInstance();
 

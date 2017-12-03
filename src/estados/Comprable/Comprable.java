@@ -37,6 +37,8 @@ public class Comprable extends EstadoCasillero {
 		estado.reembolsar();
 	}
 
+	public String getNombre(){return "";}
+
 
 	public Jugador getDuenio(){
 		return estado.getDuenio();

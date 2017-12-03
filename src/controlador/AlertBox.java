@@ -192,10 +192,7 @@ public class AlertBox {
 
         Text text = new Text();
 
-
-
         text.setText("Dinero insuficiente para comprar.\n" );
-
 
         text.setFont(font("Helvetica", FontPosture.ITALIC, 20));
 
@@ -205,27 +202,24 @@ public class AlertBox {
 
         button.setText("OK");
 
-
         button.setOnAction(event -> stage.close());
-
 
         TextFlow text3 = new TextFlow(text);
         text3.setTextAlignment(TextAlignment.CENTER);
         text3.setPadding( new Insets(10,10,10,10));
 
-        layout.setTop(text3);
 
-        button.setAlignment(Pos.CENTER);
-        
+
         VBox vbox = new VBox();
         vbox.getChildren().addAll(text3,button);
         vbox.setPadding( new Insets(10,10,10,10));
         vbox.setAlignment(Pos.CENTER);
+
         
-        layout.setCenter(vbox);
+        layout.setTop(vbox);
 
 
-        Scene scene = new Scene(layout, 300,120);
+        Scene scene = new Scene(layout, 300,150);
 
         stage.setScene(scene);
 
