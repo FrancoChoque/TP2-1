@@ -26,7 +26,7 @@ public class AvanceDinamicoTest {
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setEstado(jugador.getJugadorEmpezandoTurno());
-		jugador.aumentarNumeroDePropiedades(1);
+		jugador.setNumeroPropiedades(1);
 		tablero.agregarJugador(jugador);
 		
 		jugador.setValorDados(5);
@@ -53,7 +53,7 @@ public class AvanceDinamicoTest {
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setDinero(10);
-		jugador.aumentarNumeroDePropiedades(1);
+		jugador.setNumeroPropiedades(1);
 		tablero.agregarJugador(jugador);
 		
 		jugador.setValorDados(7);
@@ -68,7 +68,7 @@ public class AvanceDinamicoTest {
 		Jugador jugador = new Jugador("jugador1");
         jugador.setEstado(jugador.getJugadorEmpezandoTurno());
 		jugador.setDinero(10);
-		jugador.aumentarNumeroDePropiedades(5);
+		jugador.setNumeroPropiedades(5);
 		tablero.agregarJugador(jugador);
 	
 		jugador.setValorDados(11);

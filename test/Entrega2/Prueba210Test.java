@@ -6,6 +6,8 @@ import org.junit.Test;
 
 
 import modelo.Jugador.Jugador;
+import modelo.Casa;
+import modelo.Hotel;
 import modelo.Tablero;
 
 public class Prueba210Test {
@@ -26,7 +28,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getBuenosAiresNorte());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -55,9 +57,9 @@ public class Prueba210Test {
 
         player.comprar(untablero.getBuenosAiresNorte());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -86,15 +88,15 @@ public class Prueba210Test {
 
         player.comprar(untablero.getBuenosAiresNorte());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
-        player.construirHotel(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Hotel());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -124,7 +126,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getBuenosAiresSur());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -153,9 +155,9 @@ public class Prueba210Test {
 
         player.comprar(untablero.getBuenosAiresSur());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -184,15 +186,15 @@ public class Prueba210Test {
 
         player.comprar(untablero.getBuenosAiresNorte());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
-        player.construirHotel(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Hotel());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -222,7 +224,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getCordobaNorte());
 
-        player.construirCasa(untablero.getCordobaSur());
+        player.construir(untablero.getCordobaSur(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -251,9 +253,9 @@ public class Prueba210Test {
 
         player.comprar(untablero.getCordobaNorte());
 
-        player.construirCasa(untablero.getCordobaSur());
+        player.construir(untablero.getCordobaSur(), new Casa());
 
-        player.construirCasa(untablero.getCordobaSur());
+        player.construir(untablero.getCordobaSur(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -283,15 +285,15 @@ public class Prueba210Test {
 
         player.comprar(untablero.getCordobaNorte());
 
-        player.construirCasa(untablero.getCordobaSur());
+        player.construir(untablero.getCordobaSur(), new Casa());
 
-        player.construirCasa(untablero.getCordobaSur());
+        player.construir(untablero.getCordobaSur(), new Casa());
 
-        player.construirCasa(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaNorte(), new Casa());
 
-        player.construirCasa(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaNorte(), new Casa());
 
-        player.construirHotel(untablero.getCordobaSur());
+        player.construir(untablero.getCordobaSur(), new Hotel());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -320,7 +322,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getCordobaSur());
 
-        player.construirCasa(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaNorte(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -350,9 +352,9 @@ public class Prueba210Test {
 
         player.comprar(untablero.getCordobaSur());
 
-        player.construirCasa(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaNorte(), new Casa());
 
-        player.construirCasa(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaNorte(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -382,15 +384,15 @@ public class Prueba210Test {
 
         player.comprar(untablero.getCordobaNorte());
 
-        player.construirCasa(untablero.getCordobaSur());
+        player.construir(untablero.getCordobaSur(), new Casa());
 
-        player.construirCasa(untablero.getCordobaSur());
+        player.construir(untablero.getCordobaSur(), new Casa());
 
-        player.construirCasa(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaNorte(), new Casa());
 
-        player.construirCasa(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaNorte(), new Casa());
 
-        player.construirHotel(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaNorte(), new Hotel());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -417,7 +419,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getSantaFe());
 
-        player.construirCasa(untablero.getSantaFe());
+        player.construir(untablero.getSantaFe(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -447,7 +449,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getSaltaSur());
 
-        player.construirCasa(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaNorte(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -476,9 +478,9 @@ public class Prueba210Test {
 
         player.comprar(untablero.getSaltaSur());
 
-        player.construirCasa(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaNorte(), new Casa());
 
-        player.construirCasa(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaNorte(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -507,15 +509,15 @@ public class Prueba210Test {
 
         player.comprar(untablero.getSaltaNorte());
 
-        player.construirCasa(untablero.getSaltaSur());
+        player.construir(untablero.getSaltaSur(), new Casa());
 
-        player.construirCasa(untablero.getSaltaSur());
+        player.construir(untablero.getSaltaSur(), new Casa());
 
-        player.construirCasa(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaNorte(), new Casa());
 
-        player.construirCasa(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaNorte(), new Casa());
 
-        player.construirHotel(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaNorte(), new Hotel());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -545,7 +547,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getSaltaNorte());
 
-        player.construirCasa(untablero.getSaltaSur());
+        player.construir(untablero.getSaltaSur(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -574,9 +576,9 @@ public class Prueba210Test {
 
         player.comprar(untablero.getSaltaNorte());
 
-        player.construirCasa(untablero.getSaltaSur());
+        player.construir(untablero.getSaltaSur(), new Casa());
 
-        player.construirCasa(untablero.getSaltaSur());
+        player.construir(untablero.getSaltaSur(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -605,15 +607,15 @@ public class Prueba210Test {
 
         player.comprar(untablero.getSaltaNorte());
 
-        player.construirCasa(untablero.getSaltaSur());
+        player.construir(untablero.getSaltaSur(), new Casa());
 
-        player.construirCasa(untablero.getSaltaSur());
+        player.construir(untablero.getSaltaSur(), new Casa());
 
-        player.construirCasa(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaNorte(), new Casa());
 
-        player.construirCasa(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaNorte(), new Casa());
 
-        player.construirHotel(untablero.getSaltaSur());
+        player.construir(untablero.getSaltaSur(), new Hotel());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -641,7 +643,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getNeuquen());
 
-        player.construirCasa(untablero.getNeuquen());
+        player.construir(untablero.getNeuquen(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 
@@ -668,7 +670,7 @@ public class Prueba210Test {
 
         player.comprar(untablero.getTucuman());
 
-        player.construirCasa(untablero.getTucuman());
+        player.construir(untablero.getTucuman(), new Casa());
 
         Jugador player2 = new Jugador("plauer");
 

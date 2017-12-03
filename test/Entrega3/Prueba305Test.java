@@ -1,6 +1,6 @@
 package Entrega3;
 
-import excepciones.NoPuedeConstruirMasHoteles;
+import excepciones.CasasInsuficientes;
 import modelo.*;
 import modelo.Jugador.Jugador;
 
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class Prueba305Test {
 
-    @Test (expected = NoPuedeConstruirMasHoteles.class)
+    @Test (expected = CasasInsuficientes.class)
 
     public void test01NoSePuedeConstruirEnTerrenosSimples() throws Exception {
         Tablero tablero = Tablero.resetInstance();
@@ -20,9 +20,9 @@ public class Prueba305Test {
 
         jugador.comprar(tablero.getNeuquen());
 
-        jugador.construirCasa(tablero.getNeuquen());
+        jugador.construir(tablero.getNeuquen(), new Casa());
 
-        jugador.construirHotel(tablero.getNeuquen());
+        jugador.construir(tablero.getNeuquen(), new Hotel());
 
 
     }

@@ -72,13 +72,10 @@ public class VentanaJuego{
 	private Button botonIntercambiarTerreno;
 	private Button botonConstruirCasa;
 	private Button botonConstruirHotel;
-<<<<<<< HEAD
-=======
-
->>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
 	private Button botonTerminarTurno;
 	private Button botonPagarFianza;
 	private HashMap<Jugador, JugadorCapa> hash;
+	private Button botonVender;
 	
 	
 	private VentanaJuego() {};
@@ -208,10 +205,7 @@ public class VentanaJuego{
         EventHandler<ActionEvent> BotonConstruirHotelHandler = new BotonConstruirHotelHandler();
         botonConstruirHotel.setOnAction(BotonConstruirHotelHandler);
         
-<<<<<<< HEAD
-=======
 
->>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
         
         botonTerminarTurno = new Button();        
         botonTerminarTurno.setText("Terminar turno");
@@ -221,7 +215,7 @@ public class VentanaJuego{
 
         propiedadesJugador.getItems().add("Propiedad a vender");
         propiedadesJugador.setValue("Propiedad a vender");
-        Button botonVender = new Button();
+        botonVender = new Button();
         botonVender.setText("Vender");
         botonVender.setOnAction(event ->  getChoice(propiedadesJugador));
         
@@ -231,12 +225,8 @@ public class VentanaJuego{
         
         AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
         		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
-<<<<<<< HEAD
-        		botonConstruirHotel, botonPagarFianza  );
-=======
         		botonConstruirHotel,propiedadesJugador,botonVender
         		);
->>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
         
         root.setLeft(AccionesVBox);
         
@@ -305,7 +295,7 @@ public class VentanaJuego{
 
 		this.botonArrojarDados.setDisable(false);
 		setTerminarturno(true);
-<<<<<<< HEAD
+
 		actualizarVenderTerreno(jugadoractual);
 		actualizarConstruirCasa(jugadoractual);
 		actualizarConstruirHotel(jugadoractual);
@@ -316,10 +306,10 @@ public class VentanaJuego{
 	private void actualizarFianza(Jugador jugadoractual) {
 		// TODO Auto-generated method stub
 		this.botonPagarFianza.setDisable(this.algopoly.obtenerPosicion(jugadoractual) != 5);
-=======
+
         this.actualizarBotones();
 
->>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
+
 	}
 
 
@@ -343,11 +333,7 @@ public class VentanaJuego{
 	}
 
 
-<<<<<<< HEAD
-	public void actualizarConstruirHotel(Jugador jugador) {
-		// TODO Auto-generated method stub
-		this.botonConstruirHotel.setDisable(jugador.puedeconstruirhotel());
-=======
+
     public void actualizarConstruirHotel(Jugador jugador) {
 		Tablero tablero = Tablero.getInstance();
         EstadoCasillero casillero = tablero.obtenerCasillero(jugador).getestado();
@@ -356,7 +342,6 @@ public class VentanaJuego{
              return;
         }
         this.botonConstruirHotel.setDisable(true);
->>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
 	}
 
 	public void actualizarConstruirCasa(Jugador jugador) {
@@ -392,16 +377,14 @@ public class VentanaJuego{
 		this.dinerojugador.setText("$" +jugadoractual.getDinero() + "\n");
 	}
 
-<<<<<<< HEAD
+
 	public void actualizarCapa(Jugador actual) {
 		// TODO Auto-generated method stub
 		this.hash.get(actual).actualizar();
 	}
     
-=======
 
 	public void getChoice(ChoiceBox<String> propiedadesJugador){
 	    String propiedadAVender = propiedadesJugador.getValue();
     }
->>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
 }

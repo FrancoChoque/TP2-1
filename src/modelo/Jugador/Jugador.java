@@ -1,5 +1,6 @@
 package modelo.Jugador;
 import estados.Comprable.Propiedad.Propiedad;
+import estados.Comprable.Servicio.Servicios.Edesur;
 import excepciones.*;
 import modelo.*;
 
@@ -176,10 +177,14 @@ public class Jugador {
 	}
 
 	public int getNumeroPropiedades() {
+		//getter de pruebas
 		return numeroPropiedades;
 	}
 
-
+	public void setNumeroPropiedades(int i) {
+		//setter de pruebas
+		this.numeroPropiedades = i;
+	}
 
 
 
@@ -247,8 +252,7 @@ public class Jugador {
 
 		Hotel hotel = new Hotel();
 
-<<<<<<< HEAD
-=======
+
 		if(!this.esDuenio(propiedad)) return true;
 
 		try {
@@ -263,12 +267,19 @@ public class Jugador {
 		return false;
 	}
 
+	public void transferir(Comprable comprable, Jugador player2) {
+		// TODO Auto-generated method stub
+		this.propiedades.remove(comprable);
+		player2.propiedades.add(comprable);
+		comprable.setDuenio(player2);
+	}
 
 
 
 
 
->>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
+
+
 	
 	
 }

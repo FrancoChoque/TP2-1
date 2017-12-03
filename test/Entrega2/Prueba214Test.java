@@ -3,6 +3,7 @@ package Entrega2;
 
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
+import modelo.Casa;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,9 +29,9 @@ public class Prueba214Test {
 
         player1.comprar(untablero.getBuenosAiresNorte());
 
-        player1.construirCasa(untablero.getBuenosAiresNorte());
+        player1.construir(untablero.getBuenosAiresNorte(), new Casa());
 
-        player1.vender(player2, untablero.getBuenosAiresSur());
+        player1.transferir(untablero.getBuenosAiresSur(), player2);
 
         untablero.moverJugador(player3,2);
 

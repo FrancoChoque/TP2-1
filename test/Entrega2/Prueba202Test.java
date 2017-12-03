@@ -1,6 +1,7 @@
 package Entrega2;
 
 import modelo.Jugador.Jugador;
+import modelo.Casa;
 import modelo.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class Prueba202Test {
 
         player.comprar(untablero.getBuenosAiresNorte());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
         Assert.assertEquals(49500, player.getDinero() );
 
@@ -49,7 +50,7 @@ public class Prueba202Test {
 
         player.comprar(untablero.getBuenosAiresNorte());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
         Assert.assertEquals(50000, player.getDinero() );
 

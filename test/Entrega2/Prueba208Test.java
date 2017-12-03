@@ -1,6 +1,8 @@
 package Entrega2;
 
 import modelo.Jugador.Jugador;
+import modelo.Casa;
+import modelo.Hotel;
 import modelo.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,13 +23,13 @@ public class Prueba208Test {
 
         player.comprar(untablero.getCordobaSur());
 
-        player.construirCasa(untablero.getCordobaSur());
-        player.construirCasa(untablero.getCordobaSur());
-        player.construirCasa(untablero.getCordobaNorte());
-        player.construirCasa(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaSur(), new Casa());
+        player.construir(untablero.getCordobaSur(), new Casa());
+        player.construir(untablero.getCordobaNorte(), new Casa());
+        player.construir(untablero.getCordobaNorte(), new Casa());
 
-        player.construirHotel(untablero.getCordobaSur());
-        player.construirHotel(untablero.getCordobaNorte());
+        player.construir(untablero.getCordobaSur(), new Hotel());
+        player.construir(untablero.getCordobaNorte(), new Hotel());
 
         Jugador player2 = new Jugador("Player2");
         player.setEstado(player.getJugadorEmpezandoTurno());
@@ -58,13 +60,13 @@ public class Prueba208Test {
 
         player.comprar(untablero.getSaltaSur());
 
-        player.construirCasa(untablero.getSaltaSur());
-        player.construirCasa(untablero.getSaltaSur());
-        player.construirCasa(untablero.getSaltaNorte());
-        player.construirCasa(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaSur(), new Casa());
+        player.construir(untablero.getSaltaSur(), new Casa());
+        player.construir(untablero.getSaltaNorte(), new Casa());
+        player.construir(untablero.getSaltaNorte(), new Casa());
 
-        player.construirHotel(untablero.getSaltaSur());
-        player.construirHotel(untablero.getSaltaNorte());
+        player.construir(untablero.getSaltaSur(), new Hotel());
+        player.construir(untablero.getSaltaNorte(), new Hotel());
 
         Jugador player2 = new Jugador("Player2");
         player.setEstado(player.getJugadorEmpezandoTurno());

@@ -5,6 +5,7 @@ import estados.Comprable.Propiedad.Propiedad;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.Casa;
 import modelo.Casillero;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
@@ -56,7 +57,7 @@ public class BuenosAiresNorteTest {
 
 	        Assert.assertEquals(55000, player.getDinero() );
 
-			player.construirCasa(otroTerreno);
+			player.construir(otroTerreno, new Casa());
 
 	        Assert.assertEquals(49500, player.getDinero() );
 
@@ -99,9 +100,9 @@ public class BuenosAiresNorteTest {
 
         Assert.assertEquals(55000, player.getDinero() );
 
-        player.construirCasa((Propiedad) otroTerreno);
+        player.construir((Propiedad) otroTerreno, new Casa());
 
-		player.construirCasa((Propiedad) otroTerreno);
+		player.construir((Propiedad) otroTerreno, new Casa());
 
         Assert.assertEquals(44000, player.getDinero() );
 

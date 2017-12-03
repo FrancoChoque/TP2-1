@@ -15,6 +15,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
+import modelo.Hotel;
 import modelo.Jugador.Jugador;
 
 public class BotonConfirmarConstruirHotelHandler implements EventHandler<ActionEvent> {
@@ -43,7 +44,7 @@ public class BotonConfirmarConstruirHotelHandler implements EventHandler<ActionE
 		
 		
 		try {
-			actual.construirHotel(propiedad);
+			actual.construir(propiedad, new Hotel());
 
 			juego.agregaraccion("Construiste un hotel en " + propiedad.getNombre() + "\n");
 			juego.agregaraccion("Por un costo de $" + propiedad.getValorCasa() + "\n");

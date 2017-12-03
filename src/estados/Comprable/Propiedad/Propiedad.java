@@ -83,6 +83,11 @@ public class Propiedad extends Comprable {
 		propiedadEstado.puedeConstruir(unJugador, casa);
 		edificios.add(casa);
 		unJugador.sumarDinero(getValorCasa() * -1);
+		
+		if(this.propiedadEstado == this.propiedadConCasa) this.setPropiedadEstado(propiedadConDosCasas);
+		
+		if(this.propiedadEstado == this.propiedadSinCasa) this.setPropiedadEstado(propiedadConCasa);
+		
 	}
 
 
@@ -93,6 +98,7 @@ public class Propiedad extends Comprable {
 		edificios.add(hotel);
 		unJugador.sumarDinero(getValorHotel() * -1);
 
+		if(this.propiedadEstado == this.propiedadConDosCasas) this.setPropiedadEstado(propiedadConHotel);
 	}
 
 

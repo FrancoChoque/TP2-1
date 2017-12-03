@@ -13,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
+import modelo.Casa;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
@@ -42,7 +43,7 @@ public class BotonConfirmarConstruirCasaHandler implements EventHandler<ActionEv
 		
 		
 		try {
-			actual.construirCasa(propiedad);
+			actual.construir(propiedad,new Casa());
 
 			juego.agregaraccion("Construiste una casa en " + propiedad.getNombre() + "\n");
 			juego.agregaraccion("Por un costo de $" + propiedad.getValorCasa() + "\n");

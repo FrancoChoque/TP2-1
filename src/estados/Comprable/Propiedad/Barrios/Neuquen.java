@@ -5,12 +5,11 @@ import excepciones.CasasInsuficientes;
 import excepciones.JugadorNoPoseeTodosLosBarrios;
 import excepciones.NoPuedeConstruirMasCasas;
 import excepciones.NoPuedeConstruirMasHoteles;
-<<<<<<< HEAD
-import modelo.Tablero;
-=======
+
+
 import modelo.Casa;
 import modelo.Hotel;
->>>>>>> b2bc54ecda81db8007f32a63e3faf8def2477149
+
 import modelo.Jugador.Jugador;
 
 

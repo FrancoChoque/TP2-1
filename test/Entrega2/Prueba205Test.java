@@ -5,6 +5,8 @@ import excepciones.CasasInsuficientes;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.Casa;
+import modelo.Hotel;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
@@ -27,7 +29,7 @@ public class Prueba205Test {
 
         Assert.assertEquals(55000, player.getDinero());
 
-        player.construirHotel(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Hotel());
 
         Assert.assertEquals(55000, player.getDinero());
 
@@ -50,15 +52,15 @@ public class Prueba205Test {
 
         player.comprar(untablero.getBuenosAiresSur());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
         Assert.assertEquals(39500, player.getDinero());
 
-        player.construirHotel(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Hotel());
 
         Assert.assertEquals(39500, player.getDinero());
 

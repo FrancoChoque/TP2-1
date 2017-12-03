@@ -4,6 +4,7 @@ package Entrega2;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.Casa;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
@@ -23,9 +24,9 @@ public class Prueba204Test {
 
         player.comprar(untablero.getBuenosAiresSur());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
-        player.construirCasa(untablero.getBuenosAiresSur());
+        player.construir(untablero.getBuenosAiresSur(), new Casa());
 
         Jugador jugador = new Jugador("Wilson");
         jugador.setEstado(jugador.getJugadorEmpezandoTurno() );
@@ -51,7 +52,7 @@ public class Prueba204Test {
 
         player.comprar(untablero.getBuenosAiresSur());
 
-        player.construirCasa(untablero.getBuenosAiresNorte());
+        player.construir(untablero.getBuenosAiresNorte(), new Casa());
 
         Jugador jugador = new Jugador("Wilson");
         jugador.setEstado(jugador.getJugadorEmpezandoTurno() );

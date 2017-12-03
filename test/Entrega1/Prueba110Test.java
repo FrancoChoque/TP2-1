@@ -14,7 +14,7 @@ public class Prueba110Test {
 
         jugador.setEstado(jugador.getJugadorEmpezandoTurno());
 
-		jugador.aumentarNumeroDePropiedades(5);
+		jugador.setNumeroPropiedades(5);
 		tablero.agregarJugador(jugador);
 		
 		jugador.setValorDados(11);

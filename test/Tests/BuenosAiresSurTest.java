@@ -57,7 +57,7 @@ public class BuenosAiresSurTest {
 
 	        Assert.assertEquals(55000, player.getDinero() );
 
-			player.construirCasa(untablero.getBuenosAiresSur());
+			player.construir(untablero.getBuenosAiresSur(), new Casa());
 
 			Jugador jugador = new Jugador("Wilson");
 	        jugador.setEstado(jugador.getJugadorEmpezandoTurno() );
