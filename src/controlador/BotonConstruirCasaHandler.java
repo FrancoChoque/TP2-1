@@ -49,11 +49,9 @@ public class BotonConstruirCasaHandler implements EventHandler<ActionEvent> {
 		}
 		
 		AlertBox box = new AlertBox();
-		
 		box.ventanaconstruircasa(this.juego, map);
 		
-		
-		
+
 	}
 
 }

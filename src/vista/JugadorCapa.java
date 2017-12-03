@@ -124,15 +124,7 @@ public class JugadorCapa {
 		this.gc.getCanvas().toFront();
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public Color getColor() {
+		return color;
+	}
 }

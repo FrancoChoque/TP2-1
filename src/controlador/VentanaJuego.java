@@ -284,6 +284,7 @@ public class VentanaJuego{
 	public void actualizarturno() {
 		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
 		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
+		this.nombrejugador.setFill(hash.get(jugadoractual).getColor());
 		this.dinerojugador.setText("$"+ jugadoractual.getDinero() + "\n" );
 		Tablero tablero = Tablero.getInstance();
         this.posicionjugador.setText(tablero.obtenerCasillero(jugadoractual).getNombre() + "\n");
