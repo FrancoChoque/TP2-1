@@ -258,6 +258,19 @@ public class Jugador {
 		}
 		return false;
 	}
+	public Comprable getPropiedad(int i) {
+		return this.propiedades.get(i);
+	}
+	public void elimarPropiedad(Comprable propiedad) {
+		for(int i=0; i< this.propiedades.size();i++){
+			Comprable comprable = this.propiedades.get(i);
+			if(comprable == propiedad){
+				this.propiedades.remove(i);
+				System.out.println("elimino: "+propiedad.getNombre() + " de "+this.nombre);
+			}
+		}
+		
+	}
 
 	public void transferir(Comprable comprable, Jugador player2) {
 		// TODO Auto-generated method stub

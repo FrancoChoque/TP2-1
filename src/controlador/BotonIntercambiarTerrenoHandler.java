@@ -15,10 +15,7 @@ public class BotonIntercambiarTerrenoHandler implements EventHandler<ActionEvent
 	@Override
 	public void handle(ActionEvent event){
 		ContenedorIntercambio contenedorIntercambio = new ContenedorIntercambio();
-        Scene escenaIntercambio = new Scene(contenedorIntercambio, 640, 480);
-        App app = App.getInstance();
-        app.getPrimaryStage().setScene(escenaIntercambio);
-        app.getPrimaryStage().setFullScreen(false);
+        contenedorIntercambio.elegirJugador();
 	}
 
 }

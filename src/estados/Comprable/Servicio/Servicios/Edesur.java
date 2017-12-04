@@ -26,4 +26,8 @@ public class Edesur extends Servicio {
         return "Edesur";
     }
 
+	@Override
+	public String toString(){
+		return "Edesur";
+	}
 }

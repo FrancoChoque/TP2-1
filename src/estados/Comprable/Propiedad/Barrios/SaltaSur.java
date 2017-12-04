@@ -56,7 +56,12 @@ public class SaltaSur extends Propiedad {
 		return "Salta Sur";
 	}
 
+	@Override
+	public String toString(){
+		return "Salta Sur";
+	}
 	
+
 	@Override
 	public String otropar() {
 		// TODO Auto-generated method stub

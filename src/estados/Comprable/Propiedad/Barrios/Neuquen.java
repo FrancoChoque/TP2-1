@@ -40,6 +40,12 @@ public class Neuquen extends Propiedad {
 	public String getNombre(){
 		return "Neuquen";
 	}
+
+	@Override
+	public String toString(){
+		return "Neuquen";
+	}
+
 	@Override
 	public String otropar() {
 		// TODO Auto-generated method stub

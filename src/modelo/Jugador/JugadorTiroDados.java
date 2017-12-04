@@ -62,8 +62,10 @@ public class JugadorTiroDados implements EstadoDeJugador {
     }
 
     public void intercambiarPropiedades(Jugador unJugador, Comprable propiedadNueva, Comprable propiedadACambiar){
-        propiedadACambiar.setDuenio(unJugador);
+        jugador.elimarPropiedad(propiedadACambiar);
+    	propiedadACambiar.setDuenio(unJugador);
         unJugador.adquirirPropiedad(propiedadACambiar);
+        unJugador.elimarPropiedad(propiedadNueva);
         propiedadNueva.setDuenio(jugador);
         jugador.adquirirPropiedad(propiedadNueva);
     }

@@ -25,4 +25,8 @@ public class Subte extends Servicio {
     public String getNombre(){
         return "Subte";
     }
+	@Override
+	public String toString(){
+		return "Subte";
+	}
 }

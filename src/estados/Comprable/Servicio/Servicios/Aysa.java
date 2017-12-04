@@ -26,6 +26,9 @@ public class Aysa extends Servicio {
         return "Aysa";
     }
 
-
+ 	@Override
+	public String toString(){
+		return "Aysa";
+	}
 
 }

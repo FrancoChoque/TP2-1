@@ -25,4 +25,9 @@ public class Tren extends Servicio {
     public String getNombre(){
         return "Tren";
     }
+
+ 	@Override
+	public String toString(){
+		return "Tren";
+	}
 }

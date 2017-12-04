@@ -38,6 +38,11 @@ public class Tucuman extends Propiedad {
 	public String getNombre(){
 		return "Tucuman";
 	}
+	
+	@Override
+	public String toString(){
+		return "Tucuman";
+	}
 
 	@Override
 	public String otropar() {

@@ -56,6 +56,11 @@ public class BuenosAiresSur extends Propiedad {
 	}
 	
 	@Override
+	public String toString(){
+		return "Buenos Aires Sur";
+	}
+
+	@Override
 	public String otropar() {
 		// TODO Auto-generated method stub
 		Tablero tablero = Tablero.getInstance();

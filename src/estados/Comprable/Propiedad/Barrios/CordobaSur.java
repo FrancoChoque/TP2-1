@@ -54,6 +54,10 @@ public class CordobaSur extends Propiedad {
 		return "Cordoba Sur";
 	}
 
+	@Override
+	public String toString(){
+		return "Cordoba Sur";
+	}
 	
 	@Override
 	public String otropar() {
