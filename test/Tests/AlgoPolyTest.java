@@ -4,6 +4,8 @@ package modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.AlgoPoly;
+import modelo.Tablero;
 import modelo.Jugador.Jugador;
 
 public class AlgoPolyTest {
@@ -15,6 +17,7 @@ public class AlgoPolyTest {
 		Tablero untablero = Tablero.getInstance();
 		unjugador.setEstado(unjugador.getJugadorEmpezandoTurno());
 		untablero.moverJugador(unjugador, 1);
+        Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
 		
 		unalgopoly.comprar(unjugador);

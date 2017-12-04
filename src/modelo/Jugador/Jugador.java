@@ -1,6 +1,5 @@
 package modelo.Jugador;
 import estados.Comprable.Propiedad.Propiedad;
-import estados.Comprable.Servicio.Servicios.Edesur;
 import excepciones.*;
 import modelo.*;
 
@@ -54,7 +53,7 @@ public class Jugador {
 		return this.nombre;
 	}
 	public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
-		estadoDeJugador.arrojarDados();
+		estadoDeJugador.arrojarDados(dado1, dado2);
 	}
 
 
@@ -188,14 +187,6 @@ public class Jugador {
 
 
 
-
-	public void tirarDados() {
-		// TODO Auto-generated method stub
-		dado1.arrojar();
-		dado2.arrojar();
-		
-		valorDados = dado1.getValor() + dado2.getValor();
-	}
 
 	public boolean tieneDadosIguales() {
 		// TODO Auto-generated method stub

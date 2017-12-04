@@ -21,12 +21,10 @@ public class Prueba304Test {
 		jugador.setEstado(jugador.getJugadorEmpezandoTurno() );
 			
 		try {
-			algopoly.usarTurno(jugador);
+			algopoly.arrojarDados(jugador);
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (FinDelJuego e) {
-			
 		}
 		
 		Assert.assertEquals(jugador.getValorDados(), algopoly.obtenerPosicion(jugador));

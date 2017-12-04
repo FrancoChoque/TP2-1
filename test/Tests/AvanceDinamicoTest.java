@@ -18,6 +18,8 @@ public class AvanceDinamicoTest {
 		jugador.setValorDados(5);
 		tablero.moverJugador(jugador, 7);
 		
+		tablero.obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
+		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
 	}
 	
@@ -32,6 +34,8 @@ public class AvanceDinamicoTest {
 		jugador.setValorDados(5);
 		tablero.moverJugador(jugador, 7);
 		
+		tablero.obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
+		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
 	}
 	
@@ -44,6 +48,8 @@ public class AvanceDinamicoTest {
 		
 		jugador.setValorDados(7);
 		tablero.moverJugador(jugador, 7);
+		
+		tablero.obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
 		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
 	}
@@ -59,6 +65,8 @@ public class AvanceDinamicoTest {
 		jugador.setValorDados(7);
 		tablero.moverJugador(jugador, 7);
 		
+		tablero.obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
+		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
 	}
 	
@@ -73,6 +81,8 @@ public class AvanceDinamicoTest {
 	
 		jugador.setValorDados(11);
 		tablero.moverJugador(jugador, 7);
+		
+		tablero.obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
 		
 		Assert.assertEquals(13,tablero.obtenerPosicion(jugador));
 	}

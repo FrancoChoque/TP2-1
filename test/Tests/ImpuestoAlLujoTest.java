@@ -24,6 +24,8 @@ public class ImpuestoAlLujoTest {
 		Jugador jugador = new Jugador("jugador1");
 		tablero.agregarJugador(jugador);
 		tablero.moverJugador(jugador, 10);
+		Tablero.getInstance().obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
+		
 		
 		Assert.assertEquals(90000,jugador.getDinero());
 	}

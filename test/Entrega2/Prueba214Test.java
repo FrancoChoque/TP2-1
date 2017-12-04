@@ -34,6 +34,8 @@ public class Prueba214Test {
         player1.transferir(untablero.getBuenosAiresSur(), player2);
 
         untablero.moverJugador(player3,2);
+		Tablero.getInstance().obtenerCasillero(player3).getestado().hacerEfectoDelCasillero(player3);
+		
 
         Assert.assertEquals(102000, player2.getDinero());
     }

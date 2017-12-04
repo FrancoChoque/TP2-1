@@ -5,6 +5,7 @@ import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
 import modelo.Casa;
+import modelo.Dado;
 import modelo.Hotel;
 
 public class JugadorTiroDados implements EstadoDeJugador {
@@ -17,7 +18,7 @@ public class JugadorTiroDados implements EstadoDeJugador {
         jugador = unJugador;
     }
 
-    public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
+    public void arrojarDados(Dado dado1, Dado dado2) throws NoEsTurnoJugador, JugadorYaTiroDados {
 
         throw new JugadorYaTiroDados();
     }

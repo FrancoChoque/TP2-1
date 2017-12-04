@@ -4,11 +4,12 @@ import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
 import modelo.Casa;
+import modelo.Dado;
 import modelo.Hotel;
 
 public interface EstadoDeJugador {
 
-    public void arrojarDados()throws NoEsTurnoJugador, JugadorYaTiroDados;
+    public void arrojarDados(Dado dado1, Dado dado2)throws NoEsTurnoJugador, JugadorYaTiroDados;
 
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador;
 

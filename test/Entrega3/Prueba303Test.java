@@ -54,6 +54,7 @@ public class Prueba303Test {
 		jugador2.setEstado(jugador2.getJugadorTiroDados() );
 		try {
 			tablero.moverJugador(jugador2, 2);
+			algopoly.efectoCasillero(jugador2);
 		}
 		catch (DineroInsuficiente e) {
 			algopoly.vender(jugador2, tablero.getBuenosAiresSur() );

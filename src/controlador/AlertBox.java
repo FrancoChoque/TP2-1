@@ -55,7 +55,7 @@ public class AlertBox {
 
         Button button = new Button();
         button.setAlignment(Pos.CENTER);
-
+        button.setMinWidth(80);
         button.setText("OK");
 
 
@@ -103,6 +103,7 @@ public class AlertBox {
 
         Button button = new Button();
         button.setAlignment(Pos.CENTER);
+        button.setMinWidth(80);
         button.setText("OK");
 
         button.setOnAction(event -> stage.close());
@@ -159,12 +160,14 @@ public class AlertBox {
         layout.setBottom(opciones);
  
         Button botonaceptar = new Button();
+        botonaceptar.setMinWidth(80);
         botonaceptar.setText("Comprar");
         EventHandler<ActionEvent> botonaceptarhandler = new BotonComprarTerrenoHandler(stage);
         botonaceptar.setOnAction(botonaceptarhandler);
         
         
         Button botonrechazar = new Button();
+        botonrechazar.setMinWidth(80);
         botonrechazar.setText("Volver");
         EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
         botonrechazar.setOnAction(botonrechazarhandler);
@@ -199,6 +202,7 @@ public class AlertBox {
 
         Button button = new Button();
         button.setAlignment(Pos.CENTER);
+        button.setMinWidth(80);
 
         button.setText("OK");
 

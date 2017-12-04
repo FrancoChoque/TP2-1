@@ -39,6 +39,7 @@ public class Prueba306Test {
 		
 		try {
 			tablero.moverJugador(jugador2, 2);
+	        Tablero.getInstance().obtenerCasillero(jugador2).getestado().hacerEfectoDelCasillero(jugador2);
 		}
 		catch (DineroInsuficiente e) {
 			algopoly.quitarJugador(jugador2);

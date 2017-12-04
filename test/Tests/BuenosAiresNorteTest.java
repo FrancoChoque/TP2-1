@@ -66,6 +66,8 @@ public class BuenosAiresNorteTest {
 	        untablero.agregarJugador(jugador);
 	        untablero.moverJugador(jugador, 4);
 	        
+	        Tablero.getInstance().obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
+	        
 	        Assert.assertEquals(96500, jugador.getDinero());
 
 	    }

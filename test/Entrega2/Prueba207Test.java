@@ -41,6 +41,7 @@ public class Prueba207Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,2);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(95000, player2.getDinero());
     }
@@ -71,6 +72,7 @@ public class Prueba207Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,4);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(94000, player2.getDinero());
     }

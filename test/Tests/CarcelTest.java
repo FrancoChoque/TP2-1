@@ -22,6 +22,7 @@ public class CarcelTest {
 		untablero.agregarJugador(unjugador);
 
 		untablero.moverJugador(unjugador, 5);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 
 
 
@@ -35,8 +36,10 @@ public class CarcelTest {
 		untablero.agregarJugador(unjugador);
 		
 		untablero.moverJugador(unjugador, 5);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
 		Assert.assertEquals(2, untablero.preguntarTurnosEnCalabozo(unjugador) );
 	}
@@ -49,10 +52,14 @@ public class CarcelTest {
 		untablero.agregarJugador(unjugador);
 		
 		untablero.moverJugador(unjugador, 5);
-		
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+
 		untablero.moverJugador(unjugador, 1);
-		
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+
 		Assert.assertEquals(3, untablero.preguntarTurnosEnCalabozo(unjugador) );
 	}
 	
@@ -62,6 +69,7 @@ public class CarcelTest {
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
 		Carcel unacarcel = untablero.getCarcel();
 		
@@ -80,7 +88,10 @@ public class CarcelTest {
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
@@ -99,8 +110,14 @@ public class CarcelTest {
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
@@ -119,9 +136,17 @@ public class CarcelTest {
 		Jugador unjugador = new Jugador("Player");
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		
@@ -142,8 +167,14 @@ public class CarcelTest {
 		
 		untablero.agregarJugador(unjugador);
 		untablero.moverJugador(unjugador, 5);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		

@@ -16,6 +16,8 @@ public class Prueba109Test {
 		tablero.agregarJugador(jugador);
 		jugador.setValorDados(7);
 		tablero.moverJugador(jugador, 7);
+		Tablero.getInstance().obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
+		
 		
 		Assert.assertEquals(10,tablero.obtenerPosicion(jugador));
 	}

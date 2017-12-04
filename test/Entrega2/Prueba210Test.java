@@ -37,6 +37,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,2);
+		Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
+		
 
         Assert.assertEquals(97000, player2.getDinero());
     }
@@ -68,6 +70,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,2);
+		Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
+		
 
         Assert.assertEquals(96500, player2.getDinero());
     }
@@ -105,6 +109,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,2);
+		Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
+		
 
         Assert.assertEquals(95000, player2.getDinero());
     }
@@ -135,6 +141,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,4);
+		Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
+		
 
         Assert.assertEquals(96500, player2.getDinero());
     }
@@ -166,6 +174,8 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,4);
+		Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
+		
 
         Assert.assertEquals(96000, player2.getDinero());
     }
@@ -203,6 +213,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,4);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(94000, player2.getDinero());
     }
@@ -233,6 +244,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,6);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(98500, player2.getDinero());
     }
@@ -264,6 +276,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,6);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(97500, player2.getDinero());
     }
@@ -302,6 +315,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,6);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(97000, player2.getDinero());
     }
@@ -331,6 +345,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,9);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(98200, player2.getDinero());
     }
@@ -363,6 +378,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,9);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(97100, player2.getDinero());
     }
@@ -401,6 +417,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,9);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(96500, player2.getDinero());
     }
@@ -428,6 +445,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,11);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(96500, player2.getDinero());
     }
@@ -458,6 +476,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,13);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(96750, player2.getDinero());
     }
@@ -489,6 +508,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,13);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(96150, player2.getDinero());
     }
@@ -526,6 +546,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,13);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(94500, player2.getDinero());
     }
@@ -556,6 +577,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,14);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(96750, player2.getDinero());
     }
@@ -587,6 +609,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,14);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(96150, player2.getDinero());
     }
@@ -624,6 +647,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,14);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(94500, player2.getDinero());
     }
@@ -652,6 +676,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,17);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(96200, player2.getDinero());
     }
@@ -679,6 +704,7 @@ public class Prueba210Test {
         untablero.agregarJugador(player2);
 
         untablero.moverJugador(player2,19);
+        Tablero.getInstance().obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(95500, player2.getDinero());
     }

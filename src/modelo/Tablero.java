@@ -76,18 +76,17 @@ public class Tablero {
 
 
     public void moverJugador(Jugador unJugador, int unDesplazamiento) {
-        int pos = posicionJugadores.get(unJugador);
-        Casillero casilla = Casilleros[pos];
+
         if (unJugador.puedeMoverse()) {
             int posicionNueva = unDesplazamiento + this.posicionJugadores.get(unJugador);
             if (posicionNueva > MAYOR_POSICION_TABLERO) {
                 posicionNueva = posicionNueva % CANTIDAD_CASILLAS;
             }
             posicionJugadores.put(unJugador, posicionNueva);
-            casilla = Casilleros[posicionNueva];
+
         }
 
-        casilla.hacerEfectoDelCasillero(unJugador);
+
 
     }
 

@@ -16,6 +16,8 @@ public class Prueba105Test {
 		untablero.agregarJugador(unjugador);
 		
 		untablero.moverJugador(unjugador, 5);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+		
 		
 		Assert.assertFalse(unjugador.puedeMoverse() );
 	}

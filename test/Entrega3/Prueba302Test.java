@@ -22,7 +22,8 @@ public class Prueba302Test {
 		
 		
 		try {
-			algopoly.usarTurno(jugador);
+			algopoly.arrojarDados(jugador);
+			algopoly.tiraDeVuelta(jugador);
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,11 +32,13 @@ public class Prueba302Test {
 		}
 		
 		try {
-			algopoly.usarTurno(jugador);
+			algopoly.arrojarDados(jugador);
+			algopoly.tiraDeVuelta(jugador);
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch(FinDelJuego e) {
+		} catch (FinDelJuego e) {
+			// TODO Auto-generated catch block
 			System.out.println("Fin del juego");
 		}
 		

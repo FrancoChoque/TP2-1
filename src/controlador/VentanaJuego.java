@@ -62,7 +62,7 @@ public class VentanaJuego{
 	private Text dinerojugador = new Text();
 	private Text posicionjugador = new Text();
 	private String accionesjugador = "";
-	private ChoiceBox<String> propiedadesJugador = new ChoiceBox<>();
+	
 	private AlgoPoly algopoly;
 
 	private Paint valor = Paint.valueOf("FFFFFF"); //pinta de blanco
@@ -75,7 +75,7 @@ public class VentanaJuego{
 	private Button botonTerminarTurno;
 	private Button botonPagarFianza;
 	private HashMap<Jugador, JugadorCapa> hash;
-	private Button botonVender;
+
 	
 	
 	private VentanaJuego() {};
@@ -211,7 +211,6 @@ public class VentanaJuego{
         botonTerminarTurno.setMinWidth(125);
         EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler(this, juego);
         botonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
-
         
         VBox AccionesVBox = new VBox();
         AccionesVBox.setPadding(new Insets(10,12,10,12) );
@@ -219,8 +218,7 @@ public class VentanaJuego{
         
         AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
         		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
-        		botonConstruirHotel,botonPagarFianza
-        		);
+        		botonConstruirHotel);
         
         root.setLeft(AccionesVBox);
         
@@ -278,6 +276,7 @@ public class VentanaJuego{
 	public void actualizarturno() {
 		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
 		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
+		this.nombrejugador.setFill(hash.get(jugadoractual).getColor());
 		this.dinerojugador.setText("$"+ jugadoractual.getDinero() + "\n" );
 		Tablero tablero = Tablero.getInstance();
         this.posicionjugador.setText(tablero.obtenerCasillero(jugadoractual).getNombre() + "\n");
@@ -376,9 +375,6 @@ public class VentanaJuego{
 		// TODO Auto-generated method stub
 		this.hash.get(actual).actualizar();
 	}
-    
-
-
 
 	public void escondercapa(Jugador anterior) {
 		// TODO Auto-generated method stub

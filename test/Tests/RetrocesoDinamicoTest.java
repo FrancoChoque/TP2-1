@@ -21,6 +21,7 @@ public class RetrocesoDinamicoTest {
 		
 		player.setValorDados(6);
 		untablero.moverJugador(player, 18);
+        Tablero.getInstance().obtenerCasillero(player).getestado().hacerEfectoDelCasillero(player);
 		
 		Assert.assertEquals(13, untablero.obtenerPosicion(player) );
 	}
@@ -36,6 +37,7 @@ public class RetrocesoDinamicoTest {
 		
 		player.setValorDados(9);
 		untablero.moverJugador(player, 18);
+        Tablero.getInstance().obtenerCasillero(player).getestado().hacerEfectoDelCasillero(player);
 		
 		Assert.assertEquals(17, untablero.obtenerPosicion(player));
 	}
@@ -48,6 +50,7 @@ public class RetrocesoDinamicoTest {
 		
 		player.setValorDados(12);
 		untablero.moverJugador(player, 18);
+        Tablero.getInstance().obtenerCasillero(player).getestado().hacerEfectoDelCasillero(player);
 		
 		Assert.assertEquals(8, untablero.obtenerPosicion(player));
 	}

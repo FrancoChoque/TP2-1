@@ -31,6 +31,8 @@ public class Prueba203Test {
 	        jugador.setEstado(jugador.getJugadorEmpezandoTurno() );
 	        untablero.agregarJugador(jugador);
 	        untablero.moverJugador(jugador, 2);
+			Tablero.getInstance().obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
+			
 	        
 	        Assert.assertEquals(97000, jugador.getDinero());
 
@@ -61,6 +63,8 @@ public class Prueba203Test {
         untablero.agregarJugador(jugador);
         untablero.moverJugador(jugador, 4);
 
+		Tablero.getInstance().obtenerCasillero(jugador).getestado().hacerEfectoDelCasillero(jugador);
+		
         Assert.assertEquals(96500, jugador.getDinero());
 
     }

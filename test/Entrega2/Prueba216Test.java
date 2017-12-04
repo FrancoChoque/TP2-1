@@ -28,6 +28,8 @@ public class Prueba216Test {
         player2.setValorDados(6);
 
         untablero.moverJugador(player2,3);
+        
+        untablero.obtenerCasillero(player2).getestado().hacerEfectoDelCasillero(player2);
 
         Assert.assertEquals(100000 - player2.getValorDados()*500, player2.getDinero());
 

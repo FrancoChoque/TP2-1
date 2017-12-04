@@ -3,6 +3,7 @@ import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
 import modelo.Casa;
+import modelo.Dado;
 import modelo.Hotel;
 
 public class JugadorEmpezandoTurno implements EstadoDeJugador {
@@ -15,22 +16,12 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
     }
 
 
-    public void arrojarDados() throws NoEsTurnoJugador, JugadorYaTiroDados {
+    public void arrojarDados(Dado dado1, Dado dado2) throws NoEsTurnoJugador, JugadorYaTiroDados {
 
-        int resultado = resultadoDados();
+        dado1.arrojar();
+        dado2.arrojar();
 
-        if(resultado == 0){
-            resultado = resultadoDados();
-        }
-
-        if(resultado == 0){
-            jugador.setEstado(jugador.getJugadorSinTurno());
-        }else {
-            jugador.setEstado(jugador.getJugadorTiroDados());
-            jugador.setValorDados(resultado);
-        }
-
-
+        jugador.setValorDados(dado1.getValor() + dado2.getValor());
 
     }
 
@@ -77,12 +68,6 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         throw new JugadorNoTiroDados();
     }
 
-    private int resultadoDados(){      
-        
-    	this.jugador.tirarDados();             
-        return this.jugador.getValorDados();
-    
-    }
 
 
 }

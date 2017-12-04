@@ -15,6 +15,8 @@ public class Policia extends EstadoCasillero {
 	@Override
 	public void hacerEfectoDelCasillero(Jugador unjugador) {
 		tablero.moverJugador(unjugador, 10);
+
+        Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 	}
 
 	@Override
