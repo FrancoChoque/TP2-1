@@ -37,8 +37,9 @@ public class CarcelTest {
 		
 		untablero.moverJugador(unjugador, 5);
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
-		
-		untablero.moverJugador(unjugador, 1);
+
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
 		Assert.assertEquals(2, untablero.preguntarTurnosEnCalabozo(unjugador) );
@@ -54,10 +55,10 @@ public class CarcelTest {
 		untablero.moverJugador(unjugador, 5);
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 
-		untablero.moverJugador(unjugador, 1);
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 
-		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 
 		Assert.assertEquals(3, untablero.preguntarTurnosEnCalabozo(unjugador) );
