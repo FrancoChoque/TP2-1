@@ -15,7 +15,6 @@ public class AlgoPoly {
 
     private Tablero tablero;
     private LinkedList<Jugador> jugadores;
-    private Jugador jugadorConTurno;
     private int actual = 0;
     private int dadosIgualesSeguidos = 0;
 

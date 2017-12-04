@@ -1,9 +1,12 @@
 package estados.Comprable.Propiedad;
 
 import excepciones.*;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import modelo.Casa;
 import modelo.Hotel;
 import modelo.Jugador.Jugador;
+import vista.Posicion;
 
 public class PropiedadSinCasa implements PropiedadEstado {
 
@@ -39,6 +42,16 @@ public class PropiedadSinCasa implements PropiedadEstado {
     public void puedeConstruir(Jugador unJugador, Hotel hotel) throws JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
         throw new CasasInsuficientes();
     }
+
+
+	@Override
+	public void dibujarEdificios(GraphicsContext gc, Posicion pos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 
 
 }

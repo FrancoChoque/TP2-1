@@ -241,11 +241,9 @@ public class VentanaJuego{
         */
         
         Text textoturnojugador = new Text("Turno Actual: ");
-        textoturnojugador.setFill(Color.RED);
-        textoturnojugador.setFont(Font.font("Helvetica", FontPosture.ITALIC, 20));
+        textoturnojugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
         Text textodinerojugador = new Text("Dinero disponible: ");
-        textodinerojugador.setFill(Color.BLUE);
-        textodinerojugador.setFont(Font.font("Helvetica", FontWeight.BOLD, 10));
+        textodinerojugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
         Text textoposicionjugador = new Text();
         textoposicionjugador.setText("Posicion del jugador: ");
         Text textoaccionesjugador = new Text();

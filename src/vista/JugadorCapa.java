@@ -44,12 +44,32 @@ public class JugadorCapa {
 	    largoedificio = 30;
 	}
 	
-	public Image getIconoCasa() {
+	public static Image getIconoCasa() {
 		return iconocasa;
 	}
 	
-	public Image getIconoHotel() {
+	public static Image getIconoHotel() {
 		return iconohotel;
+	}
+	
+	public static int getalturaedificio(){
+		return alturaedificio;
+	}
+	
+	public static int getlargoedificio() {
+		return largoedificio;
+	}
+	
+	public static int getdesfaseX1() {
+		return desfaseEdificioX1;
+	}
+	
+	public static int getdesfaseX2() {
+		return desfaseEdificioX2;
+	}
+	
+	public static int getdesfaseY() {
+		return desfaseEdificioY;
 	}
 	
 	
@@ -124,10 +144,7 @@ public class JugadorCapa {
 				
 			try {
 				Propiedad prop = (Propiedad) comprable;
-				PropiedadEstado estado = prop.getPropiedadEstado();
-				if(estado == prop.getPropiedadConCasa()) dibujaredificios((PropiedadConCasa)estado, pos);
-				if(estado == prop.getPropiedadConDosCasas()) dibujaredificios((PropiedadConDosCasas)estado, pos);
-				if(estado == prop.getPropiedadConHotel()) dibujaredificios((PropiedadConHotel)estado, pos);
+				prop.getPropiedadEstado().dibujarEdificios(this.gc, pos);
 				
 			} catch (ClassCastException e) {
 				continue;
@@ -137,18 +154,6 @@ public class JugadorCapa {
 		}
 	}
 	
-	private void dibujaredificios(PropiedadConCasa estado, Posicion pos) {
-		this.gc.drawImage(iconocasa, pos.getx() +desfaseEdificioX1, pos.gety() + desfaseEdificioY, largoedificio, alturaedificio);
-	}
-	
-	private void dibujaredificios(PropiedadConDosCasas estado, Posicion pos) {
-		this.gc.drawImage(iconocasa, pos.getx() + desfaseEdificioX1, pos.gety() + desfaseEdificioY, largoedificio, alturaedificio);
-		this.gc.drawImage(iconocasa, pos.getx() + desfaseEdificioX2, pos.gety() + desfaseEdificioY, largoedificio, alturaedificio);
-	}
-	
-	private void dibujaredificios(PropiedadConHotel estado, Posicion pos) {
-		this.gc.drawImage(iconohotel, pos.getx() + desfaseEdificioX1, pos.gety() + desfaseEdificioY, largoedificio, alturaedificio);
-	}
 
 	public void actualizar() {
 		// TODO Auto-generated method stub

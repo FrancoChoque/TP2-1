@@ -3,10 +3,17 @@ package controlador;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import modelo.AlgoPoly;
@@ -56,23 +63,24 @@ public class App extends Application {
         
         Menu menuayuda = new Menu("Ayuda");
         MenuItem reglas = new MenuItem("Reglas del juego");
-        MenuItem acercade = new MenuItem("Acerca de");
+  
         
         menuayuda.getItems().add(reglas);
-        menuayuda.getItems().add(acercade);
+
         
         reglas.setOnAction(new MenuReglasHandler() );
         
-        acercade.setOnAction(new MenuAcercaHandler()  );
         
         
 
         Image imagen = new Image("file:src/imagenes/menu.jpg");
+       
 
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
-
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, 
+        		new BackgroundPosition(null, 0, false, null, 100, false), BackgroundSize.DEFAULT);
+        
         Background background = new Background(imagenDeFondo);
-
+        
         MenuBar menuBar = new MenuBar();
         
 		menuBar.getMenus().addAll(fileMenu,menuayuda);
@@ -80,9 +88,19 @@ public class App extends Application {
         root = new BorderPane();
 
         root.setTop(menuBar);
+        
+        Text text1 = new Text("Bienvenido a AlgoPoly");
+        text1.setFont(Font.font("Helvetica", FontWeight.BOLD, 40));
 
+        TextFlow textos = new TextFlow();
+        textos.getChildren().add(text1);
+        textos.setTextAlignment(TextAlignment.CENTER);
+        textos.setPadding(new Insets(5));
+        
+        root.setCenter(textos);
+        
         root.setBackground(background);
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root, 750,850);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

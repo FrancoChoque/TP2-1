@@ -261,52 +261,6 @@ public class VentanaOperacion {
         stage.showAndWait();
 	}
 
-	public void menuAcerca() {
-		// TODO Auto-generated method stub
-		Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Acerca de Algopoly");
-
-        BorderPane layout = new BorderPane();
-        
-        Text text1 = new Text();
-        text1.setText("Algopoly es el trabajo practico 2 de la\nasignatura 75.07 Algoritmos y Programacion III\n");
-        text1.setFont(font("Helvetica", FontPosture.REGULAR, 15));
-        
-        Text text2 = new Text();
-        text2.setText("Realizado por el grupo T12 integrado por:\n Franco Choque\nJavier Quino\nNicolas Simizu");
-        text2.setFont(font("Helvetica", FontPosture.REGULAR, 15));
-        
-        TextFlow textos = new TextFlow();
-        textos.setTextAlignment(TextAlignment.CENTER);
-        textos.getChildren().addAll(text1, text2);
-        textos.setPadding(new Insets(10,10,10,10));
-        
-        layout.setTop(textos);
-        
-        
-        
-        HBox opciones = new HBox();
-        opciones.setAlignment(Pos.TOP_CENTER);
-        opciones.setSpacing(15);
-        opciones.setPadding(new Insets(10,10,10,10));
-        layout.setBottom(opciones);
- 
-        
-        Button botonrechazar = new Button();
-        botonrechazar.setText("Volver");
-        EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
-        botonrechazar.setOnAction(botonrechazarhandler);
-        
-        
-        
-        
-        opciones.getChildren().addAll(botonrechazar);
-        
-        Scene scene = new Scene(layout, 450,200);
-        stage.setScene(scene);
-        stage.showAndWait();
-	}
 
 	public void menuReglas() {
 		// TODO Auto-generated method stub
