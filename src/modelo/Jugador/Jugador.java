@@ -224,9 +224,9 @@ public class Jugador {
 
 		Casa casa = new Casa();
 
-		if(!this.esDuenio(propiedad)){
-			return true;
-		}
+		if(!this.esDuenio(propiedad)){ return true; }
+
+		if(estadoDeJugador == getJugadorTiroDados()) return true;
 
 		try {
 			propiedad.puedeConstruir(this,casa);
@@ -235,7 +235,6 @@ public class Jugador {
 		} catch (NoPuedeConstruirMasCasas noPuedeConstruirMasCasas) {
 			return true;
 		}
-
 		return false;
 	}
 
@@ -245,6 +244,8 @@ public class Jugador {
 
 
 		if(!this.esDuenio(propiedad)) return true;
+
+		if(estadoDeJugador == getJugadorTiroDados()) return true;
 
 		try {
 			propiedad.puedeConstruir(this, hotel);
