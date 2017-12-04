@@ -267,7 +267,7 @@ public class VentanaOperacion {
         BorderPane layout = new BorderPane();
         
         Text text1 = new Text();
-        text1.setText("Algopoly es el trabajo práctico 2 de la\nasignatura 75.07 Algoritmos y Programacion III\n");
+        text1.setText("Algopoly es el trabajo practico 2 de la\nasignatura 75.07 Algoritmos y Programacion III\n");
         text1.setFont(font("Helvetica", FontPosture.REGULAR, 15));
         
         Text text2 = new Text();
@@ -320,7 +320,7 @@ public class VentanaOperacion {
         
         Text text2 = new Text();
         text2.setText("Es un juego por turnos de 3 jugadores. En cada turno cada jugador debe lanzar" + 
-        		" un par de dados (números del 1 al 6 cada dado). El número obtenido será la suma de ambos resultados.\n\n"+
+        		" un par de dados (numeros del 1 al 6 cada dado). El numero obtenido sera la suma de ambos resultados.\n\n"+
         		"Si un jugador al tirar los dados obtiene un doble numero (o sea 1 y 1 , o 3 y 3 , etc)" + 
         		" entonces tira nuevamente. Solo puede arrojarse dados hasta dos veces por turno.\n\n"+
         		"Las propiedades solo pueden ser compradas en el turno que se cae en ellas."+ 
