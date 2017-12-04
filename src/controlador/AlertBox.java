@@ -87,11 +87,11 @@ public class AlertBox {
 
     }
 
-	public void error(String string) {
-		// TODO Auto-generated method stub
-		Stage stage = new Stage();
+    public void error(String string) {
+        // TODO Auto-generated method stub
+        Stage stage = new Stage();
 
-		stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initModality(Modality.APPLICATION_MODAL);
 
         stage.setTitle("Error");
 
@@ -113,20 +113,20 @@ public class AlertBox {
         TextFlow text3 = new TextFlow(text);
         text3.setTextAlignment(TextAlignment.CENTER);
         text3.setPadding( new Insets(10,10,10,10));
-        
-        
+
+
         VBox vbox = new VBox();
         vbox.getChildren().addAll(text3,button);
         vbox.setPadding( new Insets(10,10,10,10));
-        vbox.setAlignment(Pos.CENTER); 
-        
+        vbox.setAlignment(Pos.CENTER);
+
         layout.setCenter(vbox);
 
-        Scene scene = new Scene(layout, 350,120);
-	    stage.setScene(scene);
-	        
-	    stage.showAndWait();
-	}
+        Scene scene = new Scene(layout, 350,160);
+        stage.setScene(scene);
+
+        stage.showAndWait();
+    }
 
 	public void ofrecercompra(EstadoCasillero estado) {
 		// TODO Auto-generated method stub

@@ -27,8 +27,8 @@ public class Carcel extends EstadoCasillero {
 	public void hacerEfectoDelCasillero(Jugador unjugador) {
 
 		if(! calabozo.containsKey(unjugador) ) {
-			calabozo.put(unjugador, 1);
-			unjugador.cambiarMovimiento();
+			calabozo.put(unjugador, 0);
+			unjugador.cambiarMovimiento(false);
 			return;
 		}
 
@@ -51,30 +51,32 @@ public class Carcel extends EstadoCasillero {
 
 	public void cobrarFianza(Jugador unjugador) {
 
-		if(! calabozo.containsKey(unjugador) ) return;
+		if(!puedePagarFianza(unjugador)) throw new TurnosEnCalabozoInvalidoException();
 
-		int turnosEnCalabozo = calabozo.get(unjugador);
+		if(!unjugador.puedePagar(montoFianza)) throw new DineroInsuficiente();
 
-		if((turnosEnCalabozo == 2) || (turnosEnCalabozo == 3)){
+		unjugador.sumarDinero(montoFianza  * -1);
 
-			if(! unjugador.puedePagar(montoFianza) ) {
-				throw new DineroInsuficiente();
-			}
-			unjugador.sumarDinero(montoFianza  * -1);
-			this.liberar(unjugador);
-		}
+		this.liberar(unjugador);
+	}
 
-		else {
-			throw new TurnosEnCalabozoInvalidoException();
-		}
 
+
+	public boolean puedePagarFianza(Jugador unJugador){
+
+		if(!calabozo.containsKey(unJugador)) return false;
+
+		int turnosEnCalabozo = calabozo.get(unJugador);
+
+		if((turnosEnCalabozo == 2) || (turnosEnCalabozo == 3)) return true;
+		else return false;
 	}
 
 
 	private void liberar(Jugador unjugador) {
 
 		calabozo.remove(unjugador);
-		unjugador.cambiarMovimiento();
+		unjugador.cambiarMovimiento(true);
 
 	}
 

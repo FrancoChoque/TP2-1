@@ -33,8 +33,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		String accion;
 		AlertBox box = new AlertBox();
 		try {
-			
-			System.out.println(actual.nombre);
+
 
 			this.algopoly.arrojarDados(actual);
 
@@ -77,11 +76,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		}
 		
 		this.ventana.actualizarposicion(actual);
-		if(actual.getEstadoDeJugador() == actual.getJugadorTiroDados()) {
-			boton.setDisable(true);
-			this.ventana.setTerminarturno(false);
 
-		}
 
 		this.ventana.actualizarBotones();
 
