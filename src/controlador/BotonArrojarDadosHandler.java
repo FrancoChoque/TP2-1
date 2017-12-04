@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
+import estados.Movimiento;
 import excepciones.DineroInsuficiente;
 import excepciones.FinDelJuego;
 import excepciones.JugadorYaTiroDados;
@@ -37,13 +38,22 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
 			this.algopoly.arrojarDados(actual);
 
-			box.display(algopoly.getTablero().obtenerCasillero(actual).getNombre(), actual.getValorDados());
+			EstadoCasillero casillero = algopoly.getTablero().obtenerCasillero(actual).getestado();
+
+			box.display(casillero.getNombre(), actual.getValorDados());
 
 			accion = "Arrojaste los dados y sacaste: " + actual.getValorDados() + "\n";
 
 			this.ventana.agregaraccion(accion);
 
+			mensajeEfecto(actual);
+
 			this.algopoly.efectoCasillero(actual);
+
+			if(casillero instanceof Movimiento) {
+				mensajeEfecto(actual);
+				this.algopoly.efectoCasillero(actual);
+			}
 
 			this.algopoly.tiraDeVuelta(actual);
 
@@ -75,28 +85,26 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
 		this.ventana.actualizarBotones();
 
-		//Casilleros comprables
-		casillerocomprable();
-		
 		JugadorCapa capa = hash.get(actual);
 		capa.actualizar();
-
-
 	}
-	
-	private void casillerocomprable() {
-		// TODO Auto-generated method stub
+
+
+
+	private void mensajeEfecto(Jugador jugador) {
+
 		Tablero tablero = this.algopoly.getTablero();
 		Casillero casillero = tablero.obtenerCasillero(this.algopoly.obtenerJugadorActual() );
 		EstadoCasillero estado = casillero.getestado();
+		if(estado == tablero.getSalida()) return;
 		AlertBox box = new AlertBox();
 		try {
 			Comprable uncomprable = (Comprable) estado;
-			if(uncomprable.tieneDuenio()) return;
-			box.ofrecercompra((EstadoCasillero) uncomprable);
-			
+			if(uncomprable.tieneDuenio()) box.mensajeEfecto(estado,jugador);
+			else box.ofrecercompra((EstadoCasillero) uncomprable);
+
 		} catch(ClassCastException e) {
-			return;
+			box.mensajeEfecto(estado,jugador);
 		}
 	}
 

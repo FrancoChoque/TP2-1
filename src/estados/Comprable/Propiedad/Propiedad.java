@@ -130,6 +130,11 @@ public class Propiedad extends Comprable {
 
 	}
 
+	public String mensajeEfecto(Jugador unJugador) {
+		return "Costo del alquiler: " + propiedadEstado.getCostoPase();
+	}
+
+
 	public int getCantidadEdificios(){
 		return edificios.size();
 	}

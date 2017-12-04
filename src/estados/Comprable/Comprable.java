@@ -4,7 +4,7 @@ import estados.EstadoCasillero;
 import modelo.Jugador.Jugador;
 
 public class Comprable extends EstadoCasillero {
-	
+
 	protected Jugador Duenio;
 
 
@@ -31,6 +31,8 @@ public class Comprable extends EstadoCasillero {
 	public void cobrarPase(Jugador unJugador){
 		estado.cobrarPase(unJugador);
 	}
+
+	public int getCostoPase(){ return 0;}
 
 
 	public void reembolsar(){
