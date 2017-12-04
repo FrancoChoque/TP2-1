@@ -192,6 +192,7 @@ public class Tablero {
 
     }
 
+    public Salida getSalida() { return (Salida) Casilleros[0].getestado();}
 
     public BuenosAiresSur getBuenosAiresSur() {
         return (BuenosAiresSur) Casilleros[2].getestado();

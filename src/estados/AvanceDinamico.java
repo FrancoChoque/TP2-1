@@ -3,29 +3,36 @@ package estados;
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
 
-public class AvanceDinamico extends Suerte{
 
-	public void hacerEfectoDelCasillero(Jugador unJugador){
-		Tablero tablero = Tablero.getInstance();
-		int valorDeDados = unJugador.getValorDados();
-		int nuevoDesplazamiento = 0;
-		if(valorDeDados<= 6){
-			nuevoDesplazamiento = valorDeDados - 2;
-		}else if(valorDeDados<= 10){
-			nuevoDesplazamiento = unJugador.getDinero() % valorDeDados;
-		}else{
-			nuevoDesplazamiento = valorDeDados - unJugador.getNumeroPropiedades();
-			
-		}
-		if(nuevoDesplazamiento == 0) return; //cae en stackoverflow error
-		tablero.moverJugador(unJugador,nuevoDesplazamiento );
-	}
 
-	public boolean esComprable() {
-		return false;
-	}
+public class AvanceDinamico extends Movimiento {
 
-	public String getNombre(){
-		return "Avance Dinamico";
-	}
+
+    public void hacerEfectoDelCasillero(Jugador unJugador){
+        Tablero tablero = Tablero.getInstance();
+        tablero.moverJugador(unJugador,calcularDesplazamiento(unJugador));
+    }
+
+    public int calcularDesplazamiento(Jugador unJugador){
+
+        int valorDeDados = unJugador.getValorDados();
+
+        if(valorDeDados<= 6){
+                return valorDeDados - 2;
+        }
+        if(valorDeDados<= 10){
+            return unJugador.getDinero() % valorDeDados;
+        }
+
+        return  valorDeDados - unJugador.getNumeroPropiedades();
+    }
+
+    public String getNombre(){
+            return "Avance Dinamico";
+        }
+
+    public String mensajeEfecto(Jugador unJugador){
+        return "Avanza: " + calcularDesplazamiento(unJugador) + " casilleros";
+    }
 }
+

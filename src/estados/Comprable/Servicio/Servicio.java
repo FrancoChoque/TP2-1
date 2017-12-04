@@ -27,4 +27,8 @@ public class Servicio extends Comprable {
         return 0;
     }
 
+    @Override
+    public String mensajeEfecto(Jugador unJugador) {
+        return "Costo del alquiler: " + getCostoPase(unJugador.getValorDados());
+    }
 }

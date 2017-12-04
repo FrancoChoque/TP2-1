@@ -29,6 +29,7 @@ import java.util.Set;
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
+import modelo.Jugador.Jugador;
 
 
 public class AlertBox {
@@ -291,6 +292,49 @@ public class AlertBox {
         stage.showAndWait();
 	}
 	*/
+
+    public void mensajeEfecto(EstadoCasillero casillero, Jugador jugador){
+
+        Stage stage = new Stage();
+
+
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        stage.setTitle(casillero.getNombre());
+
+        BorderPane layout = new BorderPane();
+
+        Text text = new Text();
+        text.setText(casillero.mensajeEfecto(jugador));
+        text.setFont(font("Helvetica", FontPosture.ITALIC, 20));
+
+
+        Button button = new Button();
+        button.setAlignment(Pos.CENTER);
+        button.setMinWidth(80);
+        button.setText("OK");
+
+        button.setOnAction(event -> stage.close());
+
+
+        TextFlow text3 = new TextFlow(text);
+        text3.setTextAlignment(TextAlignment.CENTER);
+        text3.setPadding( new Insets(10,10,10,10));
+
+
+        VBox vbox = new VBox();
+        vbox.getChildren().addAll(text3,button);
+        vbox.setPadding( new Insets(10,10,10,10));
+        vbox.setAlignment(Pos.CENTER);
+
+        layout.setCenter(vbox);
+
+        Scene scene = new Scene(layout, 350,120);
+        stage.setScene(scene);
+
+        stage.showAndWait();
+
+    }
 	
 	
 }

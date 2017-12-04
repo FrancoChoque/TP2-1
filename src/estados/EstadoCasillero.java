@@ -12,9 +12,7 @@ public class EstadoCasillero {
 		return "";
 	}
 
-	public boolean esComprable(){
-		return true;
-	}
+	public String mensajeEfecto(Jugador unJugador) { return "";}
 
 
 
