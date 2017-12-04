@@ -41,10 +41,9 @@ public class AlgoPoly {
 	}
 
     public void tiraDeVuelta(Jugador unJugador) throws NoEsTurnoJugador, JugadorYaTiroDados, FinDelJuego {
-    	
-        
-    	//unJugador.setEstado(unJugador.getJugadorEmpezandoTurno());
 
+
+		if(!unJugador.puedeMoverse()) unJugador.setEstado(unJugador.getJugadorTiroDados());
 
 		if(unJugador.tieneDadosIguales() ) {
         	unJugador.setEstado(unJugador.getJugadorEmpezandoTurno() );

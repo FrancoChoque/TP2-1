@@ -157,10 +157,9 @@ public class Jugador {
 
 
 
-	public void cambiarMovimiento() {
+	public void cambiarMovimiento(boolean value) {
 
-		if (!movimientoPosible) movimientoPosible = true;
-		else movimientoPosible = false;
+		this.movimientoPosible = value;
 	}
 
 
@@ -172,7 +171,7 @@ public class Jugador {
 
 	public boolean puedeMoverse() {
 
-		return movimientoPosible;
+		return this.movimientoPosible;
 	}
 
 	public int getNumeroPropiedades() {

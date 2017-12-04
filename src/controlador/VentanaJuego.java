@@ -218,7 +218,7 @@ public class VentanaJuego{
         
         AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
         		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
-        		botonConstruirHotel);
+        		botonConstruirHotel, botonPagarFianza);
         
         root.setLeft(AccionesVBox);
         
@@ -288,27 +288,28 @@ public class VentanaJuego{
 
 		this.botonArrojarDados.setDisable(false);
 		setTerminarturno(true);
+		this.botonPagarFianza.setDisable(true);
 
-		actualizarVenderTerreno(jugadoractual);
-		actualizarConstruirCasa(jugadoractual);
-		actualizarConstruirHotel(jugadoractual);
-		actualizarIntercambiar(jugadoractual);
-		actualizarFianza(jugadoractual);
-	}
+        if(!jugadoractual.puedeMoverse()){
+            algopoly.getTablero().getCarcel().hacerEfectoDelCasillero(jugadoractual);
+            actualizarPagarFianza(jugadoractual);
+        }
 
-	public void actualizarFianza(Jugador jugadoractual) {
-		// TODO Auto-generated method stub
-		this.botonPagarFianza.setDisable(this.algopoly.obtenerPosicion(jugadoractual) != 5);
+        actualizarBotones();
 
-        this.actualizarBotones();
+    }
 
+    public void actualizarPagarFianza(Jugador unJugador){
+	    this.botonPagarFianza.setDisable(!algopoly.getTablero().getCarcel().puedePagarFianza(unJugador));
+    }
 
-	}
+    public void actualizarBotones(){
 
-
-	public void actualizarBotones(){
-
-	    Jugador jugadorActual = this.algopoly.obtenerJugadorActual();
+        Jugador jugadorActual = this.algopoly.obtenerJugadorActual();
+        if(jugadorActual.getEstadoDeJugador() == jugadorActual.getJugadorTiroDados() || !jugadorActual.puedeMoverse()){
+            botonArrojarDados.setDisable(true);
+            this.setTerminarturno(false);
+        }
         actualizarVenderTerreno(jugadorActual);
         actualizarConstruirCasa(jugadorActual);
         actualizarConstruirHotel(jugadorActual);

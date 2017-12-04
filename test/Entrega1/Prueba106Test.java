@@ -39,7 +39,8 @@ public class Prueba106Test {
 		untablero.moverJugador(unjugador, 5);
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
-		untablero.moverJugador(unjugador, 1);
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
+
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
 		
@@ -58,17 +59,16 @@ public class Prueba106Test {
 		untablero.moverJugador(unjugador, 5);
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
-		untablero.moverJugador(unjugador, 1);
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
-		untablero.moverJugador(unjugador, 1);
 		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
-		
+
+		Tablero.getInstance().obtenerCasillero(unjugador).getestado().hacerEfectoDelCasillero(unjugador);
 		
 		Carcel unacarcel = (Carcel) untablero.obtenerCasillero(unjugador).getestado();
 		unacarcel.cobrarFianza(unjugador);
 		
-		Assert.assertTrue(unjugador.puedeMoverse() );
+		Assert.assertTrue(unjugador.puedeMoverse());
 		
 	}
 
