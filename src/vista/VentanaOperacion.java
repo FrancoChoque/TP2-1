@@ -363,7 +363,7 @@ public class VentanaOperacion {
         Text text8 = new Text("Un jugador sin propiedades cae en un casillero que genera gasto y no tiene dinero suficiente" +
         		" para pagar el gasto, queda fuera de juego.\n\n"+
         		"Si el jugador cae en un casillero que genera gasto y no tiene dinero suficiente, pero si tiene propiedades" +
-        		" está obligado a vender una de sus propiedades para pagar el gasto.\n\n" +
+        		" esta obligado a vender una de sus propiedades para pagar el gasto.\n\n" +
         		"El juego termina cuando solo quede un jugador.\n\n");
         text8.setFont(font("Helvetica", FontPosture.REGULAR, 18));
         text8.setTextAlignment(TextAlignment.LEFT);
