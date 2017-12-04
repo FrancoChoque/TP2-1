@@ -61,13 +61,10 @@ public class Login {
         iniciarBoton.setText("Iniciar");
         BotonConfirmarNombresHandler confirmarnombres = new BotonConfirmarNombresHandler(this,stage,scene);
         iniciarBoton.setOnAction(confirmarnombres);
-        
-        
-        
-        
-        
-        
+   
         cerrarBoton.setText("Salir");
+        BotonVolverHandler salir = new BotonVolverHandler(stage);
+        cerrarBoton.setOnAction(salir);
 
         //Labels
 
