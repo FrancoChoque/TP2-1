@@ -17,7 +17,7 @@ public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 		System.out.println("Terminar turno");
 		
 		Jugador anterior = this.juego.obtenerJugadorActual();
-		ventana.escondercapa(anterior);
+
 		
 		this.juego.avanzarJugador();
 		this.ventana.actualizarturno();
