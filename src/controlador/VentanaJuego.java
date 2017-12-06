@@ -1,7 +1,9 @@
 package controlador;
 
+import java.util.Collection;
 import java.util.HashMap;
-
+import java.util.Iterator;
+import java.util.Set;
 
 import estados.Comprable.Propiedad.Propiedad;
 import estados.EstadoCasillero;
@@ -97,7 +99,7 @@ public class VentanaJuego{
 		//Layout borderpane y escena
         
         BorderPane root = new BorderPane();
-        Scene scene = new Scene(root, 1000, 700);
+        Scene scene = new Scene(root, 1200, 700);
         mainApp.setecenaPrincipal(scene);
         
         // Agrego imagen del tablero
@@ -247,17 +249,20 @@ public class VentanaJuego{
         textodinerojugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
         Text textoposicionjugador = new Text();
         textoposicionjugador.setText("Posicion del jugador: ");
+        textoposicionjugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
         Text textoaccionesjugador = new Text();
         textoaccionesjugador.setText("Acciones realizadas en el turno:\n");
+        textoaccionesjugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
         this.text5 = new Text();
-        text5.setText(accionesjugador);
+        this.text5.setText(accionesjugador);
+        
         
         
         TextFlow textFlow = new TextFlow(textoturnojugador,this.nombrejugador, textodinerojugador,this.dinerojugador, textoposicionjugador,this.posicionjugador,
         		textoaccionesjugador, text5);
         textFlow.setMaxHeight(600);
-        textFlow.setMinWidth(400);
-        textFlow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
+        textFlow.setMinWidth(500);
+        textFlow.setLineSpacing(7);
         
         stackderecho.getChildren().addAll(textFlow);
         root.setRight(stackderecho);
@@ -275,12 +280,19 @@ public class VentanaJuego{
 	public void actualizarturno() {
 		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
 		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
+		this.nombrejugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
 		this.nombrejugador.setFill(hash.get(jugadoractual).getColor());
+		
 		this.dinerojugador.setText("$"+ jugadoractual.getDinero() + "\n" );
+		this.dinerojugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
+		
 		Tablero tablero = Tablero.getInstance();
         this.posicionjugador.setText(tablero.obtenerCasillero(jugadoractual).getNombre() + "\n");
+		this.posicionjugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
+        
 		this.accionesjugador = "";
 		this.text5.setText(accionesjugador);
+		this.text5.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
 		jugadoractual.setEstado(jugadoractual.getJugadorEmpezandoTurno() );
 
 
@@ -384,5 +396,17 @@ public class VentanaJuego{
 	public void mostrarcapa(Jugador actual) {
 		// TODO Auto-generated method stub
 		this.hash.get(actual).mostrar();
+	}
+
+	public void actualizarTodasCapas() {
+		// TODO Auto-generated method stub
+		Collection<JugadorCapa> collection = this.hash.values();
+		Iterator<JugadorCapa> iter = collection.iterator();
+		
+		while(iter.hasNext()) {
+			JugadorCapa capa = iter.next();
+			capa.actualizar();
+		}
+		
 	}
 }

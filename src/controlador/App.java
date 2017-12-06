@@ -17,6 +17,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import modelo.AlgoPoly;
+import vista.eventos.MenuReglasHandler;
 
 
 public class App extends Application {

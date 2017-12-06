@@ -34,6 +34,8 @@ public class BotonVenderTerrenoHandler implements EventHandler<ActionEvent> {
 		
 		VentanaOperacion ventana = new VentanaOperacion();
 		ventana.venderterreno(map);
+		
+		VentanaJuego.getInstance().actualizarCapa(actual);
 	}
 
 }

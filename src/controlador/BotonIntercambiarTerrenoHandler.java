@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
+import modelo.Jugador.Jugador;
 import vista.ContenedorIntercambio;
 
 public class BotonIntercambiarTerrenoHandler implements EventHandler<ActionEvent> {
@@ -16,6 +17,9 @@ public class BotonIntercambiarTerrenoHandler implements EventHandler<ActionEvent
 	public void handle(ActionEvent event){
 		ContenedorIntercambio contenedorIntercambio = new ContenedorIntercambio();
         contenedorIntercambio.elegirJugador();
+        
+
+        VentanaJuego.getInstance().actualizarTodasCapas();
 	}
 
 }

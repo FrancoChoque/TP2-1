@@ -30,6 +30,7 @@ import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import modelo.Jugador.Jugador;
+import vista.eventos.BotonVolverOnKeyPress;
 
 
 public class AlertBox {
@@ -61,6 +62,7 @@ public class AlertBox {
 
 
         button.setOnAction(event -> stage.close());
+        button.setOnKeyPressed(new BotonVolverOnKeyPress(stage));
 
 
         TextFlow text3 = new TextFlow(text,text2);
@@ -108,6 +110,7 @@ public class AlertBox {
         button.setText("OK");
 
         button.setOnAction(event -> stage.close());
+        button.setOnKeyPressed(new BotonVolverOnKeyPress(stage));
 
 
         TextFlow text3 = new TextFlow(text);
@@ -253,6 +256,7 @@ public class AlertBox {
         button.setText("OK");
 
         button.setOnAction(event -> stage.close());
+        button.setOnKeyPressed(new BotonVolverOnKeyPress(stage));
 
 
         TextFlow text3 = new TextFlow(text);

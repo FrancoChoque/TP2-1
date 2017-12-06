@@ -44,6 +44,8 @@ public class BotonConstruirCasaHandler implements EventHandler<ActionEvent> {
 		
 		VentanaOperacion box = new VentanaOperacion();	
 		box.ventanaconstruircasa(actual, prop);
+		
+		juego.actualizarCapa(actual);
 	}
 
 }

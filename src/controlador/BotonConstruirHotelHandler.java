@@ -36,6 +36,8 @@ public class BotonConstruirHotelHandler implements EventHandler<ActionEvent> {
 		VentanaOperacion ventana = new VentanaOperacion();
 
 		ventana.ventanaconstruirhotel(prop);
+		
+		VentanaJuego.getInstance().actualizarCapa(actual);
 	}
 
 }
