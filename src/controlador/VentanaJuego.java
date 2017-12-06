@@ -264,7 +264,7 @@ public class VentanaJuego{
 
         
 
-        primaryStage.setTitle("Lorem ipsum");
+        primaryStage.setTitle("AlgoPoly");
         primaryStage.setScene(scene);
         primaryStage.show();
         
