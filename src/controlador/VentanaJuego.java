@@ -168,7 +168,8 @@ public class VentanaJuego{
         //Botonera de acciones en vertical
         
         botonArrojarDados = new Button();
-        botonArrojarDados.setText("Tirar Dados");
+        Image imagenBoton = new Image("file:src/imagenes/dice.png");
+        botonArrojarDados.setGraphic(new ImageView(imagenBoton));
         botonArrojarDados.setMinWidth(125);
         EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(this.algopoly ,hash, this,botonArrojarDados);
         botonArrojarDados.setOnAction(BotonArrojarDadosHandler);
@@ -214,11 +215,11 @@ public class VentanaJuego{
         
         VBox AccionesVBox = new VBox();
         AccionesVBox.setPadding(new Insets(10,12,10,12) );
-        AccionesVBox.setSpacing(10);
+        AccionesVBox.setSpacing(20);
         
-        AccionesVBox.getChildren().addAll(botonArrojarDados,botonTerminarTurno,  
+        AccionesVBox.getChildren().addAll(botonTerminarTurno,
         		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
-        		botonConstruirHotel, botonPagarFianza);
+        		botonConstruirHotel, botonPagarFianza, botonArrojarDados);
         
         root.setLeft(AccionesVBox);
         
