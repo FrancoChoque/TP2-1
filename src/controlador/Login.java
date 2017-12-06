@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
+import vista.eventos.ConfirmarNombresOnKeyPress;
 
 
 
@@ -81,13 +82,16 @@ public class Login {
         player1TextField = new TextField();
         player1TextField.setPromptText("Jugador Uno");
         grid.add(player1TextField, 1, 1);
+        player1TextField.setOnKeyPressed( new ConfirmarNombresOnKeyPress(confirmarnombres));
 
         player2TextField = new TextField();
         player2TextField.setPromptText("Jugador Dos");
         grid.add(player2TextField, 1, 2);
+        player2TextField.setOnKeyPressed( new ConfirmarNombresOnKeyPress(confirmarnombres));
         
         player3TextField = new TextField();
         player3TextField.setPromptText("Jugador Tres");
+        player3TextField.setOnKeyPressed( new ConfirmarNombresOnKeyPress(confirmarnombres));
         grid.add(player3TextField, 1, 3);
 
         grid.add(iniciarBoton, 2,6);

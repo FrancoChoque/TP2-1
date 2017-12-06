@@ -14,6 +14,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import vista.eventos.BotonVolverOnKeyPress;
 
 public class BotonConfirmarNombresHandler implements EventHandler<ActionEvent> {
 
@@ -55,6 +56,7 @@ public class BotonConfirmarNombresHandler implements EventHandler<ActionEvent> {
 		EventHandler<ActionEvent> botonvolverhandler = new BotonVolverHandler(ventanaError);
 		botonVolver.setOnAction(botonvolverhandler);
 		botonVolver.setCacheShape(true);
+		botonVolver.setOnKeyPressed(new BotonVolverOnKeyPress(ventanaError));
 		
 		
 		Text textoerror = new Text("Por favor ingrese un nombre sin espacios\ny de al menos 1 letra o numero.");
