@@ -128,7 +128,7 @@ public class JugadorCapa {
 			double largo = Posicion.getlargo();
 				
 			this.gc.setStroke(color);
-			this.gc.setLineWidth(3);
+			this.gc.setLineWidth(5);
 				
 			this.gc.strokeLine(pos.getx(), pos.gety(), 
 					pos.getx() + largo, pos.gety());

@@ -262,6 +262,7 @@ public class VentanaJuego{
         		textoaccionesjugador, text5);
         textFlow.setMaxHeight(600);
         textFlow.setMinWidth(500);
+        textFlow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
         textFlow.setLineSpacing(7);
         
         stackderecho.getChildren().addAll(textFlow);

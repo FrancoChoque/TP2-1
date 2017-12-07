@@ -95,7 +95,11 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		AlertBox box = new AlertBox();
 		try {
 			Comprable uncomprable = (Comprable) estado;
-			if(uncomprable.tieneDuenio()) box.mensajeEfecto(estado,jugador);
+			if(uncomprable.tieneDuenio()) {
+				box.mensajeEfecto(estado,jugador);
+				ventana.agregaraccion("Pertenece a " + uncomprable.getDuenio().getNombre() + "\n");
+				ventana.agregaraccion("Pagaste de alquiler $"+ uncomprable.getCostoPase() +"\n");
+			}
 			else box.ofrecercompra((EstadoCasillero) uncomprable);
 
 		} catch(ClassCastException e) {

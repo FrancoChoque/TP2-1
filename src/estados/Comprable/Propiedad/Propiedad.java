@@ -145,6 +145,10 @@ public class Propiedad extends Comprable {
 		return null;
 	}
 
+	public int getCostoPase() {
+		return propiedadEstado.getCostoPase();
+		
+	}
 
 
 }
