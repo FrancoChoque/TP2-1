@@ -95,7 +95,7 @@ public class JugadorCapa {
 	}
 	
 	public void clean() {
-		this.gc.clearRect(0, 0, 600, 600); //limpia todo el canvas
+		this.gc.clearRect(0, 0, 800, 800); //limpia todo el canvas
 	}
 	
 	public void dibujar() {
