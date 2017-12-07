@@ -41,7 +41,7 @@ public class BotonConfirmarVenderTerrenoHandler implements EventHandler<ActionEv
 		
 		try {
 			int dineroanterior = actual.getDinero();
-			actual.vender(comprable);
+			algopoly.vender(actual,comprable);
 			int dineroactual = actual.getDinero()-dineroanterior;
 			juego.agregaraccion("Vendiste " + comprable.getNombre() + "por $"+ dineroactual +  "\n");
 		} catch (NoEsTurnoJugador e) {

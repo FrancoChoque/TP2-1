@@ -1,12 +1,12 @@
 package Entrega3;
 
 
+import excepciones.JugadorNoEsPropietario;
 import org.junit.Assert;
 import org.junit.Test;
 
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
-import excepciones.DineroInsuficiente;
 import excepciones.NoEsTurnoJugador;
 import modelo.Jugador.Jugador;
 import modelo.AlgoPoly;
@@ -16,7 +16,7 @@ import modelo.Casillero;
 public class Prueba303Test {
 
 	@Test
-	public void test() {
+	public void test() throws NoEsTurnoJugador, JugadorNoEsPropietario {
 		
 		AlgoPoly algopoly = new AlgoPoly();
 		Jugador jugador1 = algopoly.nuevoJugador("jugador1");
@@ -52,14 +52,11 @@ public class Prueba303Test {
 		//Jugador 2 cae en buenos aires norte sin dinero suficiente
 		jugador2.setDinero(0);
 		jugador2.setEstado(jugador2.getJugadorTiroDados() );
-		try {
-			tablero.moverJugador(jugador2, 2);
-			algopoly.efectoCasillero(jugador2);
-		}
-		catch (DineroInsuficiente e) {
-			algopoly.vender(jugador2, tablero.getBuenosAiresSur() );
-			jugador1.sumarDinero(2500);
-		}
+		tablero.moverJugador(jugador2, 2);
+		algopoly.efectoCasillero(jugador2);
+		algopoly.vender(jugador2, tablero.getBuenosAiresSur() );
+		jugador1.sumarDinero(2500);
+
 		
 		
 		

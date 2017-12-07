@@ -16,8 +16,8 @@ public class BotonVenderTerrenoHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		// Lo que hace el boton
-		System.out.println("VendoTerreno");
+
+
 		
 		App app = App.getInstance();
 		AlgoPoly algopoly = app.getAlgoPoly();		
@@ -36,6 +36,7 @@ public class BotonVenderTerrenoHandler implements EventHandler<ActionEvent> {
 		ventana.venderterreno(map);
 		
 		VentanaJuego.getInstance().actualizarCapa(actual);
+		VentanaJuego.getInstance().actualizardinero();
 	}
 
 }

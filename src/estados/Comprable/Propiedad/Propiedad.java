@@ -66,6 +66,8 @@ public class Propiedad extends Comprable {
 	public void reembolsar(){
 		Duenio.sumarDinero((int)(getPrecioCompra()- getPrecioCompra()*0.15));
 		this.vaciarEdificios();
+		this.setDuenio(null);
+		this.setEstado(this.getNoTieneDuenio());
 	}
 
 	public void cobrarPase(Jugador unJugador){

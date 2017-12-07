@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
-import excepciones.FinDelJuego;
 
 public class Prueba301Test {
 

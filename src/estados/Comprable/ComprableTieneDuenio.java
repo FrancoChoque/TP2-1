@@ -22,9 +22,7 @@ public class ComprableTieneDuenio implements ComprableEstado {
 
 
     public void reembolsar(){
-        comprable.reembolsar();
-        comprable.setDuenio(null);
-        comprable.setEstado(comprable.getNoTieneDuenio());
+
     }
 
     public void comprar(Jugador unjugador) throws DineroInsuficiente {

@@ -1,13 +1,10 @@
 package Entrega3;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import excepciones.JugadorYaTiroDados;
 import excepciones.NoEsTurnoJugador;
-import excepciones.FinDelJuego;
 import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
 

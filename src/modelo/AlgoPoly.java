@@ -131,17 +131,10 @@ public class AlgoPoly {
 	}
 
 
-	public void vender(Jugador jugador, Comprable terreno) {
-		// TODO Auto-generated method stub
-		try {
-			jugador.vender(terreno);
-		} catch (NoEsTurnoJugador e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JugadorNoEsPropietario e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void vender(Jugador jugador, Comprable terreno) throws NoEsTurnoJugador, JugadorNoEsPropietario {
+		jugador.vender(terreno);
+
+
 	}
 
 	public Tablero getTablero(){

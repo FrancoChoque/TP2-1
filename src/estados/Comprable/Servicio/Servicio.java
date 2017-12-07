@@ -15,7 +15,10 @@ public class Servicio extends Comprable {
     }
 
     public void reembolsar(){
+
         Duenio.sumarDinero((int)(getPrecioCompra() - 0.15 * getPrecioCompra()));
+        this.setDuenio(null);
+        this.setEstado(this.getNoTieneDuenio());
     }
 
 

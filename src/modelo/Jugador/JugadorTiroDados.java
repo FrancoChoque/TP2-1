@@ -47,6 +47,7 @@ public class JugadorTiroDados implements EstadoDeJugador {
 
     public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario {
         unComprable.reembolsar();
+        jugador.devolverPropiedad(unComprable);
     }
 
     public void vender(Jugador unComprador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {

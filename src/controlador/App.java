@@ -25,7 +25,7 @@ public class App extends Application {
     private Stage primaryStage;
     private BorderPane root;
     private Scene ecenaPrincipal;
-    private AlgoPoly algoPoly;
+    private AlgoPoly algoPoly= new AlgoPoly();
     private static App instance;
 
 
@@ -49,9 +49,7 @@ public class App extends Application {
 
         //VentanaLogin registro = new VentanaLogin();
     	Login registro = new Login();
-    	
-    	
-        algoPoly = new AlgoPoly();
+
 
         Menu fileMenu = new Menu("Juego");
         MenuItem nuevoJuego = new MenuItem("Nueva Partida...");

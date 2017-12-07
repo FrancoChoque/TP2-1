@@ -9,16 +9,14 @@ import vista.JugadorCapa;
 public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 
 	private VentanaJuego ventana;
-	private AlgoPoly juego;
+
+	AlgoPoly juego = App.getInstance().getAlgoPoly();
 	
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
 		System.out.println("Terminar turno");
-		
-		Jugador anterior = this.juego.obtenerJugadorActual();
 
-		
 		this.juego.avanzarJugador();
 		this.ventana.actualizarturno();
 		
