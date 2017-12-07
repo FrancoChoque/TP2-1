@@ -26,11 +26,8 @@ public class Prueba303Test {
 		
 		//Jugador1 compra buenos aires norte
 		jugador1.setEstado(jugador1.getJugadorTiroDados() );
-		tablero.moverJugador(jugador1, 4);
-		Casillero unacasilla = tablero.obtenerCasillero(jugador1);
-		EstadoCasillero estado = unacasilla.getestado();
 		try {
-			jugador1.comprar((Comprable) estado);
+			jugador1.comprar(tablero.getBuenosAiresNorte());
 		} catch (NoEsTurnoJugador e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,11 +35,9 @@ public class Prueba303Test {
 		
 		//Jugador 2 compra buenos aires sur
 		jugador2.setEstado(jugador2.getJugadorTiroDados() );
-		tablero.moverJugador(jugador2, 2);
-		unacasilla = tablero.obtenerCasillero(jugador2);
-		estado = unacasilla.getestado();
+
 		try {
-			jugador2.comprar((Comprable) estado);
+			jugador2.comprar(tablero.getBuenosAiresSur());
 		} catch (NoEsTurnoJugador e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,15 +47,11 @@ public class Prueba303Test {
 		//Jugador 2 cae en buenos aires norte sin dinero suficiente
 		jugador2.setDinero(0);
 		jugador2.setEstado(jugador2.getJugadorTiroDados() );
-		tablero.moverJugador(jugador2, 2);
-		algopoly.efectoCasillero(jugador2);
+		tablero.moverJugador(jugador2, 4);
 		algopoly.vender(jugador2, tablero.getBuenosAiresSur() );
-		jugador1.sumarDinero(2500);
+		algopoly.efectoCasillero(jugador2);
 
-		
-		
-		
-		
+
 		Assert.assertEquals(75000 + 2500, jugador1.getDinero() );;
 	}
 
