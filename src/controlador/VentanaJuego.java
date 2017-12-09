@@ -161,67 +161,86 @@ public class VentanaJuego{
         
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
-        hbox.setSpacing(10);
+        hbox.setSpacing(20);
         
         hbox.getChildren().addAll(BotonSalir);
         
         root.setTop(hbox);
         
         //Botonera de acciones en vertical
+        VBox AccionesVBox = new VBox();
+        AccionesVBox.setPadding(new Insets(10, 20, 10, 20));
+        AccionesVBox.setSpacing(5);
         
         botonArrojarDados = new Button();
         Image imagenBoton = new Image("file:src/imagenes/dice.png");
         botonArrojarDados.setGraphic(new ImageView(imagenBoton));
-        botonArrojarDados.setMinWidth(125);
+        botonArrojarDados.setMinWidth(160);
+        //botonArrojarDados.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonArrojarDadosHandler = new BotonArrojarDadosHandler(this.algopoly ,hash, this,botonArrojarDados);
         botonArrojarDados.setOnAction(BotonArrojarDadosHandler);
         
         
         botonPagarFianza = new Button();
-        botonPagarFianza.setText("Pagar Fianza");
-        botonPagarFianza.setMinWidth(125);
+        //botonPagarFianza.setText("Pagar Fianza");
+        Image imagenPagarFianza = new Image("file:src/imagenes/BotonPagarFianza.png");
+        botonPagarFianza.setGraphic(new ImageView(imagenPagarFianza));
+        botonPagarFianza.setMinWidth(160);
+        //botonPagarFianza.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonPagarFianzaHandler = new BotonPagarFianzaHandler();
         botonPagarFianza.setOnAction(BotonPagarFianzaHandler);
         
         
         botonVenderTerreno = new Button();
-        botonVenderTerreno.setText("Vender Terreno");
-        botonVenderTerreno.setMinWidth(125);
+        //botonVenderTerreno.setText("Vender Terreno");
+        Image imagenBotonVenderTerreno = new Image("file:src/imagenes/BotonVender.png");
+        botonVenderTerreno.setGraphic(new ImageView(imagenBotonVenderTerreno));
+        botonVenderTerreno.setMinWidth(160);
+        //botonVenderTerreno.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonVenderTerrenoHandler = new BotonVenderTerrenoHandler();
         botonVenderTerreno.setOnAction(BotonVenderTerrenoHandler);
         
         botonIntercambiarTerreno = new Button();
-        botonIntercambiarTerreno.setText("Intercambiar terreno");
-        botonIntercambiarTerreno.setMinWidth(125);
+        //botonIntercambiarTerreno.setText("Intercambiar terreno");
+        Image imagenBotonIntercambiar = new Image("file:src/imagenes/BotonIntercambio.png");
+        botonIntercambiarTerreno.setGraphic(new ImageView(imagenBotonIntercambiar));
+        botonIntercambiarTerreno.setMinWidth(160);
+        //botonIntercambiarTerreno.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler();
         botonIntercambiarTerreno.setOnAction(BotonIntercambiarTerrenoHandler);
         
         botonConstruirCasa = new Button();
-        botonConstruirCasa.setText("Construir casa");
-        botonConstruirCasa.setMinWidth(125);
+        //botonConstruirCasa.setText("Construir casa");
+        Image imagenBotonConstruirCasa = new Image("file:src/imagenes/ComprarCasa.png");
+        botonConstruirCasa.setGraphic(new ImageView(imagenBotonConstruirCasa));
+        botonConstruirCasa.setMinWidth(160);
+        //botonConstruirCasa.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonConstruirCasaHandler = new BotonConstruirCasaHandler(this);
         botonConstruirCasa.setOnAction(BotonConstruirCasaHandler);
         
         botonConstruirHotel = new Button();
-        botonConstruirHotel.setText("Construir hotel");
-        botonConstruirHotel.setMinWidth(125);
+        //botonConstruirHotel.setText("Construir hotel");
+        Image imagenBotonConstruirHotel = new Image("file:src/imagenes/BotonHotel.png");
+        botonConstruirHotel.setGraphic(new ImageView(imagenBotonConstruirHotel));
+        botonConstruirHotel.setMinWidth(160);
+        //botonConstruirHotel.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonConstruirHotelHandler = new BotonConstruirHotelHandler();
         botonConstruirHotel.setOnAction(BotonConstruirHotelHandler);
         
         
         botonTerminarTurno = new Button();        
-        botonTerminarTurno.setText("Terminar turno");
-        botonTerminarTurno.setMinWidth(125);
+        //botonTerminarTurno.setText("Terminar turno");
+        Image imagenBotonTerminar = new Image("file:src/imagenes/BotonTerminarTurno.png");
+        botonTerminarTurno.setGraphic(new ImageView(imagenBotonTerminar));
+        botonTerminarTurno.setMinWidth(160);
+        //botonTerminarTurno.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler(this, juego);
         botonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
         
-        VBox AccionesVBox = new VBox();
-        AccionesVBox.setPadding(new Insets(10,12,10,12) );
-        AccionesVBox.setSpacing(20);
         
-        AccionesVBox.getChildren().addAll(botonTerminarTurno,
-        		botonVenderTerreno, botonIntercambiarTerreno, botonConstruirCasa,
-        		botonConstruirHotel, botonPagarFianza, botonArrojarDados);
+        AccionesVBox.getChildren().addAll(botonTerminarTurno,botonArrojarDados,
+        		botonVenderTerreno, botonConstruirCasa,
+        		botonConstruirHotel, botonPagarFianza,botonIntercambiarTerreno);
         
         root.setLeft(AccionesVBox);
         
