@@ -222,7 +222,7 @@ public class VentanaOperacion {
         text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         Text text2 = new Text();
-        text2.setText("en" + prop.getNombre() + "?");
+        text2.setText("en " + prop.getNombre() + "?");
         text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         TextFlow textos = new TextFlow();

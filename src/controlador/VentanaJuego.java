@@ -10,6 +10,7 @@ import estados.EstadoCasillero;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -116,25 +117,30 @@ public class VentanaJuego{
         
         // Creo los canvas para cada jugador, los agrego al hashmap
         Image iconojugador1 = new Image("file:src/imagenes/galera.jpg");
+        Color colorjugador1 = Color.CYAN;
+        
         Image iconojugador2 = new Image("file:src/imagenes/carretilla.jpg");
+        Color colorjugador2 = Color.PINK;
+        
         Image iconojugador3 = new Image("file:src/imagenes/auto.png");
+        Color colorjugador3 = Color.SPRINGGREEN;
         
         Canvas canvasjugador1 = new Canvas(800, 800);
         GraphicsContext gcjugador1 = canvasjugador1.getGraphicsContext2D();
-        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, Color.CYAN, iconojugador1);
+        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, colorjugador1, iconojugador1);
         stackcapas.getChildren().add(canvasjugador1);
         hash.put(jugador1, capajugador1);
         
         
         Canvas canvasjugador2 = new Canvas(800, 800);
         GraphicsContext gcjugador2 = canvasjugador2.getGraphicsContext2D();
-        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.PINK, iconojugador2);
+        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, colorjugador2, iconojugador2);
         stackcapas.getChildren().add(canvasjugador2);
         hash.put(jugador2, capajugador2);
         
         Canvas canvasjugador3 = new Canvas(800, 800);
         GraphicsContext gcjugador3 = canvasjugador3.getGraphicsContext2D();
-        JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, Color.SPRINGGREEN, iconojugador3);
+        JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, colorjugador3, iconojugador3);
         stackcapas.getChildren().add(canvasjugador3);
         hash.put(jugador3, capajugador3);
     
@@ -160,12 +166,12 @@ public class VentanaJuego{
 
         
         HBox hbox = new HBox();
-        hbox.setPadding(new Insets(15, 12, 15, 12));
-        hbox.setSpacing(20);
+        hbox.setPadding(new Insets(10));
+        hbox.setSpacing(10);
         
         hbox.getChildren().addAll(BotonSalir);
         
-        root.setTop(hbox);
+        root.setBottom(hbox);
         
         //Botonera de acciones en vertical
         VBox AccionesVBox = new VBox();
@@ -249,18 +255,6 @@ public class VentanaJuego{
         
         StackPane stackderecho = new StackPane();
         
-                
-       /*       
-        Text untexto = new Text();
-        untexto.setText("Turno actual\n");
-        
-        Text textoestado = new Text();
-        untexto.setText("Yolo: " + "swag" + "\n" + "blaze it 420");
-        
-        TextFlow textflow = new TextFlow(untexto,textoestado);
-        textflow.setMaxHeight(600);
-        textflow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
-        */
         
         Text textoturnojugador = new Text("Turno Actual: ");
         textoturnojugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
@@ -287,8 +281,33 @@ public class VentanaJuego{
         stackderecho.getChildren().addAll(textFlow);
         root.setRight(stackderecho);
 
-
+        //Agrego referencia a jugadores arriba
         
+        Canvas referencias = new Canvas(1000, 100);
+        GraphicsContext refgc = referencias.getGraphicsContext2D();
+        refgc.drawImage(iconojugador1, 50, 25, 50, 50);
+        refgc.fillText("Jugador 1\n" + nombreJugador1, 110, 35);
+        refgc.setFill(colorjugador1);
+        refgc.fillRect(110, 60,	75, 15);
+        
+        
+        refgc.setFill(Color.BLACK);
+        refgc.drawImage(iconojugador2, 300, 25, 50, 50);
+        refgc.fillText("Jugador 2\n" + nombreJugador2, 360, 35);
+        refgc.setFill(colorjugador2);
+        refgc.fillRect(360, 60, 75, 15);
+        
+        refgc.setFill(Color.BLACK);
+        refgc.drawImage(iconojugador3, 550, 25, 50, 50);
+        refgc.fillText("Jugador 3\n" + nombrejugador3, 610, 35);
+        refgc.setFill(colorjugador3);
+        refgc.fillRect(610, 60, 75, 15);
+        
+        HBox topbox = new HBox();
+        topbox.getChildren().add(referencias);
+        topbox.setAlignment(Pos.CENTER);
+        
+        root.setTop(topbox);
 
         primaryStage.setTitle("AlgoPoly");
         primaryStage.setScene(scene);
