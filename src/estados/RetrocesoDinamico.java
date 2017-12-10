@@ -36,7 +36,7 @@ public class RetrocesoDinamico extends Movimiento {
 		return "Retroceso Dinamico";
 	}
 
-	public String mensajeEfecto(Jugador unJugador){
+	public String getMensaje(Jugador unJugador){
 		return "Retrocede: " + calcularDesplazamiento(unJugador) + " casilleros";
 	}
 }

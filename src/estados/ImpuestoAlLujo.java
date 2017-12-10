@@ -1,6 +1,7 @@
 package estados;
 
 import modelo.Jugador.Jugador;
+import vista.eventos.mensajescasillero.Mensaje;
 
 public class ImpuestoAlLujo extends EstadoCasillero {
 
@@ -16,7 +17,14 @@ public class ImpuestoAlLujo extends EstadoCasillero {
 		return "Impuesto al Lujo";
 	}
 
-	public String mensajeEfecto(Jugador unJugador){
+	public String getMensaje(Jugador unJugador){
 		return "Pagas: " + (int)(unJugador.getDinero()*0.1);
+	}
+
+	public void mensajeEfecto(Jugador unJugador) {
+
+		Mensaje mensaje = new Mensaje();
+
+		mensaje.mensajeEfecto(unJugador,this);
 	}
 }

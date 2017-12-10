@@ -15,10 +15,24 @@ public class Tucuman extends Propiedad {
 
 	public int getValorCasa(){ return 7000; }
 
+	@Override
+	public int getValorHotel() {
+		return 0;
+	}
+
 	public int getCostoAlquiler(){ return 2500; }
 
 	public int getCostoAlquilerConCasa(){ return 4500;}
 
+	@Override
+	public int getCostoAlquilerConDosCasas() {
+		return 0;
+	}
+
+	@Override
+	public int getCostoAlquilerConHotel() {
+		return 0;
+	}
 
 
 	public void puedeEdificar(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {

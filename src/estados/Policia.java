@@ -2,6 +2,7 @@ package estados;
 
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
+import vista.eventos.mensajescasillero.Mensaje;
 
 public class Policia extends Movimiento {
 
@@ -26,7 +27,13 @@ public class Policia extends Movimiento {
 		return "Policia";
 	}
 
-	public String mensajeEfecto(Jugador unJugador){
+	public String getMensaje(Jugador unJugador){
 		return "Marche a la carcel";
+	}
+
+	public void mensajeEfecto(Jugador unJugador){
+		Mensaje mensaje = new Mensaje();
+
+		mensaje.mensajeEfecto(unJugador,this);
 	}
 }

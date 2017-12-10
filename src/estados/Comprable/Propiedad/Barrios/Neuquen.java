@@ -19,9 +19,24 @@ public class Neuquen extends Propiedad {
 
 	public int getValorCasa(){ return 4800; }
 
+	@Override
+	public int getValorHotel() {
+		return 0;
+	}
+
 	public int getCostoAlquiler(){ return 1000; }
 
 	public int getCostoAlquilerConCasa(){ return 3800;}
+
+	@Override
+	public int getCostoAlquilerConDosCasas() {
+		return 0;
+	}
+
+	@Override
+	public int getCostoAlquilerConHotel() {
+		return 0;
+	}
 
 
 	public void puedeEdificar(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {

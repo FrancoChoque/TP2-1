@@ -18,7 +18,7 @@ public class AvanceDinamico extends Movimiento {
         int valorDeDados = unJugador.getValorDados();
 
         if(valorDeDados<= 6){
-                return valorDeDados - 2;
+            return valorDeDados - 2;
         }
         if(valorDeDados<= 10){
             return unJugador.getDinero() % valorDeDados;
@@ -28,11 +28,13 @@ public class AvanceDinamico extends Movimiento {
     }
 
     public String getNombre(){
-            return "Avance Dinamico";
-        }
+        return "Avance Dinamico";
+    }
 
-    public String mensajeEfecto(Jugador unJugador){
+    public String getMensaje(Jugador unJugador){
         return "Avanza: " + calcularDesplazamiento(unJugador) + " casilleros";
     }
+
+
 }
 

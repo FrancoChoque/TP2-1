@@ -2,7 +2,9 @@ package estados.Comprable.Servicio.Servicios;
 
 
 import estados.Comprable.Servicio.Servicio;
+import modelo.Jugador.Jugador;
 import modelo.Tablero;
+import vista.eventos.mensajescasillero.Mensaje;
 
 public class Tren extends Servicio {
 
@@ -11,23 +13,24 @@ public class Tren extends Servicio {
     }
 
 
-    public int getCostoPase(int valorDados){
+    public int getCostoPase(Jugador unJugador){
 
         Tablero tablero = Tablero.getInstance();
 
         if(this.getDuenio() == tablero.getSubte().getDuenio()){
-            return valorDados * 800;
+            return unJugador.getValorDados() * 800;
         }
 
-        return valorDados*450;
+        return unJugador.getValorDados()*450;
     }
 
     public String getNombre(){
         return "Tren";
     }
 
- 	@Override
-	public String toString(){
-		return "Tren";
-	}
+    public void mensajeEfecto(Jugador unJugador) {
+        Mensaje mensaje = new Mensaje();
+
+        mensaje.mensajeEfecto(unJugador, this);
+    }
 }

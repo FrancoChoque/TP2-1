@@ -9,8 +9,9 @@ import modelo.Casa;
 import modelo.Edificio;
 import modelo.Hotel;
 import modelo.Jugador.Jugador;
+import vista.eventos.mensajescasillero.Mensaje;
 
-public class Propiedad extends Comprable {
+public abstract class Propiedad extends Comprable {
 
 
 	protected Stack<Edificio> edificios = new Stack<Edificio>();
@@ -47,19 +48,19 @@ public class Propiedad extends Comprable {
 		this.propiedadEstado = estado;
 	}
 
-	public int getPrecioCompra(){ return 0; }
+	public abstract int getPrecioCompra();
 
-	public int getValorCasa(){ return 0; }
+	public abstract int getValorCasa();
 
-	public int getValorHotel(){ return 0; }
+	public abstract int getValorHotel();
 
-	public int getCostoAlquiler(){ return 0; }
+	public abstract int getCostoAlquiler();
 
-	public int getCostoAlquilerConCasa(){ return 0;}
+	public abstract int getCostoAlquilerConCasa();
 
-	public int getCostoAlquilerConDosCasas(){ return 0;}
+	public abstract int getCostoAlquilerConDosCasas();
 
-	public int getCostoAlquilerConHotel(){ return 0;}
+	public abstract int getCostoAlquilerConHotel();
 
 
 
@@ -73,9 +74,9 @@ public class Propiedad extends Comprable {
 	public void cobrarPase(Jugador unJugador){
 
 		unJugador.sumarDinero(propiedadEstado.getCostoPase() * -1);
-		
+
 		if(unJugador.getDinero()<0) throw new DineroInsuficiente();
-		
+
 		this.getDuenio().sumarDinero(propiedadEstado.getCostoPase());
 	}
 
@@ -85,11 +86,11 @@ public class Propiedad extends Comprable {
 		propiedadEstado.puedeConstruir(unJugador, casa);
 		edificios.add(casa);
 		unJugador.sumarDinero(getValorCasa() * -1);
-		
+
 		if(this.propiedadEstado == this.propiedadConCasa) this.setPropiedadEstado(propiedadConDosCasas);
-		
+
 		if(this.propiedadEstado == this.propiedadSinCasa) this.setPropiedadEstado(propiedadConCasa);
-		
+
 	}
 
 
@@ -124,17 +125,9 @@ public class Propiedad extends Comprable {
 
 	}
 
-	public void puedeEdificar(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
+	public abstract void puedeEdificar(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas;
 
-	}
-
-	public void puedeEdificar(Jugador unJugador, Hotel hotel) throws NoPuedeConstruirMasHoteles, CasasInsuficientes, JugadorNoPoseeTodosLosBarrios {
-
-	}
-
-	public String mensajeEfecto(Jugador unJugador) {
-		return "Costo del alquiler: " + propiedadEstado.getCostoPase();
-	}
+	public abstract void puedeEdificar(Jugador unJugador, Hotel hotel) throws NoPuedeConstruirMasHoteles, CasasInsuficientes, JugadorNoPoseeTodosLosBarrios;
 
 
 	public int getCantidadEdificios(){
@@ -147,9 +140,15 @@ public class Propiedad extends Comprable {
 		return null;
 	}
 
-	public int getCostoPase() {
+	public int getCostoPase(Jugador unJugador) {
 		return propiedadEstado.getCostoPase();
-		
+
+	}
+
+	public void mensajeEfecto(Jugador unJugador){
+		Mensaje mensaje = new Mensaje();
+
+		mensaje.mensajeEfecto(unJugador,this);
 	}
 
 

@@ -6,6 +6,7 @@ package estados;
 import java.util.HashMap;
 
 import modelo.Jugador.Jugador;
+import vista.eventos.mensajescasillero.Mensaje;
 
 public class Quini6 extends EstadoCasillero {
 
@@ -40,8 +41,16 @@ public class Quini6 extends EstadoCasillero {
 		return "Quini6";
 	}
 
-	public String mensajeEfecto(Jugador unJugador) {
-		return "Sumas: $" + getDinero(unJugador);
+	public void mensajeEfecto(Jugador unJugador) {
+
+		Mensaje mensaje = new Mensaje();
+
+		mensaje.mensajeEfecto(unJugador,this);
+
+	}
+
+	public String getMensaje(Jugador jugador){
+		return  "Sumas: $" + getDinero(jugador);
 	}
 
 	public int getDinero(Jugador unJugador){

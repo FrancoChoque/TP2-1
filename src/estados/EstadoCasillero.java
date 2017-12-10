@@ -12,8 +12,10 @@ public class EstadoCasillero {
 		return "";
 	}
 
-	public String mensajeEfecto(Jugador unJugador) { return "";}
+	public String getMensaje(Jugador jugador){
+		return "";
+	}
 
-
+	public void mensajeEfecto(Jugador unJugador) { return ;}
 
 }

@@ -18,6 +18,9 @@ public interface ComprableEstado {
 
     public void cobrarPase(Jugador unJugador);
 
+    public String getMensaje(Jugador unJugador);
+
+
 
 
 

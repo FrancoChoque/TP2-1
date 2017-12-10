@@ -37,6 +37,11 @@ public class ComprableTieneDuenio implements ComprableEstado {
         return true;
     }
 
+
+    public String getMensaje(Jugador unJugador){
+        return "Pagaste de alquiler $"+ comprable.getCostoPase(unJugador) +"\n" + " a: "+ comprable.getDuenio().getNombre() + "\n";
+    }
+
     public void cobrarPase(Jugador unJugador){}
 
 

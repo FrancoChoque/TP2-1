@@ -6,7 +6,7 @@ import java.util.HashMap;
 import excepciones.DineroInsuficiente;
 import excepciones.TurnosEnCalabozoInvalidoException;
 import modelo.Jugador.Jugador;
-
+import vista.eventos.mensajescasillero.Mensaje;
 
 
 public class Carcel extends EstadoCasillero {
@@ -84,7 +84,14 @@ public class Carcel extends EstadoCasillero {
 		return "Carcel";
 	}
 
-	public String mensajeEfecto(Jugador unJugador){
-		return "Turnos restantes: " + (4- preguntarTurnosEnCalabozo(unJugador));
+	public String getMensaje(Jugador jugador){
+		return "Tenes que esperar: " + (4- preguntarTurnosEnCalabozo(jugador))+ " turnos.";
+	}
+
+	public void mensajeEfecto(Jugador unJugador){
+
+		Mensaje mensaje = new Mensaje();
+
+		mensaje.mensajeEfecto(unJugador,this);
 	}
 }

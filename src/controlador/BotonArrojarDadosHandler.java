@@ -17,6 +17,7 @@ import modelo.Casillero;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
+import vista.eventos.mensajescasillero.Mensaje;
 
 public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
@@ -38,7 +39,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
 			EstadoCasillero casillero = algopoly.getTablero().obtenerCasillero(actual).getestado();
 
-			box.display(casillero.getNombre(), actual.getValorDados());
+			box.display(casillero.getNombre(), actual.getValorDado1(), actual.getValorDado2());
 
 			accion = "Arrojaste los dados y sacaste: " + actual.getValorDado1() + " y " + actual.getValorDado2() + "\n";
 
@@ -90,22 +91,8 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 	private void mensajeEfecto(Jugador jugador) {
 
 		Tablero tablero = this.algopoly.getTablero();
-		Casillero casillero = tablero.obtenerCasillero(this.algopoly.obtenerJugadorActual() );
-		EstadoCasillero estado = casillero.getestado();
-		if(estado == tablero.getSalida()) return;
-		AlertBox box = new AlertBox();
-		try {
-			Comprable uncomprable = (Comprable) estado;
-			if(uncomprable.tieneDuenio()) {
-				box.mensajeEfecto(estado,jugador);
-				ventana.agregaraccion("Pertenece a " + uncomprable.getDuenio().getNombre() + "\n");
-				ventana.agregaraccion("Pagaste de alquiler $"+ uncomprable.getCostoPase() +"\n");
-			}
-			else box.ofrecercompra((EstadoCasillero) uncomprable);
-
-		} catch(ClassCastException e) {
-			box.mensajeEfecto(estado,jugador);
-		}
+		Mensaje mensaje = new Mensaje();
+		mensaje.mensajeEfecto(jugador,tablero.obtenerCasillero(jugador).getestado());
 	}
 
 	public BotonArrojarDadosHandler(AlgoPoly unalgopoly, HashMap<Jugador, JugadorCapa> hash, VentanaJuego unaventana, Button botonArrojarDados) {

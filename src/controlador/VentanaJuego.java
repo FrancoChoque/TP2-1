@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -92,7 +93,7 @@ public class VentanaJuego{
 		//Layout borderpane y escena
         
         BorderPane root = new BorderPane();
-        Scene scene = new Scene(root, 1400, 900);
+        Scene scene = new Scene(root, 1600, 900);
         mainApp.setecenaPrincipal(scene);
         
         // Agrego imagen del tablero
@@ -206,19 +207,24 @@ public class VentanaJuego{
         //botonIntercambiarTerreno.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonIntercambiarTerrenoHandler = new BotonIntercambiarTerrenoHandler();
         botonIntercambiarTerreno.setOnAction(BotonIntercambiarTerrenoHandler);
-        
+
         botonConstruirCasa = new Button();
         //botonConstruirCasa.setText("Construir casa");
-        Image imagenBotonConstruirCasa = new Image("file:src/imagenes/ComprarCasa.png");
+        Image imagenBotonConstruirCasa = new Image("file:src/imagenes/ConstuirCasa.png");
+        botonConstruirCasa.setFont(Font.font("Helvetica", FontWeight.NORMAL, 16));
+        botonConstruirCasa.setText("Constuir Casa");
+        botonConstruirCasa.setContentDisplay(ContentDisplay.TOP);
         botonConstruirCasa.setGraphic(new ImageView(imagenBotonConstruirCasa));
         botonConstruirCasa.setMinWidth(160);
         //botonConstruirCasa.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonConstruirCasaHandler = new BotonConstruirCasaHandler(this);
         botonConstruirCasa.setOnAction(BotonConstruirCasaHandler);
-        
+
         botonConstruirHotel = new Button();
-        //botonConstruirHotel.setText("Construir hotel");
-        Image imagenBotonConstruirHotel = new Image("file:src/imagenes/BotonHotel.png");
+        Image imagenBotonConstruirHotel = new Image("file:src/imagenes/hotel2.png");
+        botonConstruirHotel.setFont(Font.font("Helvetica", FontWeight.NORMAL, 16));
+        botonConstruirHotel.setText("Construir hotel");
+        botonConstruirHotel.setContentDisplay(ContentDisplay.TOP);
         botonConstruirHotel.setGraphic(new ImageView(imagenBotonConstruirHotel));
         botonConstruirHotel.setMinWidth(160);
         //botonConstruirHotel.setMinWidth(Double.MAX_VALUE);

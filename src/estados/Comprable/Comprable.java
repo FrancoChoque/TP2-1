@@ -2,6 +2,7 @@ package estados.Comprable;
 
 import estados.EstadoCasillero;
 import modelo.Jugador.Jugador;
+import vista.eventos.mensajescasillero.Mensaje;
 
 public class Comprable extends EstadoCasillero {
 
@@ -32,7 +33,7 @@ public class Comprable extends EstadoCasillero {
 		estado.cobrarPase(unJugador);
 	}
 
-	public int getCostoPase(){ return 0;}
+	public int getCostoPase(Jugador unJugador){ return 0;}
 
 
 	public void reembolsar(){
@@ -41,6 +42,13 @@ public class Comprable extends EstadoCasillero {
 
 	public String getNombre(){return "";}
 
+	public void mensajeEfecto(Jugador unJugador){
+
+	}
+
+	public String getMensaje(Jugador unJugador){
+		return estado.getMensaje(unJugador);
+	}
 
 	public Jugador getDuenio(){
 		return estado.getDuenio();
@@ -55,9 +63,7 @@ public class Comprable extends EstadoCasillero {
 	}
 
 
-	public boolean esComprable() {
-		return true;
-	}
+
 
 
 	public ComprableEstado getEstado() {

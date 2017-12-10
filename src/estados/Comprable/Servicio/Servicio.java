@@ -4,14 +4,14 @@ package estados.Comprable.Servicio;
 import estados.Comprable.Comprable;
 import modelo.Jugador.Jugador;
 
-public class Servicio extends Comprable {
+public abstract class Servicio extends Comprable {
 
 
 
     public void cobrarPase(Jugador unJugador){
 
-        unJugador.sumarDinero(this.getCostoPase(unJugador.getValorDados())*-1);
-        this.Duenio.sumarDinero(getCostoPase(unJugador.getValorDados()));
+        unJugador.sumarDinero(this.getCostoPase(unJugador)*-1);
+        this.Duenio.sumarDinero(getCostoPase(unJugador));
     }
 
     public void reembolsar(){
@@ -22,16 +22,8 @@ public class Servicio extends Comprable {
     }
 
 
-    public int getPrecioCompra(){
-        return 0;
-    }
+    public abstract int getPrecioCompra();
 
-    public int getCostoPase(int valorDados){
-        return 0;
-    }
+    public abstract int getCostoPase(Jugador unJugador);
 
-    @Override
-    public String mensajeEfecto(Jugador unJugador) {
-        return "Costo del alquiler: " + getCostoPase(unJugador.getValorDados());
-    }
 }

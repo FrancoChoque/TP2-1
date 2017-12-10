@@ -8,9 +8,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -18,16 +21,24 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+
 import static javafx.scene.text.Font.*;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
 import estados.EstadoCasillero;
+import estados.Comprable.Comprable;
+import estados.Comprable.Propiedad.Propiedad;
 import modelo.Jugador.Jugador;
 import vista.eventos.BotonVolverOnKeyPress;
 
 
 public class AlertBox {
 
-    public void display(String posicion, int valorDados){
+    public void display(String posicion, int valorDado1, int valorDado2){
 
         Stage stage = new Stage();
 
@@ -40,12 +51,9 @@ public class AlertBox {
         Text text = new Text();
         Text text2 = new Text();
 
-        System.out.println("Valor de los dados: " + valorDados + "\n" + "Caiste en: " + posicion);
-        text.setText("Valor de los dados: " + valorDados + "\n" );
-        text2.setText("Caiste en: " + posicion);
 
+        text.setText("Valor de los dados: " + valorDado1 + " y " + valorDado2 +"\n" + "Caiste en: " + posicion +"\n");
         text.setFont(font("Helvetica", FontPosture.ITALIC, 20));
-        text2.setFont(font("Helvetica", FontPosture.ITALIC, 20));
 
         Button button = new Button();
         button.setAlignment(Pos.CENTER);
@@ -57,19 +65,19 @@ public class AlertBox {
         button.setOnKeyPressed(new BotonVolverOnKeyPress(stage));
 
 
-        TextFlow text3 = new TextFlow(text,text2);
+        TextFlow text3 = new TextFlow(text);
         text3.setTextAlignment(TextAlignment.CENTER);
         text3.setPadding( new Insets(10,10,10,10));
 
         layout.setTop(text3);
 
         button.setAlignment(Pos.CENTER);
-        
+
         VBox vbox = new VBox();
         vbox.getChildren().addAll(text3,button);
         vbox.setPadding( new Insets(10,10,10,10));
         vbox.setAlignment(Pos.CENTER);
-        
+
         layout.setCenter(vbox);
 
 
@@ -123,64 +131,35 @@ public class AlertBox {
         stage.showAndWait();
     }
 
-	public void ofrecercompra(EstadoCasillero estado) {
-		// TODO Auto-generated method stub
-		
-		Stage stage = new Stage();
-		stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Terreno sin duenio");
-        
-        
-        
-        BorderPane layout = new BorderPane();
+    public void ofrecercompra(BorderPane layout, Stage stage) {
 
-        Text text1 = new Text();
-        text1.setText(estado.getNombre() + " no tiene duenio.\n");
-        text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
-        
-        Text text2 = new Text();
-        text2.setText("Desea comprarla?");
-        text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
-        
-        TextFlow textos = new TextFlow();
-        textos.setTextAlignment(TextAlignment.CENTER);
-        textos.getChildren().addAll(text1, text2);
-        textos.setPadding(new Insets(10,10,10,10));
-        
-        layout.setCenter(textos);
-        
+
         HBox opciones = new HBox();
         opciones.setAlignment(Pos.TOP_CENTER);
         opciones.setSpacing(15);
         opciones.setPadding(new Insets(10,10,10,10));
         layout.setBottom(opciones);
- 
+
         Button botonaceptar = new Button();
         botonaceptar.setMinWidth(80);
         botonaceptar.setText("Comprar");
         EventHandler<ActionEvent> botonaceptarhandler = new BotonComprarTerrenoHandler(stage);
         botonaceptar.setOnAction(botonaceptarhandler);
-        
-        
+
+
         Button botonrechazar = new Button();
         botonrechazar.setMinWidth(80);
         botonrechazar.setText("Volver");
         EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
         botonrechazar.setOnAction(botonrechazarhandler);
-        
-        
-        
-        
-        
-        opciones.getChildren().addAll(botonaceptar, botonrechazar);
-        
-        Scene escenacomprar = new Scene(layout,400,120);
-        stage.setScene(escenacomprar);
-        stage.showAndWait();
-	}
 
-	public void errorcompra() {
-		// TODO Auto-generated method stub
+        opciones.getChildren().addAll(botonaceptar, botonrechazar);
+
+        layout.setBottom(opciones);
+    }
+
+    public void errorcompra() {
+        // TODO Auto-generated method stub
         Stage stage = new Stage();
 
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -215,8 +194,7 @@ public class AlertBox {
         vbox.setPadding( new Insets(10,10,10,10));
         vbox.setAlignment(Pos.CENTER);
 
-        
-        layout.setTop(vbox);
+        layout.setCenter(vbox);
 
 
         Scene scene = new Scene(layout, 300,150);
@@ -224,12 +202,11 @@ public class AlertBox {
         stage.setScene(scene);
 
         stage.showAndWait();
-	}
+    }
 
-    public void mensajeEfecto(EstadoCasillero casillero, Jugador jugador){
+    public void mensajeEfecto(Jugador jugador, EstadoCasillero casillero, AudioClip audioClip, Image imagen){
 
         Stage stage = new Stage();
-
 
         stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -238,37 +215,41 @@ public class AlertBox {
         BorderPane layout = new BorderPane();
 
         Text text = new Text();
-        text.setText(casillero.mensajeEfecto(jugador));
-        text.setFont(font("Helvetica", FontPosture.ITALIC, 20));
 
+        text.setText(casillero.getMensaje(jugador));
 
-        Button button = new Button();
-        button.setAlignment(Pos.CENTER);
-        button.setMinWidth(80);
-        button.setText("OK");
+        text.setFont(font("Helvetica", FontPosture.ITALIC, 23));
 
-        button.setOnAction(event -> stage.close());
-        button.setOnKeyPressed(new BotonVolverOnKeyPress(stage));
+        layout.setCenter(text);
 
+        ImageView view = new ImageView(imagen);
 
-        TextFlow text3 = new TextFlow(text);
-        text3.setTextAlignment(TextAlignment.CENTER);
-        text3.setPadding( new Insets(10,10,10,10));
+        BorderPane.setAlignment(view,Pos.TOP_CENTER);
 
+        layout.setTop(view);
 
-        VBox vbox = new VBox();
-        vbox.getChildren().addAll(text3,button);
-        vbox.setPadding( new Insets(10,10,10,10));
-        vbox.setAlignment(Pos.CENTER);
+        if(casillero instanceof Comprable && !((Comprable) casillero).tieneDuenio()){
+            ofrecercompra(layout,stage);
+        }else {
+            Button button = new Button();
+            button.setAlignment(Pos.CENTER);
+            button.setMinWidth(80);
+            button.setText("OK");
 
-        layout.setCenter(vbox);
-
-        Scene scene = new Scene(layout, 350,120);
+            button.setOnAction(event -> stage.close());
+            button.setOnKeyPressed(new BotonVolverOnKeyPress(stage));
+            button.setAlignment(Pos.TOP_CENTER);
+            BorderPane.setAlignment(button,Pos.TOP_CENTER);
+            layout.setBottom(button);
+        }
+        Scene scene = new Scene(layout, 400,250);
         stage.setScene(scene);
 
         stage.showAndWait();
 
     }
-	
-	
+
+
+
+
 }

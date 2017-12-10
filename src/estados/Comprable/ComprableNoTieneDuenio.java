@@ -37,6 +37,12 @@ public class ComprableNoTieneDuenio implements ComprableEstado {
     }
 
 
+    public String getMensaje(Jugador unJugador) {
+        return comprable.getNombre() + " no tiene propietario" + "\n" +"Desea comprarlo por $" + comprable.getPrecioCompra() +"?";
+    }
+
+
+
     public Jugador getDuenio(){
         return null;
     }
