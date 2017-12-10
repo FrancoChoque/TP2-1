@@ -29,11 +29,17 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.paint.Stop;
+import javafx.scene.paint.CycleMethod;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.scene.effect.*;
+import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Casillero;
@@ -249,7 +255,10 @@ public class VentanaJuego{
         
         StackPane stackderecho = new StackPane();
         
-                
+        Image imagenFondoInformacion = new Image("file:src/imagenes/fondoLetras.png");
+        
+        
+        //stackderecho.getChildren().addAll(helpIcon);
        /*       
         Text untexto = new Text();
         untexto.setText("Turno actual\n");
@@ -261,6 +270,20 @@ public class VentanaJuego{
         textflow.setMaxHeight(600);
         textflow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
         */
+        
+        Text textoInformacion = new Text("INFORMACION DEL JUGADOR\n");
+        DropShadow ds = new DropShadow();
+        ds.setOffsetY(3.0f);
+        ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
+         
+        Text t = new Text();
+        textoInformacion.setEffect(ds);
+        textoInformacion.setCache(true);
+        textoInformacion.setX(10.0f);
+        textoInformacion.setY(270.0f);
+        textoInformacion.setFill(Color.RED);
+        textoInformacion.setFont(Font.font(null, FontWeight.BOLD, 25));
+        
         
         Text textoturnojugador = new Text("Turno Actual: ");
         textoturnojugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
@@ -276,15 +299,23 @@ public class VentanaJuego{
         this.text5.setText(accionesjugador);
         
         
+        TextFlow textFlowAcciones = new TextFlow(textoaccionesjugador,text5);
+        textFlowAcciones.setLineSpacing(10);
+        textFlowAcciones.setTextAlignment(TextAlignment.CENTER);
         
-        TextFlow textFlow = new TextFlow(textoturnojugador,this.nombrejugador, textodinerojugador,this.dinerojugador, textoposicionjugador,this.posicionjugador,
-        		textoaccionesjugador, text5);
-        textFlow.setMaxHeight(600);
+        
+        TextFlow textFlow = new TextFlow(textoInformacion,textoturnojugador,this.nombrejugador, 
+        		textodinerojugador,this.dinerojugador, textoposicionjugador,this.posicionjugador,
+        		textFlowAcciones);
+        //textFlow.setPadding(new Insets(0, 20, 10, 20));
+        textFlow.setMaxHeight(700);
         textFlow.setMinWidth(500);
         textFlow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
-        textFlow.setLineSpacing(7);
+        textFlow.setLineSpacing(100);
+        textFlow.setTextAlignment(TextAlignment.CENTER);
+        textFlow.setStyle("-fx-background-color: transparent");
         
-        stackderecho.getChildren().addAll(textFlow);
+        stackderecho.getChildren().addAll(new ImageView(imagenFondoInformacion),textFlow);
         root.setRight(stackderecho);
 
 
@@ -300,7 +331,7 @@ public class VentanaJuego{
 	public void actualizarturno() {
 		Jugador jugadoractual = this.algopoly.obtenerJugadorActual();
 		this.nombrejugador.setText(jugadoractual.getNombre() + "\n");
-		this.nombrejugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 18));
+		this.nombrejugador.setFont(Font.font("Helvetica", FontWeight.NORMAL, 24));
 		this.nombrejugador.setFill(hash.get(jugadoractual).getColor());
 		
 		this.dinerojugador.setText("$"+ jugadoractual.getDinero() + "\n" );
