@@ -1,8 +1,5 @@
 package controlador;
 
-import java.util.HashMap;
-
-import estados.EstadoCasillero;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.DineroInsuficiente;
 import excepciones.JugadorNoEsPropietario;
@@ -10,7 +7,6 @@ import excepciones.JugadorNoPoseeTodosLosBarrios;
 import excepciones.NoPuedeConstruirMasCasas;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Casa;

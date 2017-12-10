@@ -12,8 +12,6 @@ import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Tablero;
 
-import javax.swing.*;
-
 public class BotonConfirmarCobrarFianzaHandler implements EventHandler<ActionEvent> {
 
 	private Stage stage;

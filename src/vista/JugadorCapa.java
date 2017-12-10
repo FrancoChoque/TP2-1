@@ -3,17 +3,8 @@ package vista;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Set;
-
-import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
-import estados.Comprable.Propiedad.PropiedadConCasa;
-import estados.Comprable.Propiedad.PropiedadConDosCasas;
-import estados.Comprable.Propiedad.PropiedadConHotel;
-import estados.Comprable.Propiedad.PropiedadEstado;
-import estados.Comprable.Propiedad.PropiedadSinCasa;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -38,10 +29,10 @@ public class JugadorCapa {
 		iconocasa = new Image("file:src/imagenes/casa.png");
 	    iconohotel = new Image("file:src/imagenes/hotel.png");
 	    desfaseEdificioX1 = 0;
-	    desfaseEdificioX2 = 35;
-	    desfaseEdificioY = 60;
-	    alturaedificio = 30;
-	    largoedificio = 30;
+	    desfaseEdificioX2 = 45;
+	    desfaseEdificioY = 90;
+	    alturaedificio = 35;
+	    largoedificio = 35;
 	}
 	
 	public static Image getIconoCasa() {
@@ -78,10 +69,10 @@ public class JugadorCapa {
 	private Jugador jugador;
 	private GraphicsContext gc;
 	private Posicion posicionactual = Posicion.getPosicionJugador(0);
-	private int alturajugador = 30;
-	private int largojugador = 30;
+	private int alturajugador = 40;
+	private int largojugador = 40;
 	private Color color;
-	private double desfasejugador = 70;
+	private double desfasejugador = 85;
 	private Image icono;
 	
 	

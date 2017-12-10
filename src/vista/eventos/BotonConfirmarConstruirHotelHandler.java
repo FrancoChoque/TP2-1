@@ -1,7 +1,5 @@
 package vista.eventos;
 
-import java.util.HashMap;
-
 import controlador.App;
 import controlador.VentanaJuego;
 import estados.Comprable.Propiedad.Propiedad;
@@ -12,7 +10,6 @@ import excepciones.JugadorNoPoseeTodosLosBarrios;
 import excepciones.NoPuedeConstruirMasHoteles;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Hotel;

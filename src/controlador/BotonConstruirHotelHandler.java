@@ -1,14 +1,6 @@
 package controlador;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-
-import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
-import excepciones.CasasInsuficientes;
-import excepciones.JugadorNoPoseeTodosLosBarrios;
-import excepciones.NoPuedeConstruirMasHoteles;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoPoly;

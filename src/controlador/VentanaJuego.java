@@ -3,38 +3,28 @@ package controlador;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
-
 import estados.Comprable.Propiedad.Propiedad;
 import estados.EstadoCasillero;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.paint.LinearGradient;
 import javafx.scene.text.TextAlignment;
-import javafx.scene.paint.Stop;
-import javafx.scene.paint.CycleMethod;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -42,8 +32,6 @@ import javafx.scene.effect.*;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
-import modelo.Casillero;
-import vista.ContenedorIntercambio;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
@@ -73,7 +61,6 @@ public class VentanaJuego{
 	
 	private AlgoPoly algopoly;
 
-	private Paint valor = Paint.valueOf("FFFFFF"); //pinta de blanco
 	private Text text5;
 	private Button botonArrojarDados;
 	private Button botonVenderTerreno;
@@ -122,25 +109,30 @@ public class VentanaJuego{
         
         // Creo los canvas para cada jugador, los agrego al hashmap
         Image iconojugador1 = new Image("file:src/imagenes/galera.jpg");
+        Color colorjugador1 = Color.CYAN;
+        
         Image iconojugador2 = new Image("file:src/imagenes/carretilla.jpg");
+        Color colorjugador2 = Color.PINK;
+        
         Image iconojugador3 = new Image("file:src/imagenes/auto.png");
+        Color colorjugador3 = Color.SPRINGGREEN;
         
         Canvas canvasjugador1 = new Canvas(800, 800);
         GraphicsContext gcjugador1 = canvasjugador1.getGraphicsContext2D();
-        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, Color.CYAN, iconojugador1);
+        JugadorCapa capajugador1 = new JugadorCapa(gcjugador1, jugador1, colorjugador1, iconojugador1);
         stackcapas.getChildren().add(canvasjugador1);
         hash.put(jugador1, capajugador1);
         
         
         Canvas canvasjugador2 = new Canvas(800, 800);
         GraphicsContext gcjugador2 = canvasjugador2.getGraphicsContext2D();
-        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, Color.PINK, iconojugador2);
+        JugadorCapa capajugador2 = new JugadorCapa(gcjugador2, jugador2, colorjugador2, iconojugador2);
         stackcapas.getChildren().add(canvasjugador2);
         hash.put(jugador2, capajugador2);
         
         Canvas canvasjugador3 = new Canvas(800, 800);
         GraphicsContext gcjugador3 = canvasjugador3.getGraphicsContext2D();
-        JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, Color.SPRINGGREEN, iconojugador3);
+        JugadorCapa capajugador3 = new JugadorCapa(gcjugador3, jugador3, colorjugador3, iconojugador3);
         stackcapas.getChildren().add(canvasjugador3);
         hash.put(jugador3, capajugador3);
     
@@ -166,12 +158,12 @@ public class VentanaJuego{
 
         
         HBox hbox = new HBox();
-        hbox.setPadding(new Insets(15, 12, 15, 12));
-        hbox.setSpacing(20);
+        hbox.setPadding(new Insets(10));
+        hbox.setSpacing(10);
         
         hbox.getChildren().addAll(BotonSalir);
         
-        root.setTop(hbox);
+        root.setBottom(hbox);
         
         //Botonera de acciones en vertical
         VBox AccionesVBox = new VBox();
@@ -254,7 +246,6 @@ public class VentanaJuego{
         //Agrego Textflow a la derecha
         
         StackPane stackderecho = new StackPane();
-        
         Image imagenFondoInformacion = new Image("file:src/imagenes/fondoLetras.png");
         
         
@@ -300,26 +291,75 @@ public class VentanaJuego{
         
         
         TextFlow textFlowAcciones = new TextFlow(textoaccionesjugador,text5);
-        textFlowAcciones.setLineSpacing(10);
+        textFlowAcciones.setLineSpacing(6);
         textFlowAcciones.setTextAlignment(TextAlignment.CENTER);
         
         
-        TextFlow textFlow = new TextFlow(textoInformacion,textoturnojugador,this.nombrejugador, 
-        		textodinerojugador,this.dinerojugador, textoposicionjugador,this.posicionjugador,
+        TextFlow textFlow = new TextFlow(textoInformacion,textoturnojugador,this.nombrejugador, textodinerojugador,this.dinerojugador, textoposicionjugador,this.posicionjugador,
         		textFlowAcciones);
-        //textFlow.setPadding(new Insets(0, 20, 10, 20));
-        textFlow.setMaxHeight(700);
-        textFlow.setMinWidth(500);
-        textFlow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
-        textFlow.setLineSpacing(100);
-        textFlow.setTextAlignment(TextAlignment.CENTER);
-        textFlow.setStyle("-fx-background-color: transparent");
+		textFlow.setLineSpacing(100);
+		textFlow.setTextAlignment(TextAlignment.CENTER);
+		textFlow.setStyle("-fx-background-color: transparent");
+		
+        //agrego margen a los textos
+        ObservableList<Node> textos = textFlow.getChildren();
+        Iterator<Node> iter = textos.iterator();
+        while(iter.hasNext()) {
+        	Node textoactual = iter.next();
+        	textoactual.setTranslateX(7);
+        	textoactual.setTranslateY(7);
+        }
         
-        stackderecho.getChildren().addAll(new ImageView(imagenFondoInformacion),textFlow);
+        
+        textFlow.setMaxHeight(800);
+        textFlow.setMinWidth(500);
+        //textFlow.setLineSpacing(7);
+        
+        //agrego bordeado
+        
+        Canvas canvasderecho = new Canvas(600,800);
+        GraphicsContext gcder = canvasderecho.getGraphicsContext2D();
+        gcder.setFill(Color.WHEAT);
+        gcder.fillRect(0, 0, 600, 800);
+        gcder.setFill(Color.BLACK);
+        gcder.setLineWidth(5);
+        gcder.strokeLine(0, 0, 600, 0);
+        gcder.strokeLine(600, 0, 600, 800);
+        gcder.strokeLine(0, 0, 0, 800);
+        gcder.strokeLine(0, 800, 600, 800);
+        
+        
+        stackderecho.getChildren().addAll(new ImageView(imagenFondoInformacion),textFlow,canvasderecho);
+        canvasderecho.toBack();
         root.setRight(stackderecho);
 
-
+        //Agrego referencia a jugadores arriba
         
+        Canvas referencias = new Canvas(1000, 100);
+        GraphicsContext refgc = referencias.getGraphicsContext2D();
+        refgc.drawImage(iconojugador1, 50, 25, 50, 50);
+        refgc.fillText("Jugador 1\n" + nombreJugador1, 110, 35);
+        refgc.setFill(colorjugador1);
+        refgc.fillRect(110, 60,	75, 15);
+        
+        
+        refgc.setFill(Color.BLACK);
+        refgc.drawImage(iconojugador2, 300, 25, 50, 50);
+        refgc.fillText("Jugador 2\n" + nombreJugador2, 360, 35);
+        refgc.setFill(colorjugador2);
+        refgc.fillRect(360, 60, 75, 15);
+        
+        refgc.setFill(Color.BLACK);
+        refgc.drawImage(iconojugador3, 550, 25, 50, 50);
+        refgc.fillText("Jugador 3\n" + nombrejugador3, 610, 35);
+        refgc.setFill(colorjugador3);
+        refgc.fillRect(610, 60, 75, 15);
+        
+        HBox topbox = new HBox();
+        topbox.getChildren().add(referencias);
+        topbox.setAlignment(Pos.CENTER);
+        
+        root.setTop(topbox);
 
         primaryStage.setTitle("AlgoPoly");
         primaryStage.setScene(scene);
@@ -459,5 +499,10 @@ public class VentanaJuego{
 			capa.actualizar();
 		}
 		
+	}
+
+	public void quitarcapa(Jugador actual) {
+		// TODO Auto-generated method stub
+		this.hash.remove(actual);
 	}
 }

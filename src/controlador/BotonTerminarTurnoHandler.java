@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
-import vista.JugadorCapa;
 
 public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 

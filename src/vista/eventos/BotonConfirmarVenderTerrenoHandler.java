@@ -5,7 +5,6 @@ import java.util.HashMap;
 import controlador.App;
 import controlador.VentanaJuego;
 import estados.Comprable.Comprable;
-import estados.Comprable.Propiedad.Propiedad;
 import excepciones.JugadorNoEsPropietario;
 import excepciones.NoEsTurnoJugador;
 import javafx.event.ActionEvent;

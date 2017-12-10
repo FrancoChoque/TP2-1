@@ -1,7 +1,6 @@
 package estados.Comprable.Propiedad.Barrios;
 
 import estados.Comprable.Propiedad.Propiedad;
-import excepciones.CasasInsuficientes;
 import excepciones.JugadorNoPoseeTodosLosBarrios;
 import excepciones.NoPuedeConstruirMasCasas;
 import excepciones.NoPuedeConstruirMasHoteles;

@@ -8,22 +8,18 @@ import java.util.Set;
 
 import controlador.BotonConfirmarConstruirCasaHandler;
 import controlador.BotonVolverHandler;
-import controlador.VentanaJuego;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -222,7 +218,7 @@ public class VentanaOperacion {
         text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         Text text2 = new Text();
-        text2.setText("en" + prop.getNombre() + "?");
+        text2.setText("en " + prop.getNombre() + "?");
         text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         TextFlow textos = new TextFlow();

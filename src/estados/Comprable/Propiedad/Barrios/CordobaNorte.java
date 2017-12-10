@@ -5,7 +5,6 @@ import excepciones.CasasInsuficientes;
 import excepciones.JugadorNoPoseeTodosLosBarrios;
 
 import excepciones.NoPuedeConstruirMasCasas;
-import excepciones.NoPuedeConstruirMasHoteles;
 import modelo.Casa;
 import modelo.Hotel;
 import modelo.Jugador.Jugador;

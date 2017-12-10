@@ -278,6 +278,16 @@ public class Jugador {
 		comprable.setDuenio(player2);
 	}
 
+	public int getValorDado1() {
+		// TODO Auto-generated method stub
+		return this.dado1.getValor();
+	}
+
+	public int getValorDado2() {
+		// TODO Auto-generated method stub
+		return this.dado2.getValor();
+	}
+
 
 
 
