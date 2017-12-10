@@ -1,4 +1,5 @@
 package modelo;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import controlador.VentanaJuego;
@@ -139,6 +140,19 @@ public class AlgoPoly {
 
 	public Tablero getTablero(){
 		return tablero;
+	}
+
+
+	public void resetear() {
+		// TODO Auto-generated method stub
+		Iterator<Jugador> iter = this.jugadores.iterator();
+		while(iter.hasNext()) {
+			Jugador actual = iter.next();
+			VentanaJuego ventana = VentanaJuego.getInstance();
+			ventana.quitarcapa(actual);
+		}
+		while(this.jugadores.size()!= 0) this.jugadores.remove();
+		
 	}
 
 }

@@ -461,4 +461,9 @@ public class VentanaJuego{
 		}
 		
 	}
+
+	public void quitarcapa(Jugador actual) {
+		// TODO Auto-generated method stub
+		this.hash.remove(actual);
+	}
 }
