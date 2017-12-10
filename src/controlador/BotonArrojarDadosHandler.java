@@ -54,6 +54,8 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 			}
 
 			this.algopoly.tiraDeVuelta(actual);
+			if(actual.getEstadoDeJugador() == actual.getJugadorEmpezandoTurno() )
+				VentanaJuego.getInstance().agregaraccion("Sacaste dados iguales. Vuelves a tirar.\n");
 
 			
 		} catch (NoEsTurnoJugador | JugadorYaTiroDados e) {

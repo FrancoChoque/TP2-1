@@ -46,7 +46,6 @@ public class AlgoPoly {
 
 		if(unJugador.tieneDadosIguales() ) {
         	unJugador.setEstado(unJugador.getJugadorEmpezandoTurno() );
-        	VentanaJuego.getInstance().agregaraccion("Sacaste dados iguales. Vuelves a tirar.\n");
         	System.out.println("DADOS IGUALES");
         	dadosIgualesSeguidos++;
         	
