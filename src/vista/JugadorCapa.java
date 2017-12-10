@@ -3,17 +3,8 @@ package vista;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Set;
-
-import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
-import estados.Comprable.Propiedad.PropiedadConCasa;
-import estados.Comprable.Propiedad.PropiedadConDosCasas;
-import estados.Comprable.Propiedad.PropiedadConHotel;
-import estados.Comprable.Propiedad.PropiedadEstado;
-import estados.Comprable.Propiedad.PropiedadSinCasa;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;

@@ -18,17 +18,9 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-
 import static javafx.scene.text.Font.*;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-
 import estados.EstadoCasillero;
-import estados.Comprable.Comprable;
-import estados.Comprable.Propiedad.Propiedad;
 import modelo.Jugador.Jugador;
 import vista.eventos.BotonVolverOnKeyPress;
 

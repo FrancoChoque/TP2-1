@@ -4,7 +4,6 @@ import controlador.excepciones.NombreInvalidoException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -20,8 +19,7 @@ public class BotonConfirmarNombresHandler implements EventHandler<ActionEvent> {
 
 	private Login ventana;
 	private Stage stage;
-	private Scene scene;
-
+	
 	@Override
 	public void handle(ActionEvent arg0) {
 		App app = App.getInstance();
@@ -80,7 +78,6 @@ public class BotonConfirmarNombresHandler implements EventHandler<ActionEvent> {
 	public BotonConfirmarNombresHandler(Login login, Stage stage, Scene scene) {
 		this.ventana = login;
 		this.stage = stage;
-		this.scene = scene;
 	}
 
 }

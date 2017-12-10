@@ -2,7 +2,6 @@ package estados.Comprable.Propiedad;
 
 import excepciones.*;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import modelo.Casa;
 import modelo.Hotel;
 import modelo.Jugador.Jugador;

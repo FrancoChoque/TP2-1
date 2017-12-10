@@ -23,8 +23,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 	private AlgoPoly algopoly;
 	private HashMap<Jugador, JugadorCapa> hash;
 	private VentanaJuego ventana =  VentanaJuego.getInstance();
-	private Button boton;
-
+	
 	@Override
 	public void handle(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -41,7 +40,7 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
 			box.display(casillero.getNombre(), actual.getValorDados());
 
-			accion = "Arrojaste los dados y sacaste: " + actual.getValorDados() + "\n";
+			accion = "Arrojaste los dados y sacaste: " + actual.getValorDado1() + " y " + actual.getValorDado2() + "\n";
 
 			this.ventana.agregaraccion(accion);
 
@@ -111,7 +110,6 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 		this.algopoly = unalgopoly;
 		this.hash = hash;
 		this.ventana = unaventana;
-		this.boton = botonArrojarDados;
 	}
 
 }

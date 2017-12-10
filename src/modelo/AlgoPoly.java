@@ -1,9 +1,9 @@
 package modelo;
 import java.util.LinkedList;
 
+import controlador.VentanaJuego;
 import estados.EstadoCasillero;
 import estados.Comprable.Comprable;
-import estados.Comprable.Propiedad.Barrios.BuenosAiresSur;
 import excepciones.FinDelJuego;
 import excepciones.JugadorNoEsPropietario;
 import excepciones.JugadorYaTiroDados;
@@ -46,6 +46,7 @@ public class AlgoPoly {
 
 		if(unJugador.tieneDadosIguales() ) {
         	unJugador.setEstado(unJugador.getJugadorEmpezandoTurno() );
+        	VentanaJuego.getInstance().agregaraccion("Sacaste dados iguales. Vuelves a tirar.\n");
         	System.out.println("DADOS IGUALES");
         	dadosIgualesSeguidos++;
         	

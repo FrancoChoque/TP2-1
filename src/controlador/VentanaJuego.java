@@ -3,8 +3,6 @@ package controlador;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
-
 import estados.Comprable.Propiedad.Propiedad;
 import estados.EstadoCasillero;
 import javafx.collections.ObservableList;
@@ -17,30 +15,19 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
-import modelo.Casillero;
-import vista.ContenedorIntercambio;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
@@ -70,7 +57,6 @@ public class VentanaJuego{
 	
 	private AlgoPoly algopoly;
 
-	private Paint valor = Paint.valueOf("FFFFFF"); //pinta de blanco
 	private Text text5;
 	private Button botonArrojarDados;
 	private Button botonVenderTerreno;
