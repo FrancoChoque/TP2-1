@@ -7,10 +7,12 @@ import java.util.Set;
 
 import estados.Comprable.Propiedad.Propiedad;
 import estados.EstadoCasillero;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -273,12 +275,37 @@ public class VentanaJuego{
         
         TextFlow textFlow = new TextFlow(textoturnojugador,this.nombrejugador, textodinerojugador,this.dinerojugador, textoposicionjugador,this.posicionjugador,
         		textoaccionesjugador, text5);
-        textFlow.setMaxHeight(600);
+        
+        //agrego margen a los textos
+        ObservableList<Node> textos = textFlow.getChildren();
+        Iterator<Node> iter = textos.iterator();
+        while(iter.hasNext()) {
+        	Node textoactual = iter.next();
+        	textoactual.setTranslateX(7);
+        	textoactual.setTranslateY(7);
+        }
+        
+        
+        textFlow.setMaxHeight(800);
         textFlow.setMinWidth(500);
-        textFlow.setBackground(new Background(new BackgroundFill(valor, CornerRadii.EMPTY, Insets.EMPTY)));
         textFlow.setLineSpacing(7);
         
-        stackderecho.getChildren().addAll(textFlow);
+        //agrego bordeado
+        
+        Canvas canvasderecho = new Canvas(600,800);
+        GraphicsContext gcder = canvasderecho.getGraphicsContext2D();
+        gcder.setFill(Color.WHEAT);
+        gcder.fillRect(0, 0, 600, 800);
+        gcder.setFill(Color.BLACK);
+        gcder.setLineWidth(5);
+        gcder.strokeLine(0, 0, 600, 0);
+        gcder.strokeLine(600, 0, 600, 800);
+        gcder.strokeLine(0, 0, 0, 800);
+        gcder.strokeLine(0, 800, 600, 800);
+        
+        
+        stackderecho.getChildren().addAll(textFlow,canvasderecho);
+        canvasderecho.toBack();
         root.setRight(stackderecho);
 
         //Agrego referencia a jugadores arriba

@@ -16,6 +16,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import modelo.AlgoPoly;
 import vista.eventos.MenuReglasHandler;
 
@@ -72,13 +73,13 @@ public class App extends Application {
         
         
 
-        Image imagen = new Image("file:src/imagenes/menu.jpg");
-       
-
+        
+        /*
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, 
         		new BackgroundPosition(null, 0, false, null, 100, false), BackgroundSize.DEFAULT);
         
         Background background = new Background(imagenDeFondo);
+        */
         
         MenuBar menuBar = new MenuBar();
         
@@ -98,7 +99,19 @@ public class App extends Application {
         
         root.setCenter(textos);
         
-        root.setBackground(background);
+        //Agrego imagen de fondo
+        
+        Image imagen = new Image("file:src/imagenes/menu.jpg");
+        ImageView univ = new ImageView(imagen);
+        univ.setPreserveRatio(true);
+        univ.setFitHeight(800);
+        
+        StackPane stack = new StackPane();
+        stack.getChildren().add(univ);
+        
+        root.setBottom(stack);
+        
+        //root.setBackground(background);
         Scene scene = new Scene(root, 750,850);
         primaryStage.setScene(scene);
         primaryStage.show();
