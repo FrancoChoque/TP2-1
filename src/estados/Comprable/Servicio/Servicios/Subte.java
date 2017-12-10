@@ -28,6 +28,11 @@ public class Subte extends Servicio {
         return "Subte";
     }
 
+    @Override
+   	public String toString(){
+   		return "Subte";
+   	}
+    
     public void mensajeEfecto(Jugador unJugador) {
         Mensaje mensaje = new Mensaje();
 

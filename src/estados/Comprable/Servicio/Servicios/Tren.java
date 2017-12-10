@@ -28,6 +28,11 @@ public class Tren extends Servicio {
         return "Tren";
     }
 
+    @Override
+   	public String toString(){
+   		return "Tren";
+   	}
+    
     public void mensajeEfecto(Jugador unJugador) {
         Mensaje mensaje = new Mensaje();
 

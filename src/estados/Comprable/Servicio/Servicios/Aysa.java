@@ -28,7 +28,10 @@ public class Aysa extends Servicio {
         return "Aysa";
     }
 
-
+    @Override
+	public String toString(){
+		return "Aysa";
+	}
 
     public void mensajeEfecto(Jugador unJugador) {
         Mensaje mensaje = new Mensaje();

@@ -30,6 +30,11 @@ public class Edesur extends Servicio {
         return "Edesur";
     }
 
+    @Override
+   	public String toString(){
+   		return "Edesur";
+   	}
+    
     public void mensajeEfecto(Jugador unJugador) {
         Mensaje mensaje = new Mensaje();
 

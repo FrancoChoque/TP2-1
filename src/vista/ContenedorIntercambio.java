@@ -29,6 +29,7 @@ import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
 import vista.eventos.BotonAceptarIntercambio;
 import vista.eventos.BotonIntercambioJugador;
+import javafx.scene.paint.Color;
 
 import vista.eventos.BotonSelecionarPropiedadesIntercambio;
 
@@ -67,71 +68,19 @@ public class ContenedorIntercambio extends VBox{
         
         Jugador jugador = algoPoly.obtenerJugadorActual();
         
-        
-        if(algoPoly.getNumeroJugadores() >2){
-        	Jugador otroJugador1 = algoPoly.obtenerJugador(0);
-        	if(otroJugador1 != jugador){
-        		Button BotonotroJugador1 = new Button();
-        		BotonotroJugador1.setText(otroJugador1.getNombre());
+        for(int i=0; i<algoPoly.getNumeroJugadores(); i++){
+        	Jugador otroJugador = algoPoly.obtenerJugador(i);
+        	if(otroJugador != jugador){
+        		Button BotonotroJugador = new Button();
+        		BotonotroJugador.setText(otroJugador.getNombre());
         		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador1);
-        		BotonotroJugador1.setOnAction(botonIntercambio);
+        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador);
+        		BotonotroJugador.setOnAction(botonIntercambio);
         		
-        		vbox.getChildren().add(BotonotroJugador1);
+        		vbox.getChildren().add(BotonotroJugador);
                 vbox.setPadding( new Insets(10,10,10,10));
                 vbox.setAlignment(Pos.CENTER);
         	}
-        	Jugador otroJugador2 = algoPoly.obtenerJugador(1);
-        	if(otroJugador2 != jugador){
-        		Button BotonotroJugador2 = new Button();
-        		BotonotroJugador2.setText(otroJugador2.getNombre());
-        		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador2);
-        		BotonotroJugador2.setOnAction(botonIntercambio);
-        		
-        		vbox.getChildren().add(BotonotroJugador2);
-                vbox.setPadding( new Insets(10,10,10,10));
-                vbox.setAlignment(Pos.CENTER);
-        	}
-        	Jugador otroJugador3 = algoPoly.obtenerJugador(2);
-        	if(otroJugador3 != jugador){
-        		Button BotonotroJugador3 = new Button();
-        		BotonotroJugador3.setText(otroJugador3.getNombre());
-        		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador3);
-        		BotonotroJugador3.setOnAction(botonIntercambio);
-        		
-        		vbox.getChildren().add(BotonotroJugador3);
-                vbox.setPadding( new Insets(10,10,10,10));
-                vbox.setAlignment(Pos.CENTER);
-        	}
-        }else if(algoPoly.getNumeroJugadores() == 2){
-        	Jugador otroJugador1 = algoPoly.obtenerJugador(0);
-        	if(otroJugador1 != jugador){
-        		Button BotonotroJugador1 = new Button();
-        		BotonotroJugador1.setText(otroJugador1.getNombre());
-        		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador1);
-        		BotonotroJugador1.setOnAction(botonIntercambio);
-        		
-        		vbox.getChildren().add(BotonotroJugador1);
-                vbox.setPadding( new Insets(10,10,10,10));
-                vbox.setAlignment(Pos.CENTER);
-        	}
-        	Jugador otroJugador2 = algoPoly.obtenerJugador(1);
-        	if(otroJugador2 != jugador){
-        		Button BotonotroJugador2 = new Button();
-        		BotonotroJugador2.setText(otroJugador2.getNombre());
-        		
-        		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador2);
-        		BotonotroJugador2.setOnAction(botonIntercambio);
-        		
-        		vbox.getChildren().add(BotonotroJugador2);
-                vbox.setPadding( new Insets(10,10,10,10));
-                vbox.setAlignment(Pos.CENTER);
-        	}
-        }else{
-        	
         }
         
         Button cancelar = new Button();
@@ -157,7 +106,7 @@ public class ContenedorIntercambio extends VBox{
         grid.setPadding(new Insets(25, 25, 25, 25));
         
 		if(destinatario.getCantidadPropiedad() != 0){
-			Scene scene = new Scene(grid, 600, 200);
+			Scene scene = new Scene(grid, 640, 200);
 			stage.setScene(scene);
 	        
 	        ComboBox<Comprable> comboBoxremitente = new ComboBox<Comprable>();
@@ -199,9 +148,14 @@ public class ContenedorIntercambio extends VBox{
 			grid.setVgap(4);
 			grid.setHgap(10);
 			grid.setPadding(new Insets(5, 5, 5, 5));
-			grid.add(new Label("propiedad a ceder: "), 0, 0);
+			Text TextCeder = new Text("Propiedad a ceder: ");
+			TextCeder.setFill(Color.RED);
+			grid.add(TextCeder, 0, 0);
 			grid.add(comboBoxremitente, 1, 0);
-			grid.add(new Label("propiedad a recibir: "), 2, 0);
+			
+			Text textRecibir = new Text("Propiedad a Recibir: ");
+			textRecibir.setFill(Color.GREEN);
+			grid.add(textRecibir, 2, 0);
 			grid.add(comboBoxDestinatario, 3, 0);           
 			grid.add(botonCancelar, 3, 3); 
 			grid.add(aceptar,1,3);
@@ -245,6 +199,10 @@ public class ContenedorIntercambio extends VBox{
 		BorderPane layout = new BorderPane();
 		
 		
+		Text text0 = new Text();
+        text0.setText("Jugador ");
+        text0.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+		
         Text text1 = new Text();
         text1.setText(destinatario.getNombre());
         text1.setFont(font("Helvetica", FontWeight.BOLD, 25));
@@ -255,7 +213,7 @@ public class ContenedorIntercambio extends VBox{
         
         TextFlow textos = new TextFlow();
         textos.setTextAlignment(TextAlignment.CENTER);
-        textos.getChildren().addAll(text1, text2);
+        textos.getChildren().addAll(text0,text1, text2);
         textos.setPadding(new Insets(10,10,10,10));
         layout.setCenter(textos);
         
