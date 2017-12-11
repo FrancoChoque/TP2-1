@@ -61,10 +61,5 @@ public class SaltaSur extends Propiedad {
 	}
 	
 
-	@Override
-	public String otropar() {
-		// TODO Auto-generated method stub
-		Tablero tablero = Tablero.getInstance();
-		return tablero.getSaltaNorte().getNombre();
-	}
+
 }

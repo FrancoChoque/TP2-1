@@ -32,8 +32,7 @@ import javafx.scene.text.TextFlow;
 import javafx.scene.effect.*;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
-import modelo.AlgoPoly;
-import modelo.Tablero;
+import modelo.*;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
 
@@ -439,8 +438,9 @@ public class VentanaJuego{
     public void actualizarConstruirHotel(Jugador jugador) {
 		Tablero tablero = Tablero.getInstance();
         EstadoCasillero casillero = tablero.obtenerCasillero(jugador).getestado();
+        Edificio edificio = new Hotel();
         if(casillero instanceof Propiedad) {
-             this.botonConstruirHotel.setDisable(jugador.puedeconstruirhotel((Propiedad) casillero));
+             this.botonConstruirHotel.setDisable(!jugador.puedeConstruir((Propiedad) casillero,edificio));
              return;
         }
         this.botonConstruirHotel.setDisable(true);
@@ -449,8 +449,9 @@ public class VentanaJuego{
 	public void actualizarConstruirCasa(Jugador jugador) {
         Tablero tablero = Tablero.getInstance();
         EstadoCasillero casillero = tablero.obtenerCasillero(jugador).getestado();
+        Edificio edificio = new Casa();
         if(casillero instanceof Propiedad) {
-            this.botonConstruirCasa.setDisable(jugador.puedeconstruircasas((Propiedad) casillero));
+            this.botonConstruirCasa.setDisable(!jugador.puedeConstruir((Propiedad) casillero,edificio));
             return;
         }
         this.botonConstruirCasa.setDisable(true);

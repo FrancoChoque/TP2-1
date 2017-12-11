@@ -60,11 +60,6 @@ public class CordobaNorte extends Propiedad {
 		return "Cordoba Norte";
 	}
 
-	@Override
-	public String otropar() {
-		// TODO Auto-generated method stub
-		Tablero tablero = Tablero.getInstance();
-		return tablero.getCordobaSur().getNombre();
-	}
+
 
 }

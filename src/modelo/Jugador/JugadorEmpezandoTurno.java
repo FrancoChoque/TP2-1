@@ -2,9 +2,8 @@ package modelo.Jugador;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
-import modelo.Casa;
 import modelo.Dado;
-import modelo.Hotel;
+import modelo.Edificio;
 
 public class JugadorEmpezandoTurno implements EstadoDeJugador {
 
@@ -32,14 +31,23 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
         jugador.adquirirPropiedad(uncomprable);
     }
 
-
-    public void construir(Propiedad unaPropiedad, Casa casa) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
-        unaPropiedad.construir(jugador, casa);
-
+    @Override
+    public void construir(Propiedad unaPropiedad, Edificio edificio) throws NoEsTurnoJugador, DineroInsuficiente {
+        unaPropiedad.construir(jugador, edificio);
     }
 
-    public void construir(Propiedad unaPropiedad, Hotel hotel) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
-        unaPropiedad.construir(jugador, hotel);
+
+    @Override
+    public boolean puedeConstruir(Propiedad unaPropiedad, Edificio unEdificio) {
+
+        if(!jugador.esDuenio(unaPropiedad)) return false;
+
+        try {
+            unaPropiedad.puedeConstruir(jugador, unEdificio);
+        } catch (NoPuedeConstruirMasCasas | CasasInsuficientes | NoPuedeConstruirMasHoteles | JugadorNoPoseeTodosLosBarrios noPuedeConstruirMasCasas) {
+            return false;
+        }
+        return true;
     }
 
 
@@ -49,13 +57,6 @@ public class JugadorEmpezandoTurno implements EstadoDeJugador {
     }
 
 
-    public void vender(Jugador unComprador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {
-        if(!jugador.esDuenio(unComprable)) throw new JugadorNoEsPropietario();
-        if(!unComprador.puedePagar(unComprable.getPrecioCompra())) throw new DineroInsuficiente();
-        unComprable.reembolsar();
-        unComprable.setDuenio(unComprador);
-        unComprador.adquirirPropiedad(unComprable);
-    }
 
     public void intercambiarPropiedades(Jugador unJugador, Comprable propiedadNueva, Comprable propiedadACambiar) {
         jugador.elimarPropiedad(propiedadACambiar);

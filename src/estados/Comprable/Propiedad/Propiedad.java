@@ -81,39 +81,28 @@ public abstract class Propiedad extends Comprable {
 	}
 
 
-	public void construir(Jugador unJugador, Casa casa) throws NoPuedeConstruirMasCasas, DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios{
-
-		propiedadEstado.puedeConstruir(unJugador, casa);
-		edificios.add(casa);
-		unJugador.sumarDinero(getValorCasa() * -1);
-
-		if(this.propiedadEstado == this.propiedadConCasa) this.setPropiedadEstado(propiedadConDosCasas);
-
-		if(this.propiedadEstado == this.propiedadSinCasa) this.setPropiedadEstado(propiedadConCasa);
+	public int getCostoPase(Jugador unJugador) {
+		return propiedadEstado.getCostoPase();
 
 	}
 
 
-
-	public void construir(Jugador unJugador, Hotel hotel) throws NoPuedeConstruirMasHoteles, DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, JugadorNoEsPropietario {
-
-		propiedadEstado.puedeConstruir(unJugador, hotel);
-		edificios.add(hotel);
-		unJugador.sumarDinero(getValorHotel() * -1);
-
-		if(this.propiedadEstado == this.propiedadConDosCasas) this.setPropiedadEstado(propiedadConHotel);
+	public void construir(Jugador jugador, Edificio edificio) throws DineroInsuficiente{
+		edificio.construir(jugador,this);
+		propiedadEstado.construir();
 	}
 
 
 	public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
-
 		propiedadEstado.puedeConstruir(unJugador, casa);
-
 	}
-
 
 	public void puedeConstruir(Jugador unJugador, Hotel hotel) throws JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
 		propiedadEstado.puedeConstruir(unJugador, hotel);
+	}
+
+	public void puedeConstruir(Jugador jugador, Edificio edificio) throws NoPuedeConstruirMasCasas, CasasInsuficientes, NoPuedeConstruirMasHoteles, JugadorNoPoseeTodosLosBarrios {
+		edificio.puedeConstruir(jugador,this);
 	}
 
 
@@ -134,15 +123,8 @@ public abstract class Propiedad extends Comprable {
 		return edificios.size();
 	}
 
-
-	public String otropar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int getCostoPase(Jugador unJugador) {
-		return propiedadEstado.getCostoPase();
-
+	public Stack<Edificio> getEdificios() {
+		return edificios;
 	}
 
 	public void mensajeEfecto(Jugador unJugador){

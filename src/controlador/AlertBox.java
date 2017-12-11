@@ -228,9 +228,12 @@ public class AlertBox {
 
         layout.setTop(view);
 
-        if(casillero instanceof Comprable && !((Comprable) casillero).tieneDuenio()){
-            ofrecercompra(layout,stage);
-        }else {
+        if(casillero instanceof Comprable){
+            if(!((Comprable) casillero).tieneDuenio()){
+                ofrecercompra(layout,stage);
+            }else return;
+
+        }else{
             Button button = new Button();
             button.setAlignment(Pos.CENTER);
             button.setMinWidth(80);

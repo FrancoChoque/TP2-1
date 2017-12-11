@@ -4,9 +4,8 @@ package modelo.Jugador;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
-import modelo.Casa;
 import modelo.Dado;
-import modelo.Hotel;
+import modelo.Edificio;
 
 public class JugadorTiroDados implements EstadoDeJugador {
 
@@ -33,15 +32,14 @@ public class JugadorTiroDados implements EstadoDeJugador {
 
     }
 
-    public void construir(Propiedad unaPropiedad, Casa casa) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
-        unaPropiedad.construir(jugador, casa);
-
-
+    @Override
+    public void construir(Propiedad unaPropiedad, Edificio edificio) throws NoEsTurnoJugador, DineroInsuficiente {
+        return;
     }
 
-    public void construir(Propiedad unaPropiedad, Hotel hotel) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
-        unaPropiedad.construir(jugador, hotel);
-
+    @Override
+    public boolean puedeConstruir(Propiedad unaPropiedad, Edificio unEdificio) {
+        return false;
     }
 
 
@@ -50,13 +48,6 @@ public class JugadorTiroDados implements EstadoDeJugador {
         jugador.devolverPropiedad(unComprable);
     }
 
-    public void vender(Jugador unComprador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {
-        if(!jugador.esDuenio(unComprable)) throw new JugadorNoEsPropietario();
-        if(!unComprador.puedePagar(unComprable.getPrecioCompra())) throw new DineroInsuficiente();
-        unComprable.reembolsar();
-        unComprable.comprar(unComprador);
-        unComprador.adquirirPropiedad(unComprable);
-    }
 
     public void pasarTurno() throws NoEsTurnoJugador{
         jugador.setEstado(jugador.getJugadorSinTurno());

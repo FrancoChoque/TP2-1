@@ -139,13 +139,11 @@ public class AlgoPoly {
 	public void vender(Jugador jugador, Comprable terreno) throws NoEsTurnoJugador, JugadorNoEsPropietario {
 		jugador.vender(terreno);
 
-
 	}
 
 	public Tablero getTablero(){
 		return tablero;
 	}
-
 
 
 	public void resetear() {

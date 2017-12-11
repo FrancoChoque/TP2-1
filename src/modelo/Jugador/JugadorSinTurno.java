@@ -4,9 +4,8 @@ package modelo.Jugador;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
-import modelo.Casa;
 import modelo.Dado;
-import modelo.Hotel;
+import modelo.Edificio;
 
 
 public class JugadorSinTurno implements EstadoDeJugador {
@@ -15,7 +14,6 @@ public class JugadorSinTurno implements EstadoDeJugador {
 
 
     public JugadorSinTurno(Jugador unJugador) {
-
 
         jugador = unJugador;
 
@@ -27,26 +25,27 @@ public class JugadorSinTurno implements EstadoDeJugador {
 
     }
 
-    public void construir(Propiedad unaPropiedad, Casa casa) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas {
-
+    @Override
+    public void construir(Propiedad unaPropiedad, Edificio edificio) throws NoEsTurnoJugador, DineroInsuficiente {
+        throw new NoEsTurnoJugador();
     }
 
-    public void construir(Propiedad unaPropiedad, Hotel hotel) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles {
 
+    @Override
+    public boolean puedeConstruir(Propiedad unaPropiedad, Edificio unEdificio) {
+        return false;
     }
-    
+
     @Override
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador {
-        //catch si le esta comprando a otro jugador
+        throw new NoEsTurnoJugador();
     }
+
 
     public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario {
         throw new NoEsTurnoJugador();
     }
 
-    public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente {
-        throw new NoEsTurnoJugador();
-    }
 
     public void pasarTurno() throws NoEsTurnoJugador{
         throw new NoEsTurnoJugador();

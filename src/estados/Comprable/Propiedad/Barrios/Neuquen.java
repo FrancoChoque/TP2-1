@@ -61,9 +61,4 @@ public class Neuquen extends Propiedad {
 		return "Neuquen";
 	}
 
-	@Override
-	public String otropar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

@@ -3,15 +3,12 @@ package vista.eventos;
 import controlador.App;
 import controlador.VentanaJuego;
 import estados.Comprable.Propiedad.Propiedad;
-import excepciones.CasasInsuficientes;
-import excepciones.DineroInsuficiente;
-import excepciones.JugadorNoEsPropietario;
-import excepciones.JugadorNoPoseeTodosLosBarrios;
-import excepciones.NoPuedeConstruirMasHoteles;
+import excepciones.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
+import modelo.Edificio;
 import modelo.Hotel;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
@@ -39,28 +36,20 @@ public class BotonConfirmarConstruirHotelHandler implements EventHandler<ActionE
 		
 		
 		try {
-			actual.construir(prop, new Hotel());
 
+			Edificio edificio = new Hotel();
+			actual.construir(prop, edificio);
 			juego.agregaraccion("Construiste un hotel en " + prop.getNombre() + "\n");
-			juego.agregaraccion("Por un costo de $" + prop.getValorCasa() + "\n");
+			juego.agregaraccion("Por un costo de $" + prop.getValorHotel() + "\n");
 		} catch (DineroInsuficiente e) {
-			// TODO Auto-generated catch block
+
 			juego.agregaraccion("No tienes suficientes fondos para construir\n");
-		} catch (JugadorNoPoseeTodosLosBarrios e) {
-			// TODO Auto-generated catch block
-			String otra = prop.otropar();
-			juego.agregaraccion("Te falta comprar "+ otra +"\n");
-		} catch (JugadorNoEsPropietario e) {
-			// TODO Auto-generated catch block
-			juego.agregaraccion("No eres propietario del barrio\n");
-		} catch (NoPuedeConstruirMasHoteles e) {
-			// TODO Auto-generated catch block
-			juego.agregaraccion("No puedes construir mas hoteles en el barrio\n");
-		} catch (CasasInsuficientes e) {
-			// TODO Auto-generated catch block
-			juego.agregaraccion("Los barrios no tienen la maxima cantidad de casas\n");
+		} catch (NoEsTurnoJugador noEsTurnoJugador) {
+			noEsTurnoJugador.printStackTrace();
 		}
-		
+
+		VentanaJuego.getInstance().actualizarBotones();
+
 		this.stage.close();
 	}
 

@@ -3,9 +3,8 @@ package modelo.Jugador;
 import estados.Comprable.Comprable;
 import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
-import modelo.Casa;
 import modelo.Dado;
-import modelo.Hotel;
+import modelo.Edificio;
 
 public interface EstadoDeJugador {
 
@@ -13,13 +12,11 @@ public interface EstadoDeJugador {
 
     public void comprar(Comprable uncomprable) throws NoEsTurnoJugador;
 
-    public void construir(Propiedad unaPropiedad, Casa casa) throws DineroInsuficiente, JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas;
+    public void construir(Propiedad unaPropiedad, Edificio edificio) throws NoEsTurnoJugador, DineroInsuficiente;
 
-    public void construir(Propiedad unaPropiedad, Hotel hotel) throws DineroInsuficiente, JugadorNoEsPropietario, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, NoPuedeConstruirMasHoteles;
+    public boolean puedeConstruir(Propiedad unaPropiedad, Edificio edificio);
 
     public void vender(Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario;
-
-    public void vender(Jugador unJugador, Comprable unComprable) throws NoEsTurnoJugador, JugadorNoEsPropietario, DineroInsuficiente;
 
     public void pasarTurno() throws NoEsTurnoJugador, JugadorNoTiroDados;
 

@@ -4,11 +4,12 @@ import excepciones.CasasInsuficientes;
 import modelo.*;
 import modelo.Jugador.Jugador;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class Prueba305Test {
 
-    @Test (expected = CasasInsuficientes.class)
+    @Test
 
     public void test01NoSePuedeConstruirEnTerrenosSimples() throws Exception {
         Tablero tablero = Tablero.resetInstance();
@@ -24,7 +25,7 @@ public class Prueba305Test {
 
         jugador.construir(tablero.getNeuquen(), new Hotel());
 
-
+        Assert.assertEquals(jugador.puedeConstruir(tablero.getNeuquen(), new Hotel()), false);
     }
 
 

@@ -13,7 +13,7 @@ import modelo.Jugador.Jugador;
 
 public class Prueba205Test {
 
-    @Test (expected = CasasInsuficientes.class)
+    @Test
     public void test01JugadorConstruyeHotelSinTenerCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
@@ -29,14 +29,11 @@ public class Prueba205Test {
 
         Assert.assertEquals(55000, player.getDinero());
 
-        player.construir(untablero.getBuenosAiresSur(), new Hotel());
-
-        Assert.assertEquals(55000, player.getDinero());
-
+        Assert.assertEquals(player.puedeConstruir(untablero.getBuenosAiresSur(), new Hotel()), false );
 
     }
 
-    @Test (expected = CasasInsuficientes.class)
+    @Test
     public void test02JugadorConstruyeHotelConTresCasas() throws Exception {
 
         Tablero untablero = Tablero.getInstance();
@@ -60,9 +57,7 @@ public class Prueba205Test {
 
         Assert.assertEquals(39500, player.getDinero());
 
-        player.construir(untablero.getBuenosAiresSur(), new Hotel());
-
-        Assert.assertEquals(39500, player.getDinero());
+        Assert.assertEquals(player.puedeConstruir(untablero.getBuenosAiresSur(), new Hotel()), false );
 
 
     }

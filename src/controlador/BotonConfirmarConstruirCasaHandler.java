@@ -1,16 +1,11 @@
 package controlador;
 
 import estados.Comprable.Propiedad.Propiedad;
-import excepciones.DineroInsuficiente;
-import excepciones.JugadorNoEsPropietario;
-import excepciones.JugadorNoPoseeTodosLosBarrios;
-import excepciones.NoPuedeConstruirMasCasas;
+import excepciones.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
-import modelo.AlgoPoly;
-import modelo.Casa;
-import modelo.Tablero;
+import modelo.*;
 import modelo.Jugador.Jugador;
 
 public class BotonConfirmarConstruirCasaHandler implements EventHandler<ActionEvent> {
@@ -32,12 +27,12 @@ public class BotonConfirmarConstruirCasaHandler implements EventHandler<ActionEv
 		AlgoPoly algopoly = app.getAlgoPoly();
 		Jugador actual = algopoly.obtenerJugadorActual();
 		Propiedad propiedad = (Propiedad) Tablero.getInstance().obtenerCasillero(actual).getestado();
-		
+		Edificio edificio = new Casa();
 		VentanaJuego juego = VentanaJuego.getInstance();
 		
 		
 		try {
-			actual.construir(propiedad,new Casa());
+			actual.construir(propiedad,edificio);
 
 			juego.agregaraccion("Construiste una casa en " + propiedad.getNombre() + "\n");
 			juego.agregaraccion("Por un costo de $" + propiedad.getValorCasa() + "\n");
@@ -45,21 +40,11 @@ public class BotonConfirmarConstruirCasaHandler implements EventHandler<ActionEv
 			// TODO Auto-generated catch block
 
 			juego.agregaraccion("No tienes suficientes fondos para construir\n");
-		} catch (JugadorNoPoseeTodosLosBarrios e) {
-			// TODO Auto-generated catch block
-
-			String otra = propiedad.otropar();
-			juego.agregaraccion("Te falta comprar "+ otra +"\n");
-		} catch (JugadorNoEsPropietario e) {
-			// TODO Auto-generated catch block
-
-			juego.agregaraccion("No eres propietario del barrio\n");
-		} catch (NoPuedeConstruirMasCasas e) {
-			// TODO Auto-generated catch block
-
-			juego.agregaraccion("No puedes construir mas casas aqui\n");
+		} catch (NoEsTurnoJugador noEsTurnoJugador) {
+			noEsTurnoJugador.printStackTrace();
 		}
-		
+
+		VentanaJuego.getInstance().actualizarBotones();
 		this.stage.close();
 		
 		VentanaJuego.getInstance().actualizarCapa(actual);

@@ -56,9 +56,13 @@ public class Prueba213Test {
 
         player1.comprar(untablero.getEdesur());
 
+        player2.setEstado(player1.getJugadorEmpezandoTurno());
+
         player2.comprar(untablero.getAysa());
 
         player1.intercambiarPropiedades(player2,untablero.getAysa(),untablero.getEdesur());
+
+        player3.setEstado(player1.getJugadorEmpezandoTurno());
 
         player3.setValorDados(3);
 

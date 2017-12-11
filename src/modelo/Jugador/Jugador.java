@@ -65,19 +65,14 @@ public class Jugador {
 	}
 
 
-	public void construir(Propiedad unaPropiedad, Casa casa) throws JugadorNoPoseeTodosLosBarrios, JugadorNoEsPropietario, NoPuedeConstruirMasCasas, DineroInsuficiente{
-
-		estadoDeJugador.construir(unaPropiedad, casa);
-
+	public void construir(Propiedad unaPropiedad, Edificio edificio) throws DineroInsuficiente, NoEsTurnoJugador {
+		estadoDeJugador.construir(unaPropiedad, edificio);
 
 	}
 
-	public void construir(Propiedad unaPropiedad, Hotel hotel) throws NoPuedeConstruirMasHoteles, JugadorNoPoseeTodosLosBarrios, CasasInsuficientes, DineroInsuficiente, JugadorNoEsPropietario{
-
-		estadoDeJugador.construir(unaPropiedad, hotel);
-
+	public boolean puedeConstruir(Propiedad propiedad, Edificio edificio){
+		return estadoDeJugador.puedeConstruir(propiedad, edificio);
 	}
-
 
 
 	public void comprar(Comprable uncomprable) throws NoEsTurnoJugador{
@@ -219,47 +214,12 @@ public class Jugador {
 		return this.propiedades;
 	}
 
-	public boolean puedeconstruircasas(Propiedad propiedad) {
-
-		Casa casa = new Casa();
-
-		if(!this.esDuenio(propiedad)){ return true; }
-
-		if(estadoDeJugador == getJugadorTiroDados()) return true;
-
-		try {
-			propiedad.puedeConstruir(this,casa);
-		} catch (JugadorNoPoseeTodosLosBarrios jugadorNoPoseeTodosLosBarrios) {
-			return true;
-		} catch (NoPuedeConstruirMasCasas noPuedeConstruirMasCasas) {
-			return true;
-		}
-		return false;
-	}
-
-	public boolean puedeconstruirhotel(Propiedad propiedad) {
-
-		Hotel hotel = new Hotel();
 
 
-		if(!this.esDuenio(propiedad)) return true;
-
-		if(estadoDeJugador == getJugadorTiroDados()) return true;
-
-		try {
-			propiedad.puedeConstruir(this, hotel);
-		} catch (CasasInsuficientes casasInsuficientes) {
-			return true;
-		} catch (JugadorNoPoseeTodosLosBarrios jugadorNoPoseeTodosLosBarrios) {
-			return true;
-		} catch (NoPuedeConstruirMasHoteles noPuedeConstruirMasHoteles) {
-			return true;
-		}
-		return false;
-	}
 	public Comprable getPropiedad(int i) {
 		return this.propiedades.get(i);
 	}
+
 	public void elimarPropiedad(Comprable propiedad) {
 		for(int i=0; i< this.propiedades.size();i++){
 			Comprable comprable = this.propiedades.get(i);

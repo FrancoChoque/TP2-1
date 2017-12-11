@@ -1,5 +1,7 @@
 package Entrega2;
 
+import estados.Comprable.Propiedad.Propiedad;
+import modelo.Edificio;
 import modelo.Jugador.Jugador;
 import modelo.Casa;
 import modelo.Tablero;
@@ -23,7 +25,9 @@ public class Prueba209Test {
 
         Assert.assertEquals(85000, player.getDinero());
 
-        player.construir(untablero.getSantaFe(), new Casa());
+        Edificio edificio = new Casa();
+
+        player.construir(untablero.getSantaFe(), edificio);
 
         Assert.assertEquals(81000, player.getDinero());
     }

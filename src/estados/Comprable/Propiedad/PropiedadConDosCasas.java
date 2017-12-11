@@ -3,6 +3,7 @@ package estados.Comprable.Propiedad;
 import excepciones.*;
 import javafx.scene.canvas.GraphicsContext;
 import modelo.Casa;
+import modelo.Edificio;
 import modelo.Hotel;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
@@ -20,16 +21,11 @@ public class PropiedadConDosCasas implements PropiedadEstado {
         return propiedad.getCostoAlquilerConDosCasas();
     }
 
-
-    public void construir(Jugador unJugador, Casa casa) throws DineroInsuficiente {
-
-    }
-
-    public void construir(Jugador unJugador, Hotel hotel) throws DineroInsuficiente {
-        if(!unJugador.puedePagar(propiedad.getValorHotel())) throw new DineroInsuficiente();
+    @Override
+    public void construir() {
         propiedad.setPropiedadEstado(propiedad.getPropiedadConHotel());
-
     }
+
 
     @Override
     public void puedeConstruir(Jugador unJugador, Casa casa) throws JugadorNoPoseeTodosLosBarrios, NoPuedeConstruirMasCasas {
@@ -41,7 +37,8 @@ public class PropiedadConDosCasas implements PropiedadEstado {
         propiedad.puedeEdificar(unJugador, hotel);
     }
 
-	@Override
+
+    @Override
 	public void dibujarEdificios(GraphicsContext gc, Posicion pos) {
 		// TODO Auto-generated method stub
 		gc.drawImage(JugadorCapa.getIconoCasa(), pos.getx() + JugadorCapa.getdesfaseX1(),
