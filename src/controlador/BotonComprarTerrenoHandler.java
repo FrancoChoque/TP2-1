@@ -4,6 +4,7 @@ import estados.Comprable.Comprable;
 import excepciones.DineroInsuficiente;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Casillero;
@@ -32,11 +33,14 @@ public class BotonComprarTerrenoHandler implements EventHandler<ActionEvent> {
 			algopoly.comprar( algopoly.obtenerJugadorActual() );
 			juego.agregaraccion("Compraste " + casillero.getNombre() + " por $" + estado.getPrecioCompra() + "\n");
 			juego.actualizarVenderTerreno(algopoly.obtenerJugadorActual() );
+			juego.setBotonConstruirCasa(true);
 		} catch (DineroInsuficiente e) {
 			AlertBox box = new AlertBox();
 			box.errorcompra();
 		}
-		
+
+		juego.play(new AudioClip("file:src/Sonido/pagar.mp3"));
+
 		this.stage.close();
 		
 		

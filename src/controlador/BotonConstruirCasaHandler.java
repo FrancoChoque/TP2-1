@@ -3,6 +3,7 @@ package controlador;
 import estados.Comprable.Propiedad.Propiedad;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.media.AudioClip;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Tablero;
@@ -32,11 +33,11 @@ public class BotonConstruirCasaHandler implements EventHandler<ActionEvent> {
 		Casillero casillero = Tablero.getInstance().obtenerCasillero(actual);
 		Propiedad prop = (Propiedad) casillero.getestado();
 		
-		
-		
-		VentanaOperacion box = new VentanaOperacion();	
+		VentanaOperacion box = new VentanaOperacion();
 		box.ventanaconstruircasa(actual, prop);
-		
+
+		juego.play(new AudioClip("file:src/Sonido/constuir.mp3"));
+
 		juego.actualizarCapa(actual);
 	}
 

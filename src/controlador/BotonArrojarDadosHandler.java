@@ -12,6 +12,7 @@ import excepciones.NoEsTurnoJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Tablero;
@@ -36,6 +37,8 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 
 
 			this.algopoly.arrojarDados(actual);
+
+			ventana.play(new AudioClip("file:src/Sonido/dados.mp3"));
 
 			EstadoCasillero casillero = algopoly.getTablero().obtenerCasillero(actual).getestado();
 

@@ -49,7 +49,8 @@ public class AlertBox {
         BorderPane layout = new BorderPane();
 
         Text text = new Text();
-        Text text2 = new Text();
+
+        ImageView view = new ImageView(new Image("file:src/imagenes/Casilleros/dados.png"));
 
 
         text.setText("Valor de los dados: " + valorDado1 + " y " + valorDado2 +"\n" + "Caiste en: " + posicion +"\n");
@@ -68,8 +69,8 @@ public class AlertBox {
         TextFlow text3 = new TextFlow(text);
         text3.setTextAlignment(TextAlignment.CENTER);
         text3.setPadding( new Insets(10,10,10,10));
-
-        layout.setTop(text3);
+        BorderPane.setAlignment(view,Pos.TOP_CENTER);
+        layout.setTop(view);
 
         button.setAlignment(Pos.CENTER);
 
@@ -81,7 +82,7 @@ public class AlertBox {
         layout.setCenter(vbox);
 
 
-        Scene scene = new Scene(layout, 370,140);
+        Scene scene = new Scene(layout, 370,325);
 
         stage.setScene(scene);
 
