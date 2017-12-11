@@ -22,6 +22,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.TextAlignment;
@@ -71,12 +72,16 @@ public class VentanaJuego{
 	private Button botonPagarFianza;
 	private HashMap<Jugador, JugadorCapa> hash;
 
-	
+	private AudioClip bgm = new AudioClip("file:src/Sonido/bgm.mp3");
+	private AudioClip sfx;
+
 	
 	private VentanaJuego() {};
 	
 	public void initialize(Stage primaryStage, AlgoPoly juego, String nombreJugador1, String nombreJugador2, String nombrejugador3) {
-        
+
+        bgm.setCycleCount(AudioClip.INDEFINITE);
+        bgm.play();
 
 
 	    this.algopoly = juego;
@@ -156,6 +161,7 @@ public class VentanaJuego{
         BotonSalir.setOnAction(BotonSalirHandler);
 
 
+
         
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(10));
@@ -181,7 +187,7 @@ public class VentanaJuego{
         
         botonPagarFianza = new Button();
         //botonPagarFianza.setText("Pagar Fianza");
-        Image imagenPagarFianza = new Image("file:src/imagenes/BotonPagarFianza.png");
+        Image imagenPagarFianza = new Image("file:src/imagenes/Botones/BotonPagarFianza.png");
         botonPagarFianza.setGraphic(new ImageView(imagenPagarFianza));
         botonPagarFianza.setMinWidth(160);
         //botonPagarFianza.setMinWidth(Double.MAX_VALUE);
@@ -191,7 +197,7 @@ public class VentanaJuego{
         
         botonVenderTerreno = new Button();
         //botonVenderTerreno.setText("Vender Terreno");
-        Image imagenBotonVenderTerreno = new Image("file:src/imagenes/BotonVender.png");
+        Image imagenBotonVenderTerreno = new Image("file:src/imagenes/Botones/BotonVender.png");
         botonVenderTerreno.setGraphic(new ImageView(imagenBotonVenderTerreno));
         botonVenderTerreno.setMinWidth(160);
         //botonVenderTerreno.setMinWidth(Double.MAX_VALUE);
@@ -200,7 +206,7 @@ public class VentanaJuego{
         
         botonIntercambiarTerreno = new Button();
         //botonIntercambiarTerreno.setText("Intercambiar terreno");
-        Image imagenBotonIntercambiar = new Image("file:src/imagenes/BotonIntercambio.png");
+        Image imagenBotonIntercambiar = new Image("file:src/imagenes/Botones/BotonIntercambio.png");
         botonIntercambiarTerreno.setGraphic(new ImageView(imagenBotonIntercambiar));
         botonIntercambiarTerreno.setMinWidth(160);
         //botonIntercambiarTerreno.setMinWidth(Double.MAX_VALUE);
@@ -209,7 +215,7 @@ public class VentanaJuego{
 
         botonConstruirCasa = new Button();
         //botonConstruirCasa.setText("Construir casa");
-        Image imagenBotonConstruirCasa = new Image("file:src/imagenes/ConstuirCasa.png");
+        Image imagenBotonConstruirCasa = new Image("file:src/imagenes/Botones/ConstuirCasa.png");
         botonConstruirCasa.setFont(Font.font("Helvetica", FontWeight.NORMAL, 16));
         botonConstruirCasa.setText("Constuir Casa");
         botonConstruirCasa.setContentDisplay(ContentDisplay.TOP);
@@ -220,7 +226,7 @@ public class VentanaJuego{
         botonConstruirCasa.setOnAction(BotonConstruirCasaHandler);
 
         botonConstruirHotel = new Button();
-        Image imagenBotonConstruirHotel = new Image("file:src/imagenes/hotel2.png");
+        Image imagenBotonConstruirHotel = new Image("file:src/imagenes/Botones/hotel2.png");
         botonConstruirHotel.setFont(Font.font("Helvetica", FontWeight.NORMAL, 16));
         botonConstruirHotel.setText("Construir hotel");
         botonConstruirHotel.setContentDisplay(ContentDisplay.TOP);
@@ -233,18 +239,31 @@ public class VentanaJuego{
         
         botonTerminarTurno = new Button();        
         //botonTerminarTurno.setText("Terminar turno");
-        Image imagenBotonTerminar = new Image("file:src/imagenes/BotonTerminarTurno.png");
+        Image imagenBotonTerminar = new Image("file:src/imagenes/Botones/BotonTerminarTurno.png");
         botonTerminarTurno.setGraphic(new ImageView(imagenBotonTerminar));
         botonTerminarTurno.setMinWidth(160);
         //botonTerminarTurno.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonTerminarTurnoHandler = new BotonTerminarTurnoHandler(this, juego);
         botonTerminarTurno.setOnAction(BotonTerminarTurnoHandler);
-        
-        
+
+        HBox desactivarHBox = new HBox();
+
+        Button botonNoSfx = new Button();
+        botonNoSfx.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/nosfx.png")));
+
+        Button botonDesactivarBgm = new Button();
+        botonDesactivarBgm.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/nobgm.png")));
+        EventHandler<ActionEvent> BotonDesactivarBgm = new BotonDesactivarBgmHandler();
+        botonDesactivarBgm.setOnAction(BotonDesactivarBgm);
+
+        desactivarHBox.getChildren().addAll(botonDesactivarBgm,botonNoSfx);
+
+
         AccionesVBox.getChildren().addAll(botonTerminarTurno,botonArrojarDados,
         		botonVenderTerreno, botonConstruirCasa,
-        		botonConstruirHotel, botonPagarFianza,botonIntercambiarTerreno);
-        
+        		botonConstruirHotel, botonPagarFianza,botonIntercambiarTerreno,desactivarHBox);
+
+
         root.setLeft(AccionesVBox);
         
         
@@ -512,4 +531,11 @@ public class VentanaJuego{
 		// TODO Auto-generated method stub
 		this.hash.remove(actual);
 	}
+
+	public void toggleBgm(){
+        if(bgm.isPlaying()) bgm.stop();
+        else bgm.play();
+    }
+
+
 }

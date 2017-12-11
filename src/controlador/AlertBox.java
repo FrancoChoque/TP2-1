@@ -224,7 +224,7 @@ public class AlertBox {
 
         ImageView view = new ImageView(imagen);
 
-        BorderPane.setAlignment(view,Pos.TOP_CENTER);
+        BorderPane.setAlignment(view,Pos.BOTTOM_CENTER);
 
         layout.setTop(view);
 

@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -58,8 +60,9 @@ public class Login {
         iniciarBoton.setText("Iniciar");
         BotonConfirmarNombresHandler confirmarnombres = new BotonConfirmarNombresHandler(this,stage,scene);
         iniciarBoton.setOnAction(confirmarnombres);
-   
+
         cerrarBoton.setText("Salir");
+        //cerrarBoton.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/cancelar.png")));
         BotonVolverHandler salir = new BotonVolverHandler(stage);
         cerrarBoton.setOnAction(salir);
 
