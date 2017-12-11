@@ -159,7 +159,10 @@ public class VentanaJuego{
         //Botonera horizontal
         
         Button BotonSalir = new Button();
+        BotonSalir.setFont(Font.font("Helvetica", FontWeight.NORMAL, 16));
         BotonSalir.setText("Salir");
+        BotonSalir.setMinWidth(100);
+        BotonSalir.setMinHeight(60);
         EventHandler<ActionEvent> BotonSalirHandler = new BotonSalirHandler();
         BotonSalir.setOnAction(BotonSalirHandler);
 
