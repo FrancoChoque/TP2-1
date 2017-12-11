@@ -85,8 +85,9 @@ public class Carcel extends EstadoCasillero {
 	}
 
 	public String getMensaje(Jugador jugador){
+		if(calabozo.containsKey(jugador)) return "Tenes que esperar: " + (3- preguntarTurnosEnCalabozo(jugador))+ " turnos.";
 		return "Tenes que esperar: " + (4- preguntarTurnosEnCalabozo(jugador))+ " turnos.";
-	}
+}
 
 	public void mensajeEfecto(Jugador unJugador){
 

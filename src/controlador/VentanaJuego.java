@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 import modelo.*;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
+import vista.eventos.mensajescasillero.Mensaje;
 
 
 public class VentanaJuego{
@@ -421,6 +422,8 @@ public class VentanaJuego{
 		this.botonPagarFianza.setDisable(true);
 
         if(!jugadoractual.puedeMoverse()){
+            Mensaje mensaje = new Mensaje();
+            mensaje.mensajeEfecto(jugadoractual,algopoly.getTablero().getCarcel());
             algopoly.getTablero().getCarcel().hacerEfectoDelCasillero(jugadoractual);
             actualizarPagarFianza(jugadoractual);
         }

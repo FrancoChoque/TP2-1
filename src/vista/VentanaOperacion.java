@@ -51,12 +51,16 @@ public class VentanaOperacion {
         text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         Text text2 = new Text();
-        text2.setText("en "+ prop.getNombre() + "?");
+        text2.setText("en "+ prop.getNombre());
         text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+
+        Text text3 = new Text();
+        text3.setText(" por $" + prop.getValorCasa() + "?");
+        text3.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         TextFlow textos = new TextFlow();
         textos.setTextAlignment(TextAlignment.CENTER);
-        textos.getChildren().addAll(text1, text2);
+        textos.getChildren().addAll(text1, text2, text3);
         textos.setPadding(new Insets(10,10,10,10));
         
         layout.setTop(textos);
@@ -70,11 +74,13 @@ public class VentanaOperacion {
  
         Button botonaceptar = new Button();
         botonaceptar.setText("Construir");
+        botonaceptar.setMinWidth(80);
         EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarConstruirHotelHandler(stage);
         botonaceptar.setOnAction(botonaceptarhandler);
         
         
         Button botonrechazar = new Button();
+        botonrechazar.setMinWidth(80);
         botonrechazar.setText("Volver");
         EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
         botonrechazar.setOnAction(botonrechazarhandler);
@@ -214,16 +220,20 @@ public class VentanaOperacion {
         BorderPane layout = new BorderPane();
         
         Text text1 = new Text();
-        text1.setText("Desea construir una casa\n");
+        text1.setText("Desea construir una casa ");
         text1.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         Text text2 = new Text();
-        text2.setText("en " + prop.getNombre() + "?");
+        text2.setText("en " + prop.getNombre());
         text2.setFont(font("Helvetica", FontPosture.REGULAR, 20));
+
+        Text text3 = new Text();
+        text3.setText(" por $" + prop.getValorCasa() + "?");
+        text3.setFont(font("Helvetica", FontPosture.REGULAR, 20));
         
         TextFlow textos = new TextFlow();
         textos.setTextAlignment(TextAlignment.CENTER);
-        textos.getChildren().addAll(text1, text2);
+        textos.getChildren().addAll(text1, text2, text3);
         textos.setPadding(new Insets(10,10,10,10));
         
         layout.setTop(textos);
@@ -237,12 +247,14 @@ public class VentanaOperacion {
         layout.setBottom(opciones);
  
         Button botonaceptar = new Button();
+        botonaceptar.setMinWidth(80);
         botonaceptar.setText("Si");
         EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarConstruirCasaHandler(stage);
         botonaceptar.setOnAction(botonaceptarhandler);
         
         
         Button botonrechazar = new Button();
+        botonrechazar.setMinWidth(80);
         botonrechazar.setText("No");
         EventHandler<ActionEvent> botonrechazarhandler = new BotonVolverHandler(stage);
         botonrechazar.setOnAction(botonrechazarhandler);
