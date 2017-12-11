@@ -25,11 +25,14 @@ public class Prueba111Test {
 	}
 	
 	@Test
-	public void test01JugadorCaeEnRetrocesoConDadosEn9YRetrocede1Casillero() {
-		Tablero untablero = Tablero.resetInstance();
+	public void test01JugadorCaeEnRetrocesoConDadosEn9YRetrocede1Casillero() throws Exception {
+		Tablero untablero = Tablero.getInstance();
+
+		untablero.resetearTablero();
 		Jugador player = new Jugador("playuer");
+
 		player.setEstado(player.getJugadorEmpezandoTurno());
-		player.setNumeroPropiedades(1);		
+
 		untablero.agregarJugador(player);
 		
 		player.setValorDados(9);

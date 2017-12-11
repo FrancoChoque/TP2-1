@@ -168,7 +168,7 @@ public class Jugador {
 
 		return this.movimientoPosible;
 	}
-	
+
 
 	public boolean tieneDadosIguales() {
 		// TODO Auto-generated method stub

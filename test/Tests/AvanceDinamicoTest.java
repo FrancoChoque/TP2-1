@@ -24,11 +24,11 @@ public class AvanceDinamicoTest {
 	}
 	
 	@Test
-	public void jugadorCaeEnAvanceDinamicoYConUnaPropiedadDados5PosicionJugador10Test(){
+	public void jugadorCaeEnAvanceDinamicoYConUnaPropiedadDados5PosicionJugador10Test() throws Exception{
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setEstado(jugador.getJugadorEmpezandoTurno());
-		jugador.setNumeroPropiedades(1);
+		jugador.comprar(tablero.getSaltaNorte());
 		tablero.agregarJugador(jugador);
 		
 		jugador.setValorDados(5);
@@ -55,11 +55,13 @@ public class AvanceDinamicoTest {
 	}
 	
 	@Test
-	public void jugadorCaeEnAvanceDinamicoYDados7yConUnaPropiedadDineroDe10PosicionJugador10Test(){
+	public void jugadorCaeEnAvanceDinamicoYDados7yConUnaPropiedadDineroDe10PosicionJugador10Test()throws Exception {
 		Tablero tablero = Tablero.getInstance();
 		Jugador jugador = new Jugador("jugador1");
 		jugador.setDinero(10);
-		jugador.setNumeroPropiedades(1);
+
+		jugador.setEstado(jugador.getJugadorEmpezandoTurno());
+		jugador.comprar(tablero.getSaltaNorte());
 		tablero.agregarJugador(jugador);
 		
 		jugador.setValorDados(7);

@@ -29,17 +29,22 @@ public class RetrocesoDinamicoTest {
 	}
 	
 	@Test
-	public void test01JugadorCaeEnRetrocesoConDadosEn9YRetrocede1Casillero() {
+	public void test01JugadorCaeEnRetrocesoConDadosEn9YRetrocede1Casillero() throws Exception {
 		Tablero untablero = Tablero.getInstance();
+
+		untablero.resetearTablero();
+
 		Jugador player = new Jugador("playuer");
-		player.setNumeroPropiedades(1);
+
+		player.setEstado(player.getJugadorEmpezandoTurno());
+
         player.setEstado(player.getJugadorEmpezandoTurno());
 
 		untablero.agregarJugador(player);
 		
 		player.setValorDados(9);
 		untablero.moverJugador(player, 18);
-        Tablero.getInstance().obtenerCasillero(player).getestado().hacerEfectoDelCasillero(player);
+        untablero.obtenerCasillero(player).getestado().hacerEfectoDelCasillero(player);
 		
 		Assert.assertEquals(17, untablero.obtenerPosicion(player));
 	}
@@ -47,6 +52,8 @@ public class RetrocesoDinamicoTest {
 	@Test
 	public void test02JugadorCaeEnRetrocesoConDadosEn12YRetrocede10Casilleros() {
 		Tablero untablero = Tablero.getInstance();
+
+
 		Jugador player = new Jugador("playuer");
 		untablero.agregarJugador(player);
 		
