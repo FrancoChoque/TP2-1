@@ -36,7 +36,7 @@ public class BotonVenderTerrenoHandler implements EventHandler<ActionEvent> {
 		ventana.venderterreno(map);
 
 		VentanaJuego ventanaJuego = VentanaJuego.getInstance();
-		ventanaJuego.play(new AudioClip("file:src/Sonido/vender.mp3"));
+
 		
 		ventanaJuego.actualizarCapa(actual);
 		ventanaJuego.actualizardinero();

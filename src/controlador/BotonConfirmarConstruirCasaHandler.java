@@ -4,6 +4,7 @@ import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import modelo.*;
 import modelo.Jugador.Jugador;
@@ -33,7 +34,7 @@ public class BotonConfirmarConstruirCasaHandler implements EventHandler<ActionEv
 		
 		try {
 			actual.construir(propiedad,edificio);
-
+			juego.play(new AudioClip("file:src/Sonido/constuir.mp3"));
 			juego.agregaraccion("Construiste una casa en " + propiedad.getNombre() + "\n");
 			juego.agregaraccion("Por un costo de $" + propiedad.getValorCasa() + "\n");
 		} catch (DineroInsuficiente e) {

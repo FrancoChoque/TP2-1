@@ -6,6 +6,7 @@ import estados.Comprable.Propiedad.Propiedad;
 import excepciones.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Edificio;
@@ -39,6 +40,7 @@ public class BotonConfirmarConstruirHotelHandler implements EventHandler<ActionE
 
 			Edificio edificio = new Hotel();
 			actual.construir(prop, edificio);
+			juego.play(new AudioClip("file:src/Sonido/constuir.mp3"));
 			juego.agregaraccion("Construiste un hotel en " + prop.getNombre() + "\n");
 			juego.agregaraccion("Por un costo de $" + prop.getValorHotel() + "\n");
 		} catch (DineroInsuficiente e) {

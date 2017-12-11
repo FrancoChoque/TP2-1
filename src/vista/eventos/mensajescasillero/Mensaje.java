@@ -78,6 +78,10 @@ public class Mensaje {
 
         AlertBox box = new AlertBox();
 
+        audioClip = new AudioClip("file:src/Sonido/aysa.mp3");
+
+        ventanaJuego.play(audioClip);
+
         imagen = new Image("file:src/imagenes/Casilleros/aysa.png");
 
         box.mensajeEfecto(jugador,aysa,audioClip,imagen);

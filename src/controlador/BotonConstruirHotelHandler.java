@@ -29,8 +29,6 @@ public class BotonConstruirHotelHandler implements EventHandler<ActionEvent> {
 		VentanaOperacion ventana = new VentanaOperacion();
 
 		ventana.ventanaconstruirhotel(prop);
-
-		VentanaJuego.getInstance().play(new AudioClip("file:src/Sonido/constuir.mp3"));
 		
 		VentanaJuego.getInstance().actualizarCapa(actual);
 	}

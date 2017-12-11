@@ -10,6 +10,7 @@ import excepciones.NoEsTurnoJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
@@ -42,6 +43,7 @@ public class BotonConfirmarVenderTerrenoHandler implements EventHandler<ActionEv
 			int dineroanterior = actual.getDinero();
 			algopoly.vender(actual,comprable);
 			int dineroactual = actual.getDinero()-dineroanterior;
+			juego.play(new AudioClip("file:src/Sonido/vender.mp3"));
 			juego.agregaraccion("Vendiste " + comprable.getNombre() + "por $"+ dineroactual +  "\n");
 		} catch (NoEsTurnoJugador e) {
 			// TODO Auto-generated catch block

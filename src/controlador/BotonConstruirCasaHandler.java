@@ -36,7 +36,7 @@ public class BotonConstruirCasaHandler implements EventHandler<ActionEvent> {
 		VentanaOperacion box = new VentanaOperacion();
 		box.ventanaconstruircasa(actual, prop);
 
-		juego.play(new AudioClip("file:src/Sonido/constuir.mp3"));
+
 
 		juego.actualizarCapa(actual);
 	}
