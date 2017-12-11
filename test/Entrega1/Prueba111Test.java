@@ -8,13 +8,15 @@ import org.junit.Test;
 public class Prueba111Test {
 
 	@Test
-	public void test00JugadorCaeEnRetrocesoConDadosEn6YUnaPropiedadRetrocede5Casillas() {
+	public void test00JugadorCaeEnRetrocesoConDadosEn6YUnaPropiedadRetrocede5Casillas() throws Exception {
 		Tablero untablero = Tablero.resetInstance();
 		Jugador player = new Jugador("playuer");
         player.setEstado(player.getJugadorEmpezandoTurno());
-		player.setNumeroPropiedades(1);
+
 		untablero.agregarJugador(player);
-		
+
+		player.comprar(untablero.getSaltaNorte());
+
 		player.setValorDados(6);
 		untablero.moverJugador(player, 18);
 		Tablero.getInstance().obtenerCasillero(player).getestado().hacerEfectoDelCasillero(player);

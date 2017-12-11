@@ -13,6 +13,7 @@ public class SaltaNorteTest {
 	@Test
 	public void test00ComprarSaltaNorteReduceElDineroDelJugadorEn23000() throws Exception {
 		Tablero untablero = Tablero.getInstance();
+		untablero.resetearTablero();
 		Jugador player = new Jugador("plauer");
 
         player.setEstado(player.getJugadorEmpezandoTurno());

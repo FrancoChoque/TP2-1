@@ -15,7 +15,7 @@ public class Jugador {
 
 	private LinkedList<Comprable> propiedades;
 	private boolean movimientoPosible;
-	private int numeroPropiedades;
+
 
 	private Dado dado1;
 	private Dado dado2;
@@ -97,7 +97,7 @@ public class Jugador {
 	}
 
 	public void setDinero(int unMonto){
-		if(this.dinero < Math.abs(unMonto)) throw new DineroInsuficiente();
+		//if(this.dinero < Math.abs(unMonto)) throw new DineroInsuficiente();
 		this.dinero = unMonto;
 	}
 
@@ -168,19 +168,7 @@ public class Jugador {
 
 		return this.movimientoPosible;
 	}
-
-	public int getNumeroPropiedades() {
-		//getter de pruebas
-		return numeroPropiedades;
-	}
-
-	public void setNumeroPropiedades(int i) {
-		//setter de pruebas
-		this.numeroPropiedades = i;
-	}
-
-
-
+	
 
 	public boolean tieneDadosIguales() {
 		// TODO Auto-generated method stub
