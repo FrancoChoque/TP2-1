@@ -51,6 +51,10 @@ public class AlertBox {
         Text text = new Text();
 
         ImageView view = new ImageView(new Image("file:src/imagenes/Casilleros/dados.png"));
+        VBox imgview = new VBox();
+        imgview.getChildren().add(view);
+        imgview.setPadding(new Insets(10,0,0,0));
+        imgview.setAlignment(Pos.CENTER);
 
 
         text.setText("Valor de los dados: " + valorDado1 + " y " + valorDado2 +"\n" + "Caiste en: " + posicion +"\n");
@@ -70,7 +74,8 @@ public class AlertBox {
         text3.setTextAlignment(TextAlignment.CENTER);
         text3.setPadding( new Insets(10,10,10,10));
         BorderPane.setAlignment(view,Pos.TOP_CENTER);
-        layout.setTop(view);
+        
+        layout.setTop(imgview);
 
         button.setAlignment(Pos.CENTER);
 
@@ -225,10 +230,15 @@ public class AlertBox {
         layout.setCenter(text);
 
         ImageView view = new ImageView(imagen);
-
-        BorderPane.setAlignment(view,Pos.BOTTOM_CENTER);
-
-        layout.setTop(view);
+        
+        VBox vbox = new VBox();
+        vbox.getChildren().add(view);
+        vbox.setPadding(new Insets(35,0,0,0));
+        vbox.setAlignment(Pos.BOTTOM_CENTER);
+        
+        layout.setTop(vbox);
+        
+        BorderPane.setAlignment(layout.getTop(),Pos.BOTTOM_CENTER);
 
         if(casillero instanceof Comprable){
             if(!((Comprable) casillero).tieneDuenio()){
