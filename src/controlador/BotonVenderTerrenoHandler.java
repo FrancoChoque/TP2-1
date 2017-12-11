@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import estados.Comprable.Comprable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.media.AudioClip;
 import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
 import vista.VentanaOperacion;
@@ -33,9 +34,12 @@ public class BotonVenderTerrenoHandler implements EventHandler<ActionEvent> {
 		
 		VentanaOperacion ventana = new VentanaOperacion();
 		ventana.venderterreno(map);
+
+		VentanaJuego ventanaJuego = VentanaJuego.getInstance();
+		ventanaJuego.play(new AudioClip("file:src/Sonido/vender.mp3"));
 		
-		VentanaJuego.getInstance().actualizarCapa(actual);
-		VentanaJuego.getInstance().actualizardinero();
+		ventanaJuego.actualizarCapa(actual);
+		ventanaJuego.actualizardinero();
 	}
 
 }

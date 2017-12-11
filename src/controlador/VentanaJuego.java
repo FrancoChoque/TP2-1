@@ -24,14 +24,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.scene.effect.*;
-import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import modelo.*;
 import modelo.Jugador.Jugador;
@@ -70,9 +68,12 @@ public class VentanaJuego{
 	private Button botonConstruirHotel;
 	private Button botonTerminarTurno;
 	private Button botonPagarFianza;
-	private HashMap<Jugador, JugadorCapa> hash;
+    private Button botonToggleBgm;
+    private Button botonToggleSfx;
+    private HashMap<Jugador, JugadorCapa> hash;
 
-	private AudioClip bgm = new AudioClip("file:src/Sonido/bgm.mp3");
+	private boolean audio = true;
+    private AudioClip bgm = new AudioClip("file:src/Sonido/bgm.mp3");
 	private AudioClip sfx;
 
 	
@@ -236,9 +237,9 @@ public class VentanaJuego{
         //botonConstruirHotel.setMinWidth(Double.MAX_VALUE);
         EventHandler<ActionEvent> BotonConstruirHotelHandler = new BotonConstruirHotelHandler();
         botonConstruirHotel.setOnAction(BotonConstruirHotelHandler);
-        
-        
-        botonTerminarTurno = new Button();        
+
+
+        botonTerminarTurno = new Button();
         //botonTerminarTurno.setText("Terminar turno");
         Image imagenBotonTerminar = new Image("file:src/imagenes/Botones/BotonTerminarTurno.png");
         botonTerminarTurno.setGraphic(new ImageView(imagenBotonTerminar));
@@ -249,15 +250,17 @@ public class VentanaJuego{
 
         HBox desactivarHBox = new HBox();
 
-        Button botonNoSfx = new Button();
-        botonNoSfx.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/nosfx.png")));
+        botonToggleSfx = new Button();
+        botonToggleSfx.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/sfx.png")));
+        EventHandler<ActionEvent> BotonToggleSfx = new BotonToggleSfxHandler();
+        botonToggleSfx.setOnAction(BotonToggleSfx);
 
-        Button botonDesactivarBgm = new Button();
-        botonDesactivarBgm.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/nobgm.png")));
-        EventHandler<ActionEvent> BotonDesactivarBgm = new BotonDesactivarBgmHandler();
-        botonDesactivarBgm.setOnAction(BotonDesactivarBgm);
+        botonToggleBgm = new Button();
+        botonToggleBgm.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/bgm.png")));
+        EventHandler<ActionEvent> BotonToggleBgm = new BotonToggleBgmHandler();
+        botonToggleBgm.setOnAction(BotonToggleBgm);
 
-        desactivarHBox.getChildren().addAll(botonDesactivarBgm,botonNoSfx);
+        desactivarHBox.getChildren().addAll(botonToggleBgm,botonToggleSfx);
 
 
         AccionesVBox.getChildren().addAll(botonTerminarTurno,botonArrojarDados,
@@ -448,6 +451,10 @@ public class VentanaJuego{
 		this.botonTerminarTurno.setDisable(valor);
 	}
 
+	public void setBotonConstruirCasa(boolean value){
+        this.botonConstruirCasa.setDisable(value);
+    }
+
 	public void actualizarIntercambiar(Jugador jugador) {
 		// TODO Auto-generated method stub
 		this.botonIntercambiarTerreno.setDisable(jugador.getCantidadPropiedad() == 0);
@@ -533,9 +540,30 @@ public class VentanaJuego{
 		this.hash.remove(actual);
 	}
 
+	public void play(AudioClip audioClip){
+        if(audio) audioClip.play();
+
+    }
+
+
 	public void toggleBgm(){
-        if(bgm.isPlaying()) bgm.stop();
-        else bgm.play();
+        if(bgm.isPlaying()){
+            botonToggleBgm.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/nobgm.png")));
+            bgm.stop();
+        } else {
+            botonToggleBgm.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/bgm.png")));
+            bgm.play();
+        }
+    }
+
+    public void toggleSfx(){
+        if(audio){
+            botonToggleSfx.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/nosfx.png")));
+            audio = false;
+        } else {
+            botonToggleSfx.setGraphic(new ImageView(new Image("file:src/imagenes/Botones/sfx.png")));
+            audio = true;
+        }
     }
 
 

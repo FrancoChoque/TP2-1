@@ -3,6 +3,7 @@ package controlador;
 import estados.Comprable.Propiedad.Propiedad;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.media.AudioClip;
 import modelo.AlgoPoly;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
@@ -28,6 +29,8 @@ public class BotonConstruirHotelHandler implements EventHandler<ActionEvent> {
 		VentanaOperacion ventana = new VentanaOperacion();
 
 		ventana.ventanaconstruirhotel(prop);
+
+		VentanaJuego.getInstance().play(new AudioClip("file:src/Sonido/constuir.mp3"));
 		
 		VentanaJuego.getInstance().actualizarCapa(actual);
 	}

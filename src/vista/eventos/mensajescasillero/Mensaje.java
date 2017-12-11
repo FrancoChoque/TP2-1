@@ -1,6 +1,7 @@
 package vista.eventos.mensajescasillero;
 
 import controlador.AlertBox;
+import controlador.VentanaJuego;
 import estados.*;
 import estados.Comprable.Propiedad.Propiedad;
 import estados.Comprable.Servicio.Servicios.Aysa;
@@ -15,7 +16,7 @@ public class Mensaje {
 
     AudioClip audioClip;
     Image imagen;
-    AlertBox box;
+    VentanaJuego ventanaJuego = VentanaJuego.getInstance();
 
 
 
@@ -37,6 +38,11 @@ public class Mensaje {
 
         imagen = new Image("file:src/imagenes/Casilleros/quini6.png");
 
+        audioClip = new AudioClip("file:src/Sonido/quini6.mp3");
+
+        ventanaJuego.play(audioClip);
+
+
         box.mensajeEfecto(jugador,quini6,audioClip,imagen);
 
 
@@ -48,7 +54,7 @@ public class Mensaje {
 
         audioClip = new AudioClip("file:src/Sonido/carcel.mp3");
 
-        audioClip.play();
+        ventanaJuego.play(audioClip);
 
         imagen = new Image("file:src/imagenes/Casilleros/carcel.png");
 
@@ -74,7 +80,6 @@ public class Mensaje {
 
         imagen = new Image("file:src/imagenes/Casilleros/aysa.png");
 
-
         box.mensajeEfecto(jugador,aysa,audioClip,imagen);
 
         return;
@@ -83,6 +88,10 @@ public class Mensaje {
     public void mensajeEfecto(Jugador jugador, Edesur edesur) {
 
         AlertBox box = new AlertBox();
+
+        audioClip = new AudioClip("file:src/Sonido/edesur.mp3");
+
+        ventanaJuego.play(audioClip);
 
         imagen = new Image("file:src/imagenes/Casilleros/edesur.png");
 
@@ -95,6 +104,10 @@ public class Mensaje {
 
         AlertBox box = new AlertBox();
 
+        audioClip = new AudioClip("file:src/Sonido/tren.mp3");
+
+        ventanaJuego.play(audioClip);
+
         imagen = new Image("file:src/imagenes/Casilleros/tren.png");
 
         box.mensajeEfecto(jugador,tren,audioClip,imagen);
@@ -106,6 +119,10 @@ public class Mensaje {
     public void mensajeEfecto(Jugador jugador, Subte subte) {
 
         AlertBox box = new AlertBox();
+
+        audioClip = new AudioClip("file:src/Sonido/subte.mp3");
+
+        ventanaJuego.play(audioClip);
 
         imagen = new Image("file:src/imagenes/Casilleros/subte.png");
 
@@ -135,7 +152,7 @@ public class Mensaje {
 
         audioClip = new AudioClip("file:src/Sonido/police.mp3");
 
-        audioClip.play();
+        ventanaJuego.play(audioClip);
 
         box.mensajeEfecto(jugador,policia,audioClip,imagen);
 
@@ -147,7 +164,7 @@ public class Mensaje {
 
         AlertBox box = new AlertBox();
 
-        Image imagen = new Image("file:src/imagenes/Casilleros/afip.png");
+        Image imagen = new Image("file:src/imagenes/Casilleros/forward.png");
 
         box.mensajeEfecto(jugador,avanceDinamico,audioClip,imagen);
 
@@ -158,7 +175,7 @@ public class Mensaje {
 
         AlertBox box = new AlertBox();
 
-        Image imagen = new Image("file:src/imagenes/Casilleros/afip.png");
+        Image imagen = new Image("file:src/imagenes/Casilleros/backwards.png");
 
         box.mensajeEfecto(jugador,retrocesoDinamico,audioClip,imagen);
 
