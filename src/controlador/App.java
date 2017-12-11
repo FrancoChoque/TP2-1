@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-
+import modelo.Jugador.Jugador;
+import vista.JugadorCapa;
+import java.util.HashMap;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -24,8 +26,9 @@ public class App extends Application {
     private BorderPane root;
     private Scene ecenaPrincipal;
     private AlgoPoly algoPoly= new AlgoPoly();
+    private HashMap<Jugador, JugadorCapa> hash;
     private static App instance;
-
+    
 
     public static void main(String[] args) {
         launch(args);
@@ -126,7 +129,12 @@ public class App extends Application {
     public Scene getecenaPrincipal(){
     	return this.ecenaPrincipal;
     }
-    
+    public void setHash(HashMap<Jugador, JugadorCapa> unHash){
+    	this.hash = unHash;
+    }
+    public HashMap<Jugador, JugadorCapa> getHash(){
+    	return this.hash;
+    }
     public Stage getPrimaryStage(){
     	return this.primaryStage;
     }

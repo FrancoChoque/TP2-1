@@ -147,7 +147,7 @@ public class VentanaJuego{
         capajugador2.dibujar();
         capajugador3.dibujar();
         
-
+        mainApp.setHash(hash);
         StackPane stack = new StackPane();
         stack.getChildren().addAll(univ, stackcapas);
         

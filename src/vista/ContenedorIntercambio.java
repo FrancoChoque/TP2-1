@@ -2,7 +2,11 @@ package vista;
 
 
 import static javafx.scene.text.Font.font;
-
+import javafx.beans.property.ObjectProperty;
+import java.util.concurrent.Callable;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.binding.StringBinding;
+import javafx.beans.binding.Bindings;
 import controlador.App;
 import controlador.BotonVolverHandler;
 import estados.Comprable.Comprable;
@@ -30,6 +34,9 @@ import modelo.Jugador.Jugador;
 import vista.eventos.BotonAceptarIntercambio;
 import vista.eventos.BotonIntercambioJugador;
 import javafx.scene.paint.Color;
+import modelo.Jugador.Jugador;
+import vista.JugadorCapa;
+import java.util.HashMap;
 
 import vista.eventos.BotonSelecionarPropiedadesIntercambio;
 
@@ -55,7 +62,7 @@ public class ContenedorIntercambio extends VBox{
         
         VBox vbox = new VBox();
         vbox.getChildren().addAll(text);
-        vbox.setPadding( new Insets(10,10,10,10));
+        vbox.setSpacing(10);
         vbox.setAlignment(Pos.CENTER);
         
      
@@ -63,23 +70,35 @@ public class ContenedorIntercambio extends VBox{
         Scene scene = new Scene(layout, 600, 200);
         stage.setScene(scene);
         
-		App app = App.getInstance();
-		AlgoPoly algoPoly = app.getAlgoPoly();
-        
-        Jugador jugador = algoPoly.obtenerJugadorActual();
-        
+		App mainApp = App.getInstance();
+		AlgoPoly algoPoly = mainApp.getAlgoPoly();
+		Jugador jugador = algoPoly.obtenerJugadorActual();
+		
         for(int i=0; i<algoPoly.getNumeroJugadores(); i++){
         	Jugador otroJugador = algoPoly.obtenerJugador(i);
         	if(otroJugador != jugador){
+        		
+        		HashMap<Jugador, JugadorCapa> hash = mainApp.getHash();		
+                Color colorJugador = hash.get(otroJugador).getColor();
+        		ObjectProperty<Color> color = new SimpleObjectProperty<Color>(colorJugador);
+        		StringBinding colorFormato = Bindings.createStringBinding(new Callable<String>() {
+                    	@Override
+                    	public String call() throws Exception {
+                        return String.format("-fx-body-color: rgb(%d, %d, %d);", 
+                                (int) (256*color.get().getRed()), 
+                                (int) (256*color.get().getGreen()), 
+                                (int) (256*color.get().getBlue()));
+                    	}
+        			}, color);
+
         		Button BotonotroJugador = new Button();
         		BotonotroJugador.setText(otroJugador.getNombre());
+        		BotonotroJugador.styleProperty().bind(colorFormato); 
         		
         		BotonIntercambioJugador botonIntercambio = new BotonIntercambioJugador(stage,jugador,otroJugador);
         		BotonotroJugador.setOnAction(botonIntercambio);
         		
         		vbox.getChildren().add(BotonotroJugador);
-                vbox.setPadding( new Insets(10,10,10,10));
-                vbox.setAlignment(Pos.CENTER);
         	}
         }
         
@@ -87,10 +106,7 @@ public class ContenedorIntercambio extends VBox{
         cancelar.setText("Cancelar");
         cancelar.setOnAction(event -> stage.close());
 
-        vbox.getChildren().add(cancelar);
-        vbox.setPadding( new Insets(10,10,10,10));
-        vbox.setAlignment(Pos.CENTER);
-        
+        vbox.getChildren().add(cancelar);    
         layout.setCenter(vbox);
         stage.showAndWait();
 
@@ -197,7 +213,8 @@ public class ContenedorIntercambio extends VBox{
 		stage.setTitle("");
 		
 		BorderPane layout = new BorderPane();
-		
+		App mainApp = App.getInstance();
+		HashMap<Jugador, JugadorCapa> hash = mainApp.getHash();
 		
 		Text text0 = new Text();
         text0.setText("Jugador ");
@@ -206,6 +223,7 @@ public class ContenedorIntercambio extends VBox{
         Text text1 = new Text();
         text1.setText(destinatario.getNombre());
         text1.setFont(font("Helvetica", FontWeight.BOLD, 25));
+        text1.setFill(hash.get(destinatario).getColor());
         
         Text text2 = new Text();
         text2.setText(" aceptas intercambio?");
