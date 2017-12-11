@@ -2,6 +2,7 @@ package estados;
 
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
+import vista.eventos.mensajescasillero.Mensaje;
 
 public class RetrocesoDinamico extends Movimiento {
 
@@ -22,7 +23,7 @@ public class RetrocesoDinamico extends Movimiento {
 		int valorDeDados = unJugador.getValorDados();
 
 		if(valorDeDados<= 6){
-			return valorDeDados - unJugador.getNumeroPropiedades();
+			return valorDeDados - unJugador.getCantidadPropiedad();
 //			if(nuevoDesplazamiento<=0){
 //				nuevoDesplazamiento = 1;
 //			}
@@ -38,5 +39,13 @@ public class RetrocesoDinamico extends Movimiento {
 
 	public String getMensaje(Jugador unJugador){
 		return "Retrocede: " + calcularDesplazamiento(unJugador) + " casilleros";
+	}
+
+	@Override
+	public void mensajeEfecto(Jugador unJugador) {
+
+		Mensaje mensaje = new Mensaje();
+
+		mensaje.mensajeEfecto(unJugador,this);
 	}
 }

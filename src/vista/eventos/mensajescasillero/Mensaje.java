@@ -23,7 +23,6 @@ public class Mensaje {
 
         estadoCasillero.mensajeEfecto(jugador);
 
-        return;
     }
 
 
@@ -40,18 +39,22 @@ public class Mensaje {
 
         box.mensajeEfecto(jugador,quini6,audioClip,imagen);
 
-        return;
+
     }
 
     public void mensajeEfecto(Jugador jugador, Carcel carcel) {
 
         AlertBox box = new AlertBox();
 
+        audioClip = new AudioClip("file:src/Sonido/carcel.mp3");
+
+        audioClip.play();
+
         imagen = new Image("file:src/imagenes/Casilleros/carcel.png");
 
         box.mensajeEfecto(jugador,carcel,audioClip,imagen);
 
-        return;
+
     }
 
     public void mensajeEfecto(Jugador jugador, Propiedad propiedad) {
@@ -130,9 +133,35 @@ public class Mensaje {
 
         imagen = new Image("file:src/imagenes/Casilleros/policia.png");
 
+        audioClip = new AudioClip("file:src/Sonido/police.mp3");
+
+        audioClip.play();
+
         box.mensajeEfecto(jugador,policia,audioClip,imagen);
 
         return;
+
+    }
+
+    public void mensajeEfecto(Jugador jugador, AvanceDinamico avanceDinamico) {
+
+        AlertBox box = new AlertBox();
+
+        Image imagen = new Image("file:src/imagenes/Casilleros/afip.png");
+
+        box.mensajeEfecto(jugador,avanceDinamico,audioClip,imagen);
+
+        return;
+    }
+
+    public void mensajeEfecto(Jugador jugador, RetrocesoDinamico retrocesoDinamico) {
+
+        AlertBox box = new AlertBox();
+
+        Image imagen = new Image("file:src/imagenes/Casilleros/afip.png");
+
+        box.mensajeEfecto(jugador,retrocesoDinamico,audioClip,imagen);
+
 
     }
 

@@ -2,7 +2,7 @@ package estados;
 
 import modelo.Jugador.Jugador;
 import modelo.Tablero;
-
+import vista.eventos.mensajescasillero.Mensaje;
 
 
 public class AvanceDinamico extends Movimiento {
@@ -24,7 +24,7 @@ public class AvanceDinamico extends Movimiento {
             return unJugador.getDinero() % valorDeDados;
         }
 
-        return  valorDeDados - unJugador.getNumeroPropiedades();
+        return  valorDeDados - unJugador.getCantidadPropiedad();
     }
 
     public String getNombre(){
@@ -35,6 +35,12 @@ public class AvanceDinamico extends Movimiento {
         return "Avanza: " + calcularDesplazamiento(unJugador) + " casilleros";
     }
 
+    public void mensajeEfecto(Jugador unJugador) {
+
+        Mensaje mensaje = new Mensaje();
+
+        mensaje.mensajeEfecto(unJugador,this);
+    }
 
 }
 

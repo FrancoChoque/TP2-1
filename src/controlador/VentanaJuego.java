@@ -84,6 +84,7 @@ public class VentanaJuego{
         bgm.play();
 
 
+
 	    this.algopoly = juego;
 
         hash = new HashMap<Jugador, JugadorCapa>();

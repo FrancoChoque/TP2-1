@@ -208,6 +208,7 @@ public class AlertBox {
 
         Stage stage = new Stage();
 
+
         stage.initModality(Modality.APPLICATION_MODAL);
 
         stage.setTitle(casillero.getNombre());
