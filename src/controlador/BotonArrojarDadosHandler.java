@@ -18,6 +18,7 @@ import modelo.Casillero;
 import modelo.Tablero;
 import modelo.Jugador.Jugador;
 import vista.JugadorCapa;
+import vista.VentanaOperacion;
 import vista.eventos.mensajescasillero.Mensaje;
 
 public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
@@ -77,6 +78,11 @@ public class BotonArrojarDadosHandler implements EventHandler<ActionEvent> {
 			if(actual.getCantidadPropiedad() == 0) {
 				this.hash.get(actual).ocultar(); //mando la capa al fondo
 				this.algopoly.quitarJugador(actual);
+			}
+			else {
+				VentanaOperacion ventana = new VentanaOperacion();
+				ventana.venderterreno(actual);
+				this.algopoly.efectoCasillero(actual);
 			}
 		}
 		

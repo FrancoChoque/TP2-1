@@ -23,17 +23,8 @@ public class BotonVenderTerrenoHandler implements EventHandler<ActionEvent> {
 		AlgoPoly algopoly = app.getAlgoPoly();		
 		Jugador actual = algopoly.obtenerJugadorActual();
 		
-		LinkedList<Comprable> propiedadess = actual.getpropiedades();
-		Iterator<Comprable> iter = propiedadess.iterator();
-		HashMap<String, Comprable> map = new HashMap<String, Comprable>();
-		
-		while(iter.hasNext()) {
-			Comprable comprable = iter.next();
-			map.put(comprable.getNombre(), comprable);			
-		}
-		
 		VentanaOperacion ventana = new VentanaOperacion();
-		ventana.venderterreno(map);
+		ventana.venderterreno(actual);
 
 		VentanaJuego ventanaJuego = VentanaJuego.getInstance();
 

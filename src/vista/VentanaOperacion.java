@@ -4,8 +4,10 @@ import static javafx.scene.text.Font.font;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Set;
 
+import controlador.App;
 import controlador.BotonConfirmarConstruirCasaHandler;
 import controlador.BotonVolverHandler;
 import estados.Comprable.Comprable;
@@ -27,6 +29,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import modelo.AlgoPoly;
 import modelo.Jugador.Jugador;
 import vista.eventos.BotonConfirmarCobrarFianzaHandler;
 import vista.eventos.BotonConfirmarConstruirHotelHandler;
@@ -95,7 +98,7 @@ public class VentanaOperacion {
         stage.showAndWait();
 	}
 
-	public void venderterreno(HashMap<String, Comprable> hash) {
+	public void venderterreno(Jugador actual) {
 		// TODO Auto-generated method stub
 		Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -118,11 +121,22 @@ public class VentanaOperacion {
         
         layout.setTop(textos);
         
+		
+		LinkedList<Comprable> propiedadess = actual.getpropiedades();
+		Iterator<Comprable> iter = propiedadess.iterator();
+		HashMap<String, Comprable> map = new HashMap<String, Comprable>();
+		
+		while(iter.hasNext()) {
+			Comprable comprable = iter.next();
+			map.put(comprable.getNombre(), comprable);			
+		}
+        
+        
         ComboBox<String> combobox = new ComboBox<String>();
-        Set<String> entradas = hash.keySet();
-        Iterator<String> iter = entradas.iterator();
+        Set<String> entradas = map.keySet();
+        Iterator<String> iter2 = entradas.iterator();
         while(iter.hasNext()) {
-        	String propiedadactual = iter.next();
+        	String propiedadactual = iter2.next();
         	combobox.getItems().add(propiedadactual);        	
         }
         
@@ -137,7 +151,7 @@ public class VentanaOperacion {
  
         Button botonaceptar = new Button();
         botonaceptar.setText("Vender");
-        EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarVenderTerrenoHandler(stage,combobox,hash);
+        EventHandler<ActionEvent> botonaceptarhandler = new BotonConfirmarVenderTerrenoHandler(stage,combobox,map);
         botonaceptar.setOnAction(botonaceptarhandler);
         
         
